@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BFB07102-D482-46D3-BAE6-31DD05E90D59</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YMFramework</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DECA2EC6FA53214D1422079D3B78E1B7A620DF23</key>
+		<string>https://github.com/TristenChen/YMFramework.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>YMFramework.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DECA2EC6FA53214D1422079D3B78E1B7A620DF23</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/TristenChen/YMFramework.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DECA2EC6FA53214D1422079D3B78E1B7A620DF23</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DECA2EC6FA53214D1422079D3B78E1B7A620DF23</string>
+			<key>IDESourceControlWCCName</key>
+			<string>YMFramework</string>
+		</dict>
+	</array>
+</dict>
+</plist>
