@@ -12,20 +12,20 @@
 
 @interface UIButton (YMNetworking)
 
-- (void)ymSetImageWithURL:(NSString *)url
-                 forState:(UIControlState)state;
+- (void)ym_setImageWithURL:(NSString *)url
+                  forState:(UIControlState)state;
 
-- (void)ymSetImageWithURL:(NSString *)url
-                 forState:(UIControlState)state
-         placeholderImage:(UIImage *)placeholder;
+- (void)ym_setImageWithURL:(NSString *)url
+                  forState:(UIControlState)state
+          placeholderImage:(UIImage *)placeholder;
 
-- (void)ymSetImageWithURL:(NSString *)url
-                 forState:(UIControlState)state
-                completed:(YMWebImageCompletionBlock)completedBlock;
+- (void)ym_setImageWithURL:(NSString *)url
+                  forState:(UIControlState)state
+                 completed:(YMWebImageCompletionBlock)completedBlock;
 
-- (void)ymSetImageWithURL:(NSString *)url
-                 forState:(UIControlState)state
-         placeholderImage:(UIImage *)placeholder
-                completed:(YMWebImageCompletionBlock)completedBlock;
+- (void)ym_setImageWithURL:(NSString *)url
+                  forState:(UIControlState)state
+          placeholderImage:(UIImage *)placeholder
+                 completed:(YMWebImageCompletionBlock)completedBlock;
 
 @end

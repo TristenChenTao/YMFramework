@@ -10,18 +10,18 @@
 
 @interface NSString (YMAdditions)
 
-+ (BOOL)isEmptyString:(NSString *)string;
++ (BOOL)ym_isEmptyString:(NSString *)string;
 
-+ (BOOL)isContainString:(NSString *)string;
-
-- (NSString *)urlEncode;
-
-- (NSString *)urlDecode;
++ (BOOL)ym_isContainString:(NSString *)string;
 
 /**
  *  去除空格与换行
  */
-- (NSString *)trim;
++ (NSString *)ym_trim:(NSString *)string;
+
+- (NSString *)ym_urlEncode;
+
+- (NSString *)ym_urlDecode;
 
 /**
  *  生成随机字符串
@@ -30,7 +30,7 @@
  *
  *  @return
  */
-+ (NSString *)randomStringWithLength:(NSInteger)len;
++ (NSString *)ym_randomStringWithLength:(NSInteger)len;
 
 
 /**
@@ -40,7 +40,7 @@
  *
  *  @return value
  */
-- (NSString *)parameterForKeyFromURL:(NSString *)key;
+- (NSString *)ym_parameterForKeyFromURL:(NSString *)key;
 
 
 /**
@@ -48,13 +48,13 @@
  *
  *  @return 
  */
-- (BOOL)isWebURL;
+- (BOOL)ym_isWebURL;
 
 /**
  *  判断是否是App Store链接
  *
  *  @return
  */
-- (BOOL)isAppStoreURL;
+- (BOOL)ym_isAppStoreURL;
 
 @end

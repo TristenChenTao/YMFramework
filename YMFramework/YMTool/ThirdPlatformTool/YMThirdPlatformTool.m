@@ -34,21 +34,21 @@
 {
     YMFrameworkConfig *config = [YMFrameworkConfig sharedInstance];
     
-    if([NSString isEmptyString:config.mobAppKey]) {
+    if([NSString ym_isEmptyString:config.mobAppKey]) {
         return;
     }
     
     [ShareSDK registerApp:config.mobAppKey];
     
     //微信应用
-    if ([NSString isContainString:config.wechatAppID] && [NSString isContainString:config.wechatAppSecret]) {
+    if ([NSString ym_isContainString:config.wechatAppID] && [NSString ym_isContainString:config.wechatAppSecret]) {
         [ShareSDK connectWeChatWithAppId:config.wechatAppID
                                appSecret:config.wechatAppSecret
                                wechatCls:[WXApi class]];
     }
     
     //QQ空间应用
-    if ([NSString isContainString:config.qqAppKey] && [NSString isContainString:config.qqAppSecret]) {
+    if ([NSString ym_isContainString:config.qqAppKey] && [NSString ym_isContainString:config.qqAppSecret]) {
         [ShareSDK connectQZoneWithAppKey:config.qqAppKey
                                appSecret:config.qqAppSecret
                        qqApiInterfaceCls:[QQApiInterface class]
@@ -63,9 +63,9 @@
     }
     
     //新浪微博
-    if ([NSString isContainString:config.weiboAppKey]
-        && [NSString isContainString:config.weiboAppSecret]
-        && [NSString isContainString:config.weiboRedirectURL]) {
+    if ([NSString ym_isContainString:config.weiboAppKey]
+        && [NSString ym_isContainString:config.weiboAppSecret]
+        && [NSString ym_isContainString:config.weiboRedirectURL]) {
         [ShareSDK  connectSinaWeiboWithAppKey:config.weiboAppKey
                                     appSecret:config.weiboAppSecret
                                   redirectUri:config.weiboRedirectURL
@@ -277,11 +277,15 @@
     
     SSPublishContentMediaType mediaType = [self meidaTypeFromShareEntity:shareEntity];
     
+    
+    NSString *imageURL = [NSString ym_trim:shareEntity.imageUrl];
+    NSString *title = [NSString ym_trim:shareEntity.title];
+    NSString *resourceUrl = [NSString ym_trim:shareEntity.resourceUrl];
     publishContent = [ShareSDK content:shareEntity.contentText
                         defaultContent:@""
-                                 image:[ShareSDK imageWithUrl:[shareEntity.imageUrl trim]]
-                                 title:[shareEntity.title trim]
-                                   url:[shareEntity.resourceUrl trim]
+                                 image:[ShareSDK imageWithUrl:imageURL]
+                                 title:title
+                                   url:resourceUrl
                            description:nil
                              mediaType:mediaType];
     

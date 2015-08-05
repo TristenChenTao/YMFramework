@@ -12,21 +12,21 @@
 
 @interface UIImageView (YMNetworking)
 
-- (void)ymSetImageWithURL:(NSString *)url;
+- (void)ym_setImageWithURL:(NSString *)url;
 
-- (void)ymSetImageWithURL:(NSString *)url
-         placeholderImage:(UIImage *)placeholder;
+- (void)ym_setImageWithURL:(NSString *)url
+          placeholderImage:(UIImage *)placeholder;
 
-- (void)ymSetImageWithURL:(NSString *)url
-                completed:(YMWebImageCompletionBlock)completedBlock;
+- (void)ym_setImageWithURL:(NSString *)url
+                 completed:(YMWebImageCompletionBlock)completedBlock;
 
-- (void)ymSetImageWithURL:(NSString *)url
-         placeholderImage:(UIImage *)placeholder
-                completed:(YMWebImageCompletionBlock)completedBlock;
+- (void)ym_setImageWithURL:(NSString *)url
+          placeholderImage:(UIImage *)placeholder
+                 completed:(YMWebImageCompletionBlock)completedBlock;
 
-- (void)ymSetImageWithURL:(NSString *)url
-         placeholderImage:(UIImage *)placeholder
-                 progress:(YMWebImageDownloaderProgressBlock)progressBlock
-                completed:(YMWebImageCompletionBlock)completedBlock;
+- (void)ym_setImageWithURL:(NSString *)url
+          placeholderImage:(UIImage *)placeholder
+                  progress:(YMWebImageDownloaderProgressBlock)progressBlock
+                 completed:(YMWebImageCompletionBlock)completedBlock;
 
 @end

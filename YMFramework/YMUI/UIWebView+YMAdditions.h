@@ -10,6 +10,6 @@
 
 @interface UIWebView (YMAdditions)
 
-- (NSString *)fetchHtmlNormalTitle;
+- (NSString *)ym_fetchHtmlNormalTitle;
 
 @end

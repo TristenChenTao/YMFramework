@@ -11,18 +11,18 @@
 @interface UIView (YMLineViewAdditions)
 
 ///////实线
-- (void)drawLineWithFrame:(CGRect)frame
-                    color:(UIColor *)color;
+- (void)ym_drawLineWithFrame:(CGRect)frame
+                       color:(UIColor *)color;
 
-- (UIView *)addLineViewWithFrame:(CGRect)frame
-                           color:(UIColor *)color;
+- (UIView *)ym_addLineViewWithFrame:(CGRect)frame
+                              color:(UIColor *)color;
 
 ///////虚线
-- (void)drawDashLineWithFrame:(CGRect)frame
-                        color:(UIColor *)color;
+- (void)ym_drawDashLineWithFrame:(CGRect)frame
+                           color:(UIColor *)color;
 
 
-- (UIView *)addDashLineViewWithFrame:(CGRect)frame
-                               color:(UIColor *)color;
+- (UIView *)ym_addDashLineViewWithFrame:(CGRect)frame
+                                  color:(UIColor *)color;
 
 @end

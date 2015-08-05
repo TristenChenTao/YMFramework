@@ -12,7 +12,7 @@
 
 @implementation NSString (YMAdditions)
 
-+ (BOOL)isEmptyString:(NSString *)string;
++ (BOOL)ym_isEmptyString:(NSString *)string;
 {
     if (string == nil || ![string isKindOfClass:[NSString class]] || string.length == 0) {
         return YES;
@@ -21,7 +21,7 @@
     return NO;
 }
 
-+ (BOOL)isContainString:(NSString *)string
++ (BOOL)ym_isContainString:(NSString *)string
 {
     if (string != nil && [string isKindOfClass:[NSString class]] && string.length > 0) {
         return YES;
@@ -30,19 +30,9 @@
     return NO;
 }
 
-- (NSString *)urlEncode
++ (NSString *)ym_trim:(NSString *)string;
 {
-    return [self stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-}
-
-- (NSString *)urlDecode
-{
-    return [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-}
-
-- (NSString *)trim;
-{
-    NSString *tempText = [self copy];
+    NSString *tempText = [string copy];
     tempText = [tempText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     tempText = [tempText stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     tempText = [tempText stringByReplacingOccurrencesOfString:@"\t" withString:@""];
@@ -50,8 +40,17 @@
     return tempText;
 }
 
+- (NSString *)ym_urlEncode
+{
+    return [self stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
 
-+ (NSString *)randomStringWithLength:(NSInteger)len
+- (NSString *)ym_urlDecode
+{
+    return [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
+
++ (NSString *)ym_randomStringWithLength:(NSInteger)len
 {
     static const NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     
@@ -64,15 +63,15 @@
     return randomString;
 }
 
-- (NSString *)parameterForKeyFromURL:(NSString *)key
+- (NSString *)ym_parameterForKeyFromURL:(NSString *)key
 {
     URLParser *parser = [[URLParser alloc] initWithURLString:self];
     return [parser valueForVariable:key];
 }
 
-- (BOOL)isWebURL
+- (BOOL)ym_isWebURL
 {
-    if ([NSString isEmptyString:self]) {
+    if ([NSString ym_isEmptyString:self]) {
         return NO;
     }
     
@@ -93,9 +92,9 @@
     return NO;
 }
 
-- (BOOL)isAppStoreURL
+- (BOOL)ym_isAppStoreURL
 {
-    if ([NSString isEmptyString:self]) {
+    if ([NSString ym_isEmptyString:self]) {
         return NO;
     }
     

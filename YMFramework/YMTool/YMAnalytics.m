@@ -28,7 +28,7 @@
 {
     YMFrameworkConfig *config = [YMFrameworkConfig sharedInstance];
     //um
-    if ([NSString isContainString:config.umengAppKey]) {
+    if ([NSString ym_isContainString:config.umengAppKey]) {
         [MobClick startWithAppkey:config.umengAppKey
                      reportPolicy:SEND_INTERVAL
                         channelId:config.analyticsChannelID];

@@ -11,16 +11,16 @@
 
 @implementation UIWebView (YMAdditions)
 
-- (NSString *)fetchHtmlNormalTitle;
+- (NSString *)ym_fetchHtmlNormalTitle;
 {
     NSString *title = @"";
     
     NSString *normalTitle = [self stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('title')[0].text"];
-    if ([NSString isContainString:normalTitle]) {
+    if ([NSString ym_isContainString:normalTitle]) {
         title = normalTitle;
     }
     
-    return [title trim];
+    return [NSString ym_trim:title];
 }
 
 @end

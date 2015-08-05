@@ -12,8 +12,8 @@
 
 @implementation UIButton (YMNetworking)
 
-- (void)ymSetImageWithURL:(NSString *)url
-                 forState:(UIControlState)state
+- (void)ym_setImageWithURL:(NSString *)url
+                  forState:(UIControlState)state
 {
     [self ym_setImageWithURL:url
                     forState:state
@@ -21,9 +21,9 @@
                    completed:nil];
 }
 
-- (void)ymSetImageWithURL:(NSString *)url
-                 forState:(UIControlState)state
-         placeholderImage:(UIImage *)placeholder
+- (void)ym_setImageWithURL:(NSString *)url
+                  forState:(UIControlState)state
+          placeholderImage:(UIImage *)placeholder
 {
     
     [self ym_setImageWithURL:url
@@ -32,24 +32,13 @@
                    completed:nil];
 }
 
-- (void)ymSetImageWithURL:(NSString *)url
-                 forState:(UIControlState)state
-                completed:(YMWebImageCompletionBlock)completedBlock
+- (void)ym_setImageWithURL:(NSString *)url
+                  forState:(UIControlState)state
+                 completed:(YMWebImageCompletionBlock)completedBlock
 {
     [self ym_setImageWithURL:url
                     forState:state
             placeholderImage:nil
-                   completed:completedBlock];
-}
-
-- (void)ymSetImageWithURL:(NSString *)url
-                 forState:(UIControlState)state
-         placeholderImage:(UIImage *)placeholder
-                completed:(YMWebImageCompletionBlock)completedBlock
-{
-    [self ym_setImageWithURL:url
-                    forState:state
-            placeholderImage:placeholder
                    completed:completedBlock];
 }
 
@@ -72,15 +61,15 @@
             placeholderImage:placeholder
                      options:SDWebImageRetryFailed |SDWebImageContinueInBackground | SDWebImageHighPriority
                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-         if (error) {
-             //如果请求失败则清空缓存
-             [[NSURLCache sharedURLCache] removeAllCachedResponses];
-         }
-         
-         if (completedBlock) {
-             completedBlock(image, error, imageURL);
-         }
-     }];
+                       if (error) {
+                           //如果请求失败则清空缓存
+                           [[NSURLCache sharedURLCache] removeAllCachedResponses];
+                       }
+                       
+                       if (completedBlock) {
+                           completedBlock(image, error, imageURL);
+                       }
+                   }];
 }
 
 @end

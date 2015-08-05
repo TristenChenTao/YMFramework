@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kYMColor(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
-
-#define kColor(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+#define kYm_Color(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
 
 @interface UIColor (YMAdditions)
 

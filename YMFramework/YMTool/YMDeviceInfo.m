@@ -84,7 +84,7 @@
     
     NSString *netType = @"";
     
-    if ([NSString isContainString:telephonyInfo.currentRadioAccessTechnology]) {
+    if ([NSString ym_isContainString:telephonyInfo.currentRadioAccessTechnology]) {
         netType = telephonyInfo.currentRadioAccessTechnology;
     }
     

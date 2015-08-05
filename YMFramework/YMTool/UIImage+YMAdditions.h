@@ -10,14 +10,14 @@
 
 @interface UIImage (YMAdditions)
 
-+ (UIImage *)rotateImage:(UIImage *)image
-                 degrees:(CGFloat)degrees;
++ (UIImage *)ym_rotateImage:(UIImage *)image
+                    degrees:(CGFloat)degrees;
 
-+ (UIImage *)imageWithColor:(UIColor *)color
-                       size:(CGSize)imageSize;
++ (UIImage *)ym_imageWithColor:(UIColor *)color
+                          size:(CGSize)imageSize;
 
-+ (UIImage *)placeHolderImageWithiconImage:(UIImage *)iconImage
-                           backgroundColor:(UIColor *)backgroundColor
-                                      size:(CGSize)imageSize;
++ (UIImage *)ym_placeHolderImageWithiconImage:(UIImage *)iconImage
+                              backgroundColor:(UIColor *)backgroundColor
+                                         size:(CGSize)imageSize;
 
 @end

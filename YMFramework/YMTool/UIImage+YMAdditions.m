@@ -16,11 +16,9 @@ static inline CGFloat toRadians (CGFloat degrees) { return degrees * M_PI/180.0f
 //images on iPhone should be no bigger than 1024, making images bigger than 1024 may cause crashes caused by not enough memory
 #define maximumResultImageSize 1024
 
-#pragma mark - Rotation
-
 //clockwise when degrees < 0
-+ (UIImage *)rotateImage:(UIImage *)image
-                 degrees:(CGFloat)degrees
++ (UIImage *)ym_rotateImage:(UIImage *)image
+                    degrees:(CGFloat)degrees
 {
     CGSize newImageSize = [UIImage imageSizeForRect:CGRectMake(0.0f, 0.0f, image.size.width, image.size.height) rotatedByDegreees:degrees];
     //if the new ImageSize will be bigger than 1024 then we need to scale the image
@@ -45,6 +43,46 @@ static inline CGFloat toRadians (CGFloat degrees) { return degrees * M_PI/180.0f
     
     return copy;
 }
+
++ (UIImage *)ym_imageWithColor:(UIColor *)color
+                          size:(CGSize)imageSize
+{
+    CGRect rect=CGRectMake(0.0f, 0.0f, imageSize.width, imageSize.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return theImage;
+}
+
++ (UIImage *)ym_placeHolderImageWithiconImage:(UIImage *)iconImage
+                              backgroundColor:(UIColor *)backgroundColor
+                                         size:(CGSize)imageSize
+{
+    CGRect rect=CGRectMake(0.0f, 0.0f, imageSize.width, imageSize.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [backgroundColor CGColor]);
+    CGContextFillRect(context, rect);
+    
+    float iconImageLocationX = rect.size.width / 2 - iconImage.size.width / 2;
+    float iconImageLocationY = rect.size.height / 2 - iconImage.size.height / 2;
+    CGRect iconImageRect = CGRectMake(iconImageLocationX, iconImageLocationY, iconImage.size.width, iconImage.size.height);
+    
+    drawImage(context, [iconImage CGImage], iconImageRect);
+    
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return theImage;
+}
+
+#pragma mark - private methods
 
 + (UIImage *)rotateImage:(UIImage *)src
           andRotateAngle:(UIImageOrientation)orientation
@@ -121,45 +159,6 @@ static inline CGFloat toRadians (CGFloat degrees) { return degrees * M_PI/180.0f
     return rotated;
 }
 
-#pragma mark - Create Image
-
-+ (UIImage *)imageWithColor:(UIColor *)color
-                       size:(CGSize)imageSize
-{
-    CGRect rect=CGRectMake(0.0f, 0.0f, imageSize.width, imageSize.height);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return theImage;
-}
-
-+ (UIImage *)placeHolderImageWithiconImage:(UIImage *)iconImage
-                           backgroundColor:(UIColor *)backgroundColor
-                                      size:(CGSize)imageSize
-{
-    CGRect rect=CGRectMake(0.0f, 0.0f, imageSize.width, imageSize.height);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetFillColorWithColor(context, [backgroundColor CGColor]);
-    CGContextFillRect(context, rect);
-    
-    float iconImageLocationX = rect.size.width / 2 - iconImage.size.width / 2;
-    float iconImageLocationY = rect.size.height / 2 - iconImage.size.height / 2;
-    CGRect iconImageRect = CGRectMake(iconImageLocationX, iconImageLocationY, iconImage.size.width, iconImage.size.height);
-    
-    drawImage(context, [iconImage CGImage], iconImageRect);
-    
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return theImage;
-}
 
 void drawImage(CGContextRef context, CGImageRef image , CGRect rect)
 {

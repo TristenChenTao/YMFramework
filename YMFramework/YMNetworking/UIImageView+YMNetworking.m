@@ -12,7 +12,7 @@
 
 @implementation UIImageView (YMNetworking)
 
-- (void)ymSetImageWithURL:(NSString *)url
+- (void)ym_setImageWithURL:(NSString *)url
 {
     [self ym_setImageWithURL:url
             placeholderImage:nil
@@ -20,8 +20,8 @@
                    completed:nil];
 }
 
-- (void)ymSetImageWithURL:(NSString *)url
-         placeholderImage:(UIImage *)placeholder
+- (void)ym_setImageWithURL:(NSString *)url
+          placeholderImage:(UIImage *)placeholder
 {
     [self ym_setImageWithURL:url
             placeholderImage:placeholder
@@ -29,8 +29,8 @@
                    completed:nil];
 }
 
-- (void)ymSetImageWithURL:(NSString *)url
-                completed:(YMWebImageCompletionBlock)completedBlock
+- (void)ym_setImageWithURL:(NSString *)url
+                 completed:(YMWebImageCompletionBlock)completedBlock
 {
     [self ym_setImageWithURL:url
             placeholderImage:nil
@@ -38,24 +38,13 @@
                    completed:completedBlock];
 }
 
-- (void)ymSetImageWithURL:(NSString *)url
-         placeholderImage:(UIImage *)placeholder
-                completed:(YMWebImageCompletionBlock)completedBlock
+- (void)ym_setImageWithURL:(NSString *)url
+          placeholderImage:(UIImage *)placeholder
+                 completed:(YMWebImageCompletionBlock)completedBlock
 {
     [self ym_setImageWithURL:url
             placeholderImage:placeholder
                     progress:nil
-                   completed:completedBlock];
-}
-
-- (void)ymSetImageWithURL:(NSString *)url
-         placeholderImage:(UIImage *)placeholder
-                 progress:(YMWebImageDownloaderProgressBlock)progressBlock
-                completed:(YMWebImageCompletionBlock)completedBlock
-{
-    [self ym_setImageWithURL:url
-            placeholderImage:placeholder
-                    progress:progressBlock
                    completed:completedBlock];
 }
 
