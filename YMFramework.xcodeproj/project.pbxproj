@@ -76,8 +76,6 @@
 		6242FCC21B2FD78A007DD69C /* STWebPURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 6242FCBA1B2FD789007DD69C /* STWebPURLProtocol.m */; };
 		6242FCC51B2FD822007DD69C /* YMURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6242FCC31B2FD822007DD69C /* YMURLProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6242FCC61B2FD822007DD69C /* YMURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 6242FCC41B2FD822007DD69C /* YMURLProtocol.m */; };
-		624401061B1C469500542C3D /* YMTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 624401041B1C469500542C3D /* YMTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		624401071B1C469500542C3D /* YMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 624401051B1C469500542C3D /* YMTextView.m */; };
 		624CE52F1B21565500C62E08 /* UIImage+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 624CE52D1B21565500C62E08 /* UIImage+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		624CE5301B21565500C62E08 /* UIImage+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 624CE52E1B21565500C62E08 /* UIImage+YMAdditions.m */; };
 		625220DA1B5F429500EC902B /* UIButton+YMHitFrameAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 625220D81B5F429500EC902B /* UIButton+YMHitFrameAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -396,8 +394,6 @@
 		6242FCBA1B2FD789007DD69C /* STWebPURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STWebPURLProtocol.m; sourceTree = "<group>"; };
 		6242FCC31B2FD822007DD69C /* YMURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMURLProtocol.h; sourceTree = "<group>"; };
 		6242FCC41B2FD822007DD69C /* YMURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMURLProtocol.m; sourceTree = "<group>"; };
-		624401041B1C469500542C3D /* YMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTextView.h; sourceTree = "<group>"; };
-		624401051B1C469500542C3D /* YMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTextView.m; sourceTree = "<group>"; };
 		624CE52D1B21565500C62E08 /* UIImage+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YMAdditions.h"; sourceTree = "<group>"; };
 		624CE52E1B21565500C62E08 /* UIImage+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YMAdditions.m"; sourceTree = "<group>"; };
 		625220D81B5F429500EC902B /* UIButton+YMHitFrameAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+YMHitFrameAdditions.h"; sourceTree = "<group>"; };
@@ -921,8 +917,6 @@
 		62703E3E1B10490B005CA088 /* YMUI */ = {
 			isa = PBXGroup;
 			children = (
-				624401041B1C469500542C3D /* YMTextView.h */,
-				624401051B1C469500542C3D /* YMTextView.m */,
 				62703E3F1B10490B005CA088 /* UIView+YMFrameAdditions.h */,
 				62703E401B10490B005CA088 /* UIView+YMFrameAdditions.m */,
 				62703E411B10490B005CA088 /* UIView+YMLineViewAdditions.h */,
@@ -1311,7 +1305,6 @@
 				6278FF0A1B1D4FC0000B77A0 /* YMThirdPlatformUserInfo.h in Headers */,
 				6278FF081B1D4FC0000B77A0 /* YMThirdPlatformTool.h in Headers */,
 				6278FF061B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.h in Headers */,
-				624401061B1C469500542C3D /* YMTextView.h in Headers */,
 				62B4B60F1B18478B00834DCF /* YMDebugging.h in Headers */,
 				62703E651B10490B005CA088 /* YMUI.h in Headers */,
 				62703E4A1B10490B005CA088 /* NSString+YMAdditions.h in Headers */,
@@ -1583,7 +1576,6 @@
 				62B4B6DE1B18481700834DCF /* FLEXWebViewController.m in Sources */,
 				625D56891ADBAFD3007BCA33 /* AFHTTPRequestOperation.m in Sources */,
 				622CE6231AE4EC90004D714B /* SSHardwareInfo.m in Sources */,
-				624401071B1C469500542C3D /* YMTextView.m in Sources */,
 				627904311ADBC58200F84BFB /* UIImage+WebP.m in Sources */,
 				625D56B41ADBB02C007BCA33 /* YMHTTPRequestManager.m in Sources */,
 				62B4B6D61B18481700834DCF /* FLEXGlobalsTableViewController.m in Sources */,
