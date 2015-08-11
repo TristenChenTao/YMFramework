@@ -36,83 +36,97 @@
     
     if (data == nil) {
         YMLog(@"YMFrameworkConfig.plsi is nil");
-        
-        return self;
+        return nil;
     }
     
     _productID = data[@"PRODUCT_ID"];
     if ([NSString ym_isEmptyString:_productID]) {
         YMLog(@"_productID is nil");
+        _productID = @"";
     }
     
     _productVersion = data[@"PRODUCT_VERSION"];
     if ([NSString ym_isEmptyString:_productVersion]) {
         YMLog(@"_productVersion is nil");
+        _productVersion = @"";
     }
     
     _productChannel = data[@"PRODUCT_CHANNEL"];
     if ([NSString ym_isEmptyString:_productChannel]) {
         YMLog(@"_productChannel is nil");
+        _productChannel = @"";
     }
     
     _appstoreID = data[@"APPSTORE_ID"];
     if ([NSString ym_isEmptyString:_appstoreID]) {
         YMLog(@"_appstoreID is nil");
+        _appstoreID = @"";
     }
     
     _umengAppKey = data[@"UMENG_AppKey"];
     if ([NSString ym_isEmptyString:_umengAppKey]) {
         YMLog(@"_umengAppKey is nil");
+        _umengAppKey = @"";
     }
     
     _analyticsChannelID = data[@"Analytics_ChannelID"];
     if ([NSString ym_isEmptyString:_analyticsChannelID]) {
         YMLog(@"_analyticsChannelID is nil");
+        _analyticsChannelID = @"";
     }
     
     _mobAppKey = data[@"MOB_AppKey"];
     if ([NSString ym_isEmptyString:_mobAppKey]) {
         YMLog(@"_mobAppKey is nil");
+        _mobAppKey = @"";
     }
     
     _weiboAppKey = data[@"WeiBo_AppKey"];
     if ([NSString ym_isEmptyString:_weiboAppKey]) {
         YMLog(@"_weiboAppKey is nil");
+        _weiboAppKey = @"";
     }
     
     _weiboAppSecret = data[@"WeiBo_AppSecret"];
     if ([NSString ym_isEmptyString:_weiboAppSecret]) {
         YMLog(@"_weiboAppSecret is nil");
+        _weiboAppSecret = @"";
     }
     
     _weiboRedirectURL = data[@"WeiBo_RedirectUrl"];
     if ([NSString ym_isEmptyString:_weiboRedirectURL]) {
         YMLog(@"_weiboRedirectURL is nil");
+        _weiboRedirectURL = @"";
     }
     
     _qqAppKey = data[@"QQ_AppKey"];
     if ([NSString ym_isEmptyString:_qqAppKey]) {
         YMLog(@"_qqAppKey is nil");
+        _qqAppKey = @"";
     }
     
     _qqAppSecret = data[@"QQ_AppSecret"];
     if ([NSString ym_isEmptyString:_qqAppSecret]) {
         YMLog(@"_qqAppSecret is nil");
+        _qqAppSecret = @"";
     }
     
     _wechatAppID = data[@"WeChat_AppID"];
     if ([NSString ym_isEmptyString:_wechatAppID]) {
         YMLog(@"_wechatAppID is nil");
+        _wechatAppID = @"";
     }
     
     _wechatAppSecret = data[@"WeChat_AppSecret"];
     if ([NSString ym_isEmptyString:_wechatAppSecret]) {
         YMLog(@"_wechatAppSecret is nil");
+        _wechatAppSecret = @"";
     }
     
     return self;
 }
 
+//需要使用Aspects待定
 
 //+ (void)load
 //{

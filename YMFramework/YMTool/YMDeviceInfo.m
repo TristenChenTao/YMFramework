@@ -27,9 +27,9 @@
     return [[[UIDevice currentDevice] systemVersion] floatValue];
 }
 
-+ (NSString *)deviceName
++ (NSString *)deviceType
 {
-    return [SystemSharedServices systemDeviceTypeFormatted];
+    return [SystemSharedServices systemDeviceTypeNotFormatted];
 }
 
 + (NSString *)availableDiskSpace

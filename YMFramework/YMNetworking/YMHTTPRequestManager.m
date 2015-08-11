@@ -10,6 +10,11 @@
 
 #import "AFHTTPRequestOperationManager.h"
 
+#import "YMAnalytics.h"
+#import "YMFrameworkConfig.h"
+#import "YMDeviceInfo.h"
+#import "YMUI.h"
+
 @interface YMHTTPRequestManager()
 
 @end
@@ -35,6 +40,8 @@ static const NSString *resultDataKey = @"Data";
                                           success:(void (^)(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage,id data))success
                                           failure:(void (^)(NSURLRequest *request, NSError *error))failure;
 {
+    parameters = [YMHTTPRequestManager configParameters:parameters];
+    
     NSString *requestType = nil;
     switch (methodType) {
         case YMHTTPMethodTypeForGet:
@@ -130,6 +137,7 @@ static const NSString *resultDataKey = @"Data";
                                  success:(void (^)(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage,id data))success
                                  failure:(void (^)(NSURLRequest *request, NSError *error))failure
 {
+    parameters = [YMHTTPRequestManager configParameters:parameters];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     AFHTTPRequestSerializer *requestSerializer = manager.requestSerializer;
@@ -225,6 +233,28 @@ static const NSString *resultDataKey = @"Data";
     if (success) {
         success(operation.request, ResultCode, ResultMessage,data);
     }
+}
+
++ (NSDictionary*)configParameters:(NSDictionary *)parameters
+{
+    
+    
+    NSDictionary *baseInfo = @{@"adId" : [YMAnalytics idfaString],
+                               @"productId" : [YMFrameworkConfig sharedInstance].productID,
+                               @"productVersion" : [YMFrameworkConfig sharedInstance].productVersion,
+                               @"channelId" : [YMFrameworkConfig sharedInstance].productChannel,
+                               @"deviceVersion" : [YMDeviceInfo deviceType],
+                               @"screenHeight" : @(kYm_ScreenHeight),
+                               @"screenWidth" : @(kYm_ScreenWidth),
+                               @"language" : [YMDeviceInfo language],
+                               @"connectType" : [YMDeviceInfo newtworkType],
+                               @"isJailBroken" : @([YMDeviceInfo isJailBroken])};
+    
+    
+    NSMutableDictionary *finalParameters = [NSMutableDictionary dictionaryWithDictionary:baseInfo];
+    [finalParameters addEntriesFromDictionary:parameters];
+    
+    return finalParameters;
 }
 
 @end
