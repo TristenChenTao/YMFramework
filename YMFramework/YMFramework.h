@@ -23,7 +23,6 @@ FOUNDATION_EXPORT const unsigned char YMFrameworkVersionString[];
 #import <YMFramework/YMImageDownloader.h>
 #import <YMFramework/UIButton+YMNetworking.h>
 #import <YMFramework/UIImageView+YMNetworking.h>
-#import <YMFramework/YMProgress.h>
 #import <YMFramework/NSString+YMAdditions.h>
 #import <YMFramework/YMAnalytics.h>
 #import <YMFramework/YMTool.h>
