@@ -22,11 +22,8 @@
 @implementation YMHTTPRequestManager
 
 static const int defaultTimeout = 5;
-
 static const NSString *resultCodeKey = @"ResultCode";
-
 static const NSString *resultMessageKey = @"ResultMessage";
-
 static const NSString *resultDataKey = @"Data";
 
 
@@ -40,8 +37,57 @@ static const NSString *resultDataKey = @"Data";
                                           success:(void (^)(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage,id data))success
                                           failure:(void (^)(NSURLRequest *request, NSError *error))failure;
 {
-    parameters = [YMHTTPRequestManager configParameters:parameters];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    NSMutableURLRequest *request = [YMHTTPRequestManager requestWithMethodType:methodType
+                                                                    URLAddress:[baseURL stringByAppendingString:relativeURL]
+                                                                       timeout:timeout
+                                                                    parameters:parameters
+                                                                   headerField:headerField];
+    __block AFHTTPRequestOperation *operation = nil;
+    operation = [manager HTTPRequestOperationWithRequest:request
+                                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                     [YMHTTPRequestManager handleSucceedResponse:operation
+                                                                                  responseObject:responseObject
+                                                                                         success:success];
+                                                 }
+                                                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                     //如果请求失败则清空缓存
+                                                     [[NSURLCache sharedURLCache] removeAllCachedResponses];
+                                                     //如果请求失败会使用IP方式请求
+                                                     NSMutableURLRequest *request = [YMHTTPRequestManager requestWithMethodType:methodType
+                                                                                                                     URLAddress:[baseIP stringByAppendingString:relativeURL]
+                                                                                                                        timeout:timeout
+                                                                                                                     parameters:parameters
+                                                                                                                    headerField:headerField];
+                                                     
+                                                     operation = [manager HTTPRequestOperationWithRequest:request
+                                                                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                                                                      [YMHTTPRequestManager handleSucceedResponse:operation
+                                                                                                                                   responseObject:responseObject
+                                                                                                                                          success:success];
+                                                                                                  }
+                                                                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                                                                      if (failure) {
+                                                                                                          failure(operation.request,error);
+                                                                                                      }
+                                                                                                  }
+                                                                  ];
+                                                     
+                                                     [manager.operationQueue addOperation:operation];
+                                                 }];
+    
+    [manager.operationQueue addOperation:operation];
+    
+    return (YMHTTPRequestOperation *)operation;
+}
+
++ (NSMutableURLRequest *)requestWithMethodType:(YMHTTPMethodType)methodType
+                                    URLAddress:(NSString *)URLAddress
+                                       timeout:(float)timeout
+                                    parameters:(NSDictionary *)parameters
+                                   headerField:(NSDictionary *)headerField
+{
     NSString *requestType = nil;
     switch (methodType) {
         case YMHTTPMethodTypeForGet:
@@ -66,59 +112,12 @@ static const NSString *resultDataKey = @"Data";
         requestSerializer.timeoutInterval = defaultTimeout;
     }
     
-    NSMutableURLRequest *request = [YMHTTPRequestManager requestWithRequestSerializer:requestSerializer
-                                                                               Method:requestType
-                                                                            URLString:[baseURL stringByAppendingString:relativeURL]
-                                                                           parameters:parameters
-                                                                          headerField:headerField];
-    __block AFHTTPRequestOperation *operation = nil;
-    operation = [manager HTTPRequestOperationWithRequest:request
-                                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                     [YMHTTPRequestManager handleResponseWhenSucceedWithAFHTTPRequestOperation:operation
-                                                                                                                responseObject:responseObject
-                                                                                                                       success:success];
-                                                 }
-                                                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                     //如果请求失败则清空缓存
-                                                     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-                                                     //如果请求失败会使用IP方式请求
-                                                     NSMutableURLRequest *request = [YMHTTPRequestManager requestWithRequestSerializer:requestSerializer
-                                                                                                                                Method:requestType
-                                                                                                                             URLString:[baseIP stringByAppendingString:relativeURL]
-                                                                                                                            parameters:parameters
-                                                                                                                           headerField:headerField];
-                                                     
-                                                     operation = [manager HTTPRequestOperationWithRequest:request
-                                                                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                                                                      [YMHTTPRequestManager handleResponseWhenSucceedWithAFHTTPRequestOperation:operation
-                                                                                                                                                                 responseObject:responseObject
-                                                                                                                                                                        success:success];
-                                                                                                  }
-                                                                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                                                      if (failure) {
-                                                                                                          failure(operation.request,error);
-                                                                                                      }
-                                                                                                  }
-                                                                  ];
-                                                     
-                                                     [manager.operationQueue addOperation:operation];
-                                                 }];
+    parameters = [YMHTTPRequestManager packageParameters:parameters];
     
-    [manager.operationQueue addOperation:operation];
-    
-    return (YMHTTPRequestOperation *)operation;
-}
-
-+(NSMutableURLRequest *)requestWithRequestSerializer:(AFHTTPRequestSerializer *)requestSerializer
-                                              Method:(NSString *)method
-                                           URLString:(NSString *)URLString
-                                          parameters:(id)parameters
-                                         headerField:(NSDictionary *)headerField
-{
-    
-    NSMutableURLRequest *request = [requestSerializer requestWithMethod:method
-                                                              URLString:URLString
-                                                             parameters:parameters error:nil];
+    NSMutableURLRequest *request = [requestSerializer requestWithMethod:requestType
+                                                              URLString:URLAddress
+                                                             parameters:parameters
+                                                                  error:nil];
     
     [headerField enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [request setValue:obj forHTTPHeaderField:key];
@@ -137,46 +136,35 @@ static const NSString *resultDataKey = @"Data";
                                  success:(void (^)(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage,id data))success
                                  failure:(void (^)(NSURLRequest *request, NSError *error))failure
 {
-    parameters = [YMHTTPRequestManager configParameters:parameters];
-    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    AFHTTPRequestSerializer *requestSerializer = manager.requestSerializer;
-    requestSerializer.cachePolicy = NSURLRequestReloadIgnoringCacheData;
-    
-    if (timeout > 0) {
-        requestSerializer.timeoutInterval = timeout;
-    }
-    else {
-        requestSerializer.timeoutInterval = defaultTimeout;
-    }
-    
-    NSMutableURLRequest *request = [YMHTTPRequestManager multipartFormRequestWithRequestSerializer:requestSerializer
-                                                                                         URLString:[baseIP stringByAppendingString:relativeURL]
-                                                                                        parameters:parameters
-                                                                                            images:images
-                                                                                       headerField:headerField];
+    NSMutableURLRequest *request = [YMHTTPRequestManager multipartFormRequestWithURLAddress:[baseURL stringByAppendingString:relativeURL]
+                                                                                    timeout:timeout
+                                                                                 parameters:parameters
+                                                                                     images:images
+                                                                                headerField:headerField];
     __block AFHTTPRequestOperation *operation = nil;
     operation = [manager HTTPRequestOperationWithRequest:request
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                     [YMHTTPRequestManager handleResponseWhenSucceedWithAFHTTPRequestOperation:operation
-                                                                                                                responseObject:responseObject
-                                                                                                                       success:success];
+                                                     [YMHTTPRequestManager handleSucceedResponse:operation
+                                                                                  responseObject:responseObject
+                                                                                         success:success];
                                                  }
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                      //如果请求失败则清空缓存
                                                      [[NSURLCache sharedURLCache] removeAllCachedResponses];
                                                      
                                                      //如果请求失败会使用IP方式请求
-                                                     NSMutableURLRequest *request = [YMHTTPRequestManager multipartFormRequestWithRequestSerializer:requestSerializer
-                                                                                                                                          URLString:[baseIP stringByAppendingString:relativeURL]
-                                                                                                                                         parameters:parameters
-                                                                                                                                             images:images
-                                                                                                                                        headerField:headerField];
+                                                     NSMutableURLRequest *request = [YMHTTPRequestManager multipartFormRequestWithURLAddress:[baseIP stringByAppendingString:relativeURL]
+                                                                                                                                     timeout:timeout
+                                                                                                                                  parameters:parameters
+                                                                                                                                      images:images
+                                                                                                                                 headerField:headerField];
+                                                     
                                                      operation = [manager HTTPRequestOperationWithRequest:request
                                                                                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                                                                      [YMHTTPRequestManager handleResponseWhenSucceedWithAFHTTPRequestOperation:operation
-                                                                                                                                                                 responseObject:responseObject
-                                                                                                                                                                        success:success];
+                                                                                                      [YMHTTPRequestManager handleSucceedResponse:operation
+                                                                                                                                   responseObject:responseObject
+                                                                                                                                          success:success];
                                                                                                   }
                                                                                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                                                                       if (failure) {
@@ -193,16 +181,27 @@ static const NSString *resultDataKey = @"Data";
     return (YMHTTPRequestOperation *)operation;
 }
 
-+(NSMutableURLRequest *)multipartFormRequestWithRequestSerializer:(AFHTTPRequestSerializer *)requestSerializer
-                                                        URLString:(NSString *)URLString
-                                                       parameters:(NSDictionary *)parameters
-                                                           images:(NSArray *)images
-                                                      headerField:(NSDictionary *)headerField
++ (NSMutableURLRequest *)multipartFormRequestWithURLAddress:(NSString *)URLAddress
+                                                   timeout:(float)timeout
+                                                parameters:(NSDictionary *)parameters
+                                                    images:(NSArray *)images
+                                               headerField:(NSDictionary *)headerField
 {
-    NSError *serializationError = nil;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestSerializer *requestSerializer = manager.requestSerializer;
+    requestSerializer.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+    
+    if (timeout > 0) {
+        requestSerializer.timeoutInterval = timeout;
+    }
+    else {
+        requestSerializer.timeoutInterval = defaultTimeout;
+    }
+    
+    parameters = [YMHTTPRequestManager packageParameters:parameters];
     
     NSMutableURLRequest *request = [requestSerializer multipartFormRequestWithMethod:@"POST"
-                                                                           URLString:URLString
+                                                                           URLString:URLAddress
                                                                           parameters:parameters
                                                            constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                                                for (int i = 0; i < images.count ; i++) {
@@ -212,7 +211,7 @@ static const NSString *resultDataKey = @"Data";
                                                                                                name:[NSString stringWithFormat:@"image%d",i]];
                                                                }
                                                            }
-                                                                               error:&serializationError];
+                                                                               error:nil];
     
     [headerField enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [request setValue:obj forHTTPHeaderField:key];
@@ -221,9 +220,9 @@ static const NSString *resultDataKey = @"Data";
     return request;
 }
 
-+ (void)handleResponseWhenSucceedWithAFHTTPRequestOperation:(AFHTTPRequestOperation *)operation
-                                             responseObject:(id)responseObject
-                                                    success:(void (^)(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage,id data))success
++ (void)handleSucceedResponse:(AFHTTPRequestOperation *)operation
+               responseObject:(id)responseObject
+                      success:(void (^)(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage,id data))success
 {
     NSDictionary *dic = responseObject;
     NSInteger ResultCode = [dic[resultCodeKey] integerValue];
@@ -235,10 +234,8 @@ static const NSString *resultDataKey = @"Data";
     }
 }
 
-+ (NSDictionary*)configParameters:(NSDictionary *)parameters
++ (NSDictionary*)packageParameters:(NSDictionary *)parameters
 {
-    
-    
     NSDictionary *baseInfo = @{@"adId" : [YMAnalytics idfaString],
                                @"productId" : [YMFrameworkConfig sharedInstance].productID,
                                @"productVersion" : [YMFrameworkConfig sharedInstance].productVersion,

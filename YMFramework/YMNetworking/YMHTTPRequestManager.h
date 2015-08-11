@@ -24,7 +24,7 @@ const static NSInteger kYMRequestFail = 0;
 @interface YMHTTPRequestManager : NSObject
 
 /**
- *  HTTP请求
+ *  HTTP 接口请求
  *
  *  @param methodType  请求类型
  *  @param relativeURL 接口相对地址
@@ -47,6 +47,25 @@ const static NSInteger kYMRequestFail = 0;
                                           timeout:(float)timeout
                                           success:(void (^)(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage,id data))success
                                           failure:(void (^)(NSURLRequest *request, NSError *error))failure;
+
+/**
+ *  HTTP Web请求
+ *
+ *  @param methodType  请求类型
+ *  @param URLAddress 接口相对地址
+ *  @param headerField 头部信息
+ *  @param parameters  请求参数
+ *  @param timeout     超时设置(默认设置是5秒)
+ *  @param success     请求成功回调
+ *  @param failure     请求失败回调
+ *
+ *  @return
+ */
++ (NSMutableURLRequest *)requestWithMethodType:(YMHTTPMethodType)methodType
+                                    URLAddress:(NSString *)URLAddress
+                                       timeout:(float)timeout
+                                    parameters:(NSDictionary *)parameters
+                                   headerField:(NSDictionary *)headerField;
 
 /**
  *  上传图片
