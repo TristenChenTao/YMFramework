@@ -19,8 +19,10 @@
     _contentType = [obj[@"contentType"] intValue];
     _title = obj[@"title"];
     _contentText = obj[@"contentText"];
-    _imageUrl = obj[@"imageUrl"];
-    _resourceUrl = obj[@"resourceUrl"];
+    _imageURL = obj[@"imageUrl"];
+    _resourceURL = obj[@"resourceUrl"];
+    _callbackAddress = obj[@"callbackAddress"];
+    _callbackType = [obj[@"callbackType"] intValue];
     
     return self;
 }

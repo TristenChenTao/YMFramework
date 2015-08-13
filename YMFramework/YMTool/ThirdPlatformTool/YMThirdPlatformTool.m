@@ -220,7 +220,7 @@
 #pragma mark - 分享
 
 + (void)shareWithEntity:(YMThirdPlatformShareEntity *)shareEntity
-                success:(void (^)(YMThirdPlatformType platformType))success
+                success:(void (^)(YMThirdPlatformShareEntity *shareEntity))success
                 failure:(void (^)(NSString *errorDescription))failure
                  cancel:(void (^)(void))cancel
 {
@@ -240,7 +240,7 @@
                           result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
          if (state == SSPublishContentStateSuccess) {
              if(success) {
-                 success([self platformTypeFromShareType:type]);
+                 success(shareEntity);
              }
          }
          else if (state == SSPublishContentStateFail) {
@@ -278,9 +278,9 @@
     SSPublishContentMediaType mediaType = [self meidaTypeFromShareEntity:shareEntity];
     
     
-    NSString *imageURL = [NSString ym_trim:shareEntity.imageUrl];
+    NSString *imageURL = [NSString ym_trim:shareEntity.imageURL];
     NSString *title = [NSString ym_trim:shareEntity.title];
-    NSString *resourceUrl = [NSString ym_trim:shareEntity.resourceUrl];
+    NSString *resourceUrl = [NSString ym_trim:shareEntity.resourceURL];
     publishContent = [ShareSDK content:shareEntity.contentText
                         defaultContent:@""
                                  image:[ShareSDK imageWithUrl:imageURL]
@@ -291,7 +291,7 @@
     
     if (mediaType == SSPublishContentMediaTypeGif) {
         
-        NSData *imageData = [[SDImageCache sharedImageCache] diskImageDataBySearchingAllPathsForKey:shareEntity.imageUrl];
+        NSData *imageData = [[SDImageCache sharedImageCache] diskImageDataBySearchingAllPathsForKey:shareEntity.imageURL];
 								
         if (shareEntity.shareType == YMThirdPlatformShareForWechatTimeline) {
             [publishContent addWeixinTimelineUnitWithType:INHERIT_VALUE
@@ -341,7 +341,7 @@
             if (entity.shareType == YMThirdPlatformShareForWechatTimeline
                 || entity.shareType == YMThirdPlatformShareForWechatSession) {
                 
-                if ([entity.imageUrl rangeOfString:@".gif"].length > 0) {
+                if ([entity.imageURL rangeOfString:@".gif"].length > 0) {
                     type = SSPublishContentMediaTypeGif;
                 }
                 else {

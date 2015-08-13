@@ -35,7 +35,7 @@ typedef enum
 
 //分享
 + (void)shareWithEntity:(YMThirdPlatformShareEntity *)shareEntity
-                success:(void (^)(YMThirdPlatformType platformType))success
+                success:(void (^)(YMThirdPlatformShareEntity *shareEntity))success
                 failure:(void (^)(NSString *errorDescription))failure
                  cancel:(void (^)(void))cancel;
 

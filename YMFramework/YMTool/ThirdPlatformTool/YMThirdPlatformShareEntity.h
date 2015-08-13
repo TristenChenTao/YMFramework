@@ -24,19 +24,30 @@ typedef enum
     YMThirdPlatformContentForApp =  3,
 }YMThirdPlatformContentType;
 
+typedef enum
+{
+    YMThirdPlatformCallbackTypeForWebURL = 1,
+    YMThirdPlatformCallbackTypeForHTTPRequest = 2,
+}YMThirdPlatformCallbackType;
+
 @interface YMThirdPlatformShareEntity : NSObject
 
-@property(nonatomic, assign)YMThirdPlatformShareType shareType;
+@property(readonly, nonatomic, assign)YMThirdPlatformShareType shareType;
 
-@property(nonatomic, assign)YMThirdPlatformContentType contentType;
+@property(readonly, nonatomic, assign)YMThirdPlatformContentType contentType;
 
-@property(nonatomic, copy) NSString *title;
+@property(readonly, nonatomic, copy) NSString *title;
 
-@property(nonatomic, copy) NSString *contentText;
+@property(readonly, nonatomic, copy) NSString *contentText;
 
-@property(nonatomic, copy) NSString *imageUrl;
+@property(readonly, nonatomic, copy) NSString *imageURL;
 
-@property(nonatomic, copy) NSString *resourceUrl;
+@property(readonly, nonatomic, copy) NSString *resourceURL;
+
+@property(readonly, nonatomic, copy) NSString *callbackAddress;
+
+@property(readonly, nonatomic, assign)YMThirdPlatformCallbackType callbackType;
+
 
 - (instancetype)initWithData:(NSDictionary *)obj;
 
