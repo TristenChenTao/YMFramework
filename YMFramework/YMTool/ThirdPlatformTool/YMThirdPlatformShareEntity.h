@@ -32,21 +32,21 @@ typedef enum
 
 @interface YMThirdPlatformShareEntity : NSObject
 
-@property(readonly, nonatomic, assign)YMThirdPlatformShareType shareType;
+@property(nonatomic, assign)YMThirdPlatformShareType shareType;
 
-@property(readonly, nonatomic, assign)YMThirdPlatformContentType contentType;
+@property(nonatomic, assign)YMThirdPlatformContentType contentType;
 
-@property(readonly, nonatomic, copy) NSString *title;
+@property(nonatomic, copy) NSString *title;
 
-@property(readonly, nonatomic, copy) NSString *contentText;
+@property(nonatomic, copy) NSString *contentText;
 
-@property(readonly, nonatomic, copy) NSString *imageURL;
+@property(nonatomic, copy) NSString *imageURL;
 
-@property(readonly, nonatomic, copy) NSString *resourceURL;
+@property(nonatomic, copy) NSString *resourceURL;
 
-@property(readonly, nonatomic, copy) NSString *callbackAddress;
+@property(nonatomic, copy) NSString *callbackAddress;
 
-@property(readonly, nonatomic, assign)YMThirdPlatformCallbackType callbackType;
+@property(nonatomic, assign)YMThirdPlatformCallbackType callbackType;
 
 
 - (instancetype)initWithData:(NSDictionary *)obj;
