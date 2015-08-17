@@ -39,14 +39,4 @@ typedef enum
                 failure:(void (^)(NSString *errorDescription))failure
                  cancel:(void (^)(void))cancel;
 
-
-//微信回调处理
-+ (BOOL)handleOpenURL:(NSURL *)url
-           wxDelegate:(id)wxDelegate;
-
-+ (BOOL)handleOpenURL:(NSURL *)url
-    sourceApplication:(NSString *)sourceApplication
-           annotation:(id)annotation
-           wxDelegate:(id)wxDelegate;
-
 @end

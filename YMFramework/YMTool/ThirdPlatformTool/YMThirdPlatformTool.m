@@ -6,12 +6,20 @@
 //
 //
 
+//ShareSDK必要头文件
 #import <ShareSDK/ShareSDK.h>
-#import <TencentOpenAPI/QQApiInterface.h>
-#import <TencentOpenAPI/TencentOAuth.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
 
+//腾讯开放平台（对应QQ和QQ空间）SDK头文件
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+
+//微信SDK头文件
 #import "WXApi.h"
+
+//新浪微博SDK头文件
 #import "WeiboSDK.h"
+
 #import "SDImageCache.h"
 
 #import "YMThirdPlatformTool.h"
@@ -38,73 +46,98 @@
         return;
     }
     
-    [ShareSDK registerApp:config.mobAppKey];
+    NSMutableArray *platforms = [NSMutableArray array];
     
-    //微信应用
+    //微信
     if ([NSString ym_isContainString:config.wechatAppID] && [NSString ym_isContainString:config.wechatAppSecret]) {
-        [ShareSDK connectWeChatWithAppId:config.wechatAppID
-                               appSecret:config.wechatAppSecret
-                               wechatCls:[WXApi class]];
+        [platforms addObject:@(SSDKPlatformTypeWechat)];
     }
     
-    //QQ空间应用
-    if ([NSString ym_isContainString:config.qqAppKey] && [NSString ym_isContainString:config.qqAppSecret]) {
-        [ShareSDK connectQZoneWithAppKey:config.qqAppKey
-                               appSecret:config.qqAppSecret
-                       qqApiInterfaceCls:[QQApiInterface class]
-                         tencentOAuthCls:[TencentOAuth class]];
-        
-        [ShareSDK connectQQWithQZoneAppKey:config.qqAppKey
-                         qqApiInterfaceCls:[QQApiInterface class]
-                           tencentOAuthCls:[TencentOAuth class]];
-        
-        [ShareSDK importQQClass:[QQApiInterface class]
-                tencentOAuthCls:[TencentOAuth class]];
+    //QQ
+    if ([NSString ym_isContainString:config.qqAppKey] && [NSString ym_isContainString:config.qqAppID]) {
+        [platforms addObject:@(SSDKPlatformTypeQQ)];
     }
     
     //新浪微博
-    if ([NSString ym_isContainString:config.weiboAppKey]
-        && [NSString ym_isContainString:config.weiboAppSecret]
-        && [NSString ym_isContainString:config.weiboRedirectURL]) {
-        [ShareSDK  connectSinaWeiboWithAppKey:config.weiboAppKey
-                                    appSecret:config.weiboAppSecret
-                                  redirectUri:config.weiboRedirectURL
-                                  weiboSDKCls:[WeiboSDK class]];
+    if ([NSString ym_isContainString:config.weiboAppKey]) {
+        [platforms addObject:@(SSDKPlatformTypeSinaWeibo)];
     }
+    
+    [ShareSDK registerApp:config.mobAppKey
+          activePlatforms:platforms
+                 onImport:^(SSDKPlatformType platformType) {
+                     
+                     switch (platformType)
+                     {
+                         case SSDKPlatformTypeWechat:
+                             [ShareSDKConnector connectWeChat:[WXApi class]];
+                             break;
+                         case SSDKPlatformTypeQQ:
+                             [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
+                             break;
+                         default:
+                             break;
+                     }
+                     
+                 }
+          onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo) {
+              switch (platformType) {
+                  case SSDKPlatformTypeWechat: {
+                      [appInfo SSDKSetupWeChatByAppId:config.wechatAppID
+                                            appSecret:config.wechatAppSecret];
+                      break;
+                  }
+                  case SSDKPlatformTypeQQ: {
+                      [appInfo SSDKSetupQQByAppId:config.qqAppID
+                                           appKey:config.qqAppKey
+                                         authType:SSDKAuthTypeSSO];
+                      break;
+                  }
+                  case SSDKPlatformTypeSinaWeibo: {
+                      [appInfo SSDKSetupSinaWeiboByAppKey:config.weiboAppKey
+                                                appSecret:config.weiboAppSecret
+                                              redirectUri:config.weiboRedirectURL
+                                                 authType:SSDKAuthTypeSSO];
+                      break;
+                  }
+                  default:
+                      break;
+              }
+          }];
 }
 
-+ (ShareType)shareTypeFromPlatformType:(YMThirdPlatformType)platformType;
++ (SSDKPlatformType)SSDKPlatformTypeFromPlatformType:(YMThirdPlatformType)platformType;
 {
-    ShareType type = 0;
+    SSDKPlatformType type = 0;
     switch (platformType) {
         case YMThirdPlatformForWeibo:
-            type = ShareTypeSinaWeibo;
+            type = SSDKPlatformTypeSinaWeibo;
             break;
         case YMThirdPlatformForQQ:
-            type = ShareTypeQQSpace;
+            type = SSDKPlatformTypeQQ;
             break;
         case YMThirdPlatformForWechat:
-            type = ShareTypeWeixiSession;
+            type = SSDKPlatformTypeWechat;
             break;
         default:
-            type = ShareTypeAny;
+            type = SSDKPlatformTypeAny;
             break;
     }
     
     return type;
 }
 
-+ (YMThirdPlatformType)platformTypeFromShareType:(ShareType)shareType
++ (YMThirdPlatformType)platformTypeFromSSDKPlatformType:(SSDKPlatformType)shareType
 {
     YMThirdPlatformType type = 0;
     switch (shareType) {
-        case ShareTypeSinaWeibo:
+        case SSDKPlatformTypeSinaWeibo:
             type = YMThirdPlatformForWeibo;
             break;
-        case ShareTypeQQSpace:
+        case SSDKPlatformTypeQQ:
             type = YMThirdPlatformForQQ;
             break;
-        case ShareTypeWeixiSession:
+        case SSDKPlatformTypeWechat:
             type = YMThirdPlatformForWechat;
             break;
         default:
@@ -115,27 +148,27 @@
     return type;
 }
 
-+ (ShareType)shareTypeFromPlatformShareType:(YMThirdPlatformShareType)platformShareType
++ (SSDKPlatformType)SSDKPlatformTypeFromPlatformShareType:(YMThirdPlatformShareType)platformShareType
 {
-    ShareType type = 0;
+    SSDKPlatformType type = 0;
     switch (platformShareType) {
         case YMThirdPlatformShareForWeibo:
-            type = ShareTypeSinaWeibo;
+            type = SSDKPlatformTypeSinaWeibo;
             break;
         case YMThirdPlatformShareForQQSpace:
-            type = ShareTypeQQSpace;
+            type = SSDKPlatformSubTypeQZone;
             break;
         case YMThirdPlatformShareForWechatTimeline:
-            type = ShareTypeWeixiTimeline;
+            type = SSDKPlatformSubTypeWechatTimeline;
             break;
         case YMThirdPlatformShareForWechatSession:
-            type =ShareTypeWeixiSession;
+            type = SSDKPlatformSubTypeWechatSession;
             break;
         case YMThirdPlatformShareForQQFriend:
-            type = ShareTypeQQ;
+            type = SSDKPlatformSubTypeQQFriend;
             break;
         default:
-            type = ShareTypeAny;
+            type = SSDKPlatformTypeAny;
             break;
     }
     
@@ -149,8 +182,7 @@
                      failure:(void (^)(NSString *errorDescription))failure
 {
     //特殊处理
-    if (![WeiboSDK isWeiboAppInstalled]
-        && platformType == YMThirdPlatformForWeibo) {
+    if (![WeiboSDK isWeiboAppInstalled] && platformType == YMThirdPlatformForWeibo) {
         if (failure) {
             failure(@"未安装该应用，请先下载微博！");
         }
@@ -158,63 +190,57 @@
         return;
     }
     
-    ShareType type = [YMThirdPlatformTool shareTypeFromPlatformType:platformType];
+    SSDKPlatformType type = [YMThirdPlatformTool SSDKPlatformTypeFromPlatformType:platformType];
     
-    id<ISSAuthOptions> authOptions = [ShareSDK authOptionsWithAutoAuth:YES
-                                                         allowCallback:YES
-                                                         authViewStyle:SSAuthViewStyleFullScreenPopup
-                                                          viewDelegate:nil
-                                               authManagerViewDelegate:nil];
-    
-    [ShareSDK getUserInfoWithType:type
-                      authOptions:authOptions
-                           result:^(BOOL result, id<ISSPlatformUser> userInfo, id<ICMErrorInfo> error) {
-                               if (result) {
-                                   YMThirdPlatformUserInfo *platformUserInfo = [[YMThirdPlatformUserInfo alloc] init];
-                                   platformUserInfo.userId = userInfo.uid;
-                                   
-                                   platformUserInfo.nickname = userInfo.nickname;
-                                   platformUserInfo.profileImageUrl = userInfo.profileImage;
-                                   platformUserInfo.accessToken = userInfo.credential.token;
-                                   platformUserInfo.expired = userInfo.credential.expired;
-                                   platformUserInfo.homepage = userInfo.url;
-                                   platformUserInfo.platformType = platformType;
-                                   
-                                   if (success) {
-                                       success(platformUserInfo);
-                                   }
-                               }
-                               else {
-                                   NSString *message = nil;
-                                   
-                                   if (error.errorCode == -22003) {
-                                       message = @"未安装该应用，请先下载微信！";
-                                   }
-                                   else if (error.errorCode == -6004) {
-                                       message = @"未安装该应用，请先下载QQ！";
-                                   }
-                                   else if (error.errorCode == 10014) {
-                                       message = @"未安装该应用，请先下载微博！";
-                                   }
-                                   else {
-                                       message = @"登录失败";
-                                   }
-                                   
-                                   if (failure) {
-                                       failure(message);
-                                   }
-                               }
-                           }];
+    [ShareSDK authorize:type
+               settings:nil
+         onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
+             if (error) {
+                 NSString *message = nil;
+                 switch (error.code) {
+                     case -22003:
+                         message = @"未安装该应用，请先下载微信！";
+                         break;
+                     case -6004:
+                         message = @"未安装该应用，请先下载QQ！";
+                         break;
+                     case 10014:
+                         message = @"未安装该应用，请先下载微博！";
+                         break;
+                     default:
+                         message = @"登录失败";
+                         break;
+                 }
+                 
+                 if (failure) {
+                     failure(message);
+                 }
+             }
+             else {
+                 YMThirdPlatformUserInfo *platformUserInfo = [[YMThirdPlatformUserInfo alloc] init];
+                 platformUserInfo.userId = user.uid;
+                 platformUserInfo.nickname = user.nickname;
+                 platformUserInfo.profileImageUrl = user.icon;
+                 platformUserInfo.accessToken = user.credential.token;
+                 platformUserInfo.expired = user.credential.expired;
+                 platformUserInfo.homepage = user.url;
+                 platformUserInfo.platformType = platformType;
+                 
+                 if (success) {
+                     success(platformUserInfo);
+                 }
+             }
+         }];
 }
 
 + (void)logoutForPlatformType:(YMThirdPlatformType)platformType
 {
-    [ShareSDK cancelAuthWithType:[YMThirdPlatformTool shareTypeFromPlatformType:platformType]];
+    [ShareSDK cancelAuthorize:[YMThirdPlatformTool SSDKPlatformTypeFromPlatformType:platformType]];
 }
 
 + (BOOL)hasLoginForPlatformType:(YMThirdPlatformType)platformType
 {
-    return [ShareSDK hasAuthorizedWithType:[YMThirdPlatformTool shareTypeFromPlatformType:platformType]];
+    return [ShareSDK hasAuthorized:[YMThirdPlatformTool SSDKPlatformTypeFromPlatformType:platformType]];
 }
 
 #pragma mark - 分享
@@ -234,35 +260,36 @@
         return;
     }
     
-    [ShareSDK clientShareContent:[self publishContentFromShareEntity:shareEntity]//内容对象
-                            type:[self shareTypeFromPlatformShareType:shareEntity.shareType]//平台类型
-                   statusBarTips:YES
-                          result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-         if (state == SSPublishContentStateSuccess) {
+    [ShareSDK share:[self SSDKPlatformTypeFromPlatformShareType:shareEntity.shareType]
+         parameters:[self publishContentFromShareEntity:shareEntity]
+     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
+         if (state == SSDKResponseStateSuccess) {
              if(success) {
                  success(shareEntity);
              }
          }
-         else if (state == SSPublishContentStateFail) {
+         else if (state == SSDKResponseStateFail) {
              NSString *errorMessage = nil;
-             if (error.errorCode == -22003) {
-                 errorMessage = @"未安装该应用，请先下载微信！";
-             }
-             else if(error.errorCode == -6004) {
-                 errorMessage = @"未安装该应用，请先下载QQ！";
-             }
-             else if(error.errorCode == 10014) {
-                 errorMessage = @"未安装该应用，请先下载微博！";
-             }
-             else {
-                 errorMessage = @"分享失败";
-             }
              
+             switch (error.code) {
+                 case -22003:
+                     errorMessage = @"未安装该应用，请先下载微信！";
+                     break;
+                 case -6004:
+                     errorMessage = @"未安装该应用，请先下载QQ！";
+                     break;
+                 case 10014:
+                     errorMessage = @"未安装该应用，请先下载微博！";
+                     break;
+                 default:
+                     errorMessage = @"分享失败";
+                     break;
+             }
              if (failure) {
                  failure(errorMessage);
              }
          }
-         else if(state == SSPublishContentStateCancel) {
+         else if(state == SSDKResponseStateCancel) {
              if (cancel) {
                  cancel();
              }
@@ -270,115 +297,23 @@
      }];
 }
 
-+ (id<ISSContent>)publishContentFromShareEntity:(YMThirdPlatformShareEntity *)shareEntity
++ (NSMutableDictionary *)publishContentFromShareEntity:(YMThirdPlatformShareEntity *)shareEntity
 {
     //构造分享内容
-    id<ISSContent> publishContent = nil;
-    
-    SSPublishContentMediaType mediaType = [self meidaTypeFromShareEntity:shareEntity];
+    NSMutableDictionary *publishContent = [NSMutableDictionary dictionary];
     
     
     NSString *imageURL = [NSString ym_trim:shareEntity.imageURL];
     NSString *title = [NSString ym_trim:shareEntity.title];
     NSString *resourceUrl = [NSString ym_trim:shareEntity.resourceURL];
-    publishContent = [ShareSDK content:shareEntity.contentText
-                        defaultContent:@""
-                                 image:[ShareSDK imageWithUrl:imageURL]
-                                 title:title
-                                   url:resourceUrl
-                           description:nil
-                             mediaType:mediaType];
     
-    if (mediaType == SSPublishContentMediaTypeGif) {
-        
-        NSData *imageData = [[SDImageCache sharedImageCache] diskImageDataBySearchingAllPathsForKey:shareEntity.imageURL];
-								
-        if (shareEntity.shareType == YMThirdPlatformShareForWechatTimeline) {
-            [publishContent addWeixinTimelineUnitWithType:INHERIT_VALUE
-                                                  content:INHERIT_VALUE
-                                                    title:INHERIT_VALUE
-                                                      url:INHERIT_VALUE
-                                                    image:INHERIT_VALUE
-                                             musicFileUrl:nil
-                                                  extInfo:nil
-                                                 fileData:nil
-                                             emoticonData:imageData];
-        }
-        else if(shareEntity.shareType == YMThirdPlatformShareForWechatSession) {
-            [publishContent addWeixinSessionUnitWithType:INHERIT_VALUE
-                                                 content:INHERIT_VALUE
-                                                   title:INHERIT_VALUE
-                                                     url:INHERIT_VALUE
-                                                   image:INHERIT_VALUE
-                                            musicFileUrl:nil
-                                                 extInfo:nil
-                                                fileData:nil
-                                            emoticonData:imageData];
-        }
-    }
+    [publishContent SSDKSetupShareParamsByText:shareEntity.contentText
+                                        images:@[imageURL]
+                                           url:[NSURL URLWithString:resourceUrl]
+                                         title:title
+                                          type:SSDKContentTypeAuto];
     
     return publishContent;
-}
-
-+ (SSPublishContentMediaType)meidaTypeFromShareEntity:(YMThirdPlatformShareEntity *)entity
-{
-    SSPublishContentMediaType type = SSPublishContentMediaTypeNews;
-    switch (entity.contentType) {
-        case YMThirdPlatformContentForApp: {
-            if (entity.shareType == YMThirdPlatformShareForWechatTimeline
-                || entity.shareType == YMThirdPlatformShareForWechatSession) {
-                type = SSPublishContentMediaTypeApp;
-            }
-            else {
-                type = SSPublishContentMediaTypeNews;
-            }
-            break;
-        }
-        case YMThirdPlatformContentForNews:
-            type = SSPublishContentMediaTypeNews;
-            break;
-        case YMThirdPlatformContentForImage: {
-            if (entity.shareType == YMThirdPlatformShareForWechatTimeline
-                || entity.shareType == YMThirdPlatformShareForWechatSession) {
-                
-                if ([entity.imageURL rangeOfString:@".gif"].length > 0) {
-                    type = SSPublishContentMediaTypeGif;
-                }
-                else {
-                    type = SSPublishContentMediaTypeImage;
-                }
-            }
-            else {
-                type = SSPublishContentMediaTypeImage;
-            }
-            break;
-        }
-        default:
-            type = SSPublishContentMediaTypeNews;
-            break;
-    }
-    
-    return type;
-}
-
-#pragma mark - 微信回调处理
-
-+ (BOOL)handleOpenURL:(NSURL *)url
-           wxDelegate:(id)wxDelegate
-{
-    return [ShareSDK handleOpenURL:url
-                        wxDelegate:wxDelegate];
-}
-
-+ (BOOL)handleOpenURL:(NSURL *)url
-    sourceApplication:(NSString *)sourceApplication
-           annotation:(id)annotation
-           wxDelegate:(id)wxDelegate
-{
-    return [ShareSDK handleOpenURL:url
-                 sourceApplication:sourceApplication
-                        annotation:annotation
-                        wxDelegate:wxDelegate];
 }
 
 @end

@@ -244,7 +244,4 @@ typedef void(^SDWebImageCalculateSizeBlock)(NSUInteger fileCount, NSUInteger tot
  */
 - (NSString *)defaultCachePathForKey:(NSString *)key;
 
-//Vendor Modified by YM:将私有方法开放出来用于微信Gif分享
-- (NSData *)diskImageDataBySearchingAllPathsForKey:(NSString *)key;
-
 @end

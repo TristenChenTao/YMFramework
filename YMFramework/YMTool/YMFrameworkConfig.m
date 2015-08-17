@@ -105,10 +105,10 @@
         _qqAppKey = @"";
     }
     
-    _qqAppSecret = data[@"QQ_AppSecret"];
-    if ([NSString ym_isEmptyString:_qqAppSecret]) {
+    _qqAppID = data[@"QQ_AppID"];
+    if ([NSString ym_isEmptyString:_qqAppID]) {
         YMLog(@"_qqAppSecret is nil");
-        _qqAppSecret = @"";
+        _qqAppID = @"";
     }
     
     _wechatAppID = data[@"WeChat_AppID"];

@@ -24,8 +24,8 @@
 @property (readonly, nonatomic, copy) NSString *weiboAppSecret;
 @property (readonly, nonatomic, copy) NSString *weiboRedirectURL;
 
+@property (readonly, nonatomic, copy) NSString *qqAppID;
 @property (readonly, nonatomic, copy) NSString *qqAppKey;
-@property (readonly, nonatomic, copy) NSString *qqAppSecret;
 
 @property (readonly, nonatomic, copy) NSString *wechatAppID;
 @property (readonly, nonatomic, copy) NSString *wechatAppSecret;
