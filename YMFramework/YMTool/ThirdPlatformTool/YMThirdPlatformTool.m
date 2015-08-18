@@ -138,77 +138,6 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
           }];
 }
 
-+ (SSDKPlatformType)SSDKPlatformTypeFromPlatformType:(YMThirdPlatformType)platformType;
-{
-    SSDKPlatformType type = 0;
-    switch (platformType) {
-        case YMThirdPlatformForWeibo:
-            type = SSDKPlatformTypeSinaWeibo;
-            break;
-        case YMThirdPlatformForQQ:
-            type = SSDKPlatformTypeQQ;
-            break;
-        case YMThirdPlatformForWechat:
-            type = SSDKPlatformTypeWechat;
-            break;
-        default:
-            type = SSDKPlatformTypeAny;
-            break;
-    }
-    
-    return type;
-}
-
-+ (YMThirdPlatformType)platformTypeFromSSDKPlatformType:(SSDKPlatformType)shareType
-{
-    YMThirdPlatformType type = 0;
-    switch (shareType) {
-        case SSDKPlatformTypeSinaWeibo:
-            type = YMThirdPlatformForWeibo;
-            break;
-        case SSDKPlatformTypeQQ:
-            type = YMThirdPlatformForQQ;
-            break;
-        case SSDKPlatformTypeWechat:
-            type = YMThirdPlatformForWechat;
-            break;
-        default:
-            type = YMThirdPlatformForWeibo;
-            break;
-    }
-    
-    return type;
-}
-
-+ (SSDKPlatformType)SSDKPlatformTypeFromPlatformShareType:(YMThirdPlatformShareType)platformShareType
-{
-    SSDKPlatformType type = 0;
-    switch (platformShareType) {
-        case YMThirdPlatformShareForWeibo:
-            type = SSDKPlatformTypeSinaWeibo;
-            break;
-        case YMThirdPlatformShareForQQSpace:
-            type = SSDKPlatformSubTypeQZone;
-            break;
-        case YMThirdPlatformShareForWechatTimeline:
-            type = SSDKPlatformSubTypeWechatTimeline;
-            break;
-        case YMThirdPlatformShareForWechatSession:
-            type = SSDKPlatformSubTypeWechatSession;
-            break;
-        case YMThirdPlatformShareForQQFriend:
-            type = SSDKPlatformSubTypeQQFriend;
-            break;
-        default:
-            type = SSDKPlatformTypeAny;
-            break;
-    }
-    
-    return type;
-}
-
-#pragma mark - 登录
-
 + (void)loginForPlatformType:(YMThirdPlatformType)platformType
                      success:(void (^)(YMThirdPlatformUserInfo *platformUserInfo))success
                      failure:(void (^)(NSString *errorDescription))failure
@@ -222,7 +151,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
         return;
     }
     
-    SSDKPlatformType type = [YMThirdPlatformTool SSDKPlatformTypeFromPlatformType:platformType];
+    SSDKPlatformType type = SSDKPlatformTypeFromPlatformType(platformType);
     
     [ShareSDK authorize:type
                settings:nil
@@ -267,15 +196,13 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
 
 + (void)logoutForPlatformType:(YMThirdPlatformType)platformType
 {
-    [ShareSDK cancelAuthorize:[YMThirdPlatformTool SSDKPlatformTypeFromPlatformType:platformType]];
+    [ShareSDK cancelAuthorize:SSDKPlatformTypeFromPlatformType(platformType)];
 }
 
 + (BOOL)hasLoginForPlatformType:(YMThirdPlatformType)platformType
 {
-    return [ShareSDK hasAuthorized:[YMThirdPlatformTool SSDKPlatformTypeFromPlatformType:platformType]];
+    return [ShareSDK hasAuthorized:SSDKPlatformTypeFromPlatformType(platformType)];
 }
-
-#pragma mark - 分享
 
 + (void)shareWithEntity:(YMThirdPlatformShareEntity *)shareEntity
                 success:(void (^)(YMThirdPlatformShareEntity *shareEntity))success
@@ -292,8 +219,8 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
         return;
     }
     
-    [ShareSDK share:[self SSDKPlatformTypeFromPlatformShareType:shareEntity.shareType]
-         parameters:[self publishContentFromShareEntity:shareEntity]
+    [ShareSDK share:SSDKPlatformTypeFromPlatformShareType(shareEntity.shareType)
+         parameters:shareContentFromShareEntity(shareEntity)
      onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
          if (state == SSDKResponseStateSuccess) {
              if(success) {
@@ -329,7 +256,55 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
      }];
 }
 
-+ (NSMutableDictionary *)publishContentFromShareEntity:(YMThirdPlatformShareEntity *)shareEntity
+static inline SSDKPlatformType SSDKPlatformTypeFromPlatformType(YMThirdPlatformType platformType)
+{
+    SSDKPlatformType type = 0;
+    switch (platformType) {
+        case YMThirdPlatformForWeibo:
+            type = SSDKPlatformTypeSinaWeibo;
+            break;
+        case YMThirdPlatformForQQ:
+            type = SSDKPlatformTypeQQ;
+            break;
+        case YMThirdPlatformForWechat:
+            type = SSDKPlatformTypeWechat;
+            break;
+        default:
+            type = SSDKPlatformTypeAny;
+            break;
+    }
+    
+    return type;
+}
+
+static inline SSDKPlatformType SSDKPlatformTypeFromPlatformShareType(YMThirdPlatformShareType platformShareType)
+{
+    SSDKPlatformType type = 0;
+    switch (platformShareType) {
+        case YMThirdPlatformShareForWeibo:
+            type = SSDKPlatformTypeSinaWeibo;
+            break;
+        case YMThirdPlatformShareForQQSpace:
+            type = SSDKPlatformSubTypeQZone;
+            break;
+        case YMThirdPlatformShareForWechatTimeline:
+            type = SSDKPlatformSubTypeWechatTimeline;
+            break;
+        case YMThirdPlatformShareForWechatSession:
+            type = SSDKPlatformSubTypeWechatSession;
+            break;
+        case YMThirdPlatformShareForQQFriend:
+            type = SSDKPlatformSubTypeQQFriend;
+            break;
+        default:
+            type = SSDKPlatformTypeAny;
+            break;
+    }
+    
+    return type;
+}
+
+static inline NSMutableDictionary* shareContentFromShareEntity(YMThirdPlatformShareEntity *shareEntity)
 {
     //构造分享内容
     NSMutableDictionary *publishContent = [NSMutableDictionary dictionary];
