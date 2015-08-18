@@ -97,7 +97,6 @@
 		625220DA1B5F429500EC902B /* UIButton+YMHitFrameAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 625220D81B5F429500EC902B /* UIButton+YMHitFrameAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		625220DB1B5F429500EC902B /* UIButton+YMHitFrameAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 625220D91B5F429500EC902B /* UIButton+YMHitFrameAdditions.m */; };
 		6258F2261B04719000C0B785 /* APService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6258F2241B04719000C0B785 /* APService.h */; };
-		6258F2271B04719000C0B785 /* libPushSDK-1.8.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6258F2251B04719000C0B785 /* libPushSDK-1.8.3.a */; };
 		625D56881ADBAFD3007BCA33 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 625D56751ADBAFD3007BCA33 /* AFHTTPRequestOperation.h */; };
 		625D56891ADBAFD3007BCA33 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 625D56761ADBAFD3007BCA33 /* AFHTTPRequestOperation.m */; };
 		625D568A1ADBAFD3007BCA33 /* AFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 625D56771ADBAFD3007BCA33 /* AFHTTPRequestOperationManager.h */; };
@@ -320,6 +319,7 @@
 		62E433641AE5F89D005445B2 /* MobClickSocialAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */; };
 		62EF82C31AE238A40068B34A /* URLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF82C11AE238A40068B34A /* URLParser.h */; };
 		62EF82C41AE238A40068B34A /* URLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF82C21AE238A40068B34A /* URLParser.m */; };
+		62FFC7B51B830C4B001E6BC1 /* libPushSDK-1.8.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62FFC7B41B830C4B001E6BC1 /* libPushSDK-1.8.5.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -412,7 +412,6 @@
 		625220D81B5F429500EC902B /* UIButton+YMHitFrameAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+YMHitFrameAdditions.h"; sourceTree = "<group>"; };
 		625220D91B5F429500EC902B /* UIButton+YMHitFrameAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+YMHitFrameAdditions.m"; sourceTree = "<group>"; };
 		6258F2241B04719000C0B785 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
-		6258F2251B04719000C0B785 /* libPushSDK-1.8.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.3.a"; sourceTree = "<group>"; };
 		625D56751ADBAFD3007BCA33 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		625D56761ADBAFD3007BCA33 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		625D56771ADBAFD3007BCA33 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -635,6 +634,7 @@
 		62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		62EF82C11AE238A40068B34A /* URLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLParser.h; sourceTree = "<group>"; };
 		62EF82C21AE238A40068B34A /* URLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLParser.m; sourceTree = "<group>"; };
+		62FFC7B41B830C4B001E6BC1 /* libPushSDK-1.8.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.5.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -645,9 +645,9 @@
 				62415E171B81B50B00B72E4B /* libWeiboSDK.a in Frameworks */,
 				62BA85A81B0F417F008A1F78 /* WebP.framework in Frameworks */,
 				62415E221B81B50B00B72E4B /* libWeChatSDK.a in Frameworks */,
+				62FFC7B51B830C4B001E6BC1 /* libPushSDK-1.8.5.a in Frameworks */,
 				62415E271B81B50B00B72E4B /* ShareSDK.framework in Frameworks */,
 				62415E151B81B50B00B72E4B /* TencentOpenAPI.framework in Frameworks */,
-				6258F2271B04719000C0B785 /* libPushSDK-1.8.3.a in Frameworks */,
 				62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */,
 				62415E291B81B50B00B72E4B /* ShareSDKExtension.framework in Frameworks */,
 				62415E281B81B50B00B72E4B /* ShareSDKConnector.framework in Frameworks */,
@@ -857,8 +857,8 @@
 		6258F2231B04719000C0B785 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
+				62FFC7B41B830C4B001E6BC1 /* libPushSDK-1.8.5.a */,
 				6258F2241B04719000C0B785 /* APService.h */,
-				6258F2251B04719000C0B785 /* libPushSDK-1.8.3.a */,
 			);
 			path = JPush;
 			sourceTree = "<group>";
