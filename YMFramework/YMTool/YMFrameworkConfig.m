@@ -17,6 +17,14 @@
 #import "YMThirdPlatformTool.h"
 #import "YMURLProtocol.h"
 
+@interface YMFrameworkConfig()
+
+@property (readwrite, nonatomic, copy) NSString *productID;
+@property (readwrite, nonatomic, copy) NSString *productVersion;
+@property (readwrite, nonatomic, copy) NSString *productChannel;
+
+@end
+
 @implementation YMFrameworkConfig
 
 + (instancetype)sharedInstance
@@ -26,45 +34,45 @@
     })
 }
 
-- (instancetype)init
+- (void)setupProductByID:(NSString *)ID
+                 version:(NSString *)version
+                 channel:(NSString *)channel
 {
-    self = [super init];
-    if (!self) return nil;
-    
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"YMFrameworkConfig" ofType:@"plist"];
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    
-    if (data == nil) {
-        YMLog(@"YMFrameworkConfig.plsi is nil");
-        return nil;
+    self.productID = ID;
+    self.productVersion = version;
+    self.productChannel = channel;
+}
+
+- (void)setProductID:(NSString *)productID
+{
+    if ([NSString ym_isContainString:productID]) {
+        _productID = productID;
     }
-    
-    _productID = data[@"PRODUCT_ID"];
-    if ([NSString ym_isEmptyString:_productID]) {
-        YMLog(@"_productID is nil");
+    else {
         _productID = @"";
     }
-    
-    _productVersion = data[@"PRODUCT_VERSION"];
-    if ([NSString ym_isEmptyString:_productVersion]) {
-        YMLog(@"_productVersion is nil");
+}
+
+- (void)setProductVersion:(NSString *)productVersion
+{
+    if ([NSString ym_isContainString:productVersion]) {
+        _productVersion = productVersion;
+    }
+    else {
         _productVersion = @"";
     }
-    
-    _productChannel = data[@"PRODUCT_CHANNEL"];
-    if ([NSString ym_isEmptyString:_productChannel]) {
-        YMLog(@"_productChannel is nil");
+}
+
+- (void)setProductChannel:(NSString *)productChannel
+{
+    if ([NSString ym_isContainString:productChannel]) {
+        _productChannel = productChannel;
+    }
+    else {
         _productChannel = @"";
     }
-    
-    _appstoreID = data[@"APPSTORE_ID"];
-    if ([NSString ym_isEmptyString:_appstoreID]) {
-        YMLog(@"_appstoreID is nil");
-        _appstoreID = @"";
-    }
-    
-    return self;
 }
+
 
 //需要使用Aspects待定
 

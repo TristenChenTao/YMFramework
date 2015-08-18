@@ -13,8 +13,11 @@
 @property (readonly, nonatomic, copy) NSString *productID;
 @property (readonly, nonatomic, copy) NSString *productVersion;
 @property (readonly, nonatomic, copy) NSString *productChannel;
-@property (readonly, nonatomic, copy) NSString *appstoreID;
 
 + (instancetype)sharedInstance;
+
+- (void)setupProductByID:(NSString *)ID
+                 version:(NSString *)version
+                 channel:(NSString *)channel;
 
 @end
