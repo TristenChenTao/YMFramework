@@ -15,9 +15,6 @@
 @property (readonly, nonatomic, copy) NSString *productChannel;
 @property (readonly, nonatomic, copy) NSString *appstoreID;
 
-@property (readonly, nonatomic, copy) NSString *umengAppKey;
-@property (readonly, nonatomic, copy) NSString *analyticsChannelID;
-
 + (instancetype)sharedInstance;
 
 @end

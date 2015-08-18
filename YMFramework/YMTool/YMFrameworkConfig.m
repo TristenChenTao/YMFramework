@@ -63,18 +63,6 @@
         _appstoreID = @"";
     }
     
-    _umengAppKey = data[@"UMENG_AppKey"];
-    if ([NSString ym_isEmptyString:_umengAppKey]) {
-        YMLog(@"_umengAppKey is nil");
-        _umengAppKey = @"";
-    }
-    
-    _analyticsChannelID = data[@"Analytics_ChannelID"];
-    if ([NSString ym_isEmptyString:_analyticsChannelID]) {
-        YMLog(@"_analyticsChannelID is nil");
-        _analyticsChannelID = @"";
-    }
-        
     return self;
 }
 

@@ -24,14 +24,14 @@
 
 @implementation YMAnalytics
 
-+ (void)start;
++ (void)startByAppKey:(NSString *)appKey
+            channelID:(NSString *)channelID
 {
-    YMFrameworkConfig *config = [YMFrameworkConfig sharedInstance];
     //um
-    if ([NSString ym_isContainString:config.umengAppKey]) {
-        [MobClick startWithAppkey:config.umengAppKey
+    if ([NSString ym_isContainString:appKey]) {
+        [MobClick startWithAppkey:appKey
                      reportPolicy:SEND_INTERVAL
-                        channelId:config.analyticsChannelID];
+                        channelId:channelID];
         
         NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         [MobClick setAppVersion:version];
@@ -44,9 +44,22 @@
         NSString * mac = [YMAnalytics macString];
         NSString * idfa = [YMAnalytics idfaString];
         NSString * idfv = [YMAnalytics idfvString];
-        NSString * urlString = [NSString stringWithFormat:@"http://log.umtrack.com/ping/%@/?devicename=%@&mac=%@&idfa=%@&idfv=%@", config.umengAppKey, deviceName, mac, idfa, idfv];
+        NSString * urlString = [NSString stringWithFormat:@"http://log.umtrack.com/ping/%@/?devicename=%@&mac=%@&idfa=%@&idfv=%@", appKey, deviceName, mac, idfa, idfv];
         [NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL: [NSURL URLWithString:urlString]] delegate:nil];
     }
+    
+    
+//    Class cls = NSClassFromString(@"UMANUtil");
+//    SEL deviceIDSelector = @selector(openUDIDString);
+//    NSString *deviceID = nil;
+//    if(cls && [cls respondsToSelector:deviceIDSelector]){
+//        deviceID = [cls performSelector:deviceIDSelector];
+//    }
+//    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:@{@"oid" : deviceID}
+//                                                       options:NSJSONWritingPrettyPrinted
+//                                                         error:nil];
+//    
+//    NSLog(@"%@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
 }
 
 + (void)beginLogPageView:(NSString *)pageName

@@ -10,7 +10,8 @@
 
 @interface YMAnalytics : NSObject
 
-+ (void)start;
++ (void)startByAppKey:(NSString *)appKey
+            channelID:(NSString *)channelID;
 
 + (void)beginLogPageView:(NSString *)pageName;
 + (void)endLogPageView:(NSString *)pageName;
