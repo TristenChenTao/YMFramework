@@ -74,55 +74,7 @@
         YMLog(@"_analyticsChannelID is nil");
         _analyticsChannelID = @"";
     }
-    
-    _mobAppKey = data[@"MOB_AppKey"];
-    if ([NSString ym_isEmptyString:_mobAppKey]) {
-        YMLog(@"_mobAppKey is nil");
-        _mobAppKey = @"";
-    }
-    
-    _weiboAppKey = data[@"WeiBo_AppKey"];
-    if ([NSString ym_isEmptyString:_weiboAppKey]) {
-        YMLog(@"_weiboAppKey is nil");
-        _weiboAppKey = @"";
-    }
-    
-    _weiboAppSecret = data[@"WeiBo_AppSecret"];
-    if ([NSString ym_isEmptyString:_weiboAppSecret]) {
-        YMLog(@"_weiboAppSecret is nil");
-        _weiboAppSecret = @"";
-    }
-    
-    _weiboRedirectURL = data[@"WeiBo_RedirectUrl"];
-    if ([NSString ym_isEmptyString:_weiboRedirectURL]) {
-        YMLog(@"_weiboRedirectURL is nil");
-        _weiboRedirectURL = @"";
-    }
-    
-    _qqAppKey = data[@"QQ_AppKey"];
-    if ([NSString ym_isEmptyString:_qqAppKey]) {
-        YMLog(@"_qqAppKey is nil");
-        _qqAppKey = @"";
-    }
-    
-    _qqAppID = data[@"QQ_AppID"];
-    if ([NSString ym_isEmptyString:_qqAppID]) {
-        YMLog(@"_qqAppSecret is nil");
-        _qqAppID = @"";
-    }
-    
-    _wechatAppID = data[@"WeChat_AppID"];
-    if ([NSString ym_isEmptyString:_wechatAppID]) {
-        YMLog(@"_wechatAppID is nil");
-        _wechatAppID = @"";
-    }
-    
-    _wechatAppSecret = data[@"WeChat_AppSecret"];
-    if ([NSString ym_isEmptyString:_wechatAppSecret]) {
-        YMLog(@"_wechatAppSecret is nil");
-        _wechatAppSecret = @"";
-    }
-    
+        
     return self;
 }
 

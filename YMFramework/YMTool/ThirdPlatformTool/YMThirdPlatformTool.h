@@ -20,7 +20,17 @@ typedef enum
 
 @interface YMThirdPlatformTool : NSObject
 
-+ (void)registerInfo;
++ (void)setupWeChatByAppId:(NSString *)appId
+                 appSecret:(NSString *)appSecret;
+
++ (void)setupQQByAppId:(NSString *)appId
+                appKey:(NSString *)appKey;
+
++ (void)setupSinaWeiboByAppKey:(NSString *)appKey
+                     appSecret:(NSString *)appSecret
+                   redirectUri:(NSString *)redirectUri;
+
++ (void)registerByAppKey:(NSString *)appKey;
 
 //登录
 + (void)loginForPlatformType:(YMThirdPlatformType)platformType

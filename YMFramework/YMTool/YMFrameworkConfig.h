@@ -18,19 +18,6 @@
 @property (readonly, nonatomic, copy) NSString *umengAppKey;
 @property (readonly, nonatomic, copy) NSString *analyticsChannelID;
 
-@property (readonly, nonatomic, copy) NSString *mobAppKey;
-
-@property (readonly, nonatomic, copy) NSString *weiboAppKey;
-@property (readonly, nonatomic, copy) NSString *weiboAppSecret;
-@property (readonly, nonatomic, copy) NSString *weiboRedirectURL;
-
-@property (readonly, nonatomic, copy) NSString *qqAppID;
-@property (readonly, nonatomic, copy) NSString *qqAppKey;
-
-@property (readonly, nonatomic, copy) NSString *wechatAppID;
-@property (readonly, nonatomic, copy) NSString *wechatAppSecret;
-
-
 + (instancetype)sharedInstance;
 
 @end

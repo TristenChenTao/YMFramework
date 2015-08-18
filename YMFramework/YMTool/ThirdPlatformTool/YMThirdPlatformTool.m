@@ -38,32 +38,64 @@
 
 @implementation YMThirdPlatformTool
 
-+ (void)registerInfo
+static NSString *kWechatAppID = nil;
+static NSString *kWechatAppSecret;
+
+static NSString *kQQAppID = nil;
+static NSString *kQQAppKey = nil;
+
+static NSString *kSinaWeiboAppKey = nil;
+static NSString *kSinaWeiboAppSecret = nil;
+static NSString *kSinaWeiboAppRedirectURL = nil;
+
++ (void)setupWeChatByAppId:(NSString *)appId
+                 appSecret:(NSString *)appSecret
 {
-    YMFrameworkConfig *config = [YMFrameworkConfig sharedInstance];
-    
-    if([NSString ym_isEmptyString:config.mobAppKey]) {
+    kWechatAppID = appId;
+    kWechatAppSecret = appSecret;
+}
+
++ (void)setupQQByAppId:(NSString *)appId
+                appKey:(NSString *)appKey
+{
+    kQQAppID = appId;
+    kQQAppKey = appKey;
+}
+
++ (void)setupSinaWeiboByAppKey:(NSString *)appKey
+                     appSecret:(NSString *)appSecret
+                   redirectUri:(NSString *)redirectUri
+{
+    kSinaWeiboAppKey = appKey;
+    kSinaWeiboAppSecret = appSecret;
+    kSinaWeiboAppRedirectURL = redirectUri;
+}
+
++ (void)registerByAppKey:(NSString *)appKey
+{
+    if([NSString ym_isEmptyString:appKey]) {
         return;
     }
     
     NSMutableArray *platforms = [NSMutableArray array];
     
     //微信
-    if ([NSString ym_isContainString:config.wechatAppID] && [NSString ym_isContainString:config.wechatAppSecret]) {
+    if ([NSString ym_isContainString:kWechatAppID] && [NSString ym_isContainString:kWechatAppSecret]) {
         [platforms addObject:@(SSDKPlatformTypeWechat)];
     }
     
     //QQ
-    if ([NSString ym_isContainString:config.qqAppKey] && [NSString ym_isContainString:config.qqAppID]) {
+    if ([NSString ym_isContainString:kQQAppKey] && [NSString ym_isContainString:kQQAppID]) {
         [platforms addObject:@(SSDKPlatformTypeQQ)];
     }
     
     //新浪微博
-    if ([NSString ym_isContainString:config.weiboAppKey]) {
+    if ([NSString ym_isContainString:kSinaWeiboAppKey] && [NSString ym_isContainString:kSinaWeiboAppSecret]
+        && [NSString ym_isContainString:kSinaWeiboAppRedirectURL]) {
         [platforms addObject:@(SSDKPlatformTypeSinaWeibo)];
     }
     
-    [ShareSDK registerApp:config.mobAppKey
+    [ShareSDK registerApp:appKey
           activePlatforms:platforms
                  onImport:^(SSDKPlatformType platformType) {
                      
@@ -83,20 +115,20 @@
           onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo) {
               switch (platformType) {
                   case SSDKPlatformTypeWechat: {
-                      [appInfo SSDKSetupWeChatByAppId:config.wechatAppID
-                                            appSecret:config.wechatAppSecret];
+                      [appInfo SSDKSetupWeChatByAppId:kWechatAppID
+                                            appSecret:kWechatAppSecret];
                       break;
                   }
                   case SSDKPlatformTypeQQ: {
-                      [appInfo SSDKSetupQQByAppId:config.qqAppID
-                                           appKey:config.qqAppKey
+                      [appInfo SSDKSetupQQByAppId:kQQAppID
+                                           appKey:kQQAppKey
                                          authType:SSDKAuthTypeSSO];
                       break;
                   }
                   case SSDKPlatformTypeSinaWeibo: {
-                      [appInfo SSDKSetupSinaWeiboByAppKey:config.weiboAppKey
-                                                appSecret:config.weiboAppSecret
-                                              redirectUri:config.weiboRedirectURL
+                      [appInfo SSDKSetupSinaWeiboByAppKey:kSinaWeiboAppKey
+                                                appSecret:kSinaWeiboAppSecret
+                                              redirectUri:kSinaWeiboAppRedirectURL
                                                  authType:SSDKAuthTypeSSO];
                       break;
                   }
