@@ -11,6 +11,8 @@
 #import <UIKit/UIKit.h>
 
 // Fix for issue #416 Undefined symbols for architecture armv7 since WebP introduction when deploying to device
+
+//Vendor Modified by YM:
 //void WebPInitPremultiplyNEON(void);
 //
 //void WebPInitUpsamplersNEON(void);

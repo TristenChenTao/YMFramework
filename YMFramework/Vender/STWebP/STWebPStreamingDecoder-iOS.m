@@ -6,7 +6,9 @@
 
 #import "STWebP.h"
 
-#import <WebP/decode.h>
+//Vendor Modified by YM:
+//#import <WebP/decode.h>
+#import "decode.h"
 
 
 static void STCGDataProviderReleaseDataCallbackFree(void * __unused info, const void *data, size_t __unused size) {
