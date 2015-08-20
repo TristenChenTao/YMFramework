@@ -73,6 +73,15 @@
     }
 }
 
+- (NSString *)userID
+{
+    if ([NSString ym_isContainString:_userID]) {
+        return _userID;
+    }
+    
+    return @"";
+}
+
 
 //需要使用Aspects待定
 
