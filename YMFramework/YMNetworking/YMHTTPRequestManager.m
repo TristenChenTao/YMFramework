@@ -236,16 +236,18 @@ static const NSString *resultDataKey = @"Data";
 
 + (NSDictionary*)packageParameters:(NSDictionary *)parameters
 {
-    NSDictionary *baseInfo = @{@"adId" : [YMAnalytics idfaString],
-                               @"productId" : [YMFrameworkConfig sharedInstance].productID,
-                               @"productVersion" : [YMFrameworkConfig sharedInstance].productVersion,
-                               @"channelId" : [YMFrameworkConfig sharedInstance].productChannel,
-                               @"deviceVersion" : [YMDeviceInfo deviceType],
-                               @"screenHeight" : @(kYm_ScreenHeight),
-                               @"screenWidth" : @(kYm_ScreenWidth),
-                               @"language" : [YMDeviceInfo language],
-                               @"connectType" : [YMDeviceInfo newtworkType],
-                               @"isJailBroken" : @([YMDeviceInfo isJailBroken])};
+    NSDictionary *baseInfo = @{@"proID" : [YMFrameworkConfig sharedInstance].productID,
+                               @"edition" : [YMFrameworkConfig sharedInstance].productVersion,
+                               @"channel" : [YMFrameworkConfig sharedInstance].productChannel,
+                               @"uid" : [YMFrameworkConfig sharedInstance].userID,
+                               @"deviceId" : [YMAnalytics idfaString],
+                               @"device" : [YMDeviceInfo deviceType],
+                               @"scrH" : @(kYm_ScreenHeight),
+                               @"scrW" : @(kYm_ScreenWidth),
+                               @"lang" : [YMDeviceInfo language],
+                               @"network" : [YMDeviceInfo newtworkType],
+                               @"isCrack" : @([YMDeviceInfo isJailBroken]),
+                               @"osType" : @(1)};
     
     
     NSMutableDictionary *finalParameters = [NSMutableDictionary dictionaryWithDictionary:baseInfo];

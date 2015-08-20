@@ -10,6 +10,7 @@
 
 @interface YMFrameworkConfig : NSObject
 
+@property (nonatomic, copy)NSString *userID;
 @property (readonly, nonatomic, copy) NSString *productID;
 @property (readonly, nonatomic, copy) NSString *productVersion;
 @property (readonly, nonatomic, copy) NSString *productChannel;
