@@ -54,6 +54,8 @@
     
     [self ym_drawDashLineWithFrame:frame color:color];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     imageView.image = image;
     
     return imageView;
