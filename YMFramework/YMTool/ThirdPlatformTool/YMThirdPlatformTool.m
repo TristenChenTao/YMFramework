@@ -158,6 +158,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
          onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
              if (error) {
                  NSString *message = nil;
+                 
                  switch (error.code) {
                      case -22003:
                          message = @"未安装该应用，请先下载微信！";
@@ -175,6 +176,11 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                  
                  if (failure) {
                      failure(message);
+                 }
+             }
+             else if(state == SSDKResponseStateCancel) {
+                 if (failure) {
+                     failure(@"登录取消");
                  }
              }
              else {
