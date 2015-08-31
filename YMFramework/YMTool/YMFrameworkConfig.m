@@ -27,12 +27,7 @@
 
 @implementation YMFrameworkConfig
 
-+ (instancetype)sharedInstance
-{
-    YM_DEFINE_SHARED_INSTANCE_USING_BLOCK(^ {
-        return [[self alloc] init];
-    })
-}
+YM_MacrosSingletonImplemantion
 
 - (void)setupProductByID:(NSString *)ID
                  version:(NSString *)version

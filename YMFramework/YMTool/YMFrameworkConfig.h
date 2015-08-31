@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "YMTool.h"
+
 @interface YMFrameworkConfig : NSObject
 
 @property (nonatomic, copy)NSString *userID;
@@ -15,7 +17,7 @@
 @property (readonly, nonatomic, copy) NSString *productVersion;
 @property (readonly, nonatomic, copy) NSString *productChannel;
 
-+ (instancetype)sharedInstance;
+YM_MacrosSingletonInterface
 
 - (void)setupProductByID:(NSString *)ID
                  version:(NSString *)version

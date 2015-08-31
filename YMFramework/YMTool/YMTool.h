@@ -6,23 +6,39 @@
 //  Copyright (c) 2015 cornapp. All rights reserved.
 //
 
-//单例模式
-#define YM_DEFINE_SHARED_INSTANCE_USING_BLOCK(block) \
-static dispatch_once_t onceToken = 0; \
-__strong static id sharedInstance = nil; \
+///---------------------------------------------------------------------------------
+/// @name Singleton Macros
+///---------------------------------------------------------------------------------
+
+/**
+ Add a Singelton implementation to the .m File
+ */
+#define YM_MacrosSingletonImplemantion \
++ (instancetype)sharedInstance { \
+\
+static dispatch_once_t onceToken; \
+static id sharedInstance = nil; \
 dispatch_once(&onceToken, ^{ \
-sharedInstance = block(); \
+sharedInstance = [self.class new]; \
 }); \
+\
 return sharedInstance; \
+}
+
+/**
+ Add a Singelton interface declaration to the .h File
+ */
+#define YM_MacrosSingletonInterface + (instancetype)sharedInstance;
+
+///---------------------------------------------------------------------------------
+/// @name Log Macros
+///---------------------------------------------------------------------------------
 
 #ifdef DEBUG
-#   define YMLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#   define YM_Log(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
-#   define YMLog(...)
+#   define YM_Log(...)
 #endif
-
-
-
 
 
 
