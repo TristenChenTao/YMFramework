@@ -17,6 +17,9 @@
 //for idfa
 #import <AdSupport/AdSupport.h>
 
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 #import "MobClick.h"
 
 #import "NSString+YMAdditions.h"
@@ -47,8 +50,6 @@
         NSString * urlString = [NSString stringWithFormat:@"http://log.umtrack.com/ping/%@/?devicename=%@&mac=%@&idfa=%@&idfv=%@", appKey, deviceName, mac, idfa, idfv];
         [NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL: [NSURL URLWithString:urlString]] delegate:nil];
     }
-    
-    
 //    Class cls = NSClassFromString(@"UMANUtil");
 //    SEL deviceIDSelector = @selector(openUDIDString);
 //    NSString *deviceID = nil;
@@ -80,6 +81,11 @@
 + (void)event:(NSString *)eventId label:(NSString *)label
 {
     [MobClick event:eventId label:label];
+}
+
++ (void)startCrashReport
+{
+    [Fabric with:@[[Crashlytics class]]];
 }
 
 + (NSString * )macString
