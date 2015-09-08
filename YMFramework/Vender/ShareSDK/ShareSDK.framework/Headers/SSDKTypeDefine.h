@@ -79,6 +79,14 @@ typedef NS_ENUM(NSUInteger, SSDKPlatformType){
      */
     SSDKPlatformSubTypeQZone            = 6,
     /**
+     *  人人网
+     */
+    SSDKPlatformTypeRenren              = 7,
+    /**
+     *  开心网
+     */
+    SSDKPlatformTypeKaixin              = 8,
+    /**
      *  Facebook
      */
     SSDKPlatformTypeFacebook            = 10,
@@ -86,6 +94,10 @@ typedef NS_ENUM(NSUInteger, SSDKPlatformType){
      *  Twitter
      */
     SSDKPlatformTypeTwitter             = 11,
+    /**
+     *  Google+
+     */
+    SSDKPlatformTypeGooglePlus          = 14,
     /**
      *  邮件
      */
@@ -110,6 +122,10 @@ typedef NS_ENUM(NSUInteger, SSDKPlatformType){
      *  QQ好友
      */
     SSDKPlatformSubTypeQQFriend         = 24,
+    /**
+     *  Pocket
+     */
+    SSDKPlatformTypePocket              = 26,
     /**
      *  微信收藏
      */

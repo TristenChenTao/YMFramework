@@ -245,5 +245,65 @@
                            urlImage:(NSURL *)urlImage
                                type:(SSDKContentType)type;
 
+/**
+ *  设置人人网分享参数
+ *
+ *  @param text    文本
+ *  @param image   分享图片，可以为UIImage、NSString（图片路径）、NSURL（图片路径）、SSDKImage，仅在type为Image时有效。
+ *  @param url     网页链接，仅在type为WebPage时有效。
+ *  @param albumId 相册ID，指定分享的图片要放入哪个相册，默认为nil，仅在type为Image时有效。
+ *  @param type    分享类型，仅支持Image、WebPage类型
+ */
+- (void)SSDKSetupRenRenParamsByText:(NSString *)text
+                              image:(id)image
+                                url:(NSURL *)url
+                            albumId:(NSString *)albumId
+                               type:(SSDKContentType)type;
+
+/**
+ *  设置开心网分享参数
+ *
+ *  @param text  文本
+ *  @param image 分享图片，可以为UIImage、NSString（图片路径）、NSURL（图片路径）、SSDKImage，仅在type为Image时有效。
+ *  @param type  分享类型，仅支持Text、Image类型
+ */
+- (void)SSDKSetupKaiXinParamsByText:(NSString *)text
+                              image:(id)image
+                               type:(SSDKContentType)type;
+
+/**
+ *  设置Pocket分享参数
+ *
+ *  @param url     分享链接
+ *  @param title   标题
+ *  @param tags    标签，可以为NSString或者NSArray。为NSString时，标签名称要以逗号分隔；为NSArray时，元素为NSString。
+ *  @param tweetId 关联的推文ID
+ */
+- (void)SSDKSetupPocketParamsByUrl:(NSURL *)url
+                             title:(NSString *)title
+                              tags:(id)tags
+                           tweetId:(NSString *)tweetId;
+
+/**
+ *  设置GooglePlus分享参数
+ *
+ *  @param text       文本
+ *  @param image      分享图片，可以为UIImage、NSString（图片路径）、NSURL（图片路径）、SSDKImage，仅在type为Image时有效。
+ *  @param url        分享链接，仅在type为WebPage时有效
+ *  @param title      链接标题，仅在type为WebPage并且设置deepLinkId时生效。
+ *  @param urlDesc    链接描述，仅在type为WebPage并且设置deepLinkId时生效。
+ *  @param urlImage   链接缩略图，仅在type为WebPage并且设置deepLinkId时生效。
+ *  @param deepLinkId DeepLink标识， 仅在type为WebPage时有效
+ *  @param type  分享类型，仅支持Text、Image、WebPage类型
+ */
+- (void)SSDKSetupGooglePlusParamsByText:(NSString *)text
+                                  image:(id)image
+                                    url:(NSURL *)url
+                                  title:(NSString *)title
+                                urlDesc:(NSString *)urlDesc
+                               urlImage:(NSURL *)urlImage
+                             deepLinkId:(NSString *)deepLinkId
+                                   type:(SSDKContentType)type;
+
 
 @end
