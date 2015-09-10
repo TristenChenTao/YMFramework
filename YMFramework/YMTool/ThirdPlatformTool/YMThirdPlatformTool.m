@@ -315,16 +315,44 @@ static inline NSMutableDictionary* shareContentFromShareEntity(YMThirdPlatformSh
     //构造分享内容
     NSMutableDictionary *publishContent = [NSMutableDictionary dictionary];
     
-    
     NSString *imageURL = [NSString ym_trim:shareEntity.imageURL];
     NSString *title = [NSString ym_trim:shareEntity.title];
     NSString *resourceUrl = [NSString ym_trim:shareEntity.resourceURL];
     
-    [publishContent SSDKSetupShareParamsByText:shareEntity.contentText
-                                        images:@[imageURL]
-                                           url:[NSURL URLWithString:resourceUrl]
-                                         title:title
-                                          type:SSDKContentTypeAuto];
+    BOOL isInWechat = shareEntity.shareType == YMThirdPlatformShareForWechatTimeline || shareEntity.shareType == YMThirdPlatformShareForWechatSession;
+    BOOL isGif = [imageURL rangeOfString:@".gif"].location != NSNotFound;
+    
+    if (isInWechat && isGif) {
+        NSData *imageData = [[SDImageCache sharedImageCache] diskImageDataBySearchingAllPathsForKey:imageURL];
+        
+        SSDKPlatformType type = 0;
+        if (shareEntity.contentType == YMThirdPlatformShareForWechatTimeline) {
+            type = SSDKPlatformSubTypeWechatTimeline;
+        }
+        else {
+            type = SSDKPlatformSubTypeWechatSession;
+        }
+        
+        [publishContent SSDKSetupWeChatParamsByText:shareEntity.contentText
+                                              title:title
+                                                url:nil
+                                         thumbImage:imageURL
+                                              image:imageURL
+                                       musicFileURL:nil
+                                            extInfo:nil
+                                           fileData:nil
+                                       emoticonData:imageData
+                                               type:SSDKContentTypeImage
+                                 forPlatformSubType:SSDKPlatformSubTypeWechatSession];
+    }
+    else {
+        [publishContent SSDKSetupShareParamsByText:shareEntity.contentText
+                                            images:@[imageURL]
+                                               url:[NSURL URLWithString:resourceUrl]
+                                             title:title
+                                              type:SSDKContentTypeAuto];
+    }
+    
     
     return publishContent;
 }
