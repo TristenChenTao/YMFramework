@@ -29,7 +29,7 @@
 
 + (NSString *)deviceType
 {
-    return [SystemSharedServices systemDeviceTypeNotFormatted];
+    return [SystemSharedServices systemDeviceTypeFormatted];
 }
 
 + (NSString *)availableDiskSpace
