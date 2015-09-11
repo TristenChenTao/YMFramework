@@ -26,8 +26,28 @@ static const NSString *resultCodeKey = @"ResultCode";
 static const NSString *resultMessageKey = @"ResultMessage";
 static const NSString *resultDataKey = @"Data";
 
+static BOOL kIsReachable = YES;
 
-+ (YMHTTPRequestOperation *)requestWithMethodType:(YMHTTPMethodType)methodType
++ (void)load
+{
+    [super load];
+    
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
+        
+        if(status == AFNetworkReachabilityStatusNotReachable) {
+            kIsReachable = NO;
+        }
+        else {
+            kIsReachable = YES;
+        }
+        
+    }];
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+
++ (YMHTTPRequestOperation *)requestWithMethodType:(YMHttpMethodType)methodType
                                       relativeURL:(NSString *)relativeURL
                                           baseURL:(NSString *)baseURL
                                            baseIP:(NSString *)baseIP
@@ -37,13 +57,22 @@ static const NSString *resultDataKey = @"Data";
                                           success:(void (^)(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage,id data))success
                                           failure:(void (^)(NSURLRequest *request, NSError *error))failure;
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
     NSMutableURLRequest *request = [YMHTTPRequestManager requestWithMethodType:methodType
                                                                     URLAddress:[baseURL stringByAppendingString:relativeURL]
                                                                        timeout:timeout
                                                                     parameters:parameters
                                                                    headerField:headerField];
+    
+    if (kIsReachable == NO) {
+        if(failure) {
+            NSError *error = [NSError errorWithDomain:baseURL code:YMHttpResponseTypeForNoReachable userInfo:nil];
+            failure(request,error);
+        }
+        
+        return nil;
+    }
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     __block AFHTTPRequestOperation *operation = nil;
     operation = [manager HTTPRequestOperationWithRequest:request
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -82,7 +111,7 @@ static const NSString *resultDataKey = @"Data";
     return (YMHTTPRequestOperation *)operation;
 }
 
-+ (NSMutableURLRequest *)requestWithMethodType:(YMHTTPMethodType)methodType
++ (NSMutableURLRequest *)requestWithMethodType:(YMHttpMethodType)methodType
                                     URLAddress:(NSString *)URLAddress
                                        timeout:(float)timeout
                                     parameters:(NSDictionary *)parameters
@@ -90,10 +119,10 @@ static const NSString *resultDataKey = @"Data";
 {
     NSString *requestType = nil;
     switch (methodType) {
-        case YMHTTPMethodTypeForGet:
+        case YMHttpMethodTypeForGet:
             requestType = @"GET";
             break;
-        case YMHTTPMethodTypeForPost:
+        case YMHttpMethodTypeForPost:
             requestType = @"POST";
             break;
         default:
@@ -182,10 +211,10 @@ static const NSString *resultDataKey = @"Data";
 }
 
 + (NSMutableURLRequest *)multipartFormRequestWithURLAddress:(NSString *)URLAddress
-                                                   timeout:(float)timeout
-                                                parameters:(NSDictionary *)parameters
-                                                    images:(NSArray *)images
-                                               headerField:(NSDictionary *)headerField
+                                                    timeout:(float)timeout
+                                                 parameters:(NSDictionary *)parameters
+                                                     images:(NSArray *)images
+                                                headerField:(NSDictionary *)headerField
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     AFHTTPRequestSerializer *requestSerializer = manager.requestSerializer;

@@ -13,13 +13,18 @@
 
 typedef enum
 {
-    YMHTTPMethodTypeForGet = 1,
-    YMHTTPMethodTypeForPost = 2,
-} YMHTTPMethodType;
+    YMHttpMethodTypeForGet = 1,
+    YMHttpMethodTypeForPost = 2,
+} YMHttpMethodType;
 
-//判断请求状态
-const static NSInteger kYMRequestSuccess = 1;
-const static NSInteger kYMRequestFail = 0;
+
+//请求响应状态
+typedef enum
+{
+    YMHttpResponseTypeForSuccess = 1,
+    YMHttpResponseTypeForFail = 2,
+    YMHttpResponseTypeForNoReachable = 3
+} YMHttpResponseType;
 
 @interface YMHTTPRequestManager : NSObject
 
@@ -38,7 +43,7 @@ const static NSInteger kYMRequestFail = 0;
  *
  *  @return
  */
-+ (YMHTTPRequestOperation *)requestWithMethodType:(YMHTTPMethodType)methodType
++ (YMHTTPRequestOperation *)requestWithMethodType:(YMHttpMethodType)methodType
                                       relativeURL:(NSString *)relativeURL
                                           baseURL:(NSString *)baseURL
                                            baseIP:(NSString *)baseIP
@@ -61,7 +66,7 @@ const static NSInteger kYMRequestFail = 0;
  *
  *  @return
  */
-+ (NSMutableURLRequest *)requestWithMethodType:(YMHTTPMethodType)methodType
++ (NSMutableURLRequest *)requestWithMethodType:(YMHttpMethodType)methodType
                                     URLAddress:(NSString *)URLAddress
                                        timeout:(float)timeout
                                     parameters:(NSDictionary *)parameters
