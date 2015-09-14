@@ -31,6 +31,8 @@
 
 + (NSString *)deviceType;
 
++ (NSString *)deviceVersion;
+
 + (NSString *)totalDiskSpace;
 
 + (NSString *)availableDiskSpace;

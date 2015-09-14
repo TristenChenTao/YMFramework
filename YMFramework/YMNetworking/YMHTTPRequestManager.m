@@ -270,7 +270,7 @@ static BOOL kIsReachable = YES;
                                @"channel" : [YMFrameworkConfig sharedInstance].productChannel,
                                @"uid" : [YMFrameworkConfig sharedInstance].userID,
                                @"deviceId" : [YMAnalytics idfaString],
-                               @"device" : [YMDeviceInfo deviceType],
+                               @"device" : [YMDeviceInfo deviceVersion],
                                @"scrH" : @(kYm_ScreenHeight),
                                @"scrW" : @(kYm_ScreenWidth),
                                @"lang" : [YMDeviceInfo language],
