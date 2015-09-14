@@ -34,7 +34,7 @@ FOUNDATION_EXPORT const unsigned char YMFrameworkVersionString[];
 #import <YMFramework/YMDebugging.h>
 #import <YMFramework/YMFrameworkConfig.h>
 #import <YMFramework/UIImage+YMAdditions.h>
-#import <YMFramework/UIButton+YMHitFrameAdditions.h>
+#import <YMFramework/UIButton+YMHitAdditions.h>
 #import <YMFramework/NSDictionary+YMAccessors.h>
 
 #import <YMFramework/YMThirdPlatformTool.h>

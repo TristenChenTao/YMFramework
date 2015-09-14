@@ -89,8 +89,8 @@
 		6242FCC61B2FD822007DD69C /* YMURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 6242FCC41B2FD822007DD69C /* YMURLProtocol.m */; };
 		624CE52F1B21565500C62E08 /* UIImage+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 624CE52D1B21565500C62E08 /* UIImage+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		624CE5301B21565500C62E08 /* UIImage+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 624CE52E1B21565500C62E08 /* UIImage+YMAdditions.m */; };
-		625220DA1B5F429500EC902B /* UIButton+YMHitFrameAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 625220D81B5F429500EC902B /* UIButton+YMHitFrameAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		625220DB1B5F429500EC902B /* UIButton+YMHitFrameAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 625220D91B5F429500EC902B /* UIButton+YMHitFrameAdditions.m */; };
+		625220DA1B5F429500EC902B /* UIButton+YMHitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 625220D81B5F429500EC902B /* UIButton+YMHitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		625220DB1B5F429500EC902B /* UIButton+YMHitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 625220D91B5F429500EC902B /* UIButton+YMHitAdditions.m */; };
 		625786F11BA6955A006F1ADE /* FLEXArgumentInputColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 625786681BA6955A006F1ADE /* FLEXArgumentInputColorView.h */; settings = {ASSET_TAGS = (); }; };
 		625786F21BA6955A006F1ADE /* FLEXArgumentInputColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 625786691BA6955A006F1ADE /* FLEXArgumentInputColorView.m */; settings = {ASSET_TAGS = (); }; };
 		625786F31BA6955A006F1ADE /* FLEXArgumentInputDateView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6257866A1BA6955A006F1ADE /* FLEXArgumentInputDateView.h */; settings = {ASSET_TAGS = (); }; };
@@ -520,8 +520,8 @@
 		6242FCC41B2FD822007DD69C /* YMURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMURLProtocol.m; sourceTree = "<group>"; };
 		624CE52D1B21565500C62E08 /* UIImage+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YMAdditions.h"; sourceTree = "<group>"; };
 		624CE52E1B21565500C62E08 /* UIImage+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YMAdditions.m"; sourceTree = "<group>"; };
-		625220D81B5F429500EC902B /* UIButton+YMHitFrameAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+YMHitFrameAdditions.h"; sourceTree = "<group>"; };
-		625220D91B5F429500EC902B /* UIButton+YMHitFrameAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+YMHitFrameAdditions.m"; sourceTree = "<group>"; };
+		625220D81B5F429500EC902B /* UIButton+YMHitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+YMHitAdditions.h"; sourceTree = "<group>"; };
+		625220D91B5F429500EC902B /* UIButton+YMHitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+YMHitAdditions.m"; sourceTree = "<group>"; };
 		625786681BA6955A006F1ADE /* FLEXArgumentInputColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputColorView.h; sourceTree = "<group>"; };
 		625786691BA6955A006F1ADE /* FLEXArgumentInputColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXArgumentInputColorView.m; sourceTree = "<group>"; };
 		6257866A1BA6955A006F1ADE /* FLEXArgumentInputDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputDateView.h; sourceTree = "<group>"; };
@@ -1406,8 +1406,8 @@
 				62703E431B10490B005CA088 /* UIWebView+YMAdditions.h */,
 				62703E441B10490B005CA088 /* UIWebView+YMAdditions.m */,
 				62703E491B10490B005CA088 /* YMUI.h */,
-				625220D81B5F429500EC902B /* UIButton+YMHitFrameAdditions.h */,
-				625220D91B5F429500EC902B /* UIButton+YMHitFrameAdditions.m */,
+				625220D81B5F429500EC902B /* UIButton+YMHitAdditions.h */,
+				625220D91B5F429500EC902B /* UIButton+YMHitAdditions.m */,
 			);
 			path = YMUI;
 			sourceTree = "<group>";
@@ -1681,7 +1681,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62974C111B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h in Headers */,
-				625220DA1B5F429500EC902B /* UIButton+YMHitFrameAdditions.h in Headers */,
+				625220DA1B5F429500EC902B /* UIButton+YMHitAdditions.h in Headers */,
 				6257872D1BA6955A006F1ADE /* FLEXInstancesTableViewController.h in Headers */,
 				625787561BA6955A006F1ADE /* FLEXLayerExplorerViewController.h in Headers */,
 				625787031BA6955A006F1ADE /* FLEXArgumentInputSwitchView.h in Headers */,
@@ -2197,7 +2197,7 @@
 				62C54F121B84516200004E80 /* SDWebImagePrefetcher.m in Sources */,
 				6278FF071B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.m in Sources */,
 				62B4D4A71B845741006522CF /* rescaler.c in Sources */,
-				625220DB1B5F429500EC902B /* UIButton+YMHitFrameAdditions.m in Sources */,
+				625220DB1B5F429500EC902B /* UIButton+YMHitAdditions.m in Sources */,
 				62703E531B10490B005CA088 /* YMCache.m in Sources */,
 				6257876D1BA6955A006F1ADE /* FLEXHierarchyTableViewCell.m in Sources */,
 				62C54F1C1B84516200004E80 /* UIImageView+HighlightedWebCache.m in Sources */,
