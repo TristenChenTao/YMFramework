@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "YMTool.h"
+
 @interface YMDebugging : NSObject
 
-+ (void)showExplorer;
+@property (nonatomic, assign)BOOL networkDebuggingEnabled;
+
+YM_MacrosSingletonInterface
+
+- (void)showExplorer;
 
 @end

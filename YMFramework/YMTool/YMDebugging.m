@@ -13,10 +13,24 @@
 
 @implementation YMDebugging
 
-+ (void)showExplorer
+YM_MacrosSingletonImplemantion
+
+- (void)showExplorer
 {
     [[FLEXManager sharedManager] showExplorer];
     [KMCGeigerCounter sharedGeigerCounter].enabled = YES;
+}
+
+#pragma mark - getters and setters
+
+- (void)setNetworkDebuggingEnabled:(BOOL)networkDebuggingEnabled
+{
+    [FLEXManager sharedManager].networkDebuggingEnabled = networkDebuggingEnabled;
+}
+
+- (BOOL)networkDebuggingEnabled
+{
+    return [FLEXManager sharedManager].networkDebuggingEnabled;
 }
 
 @end
