@@ -12,7 +12,7 @@
 
 @property (readonly, nonatomic, assign) UIEdgeInsets ym_HitFrameEdgeInsets;//设置点击区域
 
-@property (nonatomic, assign) NSTimeInterval ym_AcceptEventInterval; //设置重复点击时间间隔（默认1.5秒）
+//@property (nonatomic, assign) NSTimeInterval ym_AcceptEventInterval; //设置重复点击时间间隔（默认1.5秒）
 
 - (void)ym_changeHitFrameEdgeInsets:(UIEdgeInsets)edgeInsets;
 

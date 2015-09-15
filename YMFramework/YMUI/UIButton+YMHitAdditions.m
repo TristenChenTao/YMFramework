@@ -24,9 +24,9 @@ const static NSTimeInterval kYM_DefaultEventInterval = 1.5;
 
 + (void)load
 {
-    Method a = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));
-    Method b = class_getInstanceMethod(self, @selector(ym_button_sendAction:to:forEvent:));
-    method_exchangeImplementations(a, b);
+//    Method a = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));
+//    Method b = class_getInstanceMethod(self, @selector(ym_button_sendAction:to:forEvent:));
+//    method_exchangeImplementations(a, b);
 }
 
 #pragma mark - public methods
@@ -38,27 +38,27 @@ const static NSTimeInterval kYM_DefaultEventInterval = 1.5;
 
 #pragma mark - private methods
 
-- (void)ym_button_sendAction:(SEL)action
-                          to:(id)target
-                    forEvent:(UIEvent *)event
-{
-    if (self.ym_ignoreEvent) return;
-    
-    NSTimeInterval interval = kYM_DefaultEventInterval;//默认间隔时间
-    if (self.ym_AcceptEventInterval > 0) {
-        interval = self.ym_AcceptEventInterval;
-    }
-    
-    self.ym_ignoreEvent = YES;
-    [self performSelector:@selector(setYm_ignoreEvent:)
-               withObject:@(NO)
-               afterDelay:interval];
-    
-    
-    [self ym_button_sendAction:action
-                            to:target
-                      forEvent:event];
-}
+//- (void)ym_button_sendAction:(SEL)action
+//                          to:(id)target
+//                    forEvent:(UIEvent *)event
+//{
+//    if (self.ym_ignoreEvent) return;
+//    
+//    NSTimeInterval interval = kYM_DefaultEventInterval;//默认间隔时间
+//    if (self.ym_AcceptEventInterval > 0) {
+//        interval = self.ym_AcceptEventInterval;
+//    }
+//    
+//    self.ym_ignoreEvent = YES;
+//    [self performSelector:@selector(setYm_ignoreEvent:)
+//               withObject:@(NO)
+//               afterDelay:interval];
+//    
+//    
+//    [self ym_button_sendAction:action
+//                            to:target
+//                      forEvent:event];
+//}
 
 #pragma mark - getters and setters
 
@@ -96,24 +96,24 @@ const static NSTimeInterval kYM_DefaultEventInterval = 1.5;
 	return CGRectContainsPoint(hitFrame, point);
 }
 
-- (NSTimeInterval)ym_AcceptEventInterval
-{
-    return [objc_getAssociatedObject(self, &kYM_AcceptEventInterval) doubleValue];
-}
-
-- (void)setYm_AcceptEventInterval:(NSTimeInterval)ym_AcceptEventInterval
-{
-    objc_setAssociatedObject(self, &kYM_AcceptEventInterval, @(ym_AcceptEventInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (BOOL)ym_ignoreEvent
-{
-    return [objc_getAssociatedObject(self, &kYM_ignoreEvent) boolValue];
-}
-
-- (void)setYm_ignoreEvent:(BOOL)ym_ignoreEvent
-{
-    objc_setAssociatedObject(self, &kYM_ignoreEvent, @(ym_ignoreEvent), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
+//- (NSTimeInterval)ym_AcceptEventInterval
+//{
+//    return [objc_getAssociatedObject(self, &kYM_AcceptEventInterval) doubleValue];
+//}
+//
+//- (void)setYm_AcceptEventInterval:(NSTimeInterval)ym_AcceptEventInterval
+//{
+//    objc_setAssociatedObject(self, &kYM_AcceptEventInterval, @(ym_AcceptEventInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+//
+//- (BOOL)ym_ignoreEvent
+//{
+//    return [objc_getAssociatedObject(self, &kYM_ignoreEvent) boolValue];
+//}
+//
+//- (void)setYm_ignoreEvent:(BOOL)ym_ignoreEvent
+//{
+//    objc_setAssociatedObject(self, &kYM_ignoreEvent, @(ym_ignoreEvent), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
 
 @end
