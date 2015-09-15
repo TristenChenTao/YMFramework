@@ -21,8 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		6200126C1B199F9A00075982 /* KMCGeigerCounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6200126A1B199F9A00075982 /* KMCGeigerCounter.h */; };
-		6200126D1B199F9A00075982 /* KMCGeigerCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6200126B1B199F9A00075982 /* KMCGeigerCounter.m */; };
 		62065C291B2004AF003769C8 /* YMFrameworkConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 62065C271B2004AF003769C8 /* YMFrameworkConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62065C2A1B2004AF003769C8 /* YMFrameworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 62065C281B2004AF003769C8 /* YMFrameworkConfig.m */; };
 		621597111ADB5875003CACA7 /* YMFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 621597101ADB5875003CACA7 /* YMFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -449,8 +447,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6200126A1B199F9A00075982 /* KMCGeigerCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCGeigerCounter.h; sourceTree = "<group>"; };
-		6200126B1B199F9A00075982 /* KMCGeigerCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCGeigerCounter.m; sourceTree = "<group>"; };
 		62065C271B2004AF003769C8 /* YMFrameworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMFrameworkConfig.h; sourceTree = "<group>"; };
 		62065C281B2004AF003769C8 /* YMFrameworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMFrameworkConfig.m; sourceTree = "<group>"; };
 		6215970B1ADB5875003CACA7 /* YMFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YMFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -897,15 +893,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		620012691B199F9A00075982 /* KMCGeigerCounter */ = {
-			isa = PBXGroup;
-			children = (
-				6200126A1B199F9A00075982 /* KMCGeigerCounter.h */,
-				6200126B1B199F9A00075982 /* KMCGeigerCounter.m */,
-			);
-			path = KMCGeigerCounter;
-			sourceTree = "<group>";
-		};
 		621597011ADB5875003CACA7 = {
 			isa = PBXGroup;
 			children = (
@@ -1314,7 +1301,6 @@
 				62C54E1C1B84516200004E80 /* SDWebImage */,
 				62415DFB1B81B50B00B72E4B /* ShareSDK */,
 				6242FCB21B2FD789007DD69C /* STWebP */,
-				620012691B199F9A00075982 /* KMCGeigerCounter */,
 				6258F2231B04719000C0B785 /* JPush */,
 				62E4335E1AE5F89D005445B2 /* UMAnalytics */,
 				622CE5EF1AE4EC90004D714B /* System Services */,
@@ -1814,7 +1800,6 @@
 				625D56881ADBAFD3007BCA33 /* AFHTTPRequestOperation.h in Headers */,
 				62B4D4B31B845741006522CF /* types.h in Headers */,
 				622CE61C1AE4EC90004D714B /* SSBatteryInfo.h in Headers */,
-				6200126C1B199F9A00075982 /* KMCGeigerCounter.h in Headers */,
 				622CE61A1AE4EC90004D714B /* SSApplicationInfo.h in Headers */,
 				622CE62C1AE4EC90004D714B /* SSProcessInfo.h in Headers */,
 				6257873F1BA6955A006F1ADE /* FLEXNetworkSettingsTableViewController.h in Headers */,
@@ -2179,7 +2164,6 @@
 				625787401BA6955A006F1ADE /* FLEXNetworkSettingsTableViewController.m in Sources */,
 				622CE6291AE4EC90004D714B /* SSMemoryInfo.m in Sources */,
 				62B4D4A51B845741006522CF /* random.c in Sources */,
-				6200126D1B199F9A00075982 /* KMCGeigerCounter.m in Sources */,
 				62B4D4841B845741006522CF /* tree.c in Sources */,
 				622CE61D1AE4EC90004D714B /* SSBatteryInfo.m in Sources */,
 				62B4D44B1B845741006522CF /* vp8l.c in Sources */,

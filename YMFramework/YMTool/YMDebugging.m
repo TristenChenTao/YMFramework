@@ -7,7 +7,6 @@
 //
 
 #import "FLEXManager.h"
-#import "KMCGeigerCounter.h"
 
 #import "YMDebugging.h"
 
@@ -18,7 +17,6 @@ YM_MacrosSingletonImplemantion
 - (void)showExplorer
 {
     [[FLEXManager sharedManager] showExplorer];
-    [KMCGeigerCounter sharedGeigerCounter].enabled = YES;
 }
 
 #pragma mark - getters and setters
