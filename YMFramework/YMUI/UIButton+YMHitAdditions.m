@@ -44,6 +44,11 @@ const static NSTimeInterval kYM_DefaultEventInterval = 1.5;
 {
     if(![self respondsToSelector:@selector(ym_ignoreEvent)]
        || ![self respondsToSelector:@selector(ym_button_sendAction:to:forEvent:)]) {
+        
+        [self sendAction:action
+                      to:target
+                forEvent:event];
+        
         return;
     }
     
