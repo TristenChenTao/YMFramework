@@ -8,6 +8,8 @@
 
 #import "YMThirdPlatformShareEntity.h"
 
+#import "NSString+YMAdditions.h"
+
 @implementation YMThirdPlatformShareEntity
 
 - (instancetype)initWithData:(NSDictionary *)obj
@@ -25,6 +27,56 @@
     _callbackType = [obj[@"callbackType"] intValue];
     
     return self;
+}
+
+- (NSString *)title
+{
+    if ([NSString ym_isContainString:_title]) {
+        return _title;
+    }
+    else {
+        return @"";
+    }
+}
+
+- (NSString *)contentText
+{
+    if ([NSString ym_isContainString:_contentText]) {
+        return _contentText;
+    }
+    else {
+        return @"";
+    }
+}
+
+- (NSString *)imageURL
+{
+    if ([NSString ym_isContainString:_imageURL]) {
+        return _imageURL;
+    }
+    else {
+        return @"";
+    }
+}
+
+- (NSString *)resourceURL
+{
+    if ([NSString ym_isContainString:_resourceURL]) {
+        return _resourceURL;
+    }
+    else {
+        return @"";
+    }
+}
+
+- (NSString *)callbackAddress
+{
+    if ([NSString ym_isContainString:_callbackAddress]) {
+        return _callbackAddress;
+    }
+    else {
+        return @"";
+    }
 }
 
 @end
