@@ -25,6 +25,9 @@
 //判断ios8之后版本
 #define kYm_iOS8OrLater ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
+//判断ios9之后版本
+#define kYm_iOS8OrLater ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+
 @interface YMDeviceInfo : NSObject
 
 + (float)deviceOSVersion;
