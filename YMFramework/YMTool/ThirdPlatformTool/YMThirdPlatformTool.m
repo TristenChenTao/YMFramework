@@ -346,9 +346,15 @@ static inline NSMutableDictionary* shareContentFromShareEntity(YMThirdPlatformSh
                                  forPlatformSubType:SSDKPlatformSubTypeWechatSession];
     }
     else {
+        
+        NSURL *url = nil;
+        if ([NSString ym_isContainString:resourceUrl]) {
+            url = [NSURL URLWithString:resourceUrl];
+        }
+        
         [publishContent SSDKSetupShareParamsByText:shareEntity.contentText
                                             images:@[imageURL]
-                                               url:[NSURL URLWithString:resourceUrl]
+                                               url:url
                                              title:title
                                               type:SSDKContentTypeAuto];
     }
