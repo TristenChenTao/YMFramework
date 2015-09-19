@@ -30,7 +30,7 @@
 
 @interface YMDeviceInfo : NSObject
 
-+ (float)deviceOSVersion;
++ (float)systemVersion;
 
 + (NSString *)deviceType;
 
@@ -53,6 +53,8 @@
 + (double)memorySpaceUsedRate;
 
 + (NSString *)language;
+
++ (NSString *)country;
 
 + (NSString *)newtworkType;
 

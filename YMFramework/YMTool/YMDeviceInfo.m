@@ -22,7 +22,7 @@
 
 #define SystemSharedServices [SystemServices sharedServices]
 
-+ (float)deviceOSVersion
++ (float)systemVersion
 {
     return [[[UIDevice currentDevice] systemVersion] floatValue];
 }
@@ -55,6 +55,81 @@
     
     return deviceVersion;
 }
+
++ (NSString *)availableDiskSpace
+{
+    return [SystemSharedServices freeDiskSpaceinRaw];
+}
+
++ (NSString *)totalDiskSpace
+{
+    return [SystemSharedServices diskSpace];
+}
+
++ (NSString *)usedDiskSpace
+{
+    return [SystemSharedServices usedDiskSpaceinRaw];
+}
+
++ (double)diskSpaceUsedRate
+{
+    return [[SystemSharedServices usedDiskSpaceinPercent] floatValue] / 100;
+}
+
++ (NSString *)totalMemorySpace
+{
+    return [NSString stringWithFormat:@"%.2f MB",[SystemSharedServices totalMemory]];
+}
+
+//返回的单位为MB
++ (double)availableMemorySpace
+{
+    return [SystemSharedServices totalMemory] - [SystemSharedServices usedMemoryinRaw];
+}
+
++ (NSString *)usedMemorySpace
+{
+    return [NSString stringWithFormat:@"%.2f MB",[SystemSharedServices usedMemoryinRaw]];
+}
+
++ (double)memorySpaceUsedRate
+{
+    return [SystemSharedServices usedMemoryinPercent] /100;
+}
+
++ (NSString *)language
+{
+    return [SystemSharedServices language];
+}
+
++ (NSString *)country
+{
+    return [SystemSharedServices country];
+}
+
++ (NSString *)newtworkType
+{
+    CTTelephonyNetworkInfo *telephonyInfo = [CTTelephonyNetworkInfo new];
+    
+    NSString *netType = @"";
+    
+    if ([NSString ym_isContainString:telephonyInfo.currentRadioAccessTechnology]) {
+        netType = telephonyInfo.currentRadioAccessTechnology;
+    }
+    
+    return netType;
+}
+
++ (BOOL)isJailBroken
+{
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"cydia://"]]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+#pragma mark - private methods
 
 +  (NSString *)platformType:(NSString *)platform
 {
@@ -113,74 +188,6 @@
     else                                            return @"Unknown";
     
     return platform;
-}
-
-+ (NSString *)availableDiskSpace
-{
-    return [SystemSharedServices freeDiskSpaceinRaw];
-}
-
-+ (NSString *)totalDiskSpace
-{
-    return [SystemSharedServices diskSpace];
-}
-
-+ (NSString *)usedDiskSpace
-{
-    return [SystemSharedServices usedDiskSpaceinRaw];
-}
-
-+ (double)diskSpaceUsedRate
-{
-    return [[SystemSharedServices usedDiskSpaceinPercent] floatValue] / 100;
-}
-
-+ (NSString *)totalMemorySpace
-{
-    return [NSString stringWithFormat:@"%.2f MB",[SystemSharedServices totalMemory]];
-}
-
-//返回的单位为MB
-+ (double)availableMemorySpace
-{
-    return [SystemSharedServices totalMemory] - [SystemSharedServices usedMemoryinRaw];
-}
-
-+ (NSString *)usedMemorySpace
-{
-    return [NSString stringWithFormat:@"%.2f MB",[SystemSharedServices usedMemoryinRaw]];
-}
-
-+ (double)memorySpaceUsedRate
-{
-    return [SystemSharedServices usedMemoryinPercent] /100;
-}
-
-+ (NSString *)language
-{
-    return [SystemSharedServices language];
-}
-
-+ (NSString *)newtworkType
-{
-    CTTelephonyNetworkInfo *telephonyInfo = [CTTelephonyNetworkInfo new];
-    
-    NSString *netType = @"";
-    
-    if ([NSString ym_isContainString:telephonyInfo.currentRadioAccessTechnology]) {
-        netType = telephonyInfo.currentRadioAccessTechnology;
-    }
-    
-    return netType;
-}
-
-+ (BOOL)isJailBroken
-{
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"cydia://"]]) {
-        return YES;
-    }
-    
-    return NO;
 }
 
 @end
