@@ -52,4 +52,11 @@
     return [APService registrationID];
 }
 
++ (void)setAlias:(NSString *)alias
+{
+    [APService setAlias:alias
+       callbackSelector:nil
+                 object:nil];
+}
+
 @end

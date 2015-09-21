@@ -36,4 +36,10 @@
  */
 + (void)handleRemoteNotification:(NSDictionary *)remoteInfo;
 
+
+/**
+ *  设置别名，用于精确推送
+ */
++ (void)setAlias:(NSString *)alias;
+
 @end
