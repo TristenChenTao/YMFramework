@@ -14,6 +14,7 @@
 #import "YMFrameworkConfig.h"
 #import "YMDeviceInfo.h"
 #import "YMUI.h"
+#import "NSString+YMAdditions.h"
 
 @interface YMHTTPRequestManager()
 
@@ -63,12 +64,9 @@ static BOOL kIsReachable = YES;
                                                                     parameters:parameters
                                                                    headerField:headerField];
     
-    if (kIsReachable == NO) {
-        if(failure) {
-            NSError *error = [NSError errorWithDomain:baseURL code:YMHttpResponseTypeForNoReachable userInfo:nil];
-            failure(request,error);
-        }
-        
+    if (kIsReachable == NO && failure) {
+        NSError *error = [NSError errorWithDomain:baseURL code:YMHttpResponseTypeForNoReachable userInfo:nil];
+        failure(request,error);
         return nil;
     }
     
@@ -134,11 +132,9 @@ static BOOL kIsReachable = YES;
     AFHTTPRequestSerializer *requestSerializer = manager.requestSerializer;
     requestSerializer.cachePolicy = NSURLRequestReloadIgnoringCacheData;
     
+    requestSerializer.timeoutInterval = defaultTimeout;
     if (timeout > 0) {
         requestSerializer.timeoutInterval = timeout;
-    }
-    else {
-        requestSerializer.timeoutInterval = defaultTimeout;
     }
     
     parameters = [YMHTTPRequestManager packageParameters:parameters];
@@ -166,11 +162,23 @@ static BOOL kIsReachable = YES;
                                  failure:(void (^)(NSURLRequest *request, NSError *error))failure
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSMutableURLRequest *request = [YMHTTPRequestManager multipartFormRequestWithURLAddress:[baseURL stringByAppendingString:relativeURL]
-                                                                                    timeout:timeout
-                                                                                 parameters:parameters
-                                                                                     images:images
-                                                                                headerField:headerField];
+    
+    NSMutableArray *arrayForData = [NSMutableArray arrayWithCapacity:images.count];
+    NSMutableArray *arrayForName = [NSMutableArray arrayWithCapacity:images.count];
+    for (int i = 0; i < images.count ; i++) {
+        UIImage *image = images[i];
+        NSData *imageData = UIImagePNGRepresentation(image);
+        [arrayForData addObject:imageData];
+        [arrayForName addObject:[NSString stringWithFormat:@"image%d",i]];
+    }
+    
+    NSMutableURLRequest *request = [YMHTTPRequestManager multipartWithURL:[baseURL stringByAppendingString:relativeURL]
+                                                                  timeout:timeout
+                                                               parameters:parameters
+                                                                     name:arrayForName
+                                                                     data:arrayForData
+                                                              headerField:headerField
+                                                                 mimeType:@"image/png"];
     __block AFHTTPRequestOperation *operation = nil;
     operation = [manager HTTPRequestOperationWithRequest:request
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -183,11 +191,13 @@ static BOOL kIsReachable = YES;
                                                      [[NSURLCache sharedURLCache] removeAllCachedResponses];
                                                      
                                                      //如果请求失败会使用IP方式请求
-                                                     NSMutableURLRequest *request = [YMHTTPRequestManager multipartFormRequestWithURLAddress:[baseIP stringByAppendingString:relativeURL]
-                                                                                                                                     timeout:timeout
-                                                                                                                                  parameters:parameters
-                                                                                                                                      images:images
-                                                                                                                                 headerField:headerField];
+                                                     NSMutableURLRequest *request = [YMHTTPRequestManager multipartWithURL:[baseIP stringByAppendingString:relativeURL]
+                                                                                                                   timeout:timeout
+                                                                                                                parameters:parameters
+                                                                                                                      name:arrayForName
+                                                                                                                      data:arrayForData
+                                                                                                               headerField:headerField
+                                                                                                                  mimeType:@"image/png"];
                                                      
                                                      operation = [manager HTTPRequestOperationWithRequest:request
                                                                                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -210,21 +220,87 @@ static BOOL kIsReachable = YES;
     return (YMHTTPRequestOperation *)operation;
 }
 
-+ (NSMutableURLRequest *)multipartFormRequestWithURLAddress:(NSString *)URLAddress
-                                                    timeout:(float)timeout
-                                                 parameters:(NSDictionary *)parameters
-                                                     images:(NSArray *)images
-                                                headerField:(NSDictionary *)headerField
++ (YMHTTPRequestOperation *)uploadJSONData:(NSData *)data
+                               relativeURL:(NSString *)relativeURL
+                                   baseURL:(NSString *)baseURL
+                                    baseIP:(NSString *)baseIP
+                               headerField:(NSDictionary *)headerField
+                                parameters:(NSDictionary *)parameters
+                                   timeout:(float)timeout
+                                   success:(void (^)(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage,id data))success
+                                   failure:(void (^)(NSURLRequest *request, NSError *error))failure
 {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSMutableURLRequest *request = [YMHTTPRequestManager multipartWithURL:[baseURL stringByAppendingString:relativeURL]
+                                                                  timeout:timeout
+                                                               parameters:parameters
+                                                                     name:@[@"JSON"]
+                                                                     data:@[data]
+                                                              headerField:headerField
+                                                                 mimeType:nil];
+    __block AFHTTPRequestOperation *operation = nil;
+    operation = [manager HTTPRequestOperationWithRequest:request
+                                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                     [YMHTTPRequestManager handleSucceedResponse:operation
+                                                                                  responseObject:responseObject
+                                                                                         success:success];
+                                                 }
+                                                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                     //如果请求失败则清空缓存
+                                                     [[NSURLCache sharedURLCache] removeAllCachedResponses];
+                                                     
+                                                     //如果请求失败会使用IP方式请求
+                                                     NSMutableURLRequest *request = [YMHTTPRequestManager multipartWithURL:[baseIP stringByAppendingString:relativeURL]
+                                                                                                                   timeout:timeout
+                                                                                                                parameters:parameters
+                                                                                                                      name:@[@"JSON"]
+                                                                                                                      data:@[data]
+                                                                                                               headerField:headerField
+                                                                                                                  mimeType:nil];
+                                                     
+                                                     operation = [manager HTTPRequestOperationWithRequest:request
+                                                                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                                                                      [YMHTTPRequestManager handleSucceedResponse:operation
+                                                                                                                                   responseObject:responseObject
+                                                                                                                                          success:success];
+                                                                                                  }
+                                                                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                                                                      if (failure) {
+                                                                                                          failure(operation.request,error);
+                                                                                                      }
+                                                                                                  }
+                                                                  ];
+                                                     
+                                                     [manager.operationQueue addOperation:operation];
+                                                 }];
+    
+    [manager.operationQueue addOperation:operation];
+    
+    return (YMHTTPRequestOperation *)operation;
+}
+
+#pragma mark - private methods
+
++ (NSMutableURLRequest *)multipartWithURL:(NSString *)URLAddress
+                                  timeout:(float)timeout
+                               parameters:(NSDictionary *)parameters
+                                     name:(NSArray *)name
+                                     data:(NSArray *)data
+                              headerField:(NSDictionary *)headerField
+                                 mimeType:(NSString *)mimeType
+{
+    if (name.count != data.count) {
+        YM_Log(@"name.count != data.count");
+    }
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     AFHTTPRequestSerializer *requestSerializer = manager.requestSerializer;
     requestSerializer.cachePolicy = NSURLRequestReloadIgnoringCacheData;
     
+    requestSerializer.timeoutInterval = defaultTimeout;
     if (timeout > 0) {
         requestSerializer.timeoutInterval = timeout;
-    }
-    else {
-        requestSerializer.timeoutInterval = defaultTimeout;
     }
     
     parameters = [YMHTTPRequestManager packageParameters:parameters];
@@ -233,11 +309,18 @@ static BOOL kIsReachable = YES;
                                                                            URLString:URLAddress
                                                                           parameters:parameters
                                                            constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                                                               for (int i = 0; i < images.count ; i++) {
-                                                                   UIImage *image = images[i];
-                                                                   NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
-                                                                   [formData appendPartWithFormData:imageData
-                                                                                               name:[NSString stringWithFormat:@"image%d",i]];
+                                                               for (int i = 0; i < data.count ; i++) {
+                                                                   
+                                                                   if ([NSString ym_isContainString:mimeType]) {
+                                                                       [formData appendPartWithFileData:data[i]
+                                                                                                   name:name[i]
+                                                                                               fileName:name[i]
+                                                                                               mimeType:mimeType];
+                                                                   }
+                                                                   else {
+                                                                       [formData appendPartWithFormData:data[i]
+                                                                                                   name:name[i]];
+                                                                   }
                                                                }
                                                            }
                                                                                error:nil];
@@ -263,7 +346,7 @@ static BOOL kIsReachable = YES;
     }
 }
 
-+ (NSDictionary*)packageParameters:(NSDictionary *)parameters
++ (NSDictionary *)packageParameters:(NSDictionary *)parameters
 {
     NSDictionary *baseInfo = @{@"proID" : [YMFrameworkConfig sharedInstance].productID,
                                @"edition" : [YMFrameworkConfig sharedInstance].productVersion,
@@ -286,7 +369,6 @@ static BOOL kIsReachable = YES;
 }
 
 @end
-
 
 @implementation YMHTTPRequestOperation
 
