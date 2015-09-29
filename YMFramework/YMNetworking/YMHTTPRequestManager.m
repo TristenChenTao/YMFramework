@@ -167,7 +167,7 @@ static BOOL kIsReachable = YES;
     NSMutableArray *arrayForName = [NSMutableArray arrayWithCapacity:images.count];
     for (int i = 0; i < images.count ; i++) {
         UIImage *image = images[i];
-        NSData *imageData = UIImagePNGRepresentation(image);
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
         [arrayForData addObject:imageData];
         [arrayForName addObject:[NSString stringWithFormat:@"image%d",i]];
     }
@@ -178,7 +178,7 @@ static BOOL kIsReachable = YES;
                                                                      name:arrayForName
                                                                      data:arrayForData
                                                               headerField:headerField
-                                                                 mimeType:@"image/png"];
+                                                                 mimeType:@"image/jpeg"];
     __block AFHTTPRequestOperation *operation = nil;
     operation = [manager HTTPRequestOperationWithRequest:request
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
