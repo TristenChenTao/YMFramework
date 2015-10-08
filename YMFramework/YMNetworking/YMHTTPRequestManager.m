@@ -359,6 +359,7 @@ static BOOL kIsReachable = YES;
                                @"lang" : [YMDeviceInfo language],
                                @"network" : [YMDeviceInfo newtworkType],
                                @"isCrack" : @([YMDeviceInfo isJailBroken]),
+                               @"country" : [YMDeviceInfo country],
                                @"osType" : @(1)};
     
     
