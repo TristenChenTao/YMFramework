@@ -49,4 +49,7 @@ typedef enum
                 failure:(void (^)(NSString *errorDescription))failure
                  cancel:(void (^)(void))cancel;
 
+//判断第三方平台客户端是否安装
++ (BOOL)isThirdPlatformAppInstalled:(YMThirdPlatformType)platformType;
+
 @end

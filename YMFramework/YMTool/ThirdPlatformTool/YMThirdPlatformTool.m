@@ -262,6 +262,29 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
      }];
 }
 
++ (BOOL)isThirdPlatformAppInstalled:(YMThirdPlatformType)platformType
+{
+    BOOL installed = NO;
+    switch (platformType) {
+        case YMThirdPlatformForWeibo:
+            installed = [WeiboSDK isWeiboAppInstalled];
+            break;
+        case YMThirdPlatformForQQ:
+            installed = [QQApi isQQInstalled];
+            break;
+        case YMThirdPlatformForWechat:
+            installed = [WXApi isWXAppInstalled];
+            break;
+        default:
+            installed = NO;
+            break;
+    }
+    
+    return installed;
+}
+
+#pragma mark - private methods
+
 static inline SSDKPlatformType SSDKPlatformTypeFromPlatformType(YMThirdPlatformType platformType)
 {
     SSDKPlatformType type = 0;
