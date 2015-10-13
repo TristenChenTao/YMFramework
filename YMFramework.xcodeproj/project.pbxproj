@@ -121,8 +121,6 @@
 		62703E5F1B10490B005CA088 /* UIWebView+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E431B10490B005CA088 /* UIWebView+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62703E601B10490B005CA088 /* UIWebView+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E441B10490B005CA088 /* UIWebView+YMAdditions.m */; };
 		62703E651B10490B005CA088 /* YMUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E491B10490B005CA088 /* YMUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		627355561B9D8EEB005EE804 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627355541B9D8EEB005EE804 /* Crashlytics.framework */; };
-		627355571B9D8EEB005EE804 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627355551B9D8EEB005EE804 /* Fabric.framework */; };
 		6278FF061B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 6278FF001B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6278FF071B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6278FF011B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.m */; };
 		6278FF081B1D4FC0000B77A0 /* YMThirdPlatformTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 6278FF021B1D4FC0000B77A0 /* YMThirdPlatformTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -270,6 +268,8 @@
 		6281D6911BC79DC400B57710 /* FLEXImagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6281D60C1BC79DC400B57710 /* FLEXImagePreviewViewController.m */; settings = {ASSET_TAGS = (); }; };
 		62974C111B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h in Headers */ = {isa = PBXBuildFile; fileRef = 62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62974C121B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m in Sources */ = {isa = PBXBuildFile; fileRef = 62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */; };
+		629E740E1BCCF1D500966D3D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629E740C1BCCF1D500966D3D /* Crashlytics.framework */; settings = {ASSET_TAGS = (); }; };
+		629E740F1BCCF1D500966D3D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629E740D1BCCF1D500966D3D /* Fabric.framework */; settings = {ASSET_TAGS = (); }; };
 		62A2E4E31BCB887C00035C83 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A2E4D71BCB887C00035C83 /* libWeiboSDK.a */; settings = {ASSET_TAGS = (); }; };
 		62A2E4E41BCB887C00035C83 /* WBHttpRequest+WeiboGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 62A2E4D81BCB887C00035C83 /* WBHttpRequest+WeiboGame.h */; settings = {ASSET_TAGS = (); }; };
 		62A2E4E51BCB887C00035C83 /* WBHttpRequest+WeiboShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 62A2E4D91BCB887C00035C83 /* WBHttpRequest+WeiboShare.h */; settings = {ASSET_TAGS = (); }; };
@@ -556,8 +556,6 @@
 		62703E431B10490B005CA088 /* UIWebView+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+YMAdditions.h"; sourceTree = "<group>"; };
 		62703E441B10490B005CA088 /* UIWebView+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+YMAdditions.m"; sourceTree = "<group>"; };
 		62703E491B10490B005CA088 /* YMUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMUI.h; sourceTree = "<group>"; };
-		627355541B9D8EEB005EE804 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		627355551B9D8EEB005EE804 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		6278FF001B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMThirdPlatformShareEntity.h; sourceTree = "<group>"; };
 		6278FF011B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMThirdPlatformShareEntity.m; sourceTree = "<group>"; };
 		6278FF021B1D4FC0000B77A0 /* YMThirdPlatformTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMThirdPlatformTool.h; sourceTree = "<group>"; };
@@ -705,6 +703,8 @@
 		6281D60C1BC79DC400B57710 /* FLEXImagePreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXImagePreviewViewController.m; sourceTree = "<group>"; };
 		62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YMAccessors.h"; sourceTree = "<group>"; };
 		62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YMAccessors.m"; sourceTree = "<group>"; };
+		629E740C1BCCF1D500966D3D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		629E740D1BCCF1D500966D3D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		62A2E4D71BCB887C00035C83 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		62A2E4D81BCB887C00035C83 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		62A2E4D91BCB887C00035C83 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -884,13 +884,13 @@
 			files = (
 				625778101BA903AB00B3EAC1 /* libWeChatSDK.a in Frameworks */,
 				625778051BA903AB00B3EAC1 /* TencentOpenAPI.framework in Frameworks */,
+				629E740E1BCCF1D500966D3D /* Crashlytics.framework in Frameworks */,
 				625778131BA903AB00B3EAC1 /* ShareSDK.framework in Frameworks */,
 				62FFC7B51B830C4B001E6BC1 /* libPushSDK-1.8.5.a in Frameworks */,
+				629E740F1BCCF1D500966D3D /* Fabric.framework in Frameworks */,
 				62A2E4E31BCB887C00035C83 /* libWeiboSDK.a in Frameworks */,
 				62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */,
-				627355561B9D8EEB005EE804 /* Crashlytics.framework in Frameworks */,
 				625778141BA903AB00B3EAC1 /* ShareSDKConnector.framework in Frameworks */,
-				627355571B9D8EEB005EE804 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1195,8 +1195,8 @@
 		627355531B9D8EEB005EE804 /* Crashlytics */ = {
 			isa = PBXGroup;
 			children = (
-				627355541B9D8EEB005EE804 /* Crashlytics.framework */,
-				627355551B9D8EEB005EE804 /* Fabric.framework */,
+				629E740C1BCCF1D500966D3D /* Crashlytics.framework */,
+				629E740D1BCCF1D500966D3D /* Fabric.framework */,
 			);
 			path = Crashlytics;
 			sourceTree = "<group>";
