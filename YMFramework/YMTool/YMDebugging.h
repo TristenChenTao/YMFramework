@@ -12,10 +12,11 @@
 
 @interface YMDebugging : NSObject
 
-@property (nonatomic, assign)BOOL networkDebuggingEnabled;
++ (void)startDebugWithAppKey:(NSString *)appKey;
 
-YM_MacrosSingletonInterface
++ (void)showExplorer;
 
-- (void)showExplorer;
++ (void)setNetworkDebuggingEnabled:(BOOL)networkDebuggingEnabled;
+
 
 @end

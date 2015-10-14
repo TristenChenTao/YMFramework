@@ -268,8 +268,6 @@
 		6281D6911BC79DC400B57710 /* FLEXImagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6281D60C1BC79DC400B57710 /* FLEXImagePreviewViewController.m */; settings = {ASSET_TAGS = (); }; };
 		62974C111B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h in Headers */ = {isa = PBXBuildFile; fileRef = 62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62974C121B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m in Sources */ = {isa = PBXBuildFile; fileRef = 62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */; };
-		629E740E1BCCF1D500966D3D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629E740C1BCCF1D500966D3D /* Crashlytics.framework */; settings = {ASSET_TAGS = (); }; };
-		629E740F1BCCF1D500966D3D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629E740D1BCCF1D500966D3D /* Fabric.framework */; settings = {ASSET_TAGS = (); }; };
 		62A2E4E31BCB887C00035C83 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A2E4D71BCB887C00035C83 /* libWeiboSDK.a */; settings = {ASSET_TAGS = (); }; };
 		62A2E4E41BCB887C00035C83 /* WBHttpRequest+WeiboGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 62A2E4D81BCB887C00035C83 /* WBHttpRequest+WeiboGame.h */; settings = {ASSET_TAGS = (); }; };
 		62A2E4E51BCB887C00035C83 /* WBHttpRequest+WeiboShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 62A2E4D91BCB887C00035C83 /* WBHttpRequest+WeiboShare.h */; settings = {ASSET_TAGS = (); }; };
@@ -434,6 +432,7 @@
 		62C54F1E1B84516200004E80 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C54E3B1B84516200004E80 /* UIImageView+WebCache.m */; };
 		62C54F1F1B84516200004E80 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 62C54E3C1B84516200004E80 /* UIView+WebCacheOperation.h */; };
 		62C54F201B84516200004E80 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C54E3D1B84516200004E80 /* UIView+WebCacheOperation.m */; };
+		62D8A0351BCE24EA008E0744 /* Bugtags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D8A0341BCE24EA008E0744 /* Bugtags.framework */; settings = {ASSET_TAGS = (); }; };
 		62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */; };
 		62E433631AE5F89D005445B2 /* MobClick.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433601AE5F89D005445B2 /* MobClick.h */; };
 		62E433641AE5F89D005445B2 /* MobClickSocialAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */; };
@@ -703,8 +702,6 @@
 		6281D60C1BC79DC400B57710 /* FLEXImagePreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXImagePreviewViewController.m; sourceTree = "<group>"; };
 		62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YMAccessors.h"; sourceTree = "<group>"; };
 		62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YMAccessors.m"; sourceTree = "<group>"; };
-		629E740C1BCCF1D500966D3D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		629E740D1BCCF1D500966D3D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		62A2E4D71BCB887C00035C83 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		62A2E4D81BCB887C00035C83 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		62A2E4D91BCB887C00035C83 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -869,6 +866,7 @@
 		62C54E3B1B84516200004E80 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		62C54E3C1B84516200004E80 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		62C54E3D1B84516200004E80 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		62D8A0341BCE24EA008E0744 /* Bugtags.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugtags.framework; sourceTree = "<group>"; };
 		62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		62E433601AE5F89D005445B2 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
@@ -884,10 +882,9 @@
 			files = (
 				625778101BA903AB00B3EAC1 /* libWeChatSDK.a in Frameworks */,
 				625778051BA903AB00B3EAC1 /* TencentOpenAPI.framework in Frameworks */,
-				629E740E1BCCF1D500966D3D /* Crashlytics.framework in Frameworks */,
+				62D8A0351BCE24EA008E0744 /* Bugtags.framework in Frameworks */,
 				625778131BA903AB00B3EAC1 /* ShareSDK.framework in Frameworks */,
 				62FFC7B51B830C4B001E6BC1 /* libPushSDK-1.8.5.a in Frameworks */,
-				629E740F1BCCF1D500966D3D /* Fabric.framework in Frameworks */,
 				62A2E4E31BCB887C00035C83 /* libWeiboSDK.a in Frameworks */,
 				62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */,
 				625778141BA903AB00B3EAC1 /* ShareSDKConnector.framework in Frameworks */,
@@ -1089,9 +1086,9 @@
 		625D56711ADBAF52007BCA33 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				62D8A0331BCE24EA008E0744 /* Bugtags */,
 				625777F01BA903AB00B3EAC1 /* ShareSDK */,
 				625786651BA6955A006F1ADE /* FLEX */,
-				627355531B9D8EEB005EE804 /* Crashlytics */,
 				62B4D3C21B845741006522CF /* libwebp */,
 				62C54E1C1B84516200004E80 /* SDWebImage */,
 				6242FCB21B2FD789007DD69C /* STWebP */,
@@ -1190,15 +1187,6 @@
 				625220D91B5F429500EC902B /* UIButton+YMHitAdditions.m */,
 			);
 			path = YMUI;
-			sourceTree = "<group>";
-		};
-		627355531B9D8EEB005EE804 /* Crashlytics */ = {
-			isa = PBXGroup;
-			children = (
-				629E740C1BCCF1D500966D3D /* Crashlytics.framework */,
-				629E740D1BCCF1D500966D3D /* Fabric.framework */,
-			);
-			path = Crashlytics;
 			sourceTree = "<group>";
 		};
 		6278FEFF1B1D4FC0000B77A0 /* ThirdPlatformTool */ = {
@@ -1656,6 +1644,14 @@
 				62C54E3D1B84516200004E80 /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		62D8A0331BCE24EA008E0744 /* Bugtags */ = {
+			isa = PBXGroup;
+			children = (
+				62D8A0341BCE24EA008E0744 /* Bugtags.framework */,
+			);
+			path = Bugtags;
 			sourceTree = "<group>";
 		};
 		62E4335E1AE5F89D005445B2 /* UMAnalytics */ = {
@@ -2346,6 +2342,7 @@
 					"$(PROJECT_DIR)/YMFramework/Vender/ShareSDK/extends/QQSDK",
 					"$(PROJECT_DIR)/YMFramework/Vender/Crashlytics",
 					/Users/Tristen/Development/YMGoodLuck/YMGoodLuck/YMFramework/ShareSDK,
+					"$(PROJECT_DIR)/YMFramework/Vender/Bugtags",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"SD_WEBP=1",
@@ -2394,6 +2391,7 @@
 					"$(PROJECT_DIR)/YMFramework/Vender/ShareSDK/extends/QQSDK",
 					"$(PROJECT_DIR)/YMFramework/Vender/Crashlytics",
 					/Users/Tristen/Development/YMGoodLuck/YMGoodLuck/YMFramework/ShareSDK,
+					"$(PROJECT_DIR)/YMFramework/Vender/Bugtags",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = "SD_WEBP=1";
 				INFOPLIST_FILE = YMFramework/Info.plist;

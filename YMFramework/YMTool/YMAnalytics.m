@@ -17,9 +17,6 @@
 //for idfa
 #import <AdSupport/AdSupport.h>
 
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
-
 #import "MobClick.h"
 
 #import "NSString+YMAdditions.h"
@@ -81,11 +78,6 @@
 + (void)event:(NSString *)eventId label:(NSString *)label
 {
     [MobClick event:eventId label:label];
-}
-
-+ (void)startCrashReport
-{
-    [Fabric with:@[[Crashlytics class]]];
 }
 
 + (NSString * )macString

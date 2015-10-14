@@ -19,8 +19,6 @@
 + (void)event:(NSString *)eventId;
 + (void)event:(NSString *)eventId label:(NSString *)label;
 
-+ (void)startCrashReport;
-
 + (NSString * )macString;
 + (NSString *)idfaString;
 + (NSString *)idfvString;

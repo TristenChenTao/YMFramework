@@ -6,29 +6,29 @@
 //  Copyright (c) 2015 cornapp. All rights reserved.
 //
 
+#import <Bugtags/Bugtags.h>
 #import "FLEXManager.h"
 
 #import "YMDebugging.h"
 
 @implementation YMDebugging
 
-YM_MacrosSingletonImplemantion
++ (void)startDebugWithAppKey:(NSString *)appKey
+{
+    [Bugtags startWithAppKey:appKey
+             invocationEvent:BTGInvocationEventNone];
+}
 
-- (void)showExplorer
++ (void)showExplorer
 {
     [[FLEXManager sharedManager] showExplorer];
+    
+    [Bugtags setInvocationEvent:BTGInvocationEventBubble];
 }
 
-#pragma mark - getters and setters
-
-- (void)setNetworkDebuggingEnabled:(BOOL)networkDebuggingEnabled
++ (void)setNetworkDebuggingEnabled:(BOOL)networkDebuggingEnabled
 {
     [FLEXManager sharedManager].networkDebuggingEnabled = networkDebuggingEnabled;
-}
-
-- (BOOL)networkDebuggingEnabled
-{
-    return [FLEXManager sharedManager].networkDebuggingEnabled;
 }
 
 @end
