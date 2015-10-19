@@ -31,4 +31,9 @@
     [FLEXManager sharedManager].networkDebuggingEnabled = networkDebuggingEnabled;
 }
 
++ (void)setTrackingCrashes:(BOOL)trackingCrashes
+{
+    [Bugtags setTrackingCrashes:trackingCrashes];
+}
+
 @end

@@ -18,5 +18,6 @@
 
 + (void)setNetworkDebuggingEnabled:(BOOL)networkDebuggingEnabled;
 
++ (void)setTrackingCrashes:(BOOL)trackingCrashes;
 
 @end
