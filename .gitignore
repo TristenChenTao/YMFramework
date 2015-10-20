@@ -3,8 +3,9 @@
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 
-## YMFramework Archive
+## YM
 Products/
+YMFramework.xcodeproj/project.xcworkspace/xcuserdata/Tristen.xcuserdatad/UserInterfaceState.xcuserstate/
 
 ## Build generated
 build/
