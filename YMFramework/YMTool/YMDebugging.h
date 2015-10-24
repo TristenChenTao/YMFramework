@@ -12,12 +12,8 @@
 
 @interface YMDebugging : NSObject
 
-+ (void)startDebugWithAppKey:(NSString *)appKey;
-
 + (void)showExplorer;
 
 + (void)setNetworkDebuggingEnabled:(BOOL)networkDebuggingEnabled;
-
-+ (void)setTrackingCrashes:(BOOL)trackingCrashes;
 
 @end
