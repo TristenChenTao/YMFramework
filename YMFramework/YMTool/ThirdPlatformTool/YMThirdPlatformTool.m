@@ -270,7 +270,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
             installed = [WeiboSDK isWeiboAppInstalled];
             break;
         case YMThirdPlatformForQQ:
-            installed = [QQApi isQQInstalled];
+            installed = [QQApiInterface isQQInstalled];
             break;
         case YMThirdPlatformForWechat:
             installed = [WXApi isWXAppInstalled];

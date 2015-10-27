@@ -37,7 +37,6 @@
         [MobClick setAppVersion:version];
         
         [MobClick updateOnlineConfig];
-        [MobClick checkUpdate];
         
         //umtrack
         NSString * deviceName = [[[UIDevice currentDevice] name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
