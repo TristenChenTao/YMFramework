@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		62033DE91BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62033DE71BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62033DEA1BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62033DE81BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.m */; };
 		62065C291B2004AF003769C8 /* YMFrameworkConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 62065C271B2004AF003769C8 /* YMFrameworkConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62065C2A1B2004AF003769C8 /* YMFrameworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 62065C281B2004AF003769C8 /* YMFrameworkConfig.m */; };
 		621597111ADB5875003CACA7 /* YMFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 621597101ADB5875003CACA7 /* YMFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -451,6 +453,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		62033DE71BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+YMFontSizeAdditions.h"; sourceTree = "<group>"; };
+		62033DE81BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+YMFontSizeAdditions.m"; sourceTree = "<group>"; };
 		62065C271B2004AF003769C8 /* YMFrameworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMFrameworkConfig.h; sourceTree = "<group>"; };
 		62065C281B2004AF003769C8 /* YMFrameworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMFrameworkConfig.m; sourceTree = "<group>"; };
 		6215970B1ADB5875003CACA7 /* YMFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YMFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1181,6 +1185,8 @@
 				62703E491B10490B005CA088 /* YMUI.h */,
 				625220D81B5F429500EC902B /* UIButton+YMHitAdditions.h */,
 				625220D91B5F429500EC902B /* UIButton+YMHitAdditions.m */,
+				62033DE71BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.h */,
+				62033DE81BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.m */,
 			);
 			path = YMUI;
 			sourceTree = "<group>";
@@ -1668,6 +1674,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62033DE91BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.h in Headers */,
 				6281D6131BC79DC400B57710 /* FLEXArgumentInputFontView.h in Headers */,
 				62974C111B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h in Headers */,
 				625220DA1B5F429500EC902B /* UIButton+YMHitAdditions.h in Headers */,
@@ -2177,6 +2184,7 @@
 				6281D6641BC79DC400B57710 /* FLEXNetworkObserver.m in Sources */,
 				6281D6201BC79DC400B57710 /* FLEXArgumentInputSwitchView.m in Sources */,
 				62703E4D1B10490B005CA088 /* UIColor+YMAdditions.m in Sources */,
+				62033DEA1BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.m in Sources */,
 				6281D6671BC79DC400B57710 /* FLEXArrayExplorerViewController.m in Sources */,
 				62B4D44F1B845741006522CF /* demux.c in Sources */,
 				622CE62F1AE4EC90004D714B /* SSProcessorInfo.m in Sources */,
