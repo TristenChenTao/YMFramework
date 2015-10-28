@@ -122,14 +122,14 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                   case SSDKPlatformTypeQQ: {
                       [appInfo SSDKSetupQQByAppId:kQQAppID
                                            appKey:kQQAppKey
-                                         authType:SSDKAuthTypeSSO];
+                                         authType:SSDKAuthTypeBoth];
                       break;
                   }
                   case SSDKPlatformTypeSinaWeibo: {
                       [appInfo SSDKSetupSinaWeiboByAppKey:kSinaWeiboAppKey
                                                 appSecret:kSinaWeiboAppSecret
                                               redirectUri:kSinaWeiboAppRedirectURL
-                                                 authType:SSDKAuthTypeSSO];
+                                                 authType:SSDKAuthTypeBoth];
                       break;
                   }
                   default:
@@ -141,16 +141,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
 + (void)loginForPlatformType:(YMThirdPlatformType)platformType
                      success:(void (^)(YMThirdPlatformUserInfo *platformUserInfo))success
                      failure:(void (^)(NSString *errorDescription))failure
-{
-    //特殊处理
-    if (![WeiboSDK isWeiboAppInstalled] && platformType == YMThirdPlatformForWeibo) {
-        if (failure) {
-            failure(@"未安装该应用，请先下载微博！");
-        }
-        
-        return;
-    }
-    
+{    
     SSDKPlatformType type = SSDKPlatformTypeFromPlatformType(platformType);
     
     [ShareSDK authorize:type
