@@ -22,4 +22,19 @@
     [FLEXManager sharedManager].networkDebuggingEnabled = networkDebuggingEnabled;
 }
 
++ (void)showCurrentVersionInfo
+{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *build = [infoDictionary objectForKey:@"CFBundleVersion"];
+    
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"当前版本"
+                                                    message:[NSString stringWithFormat:@"V %@ Build %@", version, build]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"关闭"
+                                          otherButtonTitles:nil];
+    
+    [alert show];
+}
+
 @end

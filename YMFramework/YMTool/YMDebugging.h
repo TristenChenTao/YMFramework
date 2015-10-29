@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 #import "YMTool.h"
 
 @interface YMDebugging : NSObject
@@ -15,5 +16,7 @@
 + (void)showExplorer;
 
 + (void)setNetworkDebuggingEnabled:(BOOL)networkDebuggingEnabled;
+
++ (void)showCurrentVersionInfo;
 
 @end
