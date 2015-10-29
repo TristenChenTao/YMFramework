@@ -10,9 +10,6 @@
 
 @interface UIFont (YMFontSizeAdditions)
 
-+ (UIFont *)level1Font;
-+ (UIFont *)level2Font;
-+ (UIFont *)level3Font;
-+ (UIFont *)level4Font;
++ (UIFont *)ym_standFontOfLevel:(NSInteger)level;
 
 @end

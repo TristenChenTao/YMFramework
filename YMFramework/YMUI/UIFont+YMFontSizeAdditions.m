@@ -12,44 +12,46 @@
 
 @implementation UIFont (YMFontSizeAdditions)
 
-+ (UIFont *)level1Font
++ (UIFont *)ym_standFontOfLevel:(NSInteger)level
 {
-    CGFloat size = 16;
-    if (kYm_iPhone6Plus) {
-        size = 23;
+    CGFloat size = 0;
+    switch (level) {
+        case 1:
+            if (kYm_iPhone6Plus) {
+                size = 23;
+            }
+            else {
+                size = 16;
+            }
+            break;
+        case 2:
+            if (kYm_iPhone6Plus) {
+                size = 21;
+            }
+            else {
+                size = 14;
+            }
+        case 3:
+            if (kYm_iPhone6Plus) {
+                size = 18;
+            }
+            else {
+                size = 12;
+            }
+        case 4:
+            if (kYm_iPhone6Plus) {
+                size = 14;
+            }
+            else {
+                size = 10;
+            }
+        default:
+            break;
     }
     
-    return [UIFont systemFontOfSize:size];
-}
+    UIFont *font = [UIFont systemFontOfSize:size];
 
-+ (UIFont *)level2Font
-{
-    CGFloat size = 14;
-    if (kYm_iPhone6Plus) {
-        size = 21;
-    }
-    
-    return [UIFont systemFontOfSize:size];
-}
-
-+ (UIFont *)level3Font
-{
-    CGFloat size = 12;
-    if (kYm_iPhone6Plus) {
-        size = 18;
-    }
-    
-    return [UIFont systemFontOfSize:size];
-}
-
-+ (UIFont *)level4Font
-{
-    CGFloat size = 10;
-    if (kYm_iPhone6Plus) {
-        size = 14;
-    }
-    
-    return [UIFont systemFontOfSize:size];
+    return font;
 }
 
 @end
