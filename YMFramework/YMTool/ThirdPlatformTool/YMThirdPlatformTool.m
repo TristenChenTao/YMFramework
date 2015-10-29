@@ -205,17 +205,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                 success:(void (^)(YMThirdPlatformShareEntity *shareEntity))success
                 failure:(void (^)(NSString *errorDescription))failure
                  cancel:(void (^)(void))cancel
-{
-    //特殊处理
-    if (![WeiboSDK isWeiboAppInstalled]
-        && shareEntity.shareType == YMThirdPlatformShareForWeibo) {
-        if (failure) {
-            failure(@"未安装该应用，请先下载微博！");
-        }
-        
-        return;
-    }
-    
+{    
     [ShareSDK share:SSDKPlatformTypeFromPlatformShareType(shareEntity.shareType)
          parameters:shareContentFromShareEntity(shareEntity)
      onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
@@ -225,22 +215,10 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
              }
          }
          else if (state == SSDKResponseStateFail) {
-             NSString *errorMessage = nil;
              
-             switch (error.code) {
-                 case -22003:
-                     errorMessage = @"未安装该应用，请先下载微信！";
-                     break;
-                 case -6004:
-                     errorMessage = @"未安装该应用，请先下载QQ！";
-                     break;
-                 case 10014:
-                     errorMessage = @"未安装该应用，请先下载微博！";
-                     break;
-                 default:
-                     errorMessage = @"分享失败";
-                     break;
-             }
+             NSDictionary *dic = error.userInfo;
+             
+             NSString *errorMessage = dic[@"error_message"];
              if (failure) {
                  failure(errorMessage);
              }
