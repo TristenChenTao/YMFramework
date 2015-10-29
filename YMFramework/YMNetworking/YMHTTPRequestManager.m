@@ -34,8 +34,6 @@ static BOOL kIsReachable = YES;
     [super load];
     
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
-        
         if(status == AFNetworkReachabilityStatusNotReachable) {
             kIsReachable = NO;
         }
