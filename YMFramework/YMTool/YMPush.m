@@ -16,6 +16,7 @@
 + (void)setupWithOption:(NSDictionary *)launchingOption
 {
     
+    
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"PushConfig" ofType:@"plist"];
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     
@@ -26,8 +27,10 @@
                                            categories:nil];
         
         [APService setupWithOption:launchingOption];
-        [APService setLogOFF];
+        
     }
+    
+    [APService setLogOFF];
 }
 
 + (void)registerForRemoteNotificationTypes:(NSUInteger)types

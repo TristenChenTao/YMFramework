@@ -48,10 +48,11 @@ enum {
     int motzart = 0;
     
     // URL Check
-    if ([self urlCheck] != NOTJAIL) {
-        // Jailbroken
-        motzart += 3;
-    }
+    //Vendor Modified by YM:iOS9下不再适用，会弹出警告日志
+//    if ([self urlCheck] != NOTJAIL) {
+//        // Jailbroken
+//        motzart += 3;
+//    }
     
     // Cydia Check
     if ([self cydiaCheck] != NOTJAIL) {

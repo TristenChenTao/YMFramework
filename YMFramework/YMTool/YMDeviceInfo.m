@@ -122,11 +122,11 @@
 
 + (BOOL)isJailBroken
 {
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"cydia://"]]) {
-        return YES;
+    if (NOTJAIL == [SystemSharedServices jailbroken]) {
+        return NO;
     }
     
-    return NO;
+    return YES;
 }
 
 #pragma mark - private methods
