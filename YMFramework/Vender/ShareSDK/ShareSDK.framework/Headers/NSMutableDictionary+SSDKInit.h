@@ -61,11 +61,11 @@
 /**
  *  设置Facebook应用信息
  *
- *  @param apiKey       应用标识
+ *  @param appKey       应用标识
  *  @param appSecret    应用密钥
  *  @param authType     授权方式
  */
-- (void)SSDKSetupFacebookByApiKey:(NSString *)apiKey
+- (void)SSDKSetupFacebookByAppKey:(NSString *)appKey
                         appSecret:(NSString *)appSecret
                          authType:(NSString *)authType;
 
@@ -173,37 +173,6 @@
 - (void)SSDKSetupTumblrByConsumerKey:(NSString *)consumerKey
                       consumerSecret:(NSString *)consumerSecret
                          callbackUrl:(NSString *)callbackUrl;
-
-/**
- *  设置Flickr应用信息
- *
- *  @param apiKey    应用标识
- *  @param apiSecret 应用密钥
- */
-- (void)SSDKSetupFlickrByApiKey:(NSString *)apiKey
-                      apiSecret:(NSString *)apiSecret;
-
-/**
- *  设置有道云笔记应用信息
- *
- *  @param consumerKey    应用标识
- *  @param consumerSecret 应用密钥
- *  @param oauthCallback    回调地址
- */
-- (void)SSDKSetupYouDaoNoteByConsumerKey:(NSString *)consumerKey
-                          consumerSecret:(NSString *)consumerSecret
-                           oauthCallback:(NSString *)oauthCallback;
-
-/**
- *  设置印象笔记应用信息，注：中国版和国际版都是调用此接口进行初始化操作。
- *
- *  @param consumerKey    应用标识
- *  @param consumerSecret 应用密钥
- *  @param sandbox        是否为沙箱模式, YES 沙箱模式，NO 非沙箱模式
- */
-- (void)SSDKSetupEvernoteByConsumerKey:(NSString *)consumerKey
-                        consumerSecret:(NSString *)consumerSecret
-                               sandbox:(BOOL)sandbox;
 
 
 @end

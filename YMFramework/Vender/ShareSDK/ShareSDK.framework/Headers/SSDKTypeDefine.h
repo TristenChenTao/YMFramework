@@ -95,10 +95,6 @@ typedef NS_ENUM(NSUInteger, SSDKPlatformType){
      */
     SSDKPlatformTypeTwitter             = 11,
     /**
-     *  印象笔记
-     */
-    SSDKPlatformTypeYinXiang            = 12,
-    /**
      *  Google+
      */
     SSDKPlatformTypeGooglePlus          = 14,
@@ -143,29 +139,9 @@ typedef NS_ENUM(NSUInteger, SSDKPlatformType){
      */
     SSDKPlatformTypePocket              = 26,
     /**
-     *  有道云笔记
-     */
-    SSDKPlatformTypeYouDaoNote          = 27,
-    /**
-     *  Flickr
-     */
-    SSDKPlatformTypeFlickr              = 34,
-    /**
      *  微信收藏
      */
     SSDKPlatformSubTypeWechatFav        = 37,
-    /**
-     *  Line
-     */
-    SSDKPlatformTypeLine                = 42,
-    /**
-     *  WhatsApp
-     */
-    SSDKPlatformTypeWhatsApp            = 43,
-    /**
-     *  印象笔记国际版
-     */
-    SSDKPlatformTypeEvernote            = 996,
     /**
      *  微信平台,
      */

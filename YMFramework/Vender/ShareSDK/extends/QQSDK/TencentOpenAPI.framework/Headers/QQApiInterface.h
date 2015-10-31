@@ -7,6 +7,7 @@
 ///
 
 #import <Foundation/Foundation.h>
+#import "QQApi.h"
 #import "QQApiInterfaceObject.h"
 
 /**
