@@ -10,6 +10,7 @@
 #import <mach/mach_host.h>
 
 #import "SystemServices.h"
+#import "MobClick.h"
 
 #import "YMDeviceInfo.h"
 #import "NSString+YMAdditions.h"
@@ -122,11 +123,7 @@
 
 + (BOOL)isJailBroken
 {
-    if (NOTJAIL == [SystemSharedServices jailbroken]) {
-        return NO;
-    }
-    
-    return YES;
+    return [MobClick isJailbroken];
 }
 
 #pragma mark - private methods
