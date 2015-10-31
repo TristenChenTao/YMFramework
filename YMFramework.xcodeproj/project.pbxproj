@@ -270,6 +270,7 @@
 		6281D6911BC79DC400B57710 /* FLEXImagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6281D60C1BC79DC400B57710 /* FLEXImagePreviewViewController.m */; };
 		62974C111B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h in Headers */ = {isa = PBXBuildFile; fileRef = 62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62974C121B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m in Sources */ = {isa = PBXBuildFile; fileRef = 62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */; };
+		629FDBE11BE4981500D496C1 /* libPushSDK-1.8.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 629FDBE01BE4981500D496C1 /* libPushSDK-1.8.8.a */; };
 		62A2E4E31BCB887C00035C83 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A2E4D71BCB887C00035C83 /* libWeiboSDK.a */; };
 		62A2E4E41BCB887C00035C83 /* WBHttpRequest+WeiboGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 62A2E4D81BCB887C00035C83 /* WBHttpRequest+WeiboGame.h */; };
 		62A2E4E51BCB887C00035C83 /* WBHttpRequest+WeiboShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 62A2E4D91BCB887C00035C83 /* WBHttpRequest+WeiboShare.h */; };
@@ -434,7 +435,6 @@
 		62C54F1E1B84516200004E80 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C54E3B1B84516200004E80 /* UIImageView+WebCache.m */; };
 		62C54F1F1B84516200004E80 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 62C54E3C1B84516200004E80 /* UIView+WebCacheOperation.h */; };
 		62C54F201B84516200004E80 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C54E3D1B84516200004E80 /* UIView+WebCacheOperation.m */; };
-		62DCFC011BDF66A400547A7E /* libPushSDK-1.8.7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DCFC001BDF66A400547A7E /* libPushSDK-1.8.7.a */; };
 		62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */; };
 		62E433631AE5F89D005445B2 /* MobClick.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433601AE5F89D005445B2 /* MobClick.h */; };
 		62E433641AE5F89D005445B2 /* MobClickSocialAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */; };
@@ -705,6 +705,7 @@
 		6281D60C1BC79DC400B57710 /* FLEXImagePreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXImagePreviewViewController.m; sourceTree = "<group>"; };
 		62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YMAccessors.h"; sourceTree = "<group>"; };
 		62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YMAccessors.m"; sourceTree = "<group>"; };
+		629FDBE01BE4981500D496C1 /* libPushSDK-1.8.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.8.a"; sourceTree = "<group>"; };
 		62A2E4D71BCB887C00035C83 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		62A2E4D81BCB887C00035C83 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		62A2E4D91BCB887C00035C83 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -869,7 +870,6 @@
 		62C54E3B1B84516200004E80 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		62C54E3C1B84516200004E80 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		62C54E3D1B84516200004E80 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		62DCFC001BDF66A400547A7E /* libPushSDK-1.8.7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.7.a"; sourceTree = "<group>"; };
 		62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		62E433601AE5F89D005445B2 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
@@ -886,8 +886,8 @@
 				625778051BA903AB00B3EAC1 /* TencentOpenAPI.framework in Frameworks */,
 				625778131BA903AB00B3EAC1 /* ShareSDK.framework in Frameworks */,
 				62A2E4E31BCB887C00035C83 /* libWeiboSDK.a in Frameworks */,
-				62DCFC011BDF66A400547A7E /* libPushSDK-1.8.7.a in Frameworks */,
 				62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */,
+				629FDBE11BE4981500D496C1 /* libPushSDK-1.8.8.a in Frameworks */,
 				625778141BA903AB00B3EAC1 /* ShareSDKConnector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1078,7 +1078,7 @@
 		6258F2231B04719000C0B785 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
-				62DCFC001BDF66A400547A7E /* libPushSDK-1.8.7.a */,
+				629FDBE01BE4981500D496C1 /* libPushSDK-1.8.8.a */,
 				6258F2241B04719000C0B785 /* APService.h */,
 			);
 			path = JPush;
