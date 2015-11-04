@@ -27,9 +27,10 @@
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
     NSString *build = [infoDictionary objectForKey:@"CFBundleVersion"];
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
     
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"当前版本"
-                                                    message:[NSString stringWithFormat:@"V %@ Build %@", version, build]
+                                                    message:[NSString stringWithFormat:@"%@ V%@ B%@",bundleID, version, build]
                                                    delegate:nil
                                           cancelButtonTitle:@"关闭"
                                           otherButtonTitles:nil];

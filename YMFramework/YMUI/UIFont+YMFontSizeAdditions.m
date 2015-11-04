@@ -31,6 +31,7 @@
             else {
                 size = 14;
             }
+            break;
         case 3:
             if (kYm_iPhone6Plus) {
                 size = 18;
@@ -38,6 +39,7 @@
             else {
                 size = 12;
             }
+            break;
         case 4:
             if (kYm_iPhone6Plus) {
                 size = 14;
@@ -45,6 +47,7 @@
             else {
                 size = 10;
             }
+            break;
         default:
             break;
     }
