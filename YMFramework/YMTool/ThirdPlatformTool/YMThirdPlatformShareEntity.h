@@ -15,6 +15,8 @@ typedef enum
     YMThirdPlatformShareForWechatTimeline =  3,
     YMThirdPlatformShareForWechatSession =  4,
     YMThirdPlatformShareForQQFriend = 5,
+    YMThirdPlatformShareForFacebook = 6,
+    YMThirdPlatformShareForTwitter = 7,
 }YMThirdPlatformShareType;
 
 typedef enum

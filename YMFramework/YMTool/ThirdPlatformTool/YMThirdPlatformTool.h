@@ -16,6 +16,8 @@ typedef enum
     YMThirdPlatformForWeibo = 1,
     YMThirdPlatformForQQ = 2,
     YMThirdPlatformForWechat =  3,
+    YMThirdPlatformForFacebook =  4,
+    YMThirdPlatformForTwitter =  5,
 }YMThirdPlatformType;
 
 @interface YMThirdPlatformTool : NSObject

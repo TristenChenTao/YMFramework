@@ -95,10 +95,13 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
         [platforms addObject:@(SSDKPlatformTypeSinaWeibo)];
     }
     
+    //Test
+    [platforms addObject:@(SSDKPlatformTypeFacebook)];
+    [platforms addObject:@(SSDKPlatformTypeTwitter)];
+    
     [ShareSDK registerApp:appKey
           activePlatforms:platforms
                  onImport:^(SSDKPlatformType platformType) {
-                     
                      switch (platformType)
                      {
                          case SSDKPlatformTypeWechat:
@@ -110,7 +113,6 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                          default:
                              break;
                      }
-                     
                  }
           onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo) {
               switch (platformType) {
@@ -132,6 +134,18 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                                                  authType:SSDKAuthTypeBoth];
                       break;
                   }
+                  case SSDKPlatformTypeFacebook: {
+                      [appInfo SSDKSetupFacebookByApiKey:@"107704292745179"
+                                               appSecret:@"38053202e1a5fe26c80c753071f0b573"
+                                                authType:SSDKAuthTypeBoth];
+                      break;
+                  }
+                  case SSDKPlatformTypeTwitter: {
+                      [appInfo SSDKSetupTwitterByConsumerKey:@"LRBM0H75rWrU9gNHvlEAA2aOy"
+                                              consumerSecret:@"gbeWsZvA9ELJSdoBzJ5oLKX0TU09UOwrzdGfo9Tg7DjyGuMe8G"
+                                                 redirectUri:@"http://mob.com"];
+                      break;
+                  }
                   default:
                       break;
               }
@@ -141,7 +155,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
 + (void)loginForPlatformType:(YMThirdPlatformType)platformType
                      success:(void (^)(YMThirdPlatformUserInfo *platformUserInfo))success
                      failure:(void (^)(NSString *errorDescription))failure
-{    
+{
     SSDKPlatformType type = SSDKPlatformTypeFromPlatformType(platformType);
     
     [ShareSDK authorize:type
@@ -191,7 +205,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                 success:(void (^)(YMThirdPlatformShareEntity *shareEntity))success
                 failure:(void (^)(NSString *errorDescription))failure
                  cancel:(void (^)(void))cancel
-{    
+{
     [ShareSDK share:SSDKPlatformTypeFromPlatformShareType(shareEntity.shareType)
          parameters:shareContentFromShareEntity(shareEntity)
      onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
@@ -253,6 +267,12 @@ static inline SSDKPlatformType SSDKPlatformTypeFromPlatformType(YMThirdPlatformT
         case YMThirdPlatformForWechat:
             type = SSDKPlatformTypeWechat;
             break;
+        case YMThirdPlatformForFacebook:
+            type = SSDKPlatformTypeFacebook;
+            break;
+        case YMThirdPlatformForTwitter:
+            type = SSDKPlatformTypeTwitter;
+            break;
         default:
             type = SSDKPlatformTypeAny;
             break;
@@ -279,6 +299,12 @@ static inline SSDKPlatformType SSDKPlatformTypeFromPlatformShareType(YMThirdPlat
             break;
         case YMThirdPlatformShareForQQFriend:
             type = SSDKPlatformSubTypeQQFriend;
+            break;
+        case YMThirdPlatformShareForFacebook:
+            type = SSDKPlatformTypeFacebook;
+            break;
+        case YMThirdPlatformShareForTwitter:
+            type = SSDKPlatformTypeTwitter;
             break;
         default:
             type = SSDKPlatformTypeAny;
