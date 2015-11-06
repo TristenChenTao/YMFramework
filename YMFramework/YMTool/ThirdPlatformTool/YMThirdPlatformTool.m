@@ -220,6 +220,9 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
              
              NSString *errorMessage = dic[@"error_message"];
              if (failure) {
+                 if ([NSString ym_isEmptyString:errorMessage]) {
+                     errorMessage = @"分享失败";
+                 }
                  failure(errorMessage);
              }
          }
