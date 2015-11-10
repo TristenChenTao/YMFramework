@@ -42,3 +42,5 @@ FOUNDATION_EXPORT const unsigned char YMFrameworkVersionString[];
 #import <YMFramework/YMThirdPlatformUserInfo.h>
 #import <YMFramework/YMThirdPlatformShareEntity.h>
 #import <YMFramework/YMURLProtocol.h>
+#import <YMFramework/NSDate+YMAdditions.h>
+#import <YMFramework/NSString+YMAdditionsForNSDate.h>
