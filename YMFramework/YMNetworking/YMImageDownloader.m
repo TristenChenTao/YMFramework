@@ -25,18 +25,17 @@
                     progress:(YMImageDownloaderProgressBlock)progressBlock
                    completed:(YMImageDownloaderCompletedBlock)completedBlock
 {
-    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:url]
-                                                          options:SDWebImageDownloaderLowPriority
-                                                         progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                                                             if(progressBlock) {
-                                                                 progressBlock(receivedSize,expectedSize);
-                                                             }
-                                                         }
-                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                                                            if (completedBlock) {
-                                                                completedBlock(image,data,error,finished);
-                                                            }
-                                                        }];
+    [SDWebImageManager.sharedManager downloadImageWithURL:[NSURL URLWithString:url]
+                                                  options:0
+                                                 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                                     if(progressBlock) {
+                                                         progressBlock(receivedSize,expectedSize);
+                                                     }
+                                                 } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                                                     if (completedBlock) {
+                                                         completedBlock(image,error,finished,imageURL);
+                                                     }
+                                                 }];
 }
 
 + (BOOL)cachedImageExistsForURL:(NSString *)url

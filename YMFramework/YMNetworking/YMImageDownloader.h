@@ -14,7 +14,7 @@ typedef void(^YMWebImageDownloaderProgressBlock)(NSInteger receivedSize, NSInteg
 
 typedef void(^YMImageDownloaderProgressBlock)(NSInteger receivedSize, NSInteger expectedSize);
 
-typedef void(^YMImageDownloaderCompletedBlock)(UIImage *image, NSData *data, NSError *error, BOOL finished);
+typedef void(^YMImageDownloaderCompletedBlock)(UIImage *image, NSError *error, BOOL finished, NSURL *imageURL);
 
 @interface YMImageDownloader : NSObject
 
