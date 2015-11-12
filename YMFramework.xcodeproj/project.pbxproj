@@ -285,6 +285,8 @@
 		62A2E4EC1BCB887C00035C83 /* WeiboSDK+Statistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 62A2E4E01BCB887C00035C83 /* WeiboSDK+Statistics.h */; };
 		62A2E4ED1BCB887C00035C83 /* WeiboSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 62A2E4E11BCB887C00035C83 /* WeiboSDK.h */; };
 		62A2E4EE1BCB887C00035C83 /* WeiboUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 62A2E4E21BCB887C00035C83 /* WeiboUser.h */; };
+		62AE9F2B1BF470500036D0B9 /* UIApplication+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62AE9F291BF470500036D0B9 /* UIApplication+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62AE9F2C1BF470500036D0B9 /* UIApplication+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AE9F2A1BF470500036D0B9 /* UIApplication+YMAdditions.m */; };
 		62B4B60F1B18478B00834DCF /* YMDebugging.h in Headers */ = {isa = PBXBuildFile; fileRef = 62B4B60D1B18478B00834DCF /* YMDebugging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62B4B6101B18478B00834DCF /* YMDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B4B60E1B18478B00834DCF /* YMDebugging.m */; };
 		62B4D43F1B845741006522CF /* alpha.c in Sources */ = {isa = PBXBuildFile; fileRef = 62B4D3C41B845741006522CF /* alpha.c */; };
@@ -726,6 +728,8 @@
 		62A2E4E01BCB887C00035C83 /* WeiboSDK+Statistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeiboSDK+Statistics.h"; sourceTree = "<group>"; };
 		62A2E4E11BCB887C00035C83 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		62A2E4E21BCB887C00035C83 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		62AE9F291BF470500036D0B9 /* UIApplication+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+YMAdditions.h"; sourceTree = "<group>"; };
+		62AE9F2A1BF470500036D0B9 /* UIApplication+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+YMAdditions.m"; sourceTree = "<group>"; };
 		62B4B60D1B18478B00834DCF /* YMDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMDebugging.h; sourceTree = "<group>"; };
 		62B4B60E1B18478B00834DCF /* YMDebugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMDebugging.m; sourceTree = "<group>"; };
 		62B4D3C41B845741006522CF /* alpha.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = alpha.c; sourceTree = "<group>"; };
@@ -1392,6 +1396,8 @@
 				6242FCC41B2FD822007DD69C /* YMURLProtocol.m */,
 				62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */,
 				62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */,
+				62AE9F291BF470500036D0B9 /* UIApplication+YMAdditions.h */,
+				62AE9F2A1BF470500036D0B9 /* UIApplication+YMAdditions.m */,
 			);
 			path = YMTool;
 			sourceTree = "<group>";
@@ -1692,6 +1698,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62AE9F2B1BF470500036D0B9 /* UIApplication+YMAdditions.h in Headers */,
 				62033DE91BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.h in Headers */,
 				62EF08191BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h in Headers */,
 				62EF08171BF231F8009BB1BB /* NSDate+YMAdditions.h in Headers */,
@@ -2148,6 +2155,7 @@
 				6228FD7B1BECA1C100D59E43 /* FLEXLiveObjectsTableViewController.m in Sources */,
 				622CE61F1AE4EC90004D714B /* SSCarrierInfo.m in Sources */,
 				62B4D45B1B845741006522CF /* enc.c in Sources */,
+				62AE9F2C1BF470500036D0B9 /* UIApplication+YMAdditions.m in Sources */,
 				62C54F011B84516200004E80 /* MKAnnotationView+WebCache.m in Sources */,
 				6228FD5D1BECA1C100D59E43 /* FLEXPropertyEditorViewController.m in Sources */,
 				62703E591B10490B005CA088 /* YMPush.m in Sources */,
