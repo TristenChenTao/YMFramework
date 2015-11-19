@@ -88,6 +88,7 @@ typedef enum
  *  @return
  */
 + (YMHTTPRequestOperation *)uploadImages:(NSArray *)images
+                              imageNames:(NSArray *)names
                              relativeURL:(NSString *)relativeURL
                                  baseURL:(NSString *)baseURL
                                   baseIP:(NSString *)baseIP
@@ -122,6 +123,9 @@ typedef enum
                                    timeout:(float)timeout
                                    success:(void (^)(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage,id data))success
                                    failure:(void (^)(NSURLRequest *request, NSError *error))failure;
+
+
++ (BOOL)isReachable;
 
 @end
 

@@ -150,6 +150,7 @@ static BOOL kIsReachable = YES;
 }
 
 + (YMHTTPRequestOperation *)uploadImages:(NSArray *)images
+                              imageNames:(NSArray *)names
                              relativeURL:(NSString *)relativeURL
                                  baseURL:(NSString *)baseURL
                                   baseIP:(NSString *)baseIP
@@ -162,18 +163,16 @@ static BOOL kIsReachable = YES;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSMutableArray *arrayForData = [NSMutableArray arrayWithCapacity:images.count];
-    NSMutableArray *arrayForName = [NSMutableArray arrayWithCapacity:images.count];
     for (int i = 0; i < images.count ; i++) {
         UIImage *image = images[i];
         NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
         [arrayForData addObject:imageData];
-        [arrayForName addObject:[NSString stringWithFormat:@"image%d",i]];
     }
     
     NSMutableURLRequest *request = [YMHTTPRequestManager multipartWithURL:[baseURL stringByAppendingString:relativeURL]
                                                                   timeout:timeout
                                                                parameters:parameters
-                                                                     name:arrayForName
+                                                                     name:names
                                                                      data:arrayForData
                                                               headerField:headerField
                                                                  mimeType:@"image/jpeg"];
@@ -192,7 +191,7 @@ static BOOL kIsReachable = YES;
                                                      NSMutableURLRequest *request = [YMHTTPRequestManager multipartWithURL:[baseIP stringByAppendingString:relativeURL]
                                                                                                                    timeout:timeout
                                                                                                                 parameters:parameters
-                                                                                                                      name:arrayForName
+                                                                                                                      name:names
                                                                                                                       data:arrayForData
                                                                                                                headerField:headerField
                                                                                                                   mimeType:@"image/png"];
@@ -276,6 +275,11 @@ static BOOL kIsReachable = YES;
     [manager.operationQueue addOperation:operation];
     
     return (YMHTTPRequestOperation *)operation;
+}
+
++ (BOOL)isReachable
+{
+    return kIsReachable;
 }
 
 #pragma mark - private methods
