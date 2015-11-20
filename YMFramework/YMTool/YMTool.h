@@ -35,7 +35,7 @@ return sharedInstance; \
 ///---------------------------------------------------------------------------------
 
 #ifdef DEBUG
-#   define YM_Log(fmt, ...) NSLog(__VA_ARGS__)
+#   define YM_Log(...) NSLog(__VA_ARGS__)
 #else
 #   define YM_Log(...)
 #endif
