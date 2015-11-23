@@ -48,5 +48,19 @@ return sharedInstance; \
 #endif
 
 
+///---------------------------------------------------------------------------------
+/// @name Debug Macros
+///---------------------------------------------------------------------------------
 
 
+#ifdef DEBUG
+
+static BOOL const YM_Is_Debug = YES;
+static BOOL const YM_Is_Release = NO;
+
+#else
+
+static BOOL const YM_Is_Debug = NO;
+static BOOL const YM_Is_Release = YES;
+
+#endif
