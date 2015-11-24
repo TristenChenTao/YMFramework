@@ -332,14 +332,6 @@ static inline NSMutableDictionary* shareContentFromShareEntity(YMThirdPlatformSh
     if (isInWechat && isGif) {
         NSData *imageData = [[SDImageCache sharedImageCache] diskImageDataBySearchingAllPathsForKey:imageURL];
         
-        SSDKPlatformType type = 0;
-        if (shareEntity.contentType == YMThirdPlatformShareForWechatTimeline) {
-            type = SSDKPlatformSubTypeWechatTimeline;
-        }
-        else {
-            type = SSDKPlatformSubTypeWechatSession;
-        }
-        
         [publishContent SSDKSetupWeChatParamsByText:shareEntity.contentText
                                               title:title
                                                 url:nil

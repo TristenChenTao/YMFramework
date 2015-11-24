@@ -58,16 +58,6 @@
     }
 }
 
-- (NSString *)expired
-{
-    if ([NSString ym_isContainString:_expired]) {
-        return _expired;
-    }
-    else {
-        return @"";
-    }
-}
-
 - (NSString *)homepage
 {
     if ([NSString ym_isContainString:_homepage]) {
