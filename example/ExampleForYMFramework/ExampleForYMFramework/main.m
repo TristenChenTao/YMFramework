@@ -1,9 +1,9 @@
 //
 //  main.m
-//  ExampleForYMCodeStandard
+//  ExampleForYMFramework
 //
-//  Created by Tristen on 11/23/15.
-//
+//  Created by Tristen on 11/24/15.
+//  Copyright © 2015 yumi. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

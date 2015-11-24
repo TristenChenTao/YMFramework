@@ -1,18 +1,18 @@
 //
-//  ExampleForYMCodeStandardTests.m
-//  ExampleForYMCodeStandardTests
+//  ExampleForYMFrameworkTests.m
+//  ExampleForYMFrameworkTests
 //
-//  Created by Tristen on 11/23/15.
-//
+//  Created by Tristen on 11/24/15.
+//  Copyright © 2015 yumi. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface ExampleForYMCodeStandardTests : XCTestCase
+@interface ExampleForYMFrameworkTests : XCTestCase
 
 @end
 
-@implementation ExampleForYMCodeStandardTests
+@implementation ExampleForYMFrameworkTests
 
 - (void)setUp {
     [super setUp];
