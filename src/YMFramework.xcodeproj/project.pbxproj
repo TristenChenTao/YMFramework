@@ -270,6 +270,7 @@
 		6279043F1ADBC65D00F84BFB /* UIImageView+YMNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6279043B1ADBC65D00F84BFB /* UIImageView+YMNetworking.m */; };
 		627904421ADBC7D000F84BFB /* YMImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 627904401ADBC7D000F84BFB /* YMImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		627904431ADBC7D000F84BFB /* YMImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 627904411ADBC7D000F84BFB /* YMImageDownloader.m */; };
+		627FFA2C1C0463B50034AF9C /* YMFramework Vender Version.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 627FFA2B1C0463B50034AF9C /* YMFramework Vender Version.rtf */; };
 		62974C111B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h in Headers */ = {isa = PBXBuildFile; fileRef = 62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62974C121B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m in Sources */ = {isa = PBXBuildFile; fileRef = 62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */; };
 		629FDBE11BE4981500D496C1 /* libPushSDK-1.8.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 629FDBE01BE4981500D496C1 /* libPushSDK-1.8.8.a */; };
@@ -713,6 +714,7 @@
 		6279043B1ADBC65D00F84BFB /* UIImageView+YMNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+YMNetworking.m"; sourceTree = "<group>"; };
 		627904401ADBC7D000F84BFB /* YMImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMImageDownloader.h; sourceTree = "<group>"; };
 		627904411ADBC7D000F84BFB /* YMImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMImageDownloader.m; sourceTree = "<group>"; };
+		627FFA2B1C0463B50034AF9C /* YMFramework Vender Version.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = "YMFramework Vender Version.rtf"; path = "YMFramework/YMFramework Vender Version.rtf"; sourceTree = "<group>"; };
 		62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YMAccessors.h"; sourceTree = "<group>"; };
 		62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YMAccessors.m"; sourceTree = "<group>"; };
 		629FDBE01BE4981500D496C1 /* libPushSDK-1.8.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.8.a"; sourceTree = "<group>"; };
@@ -922,6 +924,7 @@
 		621597011ADB5875003CACA7 = {
 			isa = PBXGroup;
 			children = (
+				627FFA2B1C0463B50034AF9C /* YMFramework Vender Version.rtf */,
 				6215970D1ADB5875003CACA7 /* YMFramework */,
 				6215971A1ADB5875003CACA7 /* YMFrameworkTests */,
 				6215970C1ADB5875003CACA7 /* Products */,
@@ -1990,6 +1993,7 @@
 				62B4D4461B845741006522CF /* Makefile.am in Resources */,
 				62B4D48C1B845741006522CF /* libwebpmux.pc.in in Resources */,
 				62B4D4651B845741006522CF /* Makefile.am in Resources */,
+				627FFA2C1C0463B50034AF9C /* YMFramework Vender Version.rtf in Resources */,
 				6228FD921BECA1C100D59E43 /* LICENSE in Resources */,
 				62B4D4891B845741006522CF /* libwebp.pc.in in Resources */,
 				62B4D47B1B845741006522CF /* Makefile.am in Resources */,
