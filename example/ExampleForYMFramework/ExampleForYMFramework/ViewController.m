@@ -118,7 +118,9 @@ static NSString * const kProductChannel = @"1";
 
 - (void)testWebpForWebView
 {
-    NSString *url = @"http://interface.cornapp.com/yumiNew/newsList.aspx";
+    [YMURLProtocol registerProtocol]; //WebView支持Webp图片格式
+    
+    NSString *url = @"http://interface.cornapp.com/yumiNew/newsList.aspx?channel=3&device=iPhone5%2C2&deviceId=9F92F58E-F182-4297-A33E-02DDEE710D5D&edition=7&isCrack=1&lang=zh-Hans&network=&osType=1&proID=100&scrH=568&scrW=320&uid=100002&ymtimestamp=eyJnt3GOhIjotNS45NjA0NjQ0Nzc1MzkwNjJlLTA2LCJ6IjoxNDQ4MzUxNzU5LjU1NjEwOH0%3D1ZkFw";
     
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     webView.backgroundColor = [UIColor redColor];
