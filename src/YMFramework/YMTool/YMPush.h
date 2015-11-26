@@ -40,6 +40,8 @@
 /**
  *  设置别名，用于精确推送
  */
-+ (void)setAlias:(NSString *)alias;
++ (void)setAlias:(NSString *)alias
+callbackSelector:(SEL)cbSelector
+          object:(id)theTarget;
 
 @end

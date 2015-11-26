@@ -56,10 +56,12 @@
 }
 
 + (void)setAlias:(NSString *)alias
+callbackSelector:(SEL)cbSelector
+          object:(id)theTarget;
 {
     [APService setAlias:alias
-       callbackSelector:nil
-                 object:nil];
+       callbackSelector:cbSelector
+                 object:theTarget];
 }
 
 @end
