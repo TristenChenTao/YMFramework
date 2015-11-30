@@ -147,13 +147,29 @@ typedef NS_ENUM(NSUInteger, SSDKPlatformType){
      */
     SSDKPlatformTypeYouDaoNote          = 27,
     /**
+     *  Pinterest
+     */
+    SSDKPlatformTypePinterest           = 30,
+    /**
      *  Flickr
      */
     SSDKPlatformTypeFlickr              = 34,
     /**
+     *  Dropbox
+     */
+    SSDKPlatformTypeDropbox             = 35,
+    /**
+     *  VKontakte
+     */
+    SSDKPlatformTypeVKontakte           = 36,
+    /**
      *  微信收藏
      */
     SSDKPlatformSubTypeWechatFav        = 37,
+    /**
+     *  明道
+     */
+    SSDKPlatformTypeMingDao             = 41,
     /**
      *  Line
      */
@@ -162,6 +178,22 @@ typedef NS_ENUM(NSUInteger, SSDKPlatformType){
      *  WhatsApp
      */
     SSDKPlatformTypeWhatsApp            = 43,
+    /**
+     *  KaKao Talk
+     */
+    SSDKPlatformSubTypeKakaoTalk        = 44,
+    /**
+     *  KaKao Story
+     */
+    SSDKPlatformSubTypeKakaoStory       = 45,
+    /**
+     *  支付宝好友
+     */
+    SSDKPlatformTypeAliPaySocial        = 50,
+    /**
+     *  KaKao
+     */
+    SSDKPlatformTypeKakao               = 995,
     /**
      *  印象笔记国际版
      */

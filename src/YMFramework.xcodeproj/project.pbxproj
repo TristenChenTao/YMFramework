@@ -440,6 +440,7 @@
 		62C54F1E1B84516200004E80 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C54E3B1B84516200004E80 /* UIImageView+WebCache.m */; };
 		62C54F1F1B84516200004E80 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 62C54E3C1B84516200004E80 /* UIView+WebCacheOperation.h */; };
 		62C54F201B84516200004E80 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C54E3D1B84516200004E80 /* UIView+WebCacheOperation.m */; };
+		62D18B131C0C56A100CB2B27 /* WechatAuthSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D18B121C0C56A100CB2B27 /* WechatAuthSDK.h */; };
 		62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */; };
 		62E433631AE5F89D005445B2 /* MobClick.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433601AE5F89D005445B2 /* MobClick.h */; };
 		62E433641AE5F89D005445B2 /* MobClickSocialAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */; };
@@ -884,6 +885,7 @@
 		62C54E3B1B84516200004E80 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		62C54E3C1B84516200004E80 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		62C54E3D1B84516200004E80 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		62D18B121C0C56A100CB2B27 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		62E433601AE5F89D005445B2 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
@@ -1279,6 +1281,7 @@
 		625777FF1BA903AB00B3EAC1 /* WeChatSDK */ = {
 			isa = PBXGroup;
 			children = (
+				62D18B121C0C56A100CB2B27 /* WechatAuthSDK.h */,
 				625778001BA903AB00B3EAC1 /* libWeChatSDK.a */,
 				625778011BA903AB00B3EAC1 /* WXApi.h */,
 				625778021BA903AB00B3EAC1 /* WXApiObject.h */,
@@ -1778,6 +1781,7 @@
 				62B4D4851B845741006522CF /* vp8enci.h in Headers */,
 				62A2E4E71BCB887C00035C83 /* WBHttpRequest+WeiboUser.h in Headers */,
 				62C54F131B84516200004E80 /* UIButton+WebCache.h in Headers */,
+				62D18B131C0C56A100CB2B27 /* WechatAuthSDK.h in Headers */,
 				62B4D49D1B845741006522CF /* huffman.h in Headers */,
 				6228FD701BECA1C100D59E43 /* FLEXFileBrowserSearchOperation.h in Headers */,
 				62B4D4871B845741006522CF /* vp8li.h in Headers */,
@@ -2452,6 +2456,7 @@
 		621597251ADB5875003CACA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2469,6 +2474,7 @@
 		621597261ADB5875003CACA7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

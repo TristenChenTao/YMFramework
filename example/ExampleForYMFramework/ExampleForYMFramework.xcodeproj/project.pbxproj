@@ -306,6 +306,7 @@
 				TargetAttributes = {
 					628A6B7A1C04127C00ECEEFD = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 3R6UTCFNFX;
 					};
 					628A6B931C04127C00ECEEFD = {
 						CreatedOnToolsVersion = 7.1;
@@ -512,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -525,7 +527,7 @@
 				INFOPLIST_FILE = ExampleForYMFramework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yumi.example.ExampleForYMFramework.ExampleForYMFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = test.com.cornapp.YMGoodLuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -534,6 +536,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -544,7 +547,7 @@
 				INFOPLIST_FILE = ExampleForYMFramework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yumi.example.ExampleForYMFramework.ExampleForYMFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = test.com.cornapp.YMGoodLuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
