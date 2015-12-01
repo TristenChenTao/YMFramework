@@ -9,9 +9,7 @@
 #ifdef SD_WEBP
 #import "UIImage+WebP.h"
 
-//Vendor Modified by YM:
-//#import "webp/decode.h"
-#import "decode.h"
+#import "webp/decode.h"
 
 // Callback for CGDataProviderRelease
 static void FreeImageData(void *info, const void *data, size_t size)

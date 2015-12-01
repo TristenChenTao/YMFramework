@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6244CF1B1C0D93760004C2B8 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6244CF1A1C0D93760004C2B8 /* WebP.framework */; };
 		628A6B801C04127C00ECEEFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B7F1C04127C00ECEEFD /* main.m */; };
 		628A6B831C04127C00ECEEFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B821C04127C00ECEEFD /* AppDelegate.m */; };
 		628A6B861C04127C00ECEEFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B851C04127C00ECEEFD /* ViewController.m */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6244CF1A1C0D93760004C2B8 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		628A6B7B1C04127C00ECEEFD /* ExampleForYMFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleForYMFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628A6B7F1C04127C00ECEEFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		628A6B811C04127C00ECEEFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6244CF1B1C0D93760004C2B8 /* WebP.framework in Frameworks */,
 				62CCFC581C0432EE00E1AE5F /* libsqlite3.tbd in Frameworks */,
 				62CCFC561C0432E900E1AE5F /* libstdc++.tbd in Frameworks */,
 				62CCFC541C0432E500E1AE5F /* libicucore.tbd in Frameworks */,
@@ -191,6 +194,7 @@
 		628A6BA31C0412FD00ECEEFD /* YMFramework */ = {
 			isa = PBXGroup;
 			children = (
+				6244CF1A1C0D93760004C2B8 /* WebP.framework */,
 				628A6BB31C04130B00ECEEFD /* YMFramework.xcodeproj */,
 				628A6BA41C0412FD00ECEEFD /* PushConfig.plist */,
 				628A6BA51C0412FD00ECEEFD /* ShareSDK */,
@@ -447,7 +451,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -491,7 +495,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -514,11 +518,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ExampleForYMFramework/YMFramework/ShareSDK/extends/QQSDK",
 					"$(PROJECT_DIR)/ExampleForYMFramework/YMFramework/ShareSDK",
+					"$(PROJECT_DIR)/ExampleForYMFramework/YMFramework",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"SD_WEBP=1",
@@ -537,11 +542,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ExampleForYMFramework/YMFramework/ShareSDK/extends/QQSDK",
 					"$(PROJECT_DIR)/ExampleForYMFramework/YMFramework/ShareSDK",
+					"$(PROJECT_DIR)/ExampleForYMFramework/YMFramework",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = "SD_WEBP=1";
 				INFOPLIST_FILE = ExampleForYMFramework/Info.plist;
