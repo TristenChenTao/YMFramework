@@ -17,36 +17,62 @@
     CGFloat size = 0;
     switch (level) {
         case 1:
-            if (kYm_iPhone6Plus) {
+            if(kYm_iPhone6Plus) {
                 size = 23;
+            }
+            else if(kYm_iPhone6_standard) {
+                size = 20;
+            }
+            else {
+                size = 18;
+            }
+            break;
+        case 2:
+            if(kYm_iPhone6Plus) {
+                size = 21;
+            }
+            else if(kYm_iPhone6_standard) {
+                size = 18;
             }
             else {
                 size = 16;
             }
             break;
-        case 2:
-            if (kYm_iPhone6Plus) {
-                size = 21;
+        case 3:
+            if(kYm_iPhone6Plus) {
+                size = 19;
+            }
+            else if(kYm_iPhone6_standard) {
+                size = 16;
             }
             else {
                 size = 14;
             }
             break;
-        case 3:
-            if (kYm_iPhone6Plus) {
-                size = 18;
+        case 4:
+            if(kYm_iPhone6Plus) {
+                size = 16;
+            }
+            else if(kYm_iPhone6_standard) {
+                size = 14;
             }
             else {
                 size = 12;
             }
             break;
-        case 4:
-            if (kYm_iPhone6Plus) {
+        case 5:
+            if(kYm_iPhone6Plus) {
                 size = 14;
+            }
+            else if(kYm_iPhone6_standard) {
+                size = 12;
             }
             else {
                 size = 10;
             }
+            break;
+        case 6:
+            size = 10;
             break;
         default:
             break;
