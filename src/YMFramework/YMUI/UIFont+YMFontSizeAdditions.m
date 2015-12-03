@@ -17,8 +17,11 @@
     CGFloat size = 0;
     switch (level) {
         case 1:
-            if(kYm_iPhone6Plus) {
+            if(kYm_iPhone6Plus_standard) {
                 size = 23;
+            }
+            else if (kYm_iPhone6Plus_zoomed) {
+                size = 22;
             }
             else if(kYm_iPhone6_standard) {
                 size = 20;
@@ -28,8 +31,11 @@
             }
             break;
         case 2:
-            if(kYm_iPhone6Plus) {
+            if(kYm_iPhone6Plus_standard) {
                 size = 21;
+            }
+            else if (kYm_iPhone6Plus_zoomed) {
+                size = 20;
             }
             else if(kYm_iPhone6_standard) {
                 size = 18;
@@ -39,8 +45,11 @@
             }
             break;
         case 3:
-            if(kYm_iPhone6Plus) {
+            if(kYm_iPhone6Plus_standard) {
                 size = 19;
+            }
+            else if (kYm_iPhone6Plus_zoomed) {
+                size = 18;
             }
             else if(kYm_iPhone6_standard) {
                 size = 16;
@@ -50,8 +59,11 @@
             }
             break;
         case 4:
-            if(kYm_iPhone6Plus) {
+            if(kYm_iPhone6Plus_standard) {
                 size = 16;
+            }
+            else if (kYm_iPhone6Plus_zoomed) {
+                size = 15;
             }
             else if(kYm_iPhone6_standard) {
                 size = 14;
@@ -61,8 +73,11 @@
             }
             break;
         case 5:
-            if(kYm_iPhone6Plus) {
+            if(kYm_iPhone6Plus_standard) {
                 size = 14;
+            }
+            else if (kYm_iPhone6Plus_zoomed) {
+                size = 13;
             }
             else if(kYm_iPhone6_standard) {
                 size = 12;
@@ -75,11 +90,12 @@
             size = 10;
             break;
         default:
+            size = 10;
             break;
     }
     
     UIFont *font = [UIFont systemFontOfSize:size];
-
+    
     return font;
 }
 
