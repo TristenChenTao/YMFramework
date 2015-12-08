@@ -23,21 +23,25 @@ static NSString * const kProductChannel = @"1";
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor redColor];
+    
     [[YMFrameworkConfig sharedInstance] setupProductByID:kProductID
                                                  version:kProductVersion
                                                  channel:kProductChannel];
     
-//    [self testHttpRequest];
-//
-//    [self testUIImageViewDownloadImage];
+    //    [self testHttpRequest];
+    //
+    //    [self testUIImageViewDownloadImage];
     
-//    [self testUIButtonDownloadImage];
+    //    [self testUIButtonDownloadImage];
     
-//    [self testFetchWebViewTitle];
+    //    [self testFetchWebViewTitle];
     
-    [self testWebp];
+    //    [self testWebp];
     
-//    [self testWebpForWebView];
+    //    [self testWebpForWebView];
+    
+    [self testYMProgress];
 }
 
 -(void)testHttpRequest
@@ -104,7 +108,7 @@ static NSString * const kProductChannel = @"1";
     //标准webpURL
     NSString *url = @"http://img01.taobaocdn.com/imgextra/i1/1123492339/T2XX3ZXhXXXXXXXXXX_!!1123492339.jpg_.webp";
     //玉米webpURL
-//    NSString *url = @"http://yumi2014.b0.upaiyun.com/banner/14483353790a62cd5be70e4e2f877e410df031febc.jpg!webp.orginal";
+    //    NSString *url = @"http://yumi2014.b0.upaiyun.com/banner/14483353790a62cd5be70e4e2f877e410df031febc.jpg!webp.orginal";
     
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     imgView.backgroundColor = [UIColor redColor];
@@ -131,6 +135,25 @@ static NSString * const kProductChannel = @"1";
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:20];
     [webView loadRequest:request];
+}
+
+- (void)testYMProgress
+{
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                   {
+                       //            [YMProgress showFailStatus:@"错误"];
+//                       [YMProgress showFailStatus:@"无网络"
+//                                     withFailType:YMProgrssFailTypeForNotReachable];
+                       
+//                       [YMProgress showFailStatus:@"定位错误"
+//                                     withFailType:YMProgrssFailTypeForLocation];
+                       //        [YMProgress showWithStatus:@"加载中"];
+                       
+                       [YMProgress showInfoWithStatus:@"请输入密码"];
+                       
+                   });
 }
 
 @end

@@ -45,3 +45,4 @@ FOUNDATION_EXPORT const unsigned char YMFrameworkVersionString[];
 #import <YMFramework/NSDate+YMAdditions.h>
 #import <YMFramework/NSString+YMAdditionsForNSDate.h>
 #import <YMFramework/UIApplication+YMAdditions.h>
+#import <YMFramework/YMProgress.h>
