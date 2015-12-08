@@ -362,7 +362,9 @@ static BOOL kIsReachable = YES;
                                @"network" : [YMDeviceInfo newtworkType],
                                @"isCrack" : @([YMDeviceInfo isJailBroken]),
                                @"country" : [YMDeviceInfo country],
-                               @"osType" : @(1)};
+                               @"osType" : @(1),
+                               @"osVer" : @([YMDeviceInfo systemVersion])
+                               };
     
     
     NSMutableDictionary *finalParameters = [NSMutableDictionary dictionaryWithDictionary:baseInfo];
