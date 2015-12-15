@@ -106,7 +106,10 @@ static const NSInteger kFLEXHierarchyScopeFullHierarchyIndex = 1;
     if ([self.searchBar.text length] > 0) {
         self.displayedViews = [candidateViews filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(UIView *candidateView, NSDictionary *bindings) {
             NSString *title = [FLEXUtility descriptionForView:candidateView includingFrame:NO];
-            return [title rangeOfString:self.searchBar.text options:NSCaseInsensitiveSearch].location != NSNotFound;
+            NSString *candidateViewPointerAddress = [NSString stringWithFormat:@"%p", candidateView];
+            BOOL matchedViewPointerAddress = [candidateViewPointerAddress rangeOfString:self.searchBar.text options:NSCaseInsensitiveSearch].location != NSNotFound;
+            BOOL matchedViewTitle = [title rangeOfString:self.searchBar.text options:NSCaseInsensitiveSearch].location != NSNotFound;
+            return matchedViewPointerAddress || matchedViewTitle;
         }]];
     } else {
         self.displayedViews = candidateViews;
@@ -162,7 +165,7 @@ static const NSInteger kFLEXHierarchyScopeFullHierarchyIndex = 1;
         cell = [[FLEXHierarchyTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
     }
     
-    UIView *view = [self.displayedViews objectAtIndex:indexPath.row];
+    UIView *view = self.displayedViews[indexPath.row];
     NSNumber *depth = [self.depthsForViews objectForKey:[NSValue valueWithNonretainedObject:view]];
     UIColor *viewColor = [FLEXUtility consistentRandomColorForObject:view];
     cell.textLabel.text = [FLEXUtility descriptionForView:view includingFrame:NO];
@@ -182,13 +185,13 @@ static const NSInteger kFLEXHierarchyScopeFullHierarchyIndex = 1;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedView = [self.displayedViews objectAtIndex:indexPath.row];
+    self.selectedView = self.displayedViews[indexPath.row];
     [self.delegate hierarchyViewController:self didFinishWithSelectedView:self.selectedView];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    UIView *drillInView = [self.displayedViews objectAtIndex:indexPath.row];
+    UIView *drillInView = self.displayedViews[indexPath.row];
     FLEXObjectExplorerViewController *viewExplorer = [FLEXObjectExplorerFactory explorerViewControllerForObject:drillInView];
     [self.navigationController pushViewController:viewExplorer animated:YES];
 }

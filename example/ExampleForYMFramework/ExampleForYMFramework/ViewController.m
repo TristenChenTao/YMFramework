@@ -44,6 +44,21 @@ static NSString * const kProductChannel = @"1";
     [self testYMProgress];
 }
 
+- (void)motionEnded:(UIEventSubtype)motion
+          withEvent:(UIEvent *)event
+{
+    [super motionEnded:motion
+             withEvent:event];
+    [YMDebugging showExplorer];
+    
+    static BOOL kFirstShow = YES;
+    if (kFirstShow) {
+        [YMDebugging showCurrentVersionInfo];
+        
+        kFirstShow = NO;
+    }
+}
+
 -(void)testHttpRequest
 {
     [YMHTTPRequestManager requestWithMethodType:YMHttpMethodTypeForGet
