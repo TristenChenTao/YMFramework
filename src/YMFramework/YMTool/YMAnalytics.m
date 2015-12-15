@@ -36,8 +36,6 @@
         NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         [MobClick setAppVersion:version];
         
-        [MobClick updateOnlineConfig];
-        
         //umtrack
         NSString * deviceName = [[[UIDevice currentDevice] name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSString * mac = [YMAnalytics macString];

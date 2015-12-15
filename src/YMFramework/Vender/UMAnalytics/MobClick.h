@@ -223,28 +223,6 @@ typedef enum {
  */
 + (void)profileSignOff;
 
-#pragma mark Online Configure
-///---------------------------------------------------------------------------------------
-/// @name  在线参数：可以动态设定应用中的参数值
-///---------------------------------------------------------------------------------------
-
-/** 此方法会检查并下载服务端设置的在线参数,例如可在线更改SDK端发送策略。
-    请在[MobClick startWithAppkey:]方法之后调用;
-    监听在线参数更新是否完成，可注册UMOnlineConfigDidFinishedNotification通知
- @param .
- @return void.
- */
-+ (void)updateOnlineConfig;
-
-/** 返回已缓存的在线参数值
-    带参数的方法获取某个key的值，不带参数的获取所有的在线参数.
-    需要先调用updateOnlineConfig才能使用,如果想知道在线参数是否完成完成，请监听UMOnlineConfigDidFinishedNotification
- @param key
- @return (NSString *) .
- */
-+ (NSString *)getConfigParams:(NSString *)key;
-+ (NSDictionary *)getConfigParams;
-
 ///---------------------------------------------------------------------------------------
 /// @name 地理位置设置
 /// 需要链接 CoreLocation.framework 并且 #import <CoreLocation/CoreLocation.h>
@@ -293,6 +271,4 @@ typedef enum {
  上述情况通常发生在某些第三方框架生成的app里，普通app不用关注该API.
  */
 + (void)startSession:(NSNotification *)notification;
-
-+ (NSString *)getAdURL;
 @end
