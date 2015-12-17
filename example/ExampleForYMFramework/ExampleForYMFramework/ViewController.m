@@ -42,6 +42,8 @@ static NSString * const kProductChannel = @"1";
     //    [self testWebpForWebView];
     
     [self testYMProgress];
+    
+    [self testBackgroundTask];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion
@@ -169,6 +171,18 @@ static NSString * const kProductChannel = @"1";
                        [YMProgress showInfoWithStatus:@"请输入密码"];
                        
                    });
+}
+
+- (void)testBackgroundTask
+{
+    YM_BgTaskBegin();
+    
+    while (YES) {
+        NSLog(@"+++++++++");
+        sleep(5);
+    }
+    
+    YM_BgTaskEnd();
 }
 
 @end

@@ -64,3 +64,22 @@ static BOOL const YM_Is_Debug = NO;
 static BOOL const YM_Is_Release = YES;
 
 #endif
+
+///---------------------------------------------------------------------------------
+/// @name Background Task Macros
+///---------------------------------------------------------------------------------
+
+#define YM_BgTaskBegin() { \
+UIApplication *app = [UIApplication sharedApplication]; \
+UIBackgroundTaskIdentifier task = [app beginBackgroundTaskWithExpirationHandler:^{ \
+[app endBackgroundTask:task]; \
+/* task = UIBackgroundTaskInvalid; */ \
+}]; \
+dispatch_block_t block = ^{ \
+
+#define YM_BgTaskEnd() \
+[app endBackgroundTask:task]; \
+/* task = UIBackgroundTaskInvalid; */ \
+}; \
+dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block); \
+}
