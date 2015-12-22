@@ -27,10 +27,6 @@
 #import "YMThirdPlatformShareEntity.h"
 #import "YMTool.h"
 #import "NSString+YMAdditions.h"
-#import "YMHTTPRequestManager.h"
-#import "YMFrameworkConfig.h"
-
-
 
 @interface YMThirdPlatformTool()
 
