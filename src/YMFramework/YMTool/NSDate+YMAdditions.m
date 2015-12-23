@@ -8,13 +8,22 @@
 
 #import "NSDate+YMAdditions.h"
 
+#import "NSString+YMAdditions.h"
+
 @interface NSCalendar (YMAdditions)
 
 + (instancetype)ym_sharedCalendar;
 
 @end
 
+static NSString *kSpecialTimeZone = nil;
+
 @implementation NSCalendar (YMAdditions)
+
++ (void)ym_setTimeZone:(NSString *)timeZone
+{
+    kSpecialTimeZone = timeZone;
+}
 
 + (instancetype)ym_sharedCalendar
 {
@@ -23,6 +32,10 @@
     dispatch_once(&fs_sharedCalendar_onceToken, ^{
         instance = [NSCalendar currentCalendar];
     });
+    
+    if ([NSString ym_isContainString:kSpecialTimeZone]) {
+         [instance setTimeZone:[NSTimeZone timeZoneWithAbbreviation:kSpecialTimeZone]];
+    }
     
     return instance;
 }

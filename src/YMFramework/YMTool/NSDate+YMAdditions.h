@@ -27,6 +27,9 @@
 @property (readonly, nonatomic) NSDate *ym_yesterday;
 @property (readonly, nonatomic) NSInteger ym_numberOfDaysInMonth;
 
+
++ (void)ym_setTimeZone:(NSString *)timeZone;
+
 + (instancetype)ym_dateFromString:(NSString *)string
                            format:(NSString *)format;
 
