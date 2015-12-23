@@ -29,13 +29,13 @@ static NSString * const kProductChannel = @"1";
                                                  version:kProductVersion
                                                  channel:kProductChannel];
     
-//    [self testHttpRequest];
+    [self testHttpRequest];
     //
     //    [self testUIImageViewDownloadImage];
     
     //    [self testUIButtonDownloadImage];
     
-        [self testFetchWebViewTitle];
+    [self testFetchWebViewTitle];
     
     //    [self testWebp];
     
@@ -44,6 +44,10 @@ static NSString * const kProductChannel = @"1";
     //    [self testYMProgress];
     
     //    [self testBackgroundTask];
+    
+    [self testUploadImage];
+    
+    [self testUploadJSONData];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion
@@ -72,7 +76,7 @@ static NSString * const kProductChannel = @"1";
                                                NSLog(@"downloadProgress is %@",downloadProgress);
                                            }
                                             success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
-                                                NSLog(@"%@",responseData);
+                                                NSLog(@"%@",responseData.ResultMessage);
                                             }
                                             failure:^(NSURLSessionDataTask *task, NSError *error) {
                                                 NSLog(@"error %@",error.localizedDescription);
@@ -181,6 +185,59 @@ static NSString * const kProductChannel = @"1";
     }
     
     YM_BgTaskEnd();
+}
+
+- (void)testUploadImage
+{
+    UIImage *testImage = [UIImage imageNamed:@"弹窗"];
+    NSArray *images = [[NSArray alloc]initWithObjects:testImage, nil];
+    NSArray *names = [[NSArray alloc]initWithObjects:@"image0", nil];
+    
+    [YMHTTPManager uploadImages:images
+                     imageNames:names
+                    relativeURL:@"/Account/ChangeUserAvatar.ashx?m=UpdateUserAvatar"
+                        baseURL:@"http://test.fortune.cornapp.com"
+                         baseIP:@"http://112.74.105.46:8086"
+                     parameters:nil
+                        timeout:30
+                       progress:^(NSProgress *progress) {
+                           NSLog(@"progress %@",progress);
+                       }
+                        success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
+                            NSLog(@"%@",responseData.ResultMessage);
+                        }
+                        failure:^(NSURLSessionDataTask *task, NSError *error) {
+                            NSLog(@"error %@",error.localizedDescription);
+                        }];
+}
+
+- (void)testUploadJSONData
+{
+    NSArray *phoneArray = @[@"123123",@"233242342",@"234234234"];
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:phoneArray
+                                                   options:kNilOptions
+                                                     error:nil];
+    //用于测试
+    NSString *jsonString = [[NSString alloc] initWithData:data
+                                                 encoding:NSUTF8StringEncoding];
+    NSLog(@"jsonString is %@",jsonString);
+    
+    [YMHTTPManager uploadJSONData:data
+                      relativeURL:@"/FriendsRanking/UserFriRank.ashx?m=UploadContracts"
+                          baseURL:@"http://test.fortune.cornapp.com"
+                           baseIP:@"http://112.74.105.46:8086"
+                       parameters:nil
+                          timeout:10
+                         progress:^(NSProgress *progress) {
+                             NSLog(@"progress %@",progress);
+                         }
+                          success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
+                              NSLog(@"%@",responseData.ResultMessage);
+                          }
+                          failure:^(NSURLSessionDataTask *task, NSError *error) {
+                              NSLog(@"error %@",error.localizedDescription);
+                          }];
 }
 
 @end

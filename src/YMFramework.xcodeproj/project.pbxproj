@@ -191,7 +191,7 @@
 		621C36361C29342C009911F1 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 621C36291C29342C009911F1 /* AFURLResponseSerialization.m */; };
 		621C36371C29342C009911F1 /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 621C362A1C29342C009911F1 /* AFURLSessionManager.h */; };
 		621C36381C29342C009911F1 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 621C362B1C29342C009911F1 /* AFURLSessionManager.m */; };
-		621C363B1C293A6F009911F1 /* YMHTTPResponseData.h in Headers */ = {isa = PBXBuildFile; fileRef = 621C36391C293A6F009911F1 /* YMHTTPResponseData.h */; };
+		621C363B1C293A6F009911F1 /* YMHTTPResponseData.h in Headers */ = {isa = PBXBuildFile; fileRef = 621C36391C293A6F009911F1 /* YMHTTPResponseData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		621C363C1C293A6F009911F1 /* YMHTTPResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 621C363A1C293A6F009911F1 /* YMHTTPResponseData.m */; };
 		622CE6121AE4EC90004D714B /* SystemServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 622CE5F01AE4EC90004D714B /* SystemServices.h */; };
 		622CE6131AE4EC90004D714B /* SystemServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 622CE5F11AE4EC90004D714B /* SystemServices.m */; };
@@ -1363,6 +1363,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				621C363B1C293A6F009911F1 /* YMHTTPResponseData.h in Headers */,
 				627AEEEE1C16AA6B0085349B /* YMProgress.h in Headers */,
 				62AE9F2B1BF470500036D0B9 /* UIApplication+YMAdditions.h in Headers */,
 				621C362C1C29342C009911F1 /* AFHTTPSessionManager.h in Headers */,
@@ -1452,7 +1453,6 @@
 				620860A11C1FF28400C6FBBD /* FLEXManager.h in Headers */,
 				62D18B131C0C56A100CB2B27 /* WechatAuthSDK.h in Headers */,
 				62A2E4E81BCB887C00035C83 /* WBHttpRequest.h in Headers */,
-				621C363B1C293A6F009911F1 /* YMHTTPResponseData.h in Headers */,
 				620860981C1FF28400C6FBBD /* FLEXMethodCallingViewController.h in Headers */,
 				6208608A1C1FF28400C6FBBD /* FLEXArgumentInputTextView.h in Headers */,
 				620860901C1FF28400C6FBBD /* FLEXDefaultEditorViewController.h in Headers */,
