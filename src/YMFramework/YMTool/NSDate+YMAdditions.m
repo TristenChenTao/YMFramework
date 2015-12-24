@@ -36,6 +36,9 @@ static NSString *kSpecialTimeZone = nil;
     if ([NSString ym_isContainString:kSpecialTimeZone]) {
          [instance setTimeZone:[NSTimeZone timeZoneWithAbbreviation:kSpecialTimeZone]];
     }
+    else {
+        [instance setTimeZone:[NSTimeZone defaultTimeZone]];
+    }
     
     return instance;
 }
