@@ -29,7 +29,7 @@ static NSString * const kProductChannel = @"1";
                                                  version:kProductVersion
                                                  channel:kProductChannel];
     
-    //    [self testHttpRequest];
+        [self testHttpRequest];
     //
     //    [self testUIImageViewDownloadImage];
     
