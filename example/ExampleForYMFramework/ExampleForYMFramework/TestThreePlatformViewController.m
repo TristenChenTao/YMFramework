@@ -47,7 +47,33 @@
     [self.view addSubview:self.shareWXSessionButton];
     [self.view addSubview:self.shareWBButton];
     
+    [self setupViewLayout];
     [super viewDidLoad];
+}
+
+- (void)setupViewLayout
+{
+    self.qqLoginButton.center = CGPointMake(10, 10);
+    self.qqLoginButton.ym_Size = CGSizeMake(150, 50);
+    
+    self.wxLoginButton.center = CGPointMake(10, 60);
+    self.wxLoginButton.ym_Size = CGSizeMake(150, 50);
+    
+    self.wbLoginButton.center = CGPointMake(10, 110);
+    self.wbLoginButton.ym_Size = CGSizeMake(150, 50);
+    
+    self.shareQQFriendButton.center = CGPointMake(10, 160);
+    self.shareQQFriendButton.ym_Size = CGSizeMake(150, 50);
+    
+    self.shareWXTimelineButton.center = CGPointMake(10, 210);
+    self.shareWXTimelineButton.ym_Size = CGSizeMake(150, 50);
+    
+    self.shareWXSessionButton.center = CGPointMake(10, 260);
+    self.shareWXSessionButton.ym_Size = CGSizeMake(150, 50);
+    
+    self.shareWBButton.center = CGPointMake(10, 310);
+    self.shareWBButton.ym_Size = CGSizeMake(150, 50);
+    
 }
 
 
@@ -189,7 +215,7 @@
 - (UIButton *)qqLoginButton
 {
     if (_qqLoginButton == nil) {
-        _qqLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 150, 50)];
+        _qqLoginButton = [[UIButton alloc] init];
         [_qqLoginButton setTitle:@"QQ登陆"
                         forState:UIControlStateNormal];
         [_qqLoginButton setTitleColor:[UIColor blueColor]
@@ -205,7 +231,7 @@
 - (UIButton *)wxLoginButton
 {
     if (_wxLoginButton == nil) {
-        _wxLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 60, 150, 50)];
+        _wxLoginButton = [[UIButton alloc] init];
         [_wxLoginButton setTitleColor:[UIColor blueColor]
                              forState:UIControlStateNormal];
         [_wxLoginButton setTitle:@"微信登陆"
@@ -221,7 +247,7 @@
 - (UIButton *)wbLoginButton
 {
     if (_wbLoginButton == nil) {
-        _wbLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 110, 150, 50)];
+        _wbLoginButton = [[UIButton alloc] init];
         [_wbLoginButton setTitleColor:[UIColor blueColor]
                              forState:UIControlStateNormal];
         [_wbLoginButton setTitle:@"微博登陆"
@@ -237,7 +263,7 @@
 - (UIButton *)shareQQFriendButton
 {
     if (_shareQQFriendButton == nil) {
-        _shareQQFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 160, 150, 50)];
+        _shareQQFriendButton = [[UIButton alloc] init];
         [_shareQQFriendButton setTitleColor:[UIColor blueColor]
                                    forState:UIControlStateNormal];
         [_shareQQFriendButton   setTitle:@"分享给QQ好友"
@@ -253,7 +279,7 @@
 - (UIButton *)shareQQZoneButton
 {
     if (_shareQQZoneButton == nil) {
-        _shareQQZoneButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 210, 150, 50)];
+        _shareQQZoneButton = [[UIButton alloc] init];
         [_shareQQZoneButton setTitleColor:[UIColor blueColor]
                                  forState:UIControlStateNormal];
         [_shareQQZoneButton setTitle:@"分享到QQ空间"
@@ -269,7 +295,7 @@
 - (UIButton *)shareWXTimelineButton
 {
     if (_shareWXTimelineButton == nil) {
-        _shareWXTimelineButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 260, 150, 50)];
+        _shareWXTimelineButton = [[UIButton alloc] init];
         [_shareWXTimelineButton setTitleColor:[UIColor blueColor]
                                      forState:UIControlStateNormal];
         [_shareWXTimelineButton setTitle:@"分享到微信朋友圈"
@@ -285,7 +311,7 @@
 - (UIButton *)shareWXSessionButton
 {
     if (_shareWXSessionButton == nil) {
-        _shareWXSessionButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 310, 150, 50)];
+        _shareWXSessionButton = [[UIButton alloc] init];
         [_shareWXSessionButton setTitleColor:[UIColor blueColor]
                                     forState:UIControlStateNormal];
         
@@ -301,7 +327,7 @@
 - (UIButton *)shareWBButton
 {
     if (_shareWBButton == nil) {
-        _shareWBButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 360, 150, 50)];
+        _shareWBButton = [[UIButton alloc] init];
         [_shareWBButton setTitleColor:[UIColor blueColor]
                              forState:UIControlStateNormal];
         [_shareWBButton setTitle:@"分享到微博"
