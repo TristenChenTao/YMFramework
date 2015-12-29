@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6244CF1B1C0D93760004C2B8 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6244CF1A1C0D93760004C2B8 /* WebP.framework */; };
 		627AEF031C16C3600085349B /* YMProgress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 627AEF021C16C3600085349B /* YMProgress.bundle */; };
 		628A6B801C04127C00ECEEFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B7F1C04127C00ECEEFD /* main.m */; };
 		628A6B831C04127C00ECEEFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B821C04127C00ECEEFD /* AppDelegate.m */; };
@@ -17,11 +16,6 @@
 		628A6B8E1C04127C00ECEEFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 628A6B8C1C04127C00ECEEFD /* LaunchScreen.storyboard */; };
 		628A6B991C04127C00ECEEFD /* ExampleForYMFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B981C04127C00ECEEFD /* ExampleForYMFrameworkTests.m */; };
 		628A6BAD1C0412FD00ECEEFD /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 628A6BA41C0412FD00ECEEFD /* PushConfig.plist */; };
-		628A6BAE1C0412FD00ECEEFD /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628A6BA81C0412FD00ECEEFD /* TencentOpenAPI.framework */; };
-		628A6BAF1C0412FD00ECEEFD /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628A6BA91C0412FD00ECEEFD /* MOBFoundation.framework */; };
-		628A6BB01C0412FD00ECEEFD /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 628A6BAA1C0412FD00ECEEFD /* ShareSDK.bundle */; };
-		628A6BB11C0412FD00ECEEFD /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628A6BAB1C0412FD00ECEEFD /* ShareSDK.framework */; };
-		628A6BB21C0412FD00ECEEFD /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628A6BAC1C0412FD00ECEEFD /* ShareSDKConnector.framework */; };
 		62CCFC371C04134800E1AE5F /* YMFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628A6BBA1C04130B00ECEEFD /* YMFramework.framework */; };
 		62CCFC3B1C04329B00E1AE5F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CCFC3A1C04329B00E1AE5F /* CFNetwork.framework */; };
 		62CCFC401C0432A100E1AE5F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CCFC3F1C0432A100E1AE5F /* CoreFoundation.framework */; };
@@ -37,6 +31,10 @@
 		62CCFC541C0432E500E1AE5F /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CCFC531C0432E500E1AE5F /* libicucore.tbd */; };
 		62CCFC561C0432E900E1AE5F /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CCFC551C0432E900E1AE5F /* libstdc++.tbd */; };
 		62CCFC581C0432EE00E1AE5F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CCFC571C0432EE00E1AE5F /* libsqlite3.tbd */; };
+		62D2AAD51C32334100A97384 /* TestThreePlatformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */; };
+		62D2AADF1C32345300A97384 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D2AADD1C32345300A97384 /* TencentOpenAPI.framework */; };
+		62D2AAE01C32345300A97384 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 62D2AADE1C32345300A97384 /* WeiboSDK.bundle */; };
+		62D2AAE21C32345F00A97384 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D2AAE11C32345F00A97384 /* WebP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +62,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6244CF1A1C0D93760004C2B8 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		627AEF021C16C3600085349B /* YMProgress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YMProgress.bundle; sourceTree = "<group>"; };
 		628A6B7B1C04127C00ECEEFD /* ExampleForYMFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleForYMFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628A6B7F1C04127C00ECEEFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,11 +77,6 @@
 		628A6B981C04127C00ECEEFD /* ExampleForYMFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleForYMFrameworkTests.m; sourceTree = "<group>"; };
 		628A6B9A1C04127C00ECEEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		628A6BA41C0412FD00ECEEFD /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
-		628A6BA81C0412FD00ECEEFD /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
-		628A6BA91C0412FD00ECEEFD /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
-		628A6BAA1C0412FD00ECEEFD /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
-		628A6BAB1C0412FD00ECEEFD /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
-		628A6BAC1C0412FD00ECEEFD /* ShareSDKConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConnector.framework; sourceTree = "<group>"; };
 		628A6BB31C04130B00ECEEFD /* YMFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YMFramework.xcodeproj; path = ../../../../src/YMFramework.xcodeproj; sourceTree = "<group>"; };
 		62CCFC3A1C04329B00E1AE5F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		62CCFC3F1C0432A100E1AE5F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +92,11 @@
 		62CCFC531C0432E500E1AE5F /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		62CCFC551C0432E900E1AE5F /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		62CCFC571C0432EE00E1AE5F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		62D2AAD31C32334100A97384 /* TestThreePlatformViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestThreePlatformViewController.h; sourceTree = "<group>"; };
+		62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestThreePlatformViewController.m; sourceTree = "<group>"; };
+		62D2AADD1C32345300A97384 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		62D2AADE1C32345300A97384 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
+		62D2AAE11C32345F00A97384 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,26 +104,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6244CF1B1C0D93760004C2B8 /* WebP.framework in Frameworks */,
 				62CCFC581C0432EE00E1AE5F /* libsqlite3.tbd in Frameworks */,
 				62CCFC561C0432E900E1AE5F /* libstdc++.tbd in Frameworks */,
 				62CCFC541C0432E500E1AE5F /* libicucore.tbd in Frameworks */,
 				62CCFC521C0432DF00E1AE5F /* CoreLocation.framework in Frameworks */,
 				62CCFC501C0432CA00E1AE5F /* AVFoundation.framework in Frameworks */,
 				62CCFC4E1C0432C300E1AE5F /* ImageIO.framework in Frameworks */,
+				62D2AADF1C32345300A97384 /* TencentOpenAPI.framework in Frameworks */,
 				62CCFC4C1C0432BD00E1AE5F /* QuartzCore.framework in Frameworks */,
 				62CCFC4A1C0432B800E1AE5F /* libz.tbd in Frameworks */,
 				62CCFC481C0432B400E1AE5F /* Security.framework in Frameworks */,
 				62CCFC461C0432AF00E1AE5F /* CoreGraphics.framework in Frameworks */,
+				62D2AAE21C32345F00A97384 /* WebP.framework in Frameworks */,
 				62CCFC441C0432AB00E1AE5F /* SystemConfiguration.framework in Frameworks */,
 				62CCFC421C0432A600E1AE5F /* CoreTelephony.framework in Frameworks */,
 				62CCFC401C0432A100E1AE5F /* CoreFoundation.framework in Frameworks */,
 				62CCFC3B1C04329B00E1AE5F /* CFNetwork.framework in Frameworks */,
 				62CCFC371C04134800E1AE5F /* YMFramework.framework in Frameworks */,
-				628A6BB11C0412FD00ECEEFD /* ShareSDK.framework in Frameworks */,
-				628A6BAF1C0412FD00ECEEFD /* MOBFoundation.framework in Frameworks */,
-				628A6BAE1C0412FD00ECEEFD /* TencentOpenAPI.framework in Frameworks */,
-				628A6BB21C0412FD00ECEEFD /* ShareSDKConnector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +161,8 @@
 				628A6B821C04127C00ECEEFD /* AppDelegate.m */,
 				628A6B841C04127C00ECEEFD /* ViewController.h */,
 				628A6B851C04127C00ECEEFD /* ViewController.m */,
+				62D2AAD31C32334100A97384 /* TestThreePlatformViewController.h */,
+				62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */,
 				628A6B871C04127C00ECEEFD /* Main.storyboard */,
 				628A6B8A1C04127C00ECEEFD /* Assets.xcassets */,
 				628A6B8C1C04127C00ECEEFD /* LaunchScreen.storyboard */,
@@ -196,41 +192,14 @@
 		628A6BA31C0412FD00ECEEFD /* YMFramework */ = {
 			isa = PBXGroup;
 			children = (
+				62D2AAE11C32345F00A97384 /* WebP.framework */,
+				62D2AADD1C32345300A97384 /* TencentOpenAPI.framework */,
+				62D2AADE1C32345300A97384 /* WeiboSDK.bundle */,
 				627AEF021C16C3600085349B /* YMProgress.bundle */,
-				6244CF1A1C0D93760004C2B8 /* WebP.framework */,
 				628A6BB31C04130B00ECEEFD /* YMFramework.xcodeproj */,
 				628A6BA41C0412FD00ECEEFD /* PushConfig.plist */,
-				628A6BA51C0412FD00ECEEFD /* ShareSDK */,
 			);
 			path = YMFramework;
-			sourceTree = "<group>";
-		};
-		628A6BA51C0412FD00ECEEFD /* ShareSDK */ = {
-			isa = PBXGroup;
-			children = (
-				628A6BA61C0412FD00ECEEFD /* extends */,
-				628A6BA91C0412FD00ECEEFD /* MOBFoundation.framework */,
-				628A6BAA1C0412FD00ECEEFD /* ShareSDK.bundle */,
-				628A6BAB1C0412FD00ECEEFD /* ShareSDK.framework */,
-				628A6BAC1C0412FD00ECEEFD /* ShareSDKConnector.framework */,
-			);
-			path = ShareSDK;
-			sourceTree = "<group>";
-		};
-		628A6BA61C0412FD00ECEEFD /* extends */ = {
-			isa = PBXGroup;
-			children = (
-				628A6BA71C0412FD00ECEEFD /* QQSDK */,
-			);
-			path = extends;
-			sourceTree = "<group>";
-		};
-		628A6BA71C0412FD00ECEEFD /* QQSDK */ = {
-			isa = PBXGroup;
-			children = (
-				628A6BA81C0412FD00ECEEFD /* TencentOpenAPI.framework */,
-			);
-			path = QQSDK;
 			sourceTree = "<group>";
 		};
 		628A6BB41C04130B00ECEEFD /* Products */ = {
@@ -370,10 +339,10 @@
 			files = (
 				627AEF031C16C3600085349B /* YMProgress.bundle in Resources */,
 				628A6BAD1C0412FD00ECEEFD /* PushConfig.plist in Resources */,
-				628A6BB01C0412FD00ECEEFD /* ShareSDK.bundle in Resources */,
 				628A6B8E1C04127C00ECEEFD /* LaunchScreen.storyboard in Resources */,
 				628A6B8B1C04127C00ECEEFD /* Assets.xcassets in Resources */,
 				628A6B891C04127C00ECEEFD /* Main.storyboard in Resources */,
+				62D2AAE01C32345300A97384 /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62D2AAD51C32334100A97384 /* TestThreePlatformViewController.m in Sources */,
 				628A6B861C04127C00ECEEFD /* ViewController.m in Sources */,
 				628A6B831C04127C00ECEEFD /* AppDelegate.m in Sources */,
 				628A6B801C04127C00ECEEFD /* main.m in Sources */,
