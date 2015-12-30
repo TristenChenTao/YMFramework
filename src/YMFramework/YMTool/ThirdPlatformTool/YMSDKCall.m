@@ -362,13 +362,24 @@ TCAPIRequestDelegate>
         case YMThirdPlatformShareForQQFriend:
         case YMThirdPlatformShareForQQZone:
         {
-            NSURL *previewURL = [NSURL URLWithString:shareEntity.imageURL];
+            NSURL *imageURL = [NSURL URLWithString:shareEntity.imageURL];
             // 设置分享链接
             NSURL* url = [NSURL URLWithString:shareEntity.resourceURL];
-            QQApiNewsObject* imgObj = [QQApiNewsObject objectWithURL:url
-                                                               title:shareEntity.title
-                                                         description:shareEntity.contentText
-                                                     previewImageURL:previewURL];
+            
+            QQApiObject *imgObj = nil;
+            if ([imageURL.pathExtension caseInsensitiveCompare:@"gif"] == NSOrderedSame) {
+                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                imgObj = [QQApiImageObject objectWithData:imageData
+                                         previewImageData:imageData
+                                                    title:shareEntity.title
+                                              description:shareEntity.contentText];
+            } else {
+                imgObj = [QQApiNewsObject objectWithURL:url
+                                                  title:shareEntity.title
+                                            description:shareEntity.contentText
+                                        previewImageURL:imageURL];
+            }
+            
             // 设置分享到QZone的标志位
             if (shareEntity.shareType == YMThirdPlatformShareForQQZone) {
                 self.qqZoneEntity = shareEntity;
@@ -385,7 +396,7 @@ TCAPIRequestDelegate>
             } else {
                 self.qqFriendEntity = shareEntity;
                 
-                [imgObj setCflag:kQQAPICtrlFlagQQShare];
+                //[imgObj setCflag:kQQAPICtrlFlagQQShare];
                 
                 self.shareQQFriendSuccess = success;
                 self.shareQQFriendFailure = failure;
@@ -400,16 +411,28 @@ TCAPIRequestDelegate>
         case YMThirdPlatformShareForWechatSession:
         case YMThirdPlatformShareForWechatTimeline:
         {
-            WXWebpageObject *webPageObject = [WXWebpageObject object];
-            NSURL *url = [NSURL URLWithString:shareEntity.imageURL];
-            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+            NSURL *imageURL = [NSURL URLWithString:shareEntity.imageURL];
+            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+            UIImage *thumbImage = [UIImage imageWithData:imageData];
             
-            webPageObject.webpageUrl = shareEntity.resourceURL;
             WXMediaMessage *message = [WXMediaMessage message];
-            message.title = shareEntity.title;
-            message.description = shareEntity.contentText;
-            message.mediaObject = webPageObject;
-            [message setThumbImage:image];
+            if ([imageURL.pathExtension caseInsensitiveCompare:@"gif"] == NSOrderedSame) {
+                message = [WXMediaMessage message];
+                [message setThumbImage:thumbImage];
+                
+                WXEmoticonObject *ext = [WXEmoticonObject object];
+                ext.emoticonData = imageData;
+                
+                message.mediaObject = ext;
+            } else {
+                WXWebpageObject *webPageObject = [WXWebpageObject object];
+                webPageObject.webpageUrl = shareEntity.resourceURL;
+                
+                message.title = shareEntity.title;
+                message.description = shareEntity.contentText;
+                message.mediaObject = webPageObject;
+                [message setThumbImage:thumbImage];
+            }
             
             SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
             req.message = message;

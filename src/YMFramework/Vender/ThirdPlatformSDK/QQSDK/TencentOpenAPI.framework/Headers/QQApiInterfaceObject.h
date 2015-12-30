@@ -229,8 +229,7 @@ typedef enum QQApiURLTargetType{
  初始化方法
  @param previewImageURL 用于预览的图片
  @param title 标题
- @param description 此对象，分享的描述
- */
+ @param description 此对象，分享的描述  */
 - (id)initWithPreviewImageURL:(NSURL*)previewImageURL title:(NSString*)title description:(NSString*)description;
 
 /**
