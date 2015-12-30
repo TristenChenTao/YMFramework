@@ -83,11 +83,11 @@
 {
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForQQ
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
-                                          NSLog(@"this is qqUserInfo: %@", platformUserInfo);
-                                      } failure:^(NSError **error) {
-                                          NSLog(@"this is qqLogin error:%@", *error);
+                                          YM_Log(@"this is qqUserInfo: %@", platformUserInfo);
+                                      } failure:^(NSError *error) {
+                                          YM_Log(@"this is qqLogin error:%@", error);
                                       } cancel:^{
-                                          NSLog(@"qqLogin cancel");
+                                          YM_Log(@"qqLogin cancel");
                                       }] ;
 }
 
@@ -95,11 +95,11 @@
 {
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForWechat
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
-                                          NSLog(@"this is wxUserInfo: %@", platformUserInfo);
-                                      } failure:^(NSError **error) {
-                                          NSLog(@"this is wxLogin error:%@", *error);
+                                          YM_Log(@"this is wxUserInfo: %@", platformUserInfo);
+                                      } failure:^(NSError *error) {
+                                          YM_Log(@"this is wxLogin error:%@", error);
                                       } cancel:^{
-                                          NSLog(@"wxLogin cancel");
+                                          YM_Log(@"wxLogin cancel");
                                       }] ;
 }
 
@@ -107,11 +107,11 @@
 {
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForWeibo
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
-                                          NSLog(@"this is wbUserInfo: %@", platformUserInfo);
-                                      } failure:^(NSError **error) {
-                                          NSLog(@"this is wbLogin error:%@", *error);
+                                          YM_Log(@"this is wbUserInfo: %@", platformUserInfo);
+                                      } failure:^(NSError *error) {
+                                          YM_Log(@"this is wbLogin error:%@", error);
                                       } cancel:^{
-                                          NSLog(@"wbLogin cancel");
+                                          YM_Log(@"wbLogin cancel");
                                       }] ;
 }
 
@@ -127,11 +127,11 @@
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
-                                     NSLog(@"this is qqFriendShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity, NSError **error) {
-                                     NSLog(@"this is qqFriendShare failure %@", *error);
+                                     YM_Log(@"this is qqFriendShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity, NSError *error) {
+                                     YM_Log(@"this is qqFriendShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     NSLog(@"this is qqFriendCancel");
+                                     YM_Log(@"this is qqFriendCancel");
                                  }];
 }
 
@@ -146,11 +146,11 @@
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
-                                     NSLog(@"this is qqZoneShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity, NSError **error) {
-                                     NSLog(@"this is qqZoneShare failure %@", *error);
+                                     YM_Log(@"this is qqZoneShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity, NSError *error) {
+                                     YM_Log(@"this is qqZoneShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     NSLog(@"this is qqZoneCancel");
+                                     YM_Log(@"this is qqZoneCancel");
                                  }];
 }
 
@@ -165,11 +165,11 @@
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
-                                     NSLog(@"this is wxSessionShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
-                                     NSLog(@"this is wxSessionShare failure %@", *error);
+                                     YM_Log(@"this is wxSessionShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError *error) {
+                                     YM_Log(@"this is wxSessionShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     NSLog(@"this is wxSessionCancel");
+                                     YM_Log(@"this is wxSessionCancel");
                                  }];
 }
 
@@ -184,11 +184,11 @@
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
-                                     NSLog(@"this is wxTimelineShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
-                                     NSLog(@"this is wxTimelineShare failure %@", *error);
+                                     YM_Log(@"this is wxTimelineShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError *error) {
+                                     YM_Log(@"this is wxTimelineShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     NSLog(@"this is wxTimelineCancel");
+                                     YM_Log(@"this is wxTimelineCancel");
                                  }];
 }
 - (void)wbShare:(id)sender
@@ -202,11 +202,11 @@
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
-                                     NSLog(@"this is weiboShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
-                                     NSLog(@"this is weiboShare failure %@", *error);
+                                     YM_Log(@"this is weiboShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError *error) {
+                                     YM_Log(@"this is weiboShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     NSLog(@"this is weiboCancel");
+                                     YM_Log(@"this is weiboCancel");
                                  }];
 }
 

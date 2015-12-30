@@ -12,9 +12,9 @@
 #import "YMThirdPlatformUserInfo.h"
 
 typedef void (^LoginSuccessBlock)(YMThirdPlatformUserInfo *userInfo);
-typedef void (^LoginFailureBlock)(NSError **error);
-typedef void (^LoginCancelBlock)(NSError **error);
-typedef void (^ShareFailureBlock)(YMThirdPlatformShareEntity *entity,NSError **error);
+typedef void (^LoginFailureBlock)(NSError *error);
+typedef void (^LoginCancelBlock)(NSError *error);
+typedef void (^ShareFailureBlock)(YMThirdPlatformShareEntity *entity,NSError *error);
 typedef void (^ShareSuccessBlock)(YMThirdPlatformShareEntity *shareEntity);
 typedef void (^ShareCancelBlock)(YMThirdPlatformShareEntity *shareEntity);
 

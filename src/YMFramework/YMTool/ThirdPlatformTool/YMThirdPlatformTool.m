@@ -57,7 +57,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
 
 + (void)loginForPlatformType:(YMThirdPlatformType)platformType
                      success:(void (^)(YMThirdPlatformUserInfo *platformUserInfo))success
-                     failure:(void (^)(NSError *__autoreleasing *))failure
+                     failure:(void (^)(NSError *))failure
                       cancel:(void (^)(void))cancel
 {
     switch (platformType) {
@@ -65,9 +65,9 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
         {
             [[YMSDKCall singleton] qqLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
                 success(userInfo);
-            } failure:^(NSError **error) {
+            } failure:^(NSError *error) {
                 failure(error);
-            } cancel:^(NSError *__autoreleasing *error) {
+            } cancel:^(NSError *error) {
                 cancel();
             }];
         }
@@ -76,9 +76,9 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
         {
             [[YMSDKCall singleton] wxLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
                 success(userInfo);
-            } failure:^(NSError **error) {
+            } failure:^(NSError *error) {
                 failure(error);
-            } cancel:^(NSError *__autoreleasing *error) {
+            } cancel:^(NSError *error) {
                 cancel();
             }];
         }
@@ -87,9 +87,9 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
         {
             [[YMSDKCall singleton] wbLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
                 success(userInfo);
-            } failure:^(NSError **error) {
+            } failure:^(NSError *error) {
                failure(error);
-            } cancel:^(NSError *__autoreleasing *error) {
+            } cancel:^(NSError *error) {
                 cancel();
             }];
         }
@@ -122,13 +122,13 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
 
 + (void)shareWithEntity:(YMThirdPlatformShareEntity *)shareEntity
                 success:(void (^)(YMThirdPlatformShareEntity *shareEntity))success
-               failure:(void (^)(YMThirdPlatformShareEntity *, NSError *__autoreleasing *))failure
+               failure:(void (^)(YMThirdPlatformShareEntity *entity, NSError *error))failure
                  cancel:(void (^)(YMThirdPlatformShareEntity *))cancel
 {
     [[YMSDKCall singleton] shareWithEntity:shareEntity
                                    success:^(YMThirdPlatformShareEntity *entity){
                                        success(shareEntity);
-                                   } failure:^(YMThirdPlatformShareEntity *entiy,NSError **error) {
+                                   } failure:^(YMThirdPlatformShareEntity *entiy, NSError *error) {
                                        failure(entiy ,error);
                                    } cancel:^(YMThirdPlatformShareEntity *entity){
                                        cancel(entity);
