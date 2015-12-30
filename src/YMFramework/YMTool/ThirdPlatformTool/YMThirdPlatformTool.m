@@ -67,7 +67,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                 success(userInfo);
             } failure:^(NSError *error) {
                 failure(error);
-            } cancel:^(NSError *error) {
+            } cancel:^(void) {
                 cancel();
             }];
         }
@@ -78,7 +78,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                 success(userInfo);
             } failure:^(NSError *error) {
                 failure(error);
-            } cancel:^(NSError *error) {
+            } cancel:^(void) {
                 cancel();
             }];
         }
@@ -89,7 +89,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                 success(userInfo);
             } failure:^(NSError *error) {
                failure(error);
-            } cancel:^(NSError *error) {
+            } cancel:^(void) {
                 cancel();
             }];
         }
@@ -122,7 +122,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
 
 + (void)shareWithEntity:(YMThirdPlatformShareEntity *)shareEntity
                 success:(void (^)(YMThirdPlatformShareEntity *shareEntity))success
-               failure:(void (^)(YMThirdPlatformShareEntity *entity, NSError *error))failure
+                failure:(void (^)(YMThirdPlatformShareEntity *shareEntity, NSError *error))failure
                  cancel:(void (^)(YMThirdPlatformShareEntity *))cancel
 {
     [[YMSDKCall singleton] shareWithEntity:shareEntity
