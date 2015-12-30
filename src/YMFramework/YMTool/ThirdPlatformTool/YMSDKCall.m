@@ -506,10 +506,7 @@ TCAPIRequestDelegate>
 {
     self.isLogin = NO;
     if (cancelled) {
-        NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:-2001
-                                         userInfo:nil];
-        self.qqLoginCancel(error);
+        self.qqLoginCancel();
     } else {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure
@@ -625,20 +622,17 @@ TCAPIRequestDelegate>
     } else if (resp.errCode == WXErrCodeCommon){
         //self.wxLoginFailure(@"普通错误类型");
     } else if (resp.errCode == WXErrCodeUserCancel){
-        NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:-2001
-                                         userInfo:nil];
-        self.wxLoginCancel(error);
+        self.wxLoginCancel();
     } else if (resp.errCode == WXErrCodeSentFail){
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNotNetWork
                                          userInfo:nil];
-        self.wxLoginCancel(error);
+        self.wxLoginFailure(error);
     } else if (resp.errCode == WXErrCodeAuthDeny){
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure
                                          userInfo:nil];
-        self.wxLoginCancel(error);
+        self.wxLoginFailure(error);
     }
     
     self.wxLoginCancel = nil;
@@ -700,10 +694,7 @@ TCAPIRequestDelegate>
     if (resp.statusCode == WeiboSDKResponseStatusCodeSuccess) {
         [self getWBUserInfo:resp];
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeUserCancel) {
-        NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:-2001
-                                         userInfo:nil];
-        self.wbLoginCancel(error);
+        self.wbLoginCancel();
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeAuthDeny) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure
