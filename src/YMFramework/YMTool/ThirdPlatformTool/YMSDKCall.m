@@ -359,8 +359,8 @@ TCAPIRequestDelegate>
                  cancel:(ShareCancelBlock)cancel
 {
     switch (shareEntity.shareType)  {
-        case YMThirdPlatformShareTypeForQQFriend:
-        case YMThirdPlatformShareTypeForQQZone:
+        case YMThirdPlatformShareForQQFriend:
+        case YMThirdPlatformShareForQQZone:
         {
             NSURL *previewURL = [NSURL URLWithString:shareEntity.imageURL];
             // 设置分享链接
@@ -370,7 +370,7 @@ TCAPIRequestDelegate>
                                                          description:shareEntity.contentText
                                                      previewImageURL:previewURL];
             // 设置分享到QZone的标志位
-            if (shareEntity.shareType == YMThirdPlatformShareTypeForQQZone) {
+            if (shareEntity.shareType == YMThirdPlatformShareForQQZone) {
                 self.qqZoneEntity = shareEntity;
                 
                 [imgObj setCflag: kQQAPICtrlFlagQZoneShareOnStart];
@@ -397,8 +397,8 @@ TCAPIRequestDelegate>
             }
         }
             break;
-        case YMThirdPlatformShareTypeForWechatSession:
-        case YMThirdPlatformShareTypeForWechatTimeline:
+        case YMThirdPlatformShareForWechatSession:
+        case YMThirdPlatformShareForWechatTimeline:
         {
             WXWebpageObject *webPageObject = [WXWebpageObject object];
             NSURL *url = [NSURL URLWithString:shareEntity.imageURL];
@@ -413,7 +413,7 @@ TCAPIRequestDelegate>
             
             SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
             req.message = message;
-            if (shareEntity.shareType == YMThirdPlatformShareTypeForWechatSession) {
+            if (shareEntity.shareType == YMThirdPlatformShareForWechatSession) {
                 self.wxSessionEntity = shareEntity;
                 
                 req.scene = WXSceneSession;
@@ -433,7 +433,7 @@ TCAPIRequestDelegate>
     
         }
             break;
-        case YMThirdPlatformShareTypeForWeibo:
+        case YMThirdPlatformShareForWeibo:
         {
             self.wbEntity = shareEntity;
             

@@ -25,6 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>mqzone</string>
 				<string>tencent100371282</string>
 			</array>
 		</dict>

@@ -10,11 +10,11 @@
 
 typedef NS_ENUM(NSUInteger, YMThirdPlatformShareType)
 {
-    YMThirdPlatformShareTypeForWeibo = 1,
-    YMThirdPlatformShareTypeForQQZone = 2,
-    YMThirdPlatformShareTypeForWechatTimeline = 3,
-    YMThirdPlatformShareTypeForWechatSession = 4,
-    YMThirdPlatformShareTypeForQQFriend = 5,
+    YMThirdPlatformShareForWeibo = 1,
+    YMThirdPlatformShareForQQZone = 2,
+    YMThirdPlatformShareForWechatTimeline = 3,
+    YMThirdPlatformShareForWechatSession = 4,
+    YMThirdPlatformShareForQQFriend = 5,
 };
 
 @interface YMThirdPlatformShareEntity : NSObject
