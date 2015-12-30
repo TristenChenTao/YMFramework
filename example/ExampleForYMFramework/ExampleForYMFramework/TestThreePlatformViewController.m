@@ -34,9 +34,9 @@
     [YMThirdPlatformTool setupWeChatByAppId:@"wx4868b35061f87885"
                                   appSecret:@"64020361b8ec4c99936c0e3999a9f249"];
     
-    [YMThirdPlatformTool setupSinaWeiboByAppKey:@"568898243"
-                                      appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
-                                    redirectUri:@"http://www.sharesdk.cn"];
+    [YMThirdPlatformTool setupSinaWeiboByAppKey:@"2447222363"
+                                      appSecret:@"57cf02f1baba0b9e7a548d464af29af8"
+                                    redirectUri:@"http://cornapp.com/"];
     
     [self.view addSubview:self.qqLoginButton];
     [self.view addSubview:self.wxLoginButton];

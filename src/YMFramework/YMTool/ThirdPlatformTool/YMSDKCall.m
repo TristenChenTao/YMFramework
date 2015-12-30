@@ -232,16 +232,7 @@ TCAPIRequestDelegate>
             break;
         default:
         {
-            NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:-2002
-                                             userInfo:nil];
-            if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,error);
-                self.shareQQZoneFailure = nil;
-            } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,error);
-                self.shareQQFriendFailure = nil;
-            }
+            //无错误发生
         }
             break;
     }
@@ -300,8 +291,8 @@ TCAPIRequestDelegate>
                     cancel:(LoginCancelBlock)cancel
 {
     SendAuthReq *req = [[SendAuthReq alloc] init];
-    req.scope = @"snsapi_userinfo";
-    req.state = @"xx";
+    req.scope = @"snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact";
+    req.state = @"xxx";
     [WXApi sendAuthReq:req
         viewController:nil
               delegate:self];
@@ -316,6 +307,10 @@ TCAPIRequestDelegate>
                     cancel:(LoginCancelBlock)cancel
 {
     WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.userInfo = @{@"SSO_From": @"YMSDKCall",
+                         @"Other_Info_1": [NSNumber numberWithInt:123],
+                         @"Other_Info_2": @[@"obj1", @"obj2"],
+                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
     request.redirectURI = self.wbRedirectURL;
     request.scope = @"all";
     [WeiboSDK sendRequest:request];
@@ -504,7 +499,7 @@ TCAPIRequestDelegate>
     if ([urlString hasPrefix:@"tencent"]) {
         return [TencentOAuth HandleOpenURL:url] || [QQApiInterface handleOpenURL:url
                                                                         delegate:[YMSDKCall singleton]];
-    } else if ([urlString hasPrefix:@"wx"]) {
+    } else if ([urlString hasPrefix:@"weixin"]) {
         return [WXApi handleOpenURL:url
                            delegate:[YMSDKCall singleton]];
     }
@@ -716,7 +711,9 @@ TCAPIRequestDelegate>
     if (resp.statusCode == WeiboSDKResponseStatusCodeSuccess) {
         [self getWBUserInfo:resp];
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeUserCancel) {
-        self.wbLoginCancel();
+        if (self.wbLoginCancel) {
+            self.wbLoginCancel();
+        }
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeAuthDeny) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure

@@ -32,6 +32,8 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>weixin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wx4868b35061f87885</string>
@@ -42,7 +44,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wb568898243</string>
+				<string>wb2447222363</string>
 			</array>
 		</dict>
 	</array>
