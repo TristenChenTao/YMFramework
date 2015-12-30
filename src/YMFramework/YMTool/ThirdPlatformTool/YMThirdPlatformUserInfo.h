@@ -1,9 +1,9 @@
 //
-//  YMThirdPlatformUserInfo.h
-//  YuMiAssistant
+//  QDThirdPlatformUserInfo.h
+//  TestThreePlatform2
 //
-//  Created by Tristen-MacBook on 8/18/14.
-//
+//  Created by yumi_iOS on 12/11/15.
+//  Copyright © 2015 yumi_iOS. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
