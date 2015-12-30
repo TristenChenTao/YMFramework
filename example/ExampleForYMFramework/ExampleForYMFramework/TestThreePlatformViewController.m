@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad
 {
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor]; //ddfsdfsdf
     
     [YMThirdPlatformTool setupQQByAppId:@"100371282"
                                  appKey:@"aed9b0303e3ed1e27bae87c33761161d"];
@@ -118,10 +118,10 @@
 
 - (void)qqFriendShare:(id)sender
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForQQFriend],
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
                                 @"contentType":@"nil",
                                 @"title":@"title",
-                                @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
+                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.Gif",
                                 @"resourceUrl":@"https://www.baidu.com",
                                 @"contentText":@"description"};
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
@@ -137,7 +137,7 @@
 
 - (void)qqZoneShare:(id)sender
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForQQZone],
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
                                 @"contentType":@"nil",
                                 @"title":@"title",
                                 @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
@@ -156,10 +156,10 @@
 
 - (void)wxSessionShare:(id)sender
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForWechatSession],
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatSession],
                                 @"contentType":@"nil",
                                 @"title":@"title",
-                                @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
+                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
                                 @"resourceUrl":@"https://www.baidu.com",
                                 @"contentText":@"description"};
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
@@ -175,10 +175,10 @@
 
 - (void)wxTimelineShare:(id)sender
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForWechatTimeline],
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatTimeline],
                                 @"contentType":@"nil",
                                 @"title":@"title",
-                                @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
+                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
                                 @"resourceUrl":@"https://www.baidu.com",
                                 @"contentText":@"description"};
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
@@ -193,7 +193,7 @@
 }
 - (void)wbShare:(id)sender
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForWeibo],
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformForWeibo],
                                 @"contentType":@"nil",
                                 @"title":@"title",
                                 @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
