@@ -349,7 +349,6 @@ TCAPIRequestDelegate>
     _wbAppscret = secret;
     _wbRedirectURL = redirectURL;
     self.wbUserInfo = [[YMThirdPlatformUserInfo alloc] init];
-    [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:appKey];
 }
 
