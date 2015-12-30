@@ -111,7 +111,7 @@ TCAPIRequestDelegate>
                                     selfWeak.wbUserInfo.homepage = nil;
                                     selfWeak.wbLoginSuccess(selfWeak.wbUserInfo);
                                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                    selfWeak.wbLoginFailure(&error);
+                                    selfWeak.wbLoginFailure(error);
                                 }];
 }
 
@@ -145,10 +145,10 @@ TCAPIRequestDelegate>
                       selfWeak.wxUserInfo.homepage = nil;
                       selfWeak.wxLoginSuccess(selfWeak.wxUserInfo);
                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                      selfWeak.wxLoginFailure(&error);
+                      selfWeak.wxLoginFailure(error);
                   }];
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             selfWeak.wxLoginFailure(&error);
+             selfWeak.wxLoginFailure(error);
          }];
 }
 
@@ -162,10 +162,10 @@ TCAPIRequestDelegate>
                                                  code:ErrorStateShareAppNotRegister
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
                 self.shareQQZoneFailure = nil;
             } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
                 self.shareQQFriendFailure = nil;
             }
         }
@@ -178,10 +178,10 @@ TCAPIRequestDelegate>
                                                  code:ErrorStateSharePrameError
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
                 self.shareQQZoneFailure = nil;
             } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
                 self.shareQQFriendFailure = nil;
             }
            
@@ -193,10 +193,10 @@ TCAPIRequestDelegate>
                                                  code:ErrorStateShareAppNotInstall
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
                 self.shareQQZoneFailure = nil;
             } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
                 self.shareQQFriendFailure = nil;
             }
             
@@ -208,10 +208,10 @@ TCAPIRequestDelegate>
                                                  code:ErrorStateShareInterfaceNotSupport
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
                 self.shareQQZoneFailure = nil;
             } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
                 self.shareQQFriendFailure = nil;
             }
         }
@@ -222,10 +222,10 @@ TCAPIRequestDelegate>
                                                  code:ErrorStateShareSentFailure
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
                 self.shareQQZoneFailure = nil;
             } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
                 self.shareQQFriendFailure = nil;
             }
         }
@@ -236,10 +236,10 @@ TCAPIRequestDelegate>
                                                  code:-2002
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
                 self.shareQQZoneFailure = nil;
             } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
                 self.shareQQFriendFailure = nil;
             }
         }
@@ -509,12 +509,12 @@ TCAPIRequestDelegate>
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:-2001
                                          userInfo:nil];
-        self.qqLoginCancel(&error);
+        self.qqLoginCancel(error);
     } else {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure
                                          userInfo:nil];
-        self.qqLoginFailure(&error);
+        self.qqLoginFailure(error);
     }
 }
 
@@ -529,7 +529,7 @@ TCAPIRequestDelegate>
     NSError *error = [NSError errorWithDomain:@"domain"
                                          code:ErrorStateLoginNotNetWork
                                      userInfo:nil];
-    self.qqLoginFailure(&error);
+    self.qqLoginFailure(error);
 }
 
 - (void)getUserInfoResponse:(APIResponse*) response
@@ -538,7 +538,7 @@ TCAPIRequestDelegate>
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateGetUserInfoFailure
                                          userInfo:nil];
-        self.qqLoginFailure(&error);
+        self.qqLoginFailure(error);
         return;
     }
     
@@ -628,17 +628,17 @@ TCAPIRequestDelegate>
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:-2001
                                          userInfo:nil];
-        self.wxLoginCancel(&error);
+        self.wxLoginCancel(error);
     } else if (resp.errCode == WXErrCodeSentFail){
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNotNetWork
                                          userInfo:nil];
-        self.wxLoginCancel(&error);
+        self.wxLoginCancel(error);
     } else if (resp.errCode == WXErrCodeAuthDeny){
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure
                                          userInfo:nil];
-        self.wxLoginCancel(&error);
+        self.wxLoginCancel(error);
     }
     
     self.wxLoginCancel = nil;
@@ -670,18 +670,18 @@ TCAPIRequestDelegate>
                                              code:ErrorStateShareSentFailure
                                          userInfo:nil];
         if (self.shareWechatSessionFailure) {
-            self.shareWechatSessionFailure(self.wxSessionEntity, &error);
+            self.shareWechatSessionFailure(self.wxSessionEntity, error);
         } else if (self.shareWechatTimelineFailure) {
-            self.shareWechatTimelineFailure(self.wxTimelineEntity, &error);
+            self.shareWechatTimelineFailure(self.wxTimelineEntity, error);
         }
     } else if (resp.errCode == WXErrCodeUnsupport){
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateShareInterfaceNotSupport
                                          userInfo:nil];
         if (self.shareWechatSessionFailure) {
-            self.shareWechatSessionFailure(self.wxSessionEntity, &error);
+            self.shareWechatSessionFailure(self.wxSessionEntity, error);
         } else if (self.shareWechatTimelineFailure) {
-            self.shareWechatTimelineFailure(self.wxTimelineEntity, &error);
+            self.shareWechatTimelineFailure(self.wxTimelineEntity, error);
         }
     }
     
@@ -703,22 +703,22 @@ TCAPIRequestDelegate>
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:-2001
                                          userInfo:nil];
-        self.wbLoginCancel(&error);
+        self.wbLoginCancel(error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeAuthDeny) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure
                                          userInfo:nil];
-        self.wbLoginFailure(&error);
+        self.wbLoginFailure(error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeSentFail) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNotNetWork
                                          userInfo:nil];
-        self.wbLoginFailure(&error);
+        self.wbLoginFailure(error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeAuthDeny) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure
                                          userInfo:nil];
-        self.wxLoginFailure(&error);
+        self.wxLoginFailure(error);
     }
     
     self.wbLoginCancel = nil;
@@ -735,17 +735,17 @@ TCAPIRequestDelegate>
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateShareSentFailure
                                          userInfo:nil];
-        self.shareWeiboFailure(self.wbEntity,&error);
+        self.shareWeiboFailure(self.wbEntity,error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeShareInSDKFailed) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateShareNormalFailure
                                          userInfo:nil];
-        self.shareWeiboFailure(self.wbEntity,&error);
+        self.shareWeiboFailure(self.wbEntity,error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeUnsupport) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateShareInterfaceNotSupport
                                          userInfo:nil];
-       self.shareWeiboFailure(self.wbEntity,&error);
+       self.shareWeiboFailure(self.wbEntity,error);
     }
     
     self.shareWeiboSuccess = nil;

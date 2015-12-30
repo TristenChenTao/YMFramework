@@ -45,7 +45,7 @@ typedef NS_ENUM(NSUInteger, YMThirdPlatformType) {
 //登录
 + (void)loginForPlatformType:(YMThirdPlatformType)platformType
                      success:(void (^)(YMThirdPlatformUserInfo *platformUserInfo))success
-                     failure:(void (^)(NSError **error))failure
+                     failure:(void (^)(NSError *error))failure
                       cancel:(void (^)(void))cancel;
 //登出
 + (void)logoutForPlatformType:(YMThirdPlatformType)platformType;
@@ -53,7 +53,7 @@ typedef NS_ENUM(NSUInteger, YMThirdPlatformType) {
 //分享
 + (void)shareWithEntity:(YMThirdPlatformShareEntity *)shareEntity
                 success:(void (^)(YMThirdPlatformShareEntity *shareEntity))success
-                failure:(void (^)(YMThirdPlatformShareEntity *shareEntity, NSError **error))failure
+                failure:(void (^)(YMThirdPlatformShareEntity *shareEntity, NSError *error))failure
                  cancel:(void (^)(YMThirdPlatformShareEntity *shareEntity))cancel;
 
 //判断第三方平台客户端是否安装
