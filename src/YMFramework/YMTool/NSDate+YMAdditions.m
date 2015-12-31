@@ -6,6 +6,8 @@
 //
 //
 
+#import <objc/runtime.h>
+
 #import "NSDate+YMAdditions.h"
 
 #import "NSString+YMAdditions.h"
@@ -16,14 +18,9 @@
 
 @end
 
-static NSString *kSpecialTimeZone = nil;
+const static NSString *kSpecialTimeZoneKey = @"kSpecialTimeZoneKey";
 
 @implementation NSCalendar (YMAdditions)
-
-+ (void)ym_setTimeZone:(NSString *)timeZone
-{
-    kSpecialTimeZone = timeZone;
-}
 
 + (instancetype)ym_sharedCalendar
 {
@@ -33,8 +30,10 @@ static NSString *kSpecialTimeZone = nil;
         instance = [NSCalendar currentCalendar];
     });
     
-    if ([NSString ym_isContainString:kSpecialTimeZone]) {
-         [instance setTimeZone:[NSTimeZone timeZoneWithAbbreviation:kSpecialTimeZone]];
+    NSString *specialTimeZone = objc_getAssociatedObject([NSDate class], &kSpecialTimeZoneKey);
+    
+    if ([NSString ym_isContainString:specialTimeZone]) {
+         [instance setTimeZone:[NSTimeZone timeZoneWithAbbreviation:specialTimeZone]];
     }
     else {
         [instance setTimeZone:[NSTimeZone defaultTimeZone]];
@@ -45,8 +44,12 @@ static NSString *kSpecialTimeZone = nil;
 
 @end
 
-
 @implementation NSDate (YMAdditions)
+
++ (void)ym_setSpecialTimeZone:(NSString *)timeZone
+{
+    objc_setAssociatedObject([NSDate class], &kSpecialTimeZoneKey, timeZone, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 - (NSInteger)ym_year
 {
