@@ -19,6 +19,8 @@
 @property (nonatomic, strong) UIButton *shareWXTimelineButton;
 @property (nonatomic, strong) UIButton *shareWXSessionButton;
 @property (nonatomic, strong) UIButton *shareWBButton;
+@property (nonatomic, strong) UIButton *shareQQFriendGifButton;
+@property (nonatomic, strong) UIButton *shareWXSessionGifButton;
 
 @end
 
@@ -31,8 +33,8 @@
     [YMThirdPlatformTool setupQQByAppId:@"100371282"
                                  appKey:@"aed9b0303e3ed1e27bae87c33761161d"];
     
-    [YMThirdPlatformTool setupWeChatByAppId:@"wx4868b35061f87885"
-                                  appSecret:@"64020361b8ec4c99936c0e3999a9f249"];
+    [YMThirdPlatformTool setupWeChatByAppId:@"wx99d5fdb34920484b"
+                                  appSecret:@"8d478ec3825697d3fe879394266a1d68"];
     
     [YMThirdPlatformTool setupSinaWeiboByAppKey:@"2447222363"
                                       appSecret:@"57cf02f1baba0b9e7a548d464af29af8"
@@ -46,6 +48,8 @@
     [self.view addSubview:self.shareWXTimelineButton];
     [self.view addSubview:self.shareWXSessionButton];
     [self.view addSubview:self.shareWBButton];
+    [self.view addSubview:self.shareQQFriendGifButton];
+    [self.view addSubview:self.shareWXSessionGifButton];
     
     [self setupViewLayout];
     [super viewDidLoad];
@@ -62,17 +66,26 @@
     self.wbLoginButton.center = CGPointMake(10, 110);
     self.wbLoginButton.ym_Size = CGSizeMake(150, 50);
     
-    self.shareQQFriendButton.center = CGPointMake(10, 160);
+    self.shareQQZoneButton.center = CGPointMake(10, 160);
+    self.shareQQZoneButton.ym_Size = CGSizeMake(150, 50);
+    
+    self.shareQQFriendButton.center = CGPointMake(10, 210);
     self.shareQQFriendButton.ym_Size = CGSizeMake(150, 50);
     
-    self.shareWXTimelineButton.center = CGPointMake(10, 210);
+    self.shareWXTimelineButton.center = CGPointMake(10, 260);
     self.shareWXTimelineButton.ym_Size = CGSizeMake(150, 50);
     
-    self.shareWXSessionButton.center = CGPointMake(10, 260);
+    self.shareWXSessionButton.center = CGPointMake(10, 310);
     self.shareWXSessionButton.ym_Size = CGSizeMake(150, 50);
     
-    self.shareWBButton.center = CGPointMake(10, 310);
+    self.shareWBButton.center = CGPointMake(10, 360);
     self.shareWBButton.ym_Size = CGSizeMake(150, 50);
+    
+    self.shareQQFriendGifButton.center = CGPointMake(10, 410);
+    self.shareQQFriendGifButton.ym_Size = CGSizeMake(150, 50);
+    
+    self.shareWXSessionGifButton.center = CGPointMake(10, 460);
+    self.shareWXSessionGifButton.ym_Size = CGSizeMake(150, 50);
     
 }
 
@@ -84,6 +97,11 @@
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForQQ
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
                                           YM_Log(@"this is qqUserInfo: %@", platformUserInfo);
+                                          YM_Log(@"userId= %@", platformUserInfo.userId);
+                                          YM_Log(@"nickname = %@", platformUserInfo.nickname);
+                                          YM_Log(@"profileImageUrl = %@", platformUserInfo.profileImageUrl);
+                                          YM_Log(@"accessToken = %@", platformUserInfo.accessToken);
+                                          YM_Log(@"expired = %@", platformUserInfo.expired);
                                       } failure:^(NSError *error) {
                                           YM_Log(@"this is qqLogin error:%@", error);
                                       } cancel:^{
@@ -96,6 +114,11 @@
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForWechat
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
                                           YM_Log(@"this is wxUserInfo: %@", platformUserInfo);
+                                          YM_Log(@"userId= %@", platformUserInfo.userId);
+                                          YM_Log(@"nickname = %@", platformUserInfo.nickname);
+                                          YM_Log(@"profileImageUrl = %@", platformUserInfo.profileImageUrl);
+                                          YM_Log(@"accessToken = %@", platformUserInfo.accessToken);
+                                          YM_Log(@"expired = %@", platformUserInfo.expired);
                                       } failure:^(NSError *error) {
                                           YM_Log(@"this is wxLogin error:%@", error);
                                       } cancel:^{
@@ -108,6 +131,11 @@
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForWeibo
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
                                           YM_Log(@"this is wbUserInfo: %@", platformUserInfo);
+                                          YM_Log(@"userId= %@", platformUserInfo.userId);
+                                          YM_Log(@"nickname = %@", platformUserInfo.nickname);
+                                          YM_Log(@"profileImageUrl = %@", platformUserInfo.profileImageUrl);
+                                          YM_Log(@"accessToken = %@", platformUserInfo.accessToken);
+                                          YM_Log(@"expired = %@", platformUserInfo.expired);
                                       } failure:^(NSError *error) {
                                           YM_Log(@"this is wbLogin error:%@", error);
                                       } cancel:^{
@@ -121,7 +149,7 @@
     NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
                                 @"contentType":@"nil",
                                 @"title":@"title",
-                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.Gif",
+                                @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
                                 @"resourceUrl":@"https://www.baidu.com",
                                 @"contentText":@"description"};
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
@@ -131,7 +159,7 @@
                                  } failure:^(YMThirdPlatformShareEntity *entity, NSError *error) {
                                      YM_Log(@"this is qqFriendShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     YM_Log(@"this is qqFriendCancel");
+                                     YM_Log(@"this is qqFriendShareCancel");
                                  }];
 }
 
@@ -150,7 +178,7 @@
                                  } failure:^(YMThirdPlatformShareEntity *entity, NSError *error) {
                                      YM_Log(@"this is qqZoneShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     YM_Log(@"this is qqZoneCancel");
+                                     YM_Log(@"this is qqZoneShareCancel");
                                  }];
 }
 
@@ -169,7 +197,7 @@
                                  } failure:^(YMThirdPlatformShareEntity *entity ,NSError *error) {
                                      YM_Log(@"this is wxSessionShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     YM_Log(@"this is wxSessionCancel");
+                                     YM_Log(@"this is wxSessionShareCancel");
                                  }];
 }
 
@@ -178,7 +206,7 @@
     NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatTimeline],
                                 @"contentType":@"nil",
                                 @"title":@"title",
-                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
+                                @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
                                 @"resourceUrl":@"https://www.baidu.com",
                                 @"contentText":@"description"};
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
@@ -188,7 +216,7 @@
                                  } failure:^(YMThirdPlatformShareEntity *entity ,NSError *error) {
                                      YM_Log(@"this is wxTimelineShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     YM_Log(@"this is wxTimelineCancel");
+                                     YM_Log(@"this is wxTimelineShareCancel");
                                  }];
 }
 - (void)wbShare:(id)sender
@@ -206,7 +234,45 @@
                                  } failure:^(YMThirdPlatformShareEntity *entity ,NSError *error) {
                                      YM_Log(@"this is weiboShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     YM_Log(@"this is weiboCancel");
+                                     YM_Log(@"this is weiboShareCancel");
+                                 }];
+}
+
+- (void)qqShareGif
+{
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
+                                @"contentType":@"nil",
+                                @"title":@"title",
+                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
+                                @"resourceUrl":@"https://www.baidu.com",
+                                @"contentText":@"description"};
+    YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
+    [YMThirdPlatformTool shareWithEntity:entity
+                                 success:^(YMThirdPlatformShareEntity *shareEntity) {
+                                     YM_Log(@"this is qqFriendShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity, NSError *error) {
+                                     YM_Log(@"this is qqFriendShare failure %@", error);
+                                 } cancel:^(YMThirdPlatformShareEntity *entity){
+                                     YM_Log(@"this is qqFriendShareCancel");
+                                 }];
+}
+
+- (void)wxShareGif
+{
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatSession],
+                                @"contentType":@"nil",
+                                @"title":@"title",
+                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
+                                @"resourceUrl":@"https://www.baidu.com",
+                                @"contentText":@"description"};
+    YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
+    [YMThirdPlatformTool shareWithEntity:entity
+                                 success:^(YMThirdPlatformShareEntity *shareEntity) {
+                                     YM_Log(@"this is wxTimelineShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError *error) {
+                                     YM_Log(@"this is wxTimelineShare failure %@", error);
+                                 } cancel:^(YMThirdPlatformShareEntity *entity){
+                                     YM_Log(@"this is wxTimelineShareCancel");
                                  }];
 }
 
@@ -338,6 +404,38 @@
     }
     
     return _shareWBButton;
+}
+
+- (UIButton *)shareQQFriendGifButton
+{
+    if (_shareQQFriendGifButton == nil) {
+        _shareQQFriendGifButton = [[UIButton alloc] init];
+        [_shareQQFriendGifButton setTitleColor:[UIColor blueColor]
+                                      forState:UIControlStateNormal];
+        [_shareQQFriendGifButton setTitle:@"分享Gif表情到QQ"
+                                 forState:UIControlStateNormal];
+        [_shareQQFriendGifButton addTarget:self
+                                    action:@selector(qqShareGif)
+                          forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _shareQQFriendGifButton;
+}
+
+- (UIButton *)shareWXSessionGifButton
+{
+    if (_shareWXSessionGifButton == nil) {
+        _shareWXSessionGifButton = [[UIButton alloc] init];
+        [_shareWXSessionGifButton setTitleColor:[UIColor blueColor]
+                                      forState:UIControlStateNormal];
+        [_shareWXSessionGifButton setTitle:@"分享Gif表情到微信"
+                                  forState:UIControlStateNormal];
+        [_shareWXSessionGifButton addTarget:self
+                                     action:@selector(wxShareGif)
+                           forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _shareWXSessionGifButton;
 }
 
 @end

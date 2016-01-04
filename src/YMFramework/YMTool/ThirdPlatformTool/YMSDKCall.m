@@ -18,6 +18,7 @@
 #import "WXApi.h"
 #import "AFNetworking.h"
 #import "WeiboSDK.h"
+#import "WechatAuthSDK.h"
 
 
 @interface YMSDKCall()
@@ -293,9 +294,19 @@ TCAPIRequestDelegate>
     SendAuthReq *req = [[SendAuthReq alloc] init];
     req.scope = @"snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact";
     req.state = @"xxx";
-    [WXApi sendAuthReq:req
-        viewController:nil
-              delegate:self];
+    
+    if (![WXApi isWXAppInstalled]) {
+        self.wxLoginFailure = failure;
+        NSError *error = [NSError errorWithDomain:@"domain"
+                                             code:ErrorStateLoginAppNotInstall
+                                         userInfo:nil];
+        self.wxLoginFailure(error);
+        return ;
+    }
+    
+   [WXApi sendAuthReq:req
+       viewController:nil
+             delegate:self];
     
     self.wxLoginSuccess = success;
     self.wxLoginFailure = failure;
@@ -499,7 +510,7 @@ TCAPIRequestDelegate>
     if ([urlString hasPrefix:@"tencent"]) {
         return [TencentOAuth HandleOpenURL:url] || [QQApiInterface handleOpenURL:url
                                                                         delegate:[YMSDKCall singleton]];
-    } else if ([urlString hasPrefix:@"weixin"]) {
+    } else if ([urlString hasPrefix:@"weixin"] || [urlString hasPrefix:@"wx"]) {
         return [WXApi handleOpenURL:url
                            delegate:[YMSDKCall singleton]];
     }

@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, ErrorState)
 {
     ErrorStateLoginNormalFailure = -1000,
     ErrorStateLoginNotNetWork,
+    ErrorStateLoginAppNotInstall,
     ErrorStateGetUserInfoFailure,
     ErrorStateShareNormalFailure,
     ErrorStateShareAppNotRegister,

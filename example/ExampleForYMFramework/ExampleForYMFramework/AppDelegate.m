@@ -24,28 +24,15 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[TestThreePlatformViewController alloc] init];
-//    self.window.rootViewController = [[ViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<NSString *,id> *)options
 {
     return [YMThirdPlatformTool handleURL:url];
 }
-
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
-{
-    return [YMThirdPlatformTool handleURL:url];
-}
-//
-//- (BOOL)application:(UIApplication *)app
-//            openURL:(NSURL *)url
-//            options:(NSDictionary<NSString *,id> *)options
-//{
-//    return [YMThirdPlatformTool handleURL:url];
-//}
 
 @end
