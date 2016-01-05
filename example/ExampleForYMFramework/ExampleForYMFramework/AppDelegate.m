@@ -35,4 +35,11 @@
     return [YMThirdPlatformTool handleURL:url];
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [YMThirdPlatformTool handleURL:url]; //微博专用跳转接口
+}
+
 @end
