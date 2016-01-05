@@ -29,30 +29,13 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<NSString *,id> *)options
 {
     return [YMThirdPlatformTool handleURL:url];
 }
 
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
-{
-    return [YMThirdPlatformTool handleURL:url];
-}
-//
-//- (BOOL)application:(UIApplication *)app
-//            openURL:(NSURL *)url
-//            options:(NSDictionary<NSString *,id> *)options
-//{
-//    return [YMThirdPlatformTool handleURL:url];
-//}
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
-{
-    return [YMThirdPlatformTool handleURL:url]; //微博专用跳转接口
-}
 
 @end
