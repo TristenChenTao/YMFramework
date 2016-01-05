@@ -30,12 +30,19 @@
 }
 
 
-- (BOOL)application:(UIApplication *)app
-            openURL:(NSURL *)url
-            options:(NSDictionary<NSString *,id> *)options
+- (BOOL)application:(UIApplication *)application
+            openURL:(nonnull NSURL *)url
+  sourceApplication:(nullable NSString *)sourceApplication
+         annotation:(nonnull id)annotation
 {
     return [YMThirdPlatformTool handleURL:url];
 }
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(nonnull NSURL *)url
+            options:(nonnull NSDictionary<NSString *,id> *)options
+{
+    return [YMThirdPlatformTool handleURL:url];
+}
 
 @end
