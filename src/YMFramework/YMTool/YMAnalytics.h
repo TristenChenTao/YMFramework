@@ -10,16 +10,16 @@
 
 @interface YMAnalytics : NSObject
 
-+ (void)startByAppKey:(NSString *)appKey
-            channelID:(NSString *)channelID;
++ (void)startByUMengAppKey:(NSString *)appKey
+                 channelID:(NSString *)channelID;
 
-+ (void)beginLogPageView:(NSString *)pageName;
-+ (void)endLogPageView:(NSString *)pageName;
++ (void)setDebugMode:(BOOL)debugMode;
+
++ (void)startReport;
 
 + (void)event:(NSString *)eventId;
-+ (void)event:(NSString *)eventId label:(NSString *)label;
 
-+ (NSString * )macString;
++ (NSString *)macString;
 + (NSString *)idfaString;
 + (NSString *)idfvString;
 

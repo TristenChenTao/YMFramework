@@ -7,6 +7,8 @@
 //
 
 #import "YMAnalytics.h"
+#import "AnalyticsModel.h"
+#import "YMHTTPRequestManager.h"
 
 //for mac
 #include <sys/socket.h>
@@ -24,8 +26,34 @@
 
 @implementation YMAnalytics
 
-+ (void)startByAppKey:(NSString *)appKey
-            channelID:(NSString *)channelID
+static NSString *URL_Domain_Temp = @"http://192.168.1.71:8091";
+
+static NSString *URL_Report_Action = @"/Interface/IosActive";
+
+static NSString *URL_Init_Info = @"/Interface/Init";
+
+static NSString *URL_Report_Launch = @"/Interface/IosLaunch";
+
+static NSString *KAnalyticsModelArray = @"KAnalyticsModelArray";
+
+static NSString *KSessionID = @"KSessionID";
+
+static NSMutableArray *analyticsModelArray = nil;
+
+static double  currentUTCTime;
+
+static BOOL  debugMode;
+
+static NSString  *currentSessionId;
+
+static NSInteger kSendInterval = 60;
+
+static NSTimer *timer = nil;
+
+dispatch_source_t timerSource;
+
++ (void)startByUMengAppKey:(NSString *)appKey
+                 channelID:(NSString *)channelID
 {
     //um
     if ([NSString ym_isContainString:appKey]) {
@@ -44,37 +72,222 @@
         NSString * urlString = [NSString stringWithFormat:@"http://log.umtrack.com/ping/%@/?devicename=%@&mac=%@&idfa=%@&idfv=%@", appKey, deviceName, mac, idfa, idfv];
         [NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL: [NSURL URLWithString:urlString]] delegate:nil];
     }
-//    Class cls = NSClassFromString(@"UMANUtil");
-//    SEL deviceIDSelector = @selector(openUDIDString);
-//    NSString *deviceID = nil;
-//    if(cls && [cls respondsToSelector:deviceIDSelector]){
-//        deviceID = [cls performSelector:deviceIDSelector];
-//    }
-//    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:@{@"oid" : deviceID}
-//                                                       options:NSJSONWritingPrettyPrinted
-//                                                         error:nil];
-//    
-//    NSLog(@"%@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationDidEnterBackground)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationWillEnterForeground)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
+    [self startReport];
 }
 
-+ (void)beginLogPageView:(NSString *)pageName
-{
-    [MobClick beginLogPageView:pageName];
-}
 
-+ (void)endLogPageView:(NSString *)pageName
+#pragma mark - public method
+
++ (void)setDebugMode:(BOOL)isDebugMode
 {
-    [MobClick endLogPageView:pageName];
+    debugMode = isDebugMode;
 }
 
 + (void)event:(NSString *)eventId
 {
-    [MobClick event:eventId];
+    AnalyticsModel *model = [[AnalyticsModel alloc] init];
+    model.actionId = eventId;
+    model.actionTimestamp = [NSString stringWithFormat:@"%.f",currentUTCTime];
+    [analyticsModelArray addObject:model];
 }
 
-+ (void)event:(NSString *)eventId label:(NSString *)label
+#pragma mark - event response
+
++ (void)applicationDidEnterBackground
 {
-    [MobClick event:eventId label:label];
+    [self requestReportActions];
+    [self stopTimer];
+}
+
++ (void)applicationWillEnterForeground
+{
+    [self readAlyticsModelInfoFromDisk];
+    [self startTimer];
+    [self performSelector:@selector(requestInitInfo)
+               withObject:nil
+               afterDelay:0.5f];
+}
+
+#pragma mark - private method
+
++ (void)startReport
+{
+    [self applicationWillEnterForeground];
+    analyticsModelArray = [[NSMutableArray alloc] init];
+    [self performSelector:@selector(requestInitInfo)
+               withObject:nil
+               afterDelay:0.5f];
+    [self performSelector:@selector(reportLaunchEvent)
+               withObject:nil
+               afterDelay:0.5f];
+}
+
++ (void)startTimer
+{
+    timer = [NSTimer scheduledTimerWithTimeInterval:kSendInterval
+                                             target:self
+                                           selector:@selector(requestReportActions)
+                                           userInfo:nil
+                                            repeats:YES];
+}
+
++ (void)stopTimer
+{
+    if (timer != nil) {
+        [timer invalidate];
+    }
+}
+
++ (void)reportLaunchEvent
+{
+    [self performSelector:@selector(requestReportLaunchEvent)
+               withObject:nil
+               afterDelay:0.5f];
+}
+
++ (void)requestReportActions
+{
+    [self requestReportActions:analyticsModelArray
+                     sessionId:currentSessionId];
+}
+
++ (void)setCurrentTimer
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    timerSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    dispatch_source_set_timer(timerSource, dispatch_walltime(DISPATCH_TIME_NOW, 0), 1 * NSEC_PER_SEC, 0);
+    dispatch_source_set_event_handler(timerSource, ^{
+        currentUTCTime += 1;
+    });
+    dispatch_resume(timerSource);
+}
+
++ (void)readAlyticsModelInfoFromDisk
+{
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:KAnalyticsModelArray];
+    NSString *sessionId = [[NSUserDefaults standardUserDefaults] objectForKey:KSessionID];
+    if (data.length > 0) {
+        NSMutableArray *actions = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if (actions != nil && actions.count > 0) {
+            [self requestReportActions:actions
+                             sessionId:sessionId];
+        }
+        [[NSUserDefaults standardUserDefaults] setObject:nil
+                                                  forKey:KAnalyticsModelArray];
+        [[NSUserDefaults standardUserDefaults] setObject:nil
+                                                  forKey:KSessionID];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
++ (void)writeAlyticsModelInfoToDisk
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:analyticsModelArray];
+    [[NSUserDefaults standardUserDefaults] setObject:currentSessionId
+                                              forKey:KSessionID];
+    [[NSUserDefaults standardUserDefaults] setObject:data
+                                              forKey:KAnalyticsModelArray];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [analyticsModelArray removeAllObjects];
+    currentSessionId = @"";
+}
+
++ (void)requestInitInfo
+{
+    [YMHTTPRequestManager requestWithMethodType:YMHttpMethodTypeForGet
+                                    relativeURL:URL_Init_Info
+                                        baseURL:URL_Domain_Temp
+                                         baseIP:URL_Domain_Temp
+                                    headerField:nil
+                                     parameters:nil
+                                        timeout:5
+                                        success:^(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage, id data){
+                                            NSDictionary *result = data;
+                                            currentSessionId = [[result objectForKey:@"SessionId"] stringValue];
+                                            currentUTCTime = [[result objectForKey:@"UtcTime"] doubleValue];
+                                            [self setCurrentTimer];
+                                        }
+                                        failure:^(NSURLRequest *request, NSError *error){
+                                            NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
+                                            currentUTCTime = timeInterval;
+                                            [self setCurrentTimer];
+                                        }];
+}
+
++ (void)requestReportActions:(NSMutableArray *)actions
+                   sessionId:(NSString *)sessionId
+{
+    if (actions == nil || actions.count == 0 ) {
+        return;
+    }
+    
+    if ([NSString ym_isEmptyString:sessionId]) {
+        [self requestInitInfo];
+        return;
+    }
+    
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (AnalyticsModel *model in actions) {
+        NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
+        [temp setValue:model.actionId forKey:@"actionid"];
+        [temp setValue:model.actionTimestamp forKey:@"time"];
+        [array addObject:temp];
+    }
+    [dictionary setObject:array
+                   forKey:@"records"];
+    [dictionary setValue:sessionId
+                  forKey:@"sessionId"];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary
+                                                   options:kNilOptions
+                                                     error:nil];
+    
+    if (debugMode) {
+        NSString *jsonString = [[NSString alloc] initWithData:data
+                                                     encoding:NSUTF8StringEncoding];
+        NSLog(@"===%@===",jsonString);
+    }
+    
+    [YMHTTPRequestManager uploadJSONData:data
+                             relativeURL:URL_Report_Action
+                                 baseURL:URL_Domain_Temp
+                                  baseIP:URL_Domain_Temp
+                             headerField:nil
+                              parameters:nil
+                                 timeout:0
+                                 success:^(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage, id data){
+                                     [actions removeAllObjects];
+                                 }
+                                 failure:^(NSURLRequest *request, NSError *error){
+                                     if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
+                                         [self writeAlyticsModelInfoToDisk];
+                                     }
+                                 }];
+}
+
++ (void)requestReportLaunchEvent
+{
+    [YMHTTPRequestManager requestWithMethodType:YMHttpMethodTypeForGet
+                                    relativeURL:URL_Report_Launch
+                                        baseURL:URL_Domain_Temp
+                                         baseIP:URL_Domain_Temp
+                                    headerField:nil
+                                     parameters:nil
+                                        timeout:0
+                                        success:^(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage, id data){
+                                        }
+                                        failure:^(NSURLRequest *request, NSError *error){
+                                        }];
 }
 
 + (NSString * )macString
