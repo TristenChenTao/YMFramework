@@ -220,7 +220,7 @@
 
 - (void)gifQQShare
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForQQFriend],
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
                                 @"contentType":@"nil",
                                 @"title":@"title",
                                 @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
@@ -230,8 +230,8 @@
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
                                      NSLog(@"this is weiboShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
-                                     NSLog(@"this is weiboShare failure %@", *error);
+                                 } failure:^(YMThirdPlatformShareEntity *shareEntity, NSError *error) {
+                                     NSLog(@"this is weiboShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
                                      NSLog(@"this is weiboCancel");
                                  }];
@@ -239,7 +239,7 @@
 
 - (void)gifWXShare
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForWechatSession],
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatSession],
                                 @"contentType":@"nil",
                                 @"title":@"title",
                                 @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
@@ -249,8 +249,8 @@
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
                                      NSLog(@"this is weiboShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
-                                     NSLog(@"this is weiboShare failure %@", *error);
+                                 } failure:^(YMThirdPlatformShareEntity *shareEntity, NSError *error) {
+                                     NSLog(@"this is weiboShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
                                      NSLog(@"this is weiboCancel");
                                  }];
