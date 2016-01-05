@@ -19,6 +19,8 @@
 @property (nonatomic, strong) UIButton *shareWXTimelineButton;
 @property (nonatomic, strong) UIButton *shareWXSessionButton;
 @property (nonatomic, strong) UIButton *shareWBButton;
+@property (nonatomic, strong) UIButton *shareGifQQButton;
+@property (nonatomic, strong) UIButton *shareGifWXButton;
 
 @end
 
@@ -46,6 +48,8 @@
     [self.view addSubview:self.shareWXTimelineButton];
     [self.view addSubview:self.shareWXSessionButton];
     [self.view addSubview:self.shareWBButton];
+    [self.view addSubview:self.shareGifQQButton];
+    [self.view addSubview:self.shareGifWXButton];
     
     [self setupViewLayout];
     [super viewDidLoad];
@@ -65,17 +69,21 @@
     self.shareQQFriendButton.center = CGPointMake(10, 160);
     self.shareQQFriendButton.ym_Size = CGSizeMake(150, 50);
     
-    self.shareWXTimelineButton.center = CGPointMake(10, 210);
+    self.shareQQZoneButton.center = CGPointMake(10, 210);
+    self.shareQQZoneButton.ym_Size = CGSizeMake(150, 50);
+    
+    self.shareWXTimelineButton.center = CGPointMake(10, 260);
     self.shareWXTimelineButton.ym_Size = CGSizeMake(150, 50);
     
-    self.shareWXSessionButton.center = CGPointMake(10, 260);
+    self.shareWXSessionButton.center = CGPointMake(10, 310);
     self.shareWXSessionButton.ym_Size = CGSizeMake(150, 50);
     
-    self.shareWBButton.center = CGPointMake(10, 310);
-    self.shareWBButton.ym_Size = CGSizeMake(150, 50);
+    self.shareGifQQButton.center = CGPointMake(10, 360);
+    self.shareGifQQButton.ym_Size = CGSizeMake(150, 50);
     
+    self.shareGifWXButton.center = CGPointMake(10, 410);
+    self.shareGifWXButton.ym_Size = CGSizeMake(150, 50);
 }
-
 
 #pragma mark - IBAction
 
@@ -210,6 +218,44 @@
                                  }];
 }
 
+- (void)gifQQShare
+{
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForQQFriend],
+                                @"contentType":@"nil",
+                                @"title":@"title",
+                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
+                                @"resourceUrl":@"https://www.baidu.com",
+                                @"contentText":@"description"};
+    YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
+    [YMThirdPlatformTool shareWithEntity:entity
+                                 success:^(YMThirdPlatformShareEntity *shareEntity) {
+                                     NSLog(@"this is weiboShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
+                                     NSLog(@"this is weiboShare failure %@", *error);
+                                 } cancel:^(YMThirdPlatformShareEntity *entity){
+                                     NSLog(@"this is weiboCancel");
+                                 }];
+}
+
+- (void)gifWXShare
+{
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForWechatSession],
+                                @"contentType":@"nil",
+                                @"title":@"title",
+                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
+                                @"resourceUrl":@"https://www.baidu.com",
+                                @"contentText":@"description"};
+    YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
+    [YMThirdPlatformTool shareWithEntity:entity
+                                 success:^(YMThirdPlatformShareEntity *shareEntity) {
+                                     NSLog(@"this is weiboShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
+                                     NSLog(@"this is weiboShare failure %@", *error);
+                                 } cancel:^(YMThirdPlatformShareEntity *entity){
+                                     NSLog(@"this is weiboCancel");
+                                 }];
+}
+
 #pragma mark - getters
 
 - (UIButton *)qqLoginButton
@@ -324,6 +370,7 @@
     
     return _shareWXSessionButton;
 }
+
 - (UIButton *)shareWBButton
 {
     if (_shareWBButton == nil) {
@@ -338,6 +385,38 @@
     }
     
     return _shareWBButton;
+}
+
+- (UIButton *)shareGifQQButton
+{
+    if (_shareGifQQButton == nil) {
+        _shareGifQQButton = [[UIButton alloc] init];
+        [_shareGifQQButton setTitle:@"分享gif表情到QQ"
+                        forState:UIControlStateNormal];
+        [_shareGifQQButton setTitleColor:[UIColor blueColor]
+                             forState:UIControlStateNormal];
+        [_shareGifQQButton addTarget:self
+                           action:@selector(gifQQShare)
+                 forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _shareGifQQButton;
+}
+
+- (UIButton *)shareGifWXButton
+{
+    if (_shareGifWXButton == nil) {
+        _shareGifWXButton = [[UIButton alloc] init];
+        [_shareGifWXButton setTitle:@"分享gif表情到微信"
+                        forState:UIControlStateNormal];
+        [_shareGifWXButton setTitleColor:[UIColor blueColor]
+                             forState:UIControlStateNormal];
+        [_shareGifWXButton addTarget:self
+                           action:@selector(gifWXShare)
+                 forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _shareGifWXButton;
 }
 
 @end
