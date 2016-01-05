@@ -78,10 +78,13 @@
     self.shareWXSessionButton.center = CGPointMake(10, 310);
     self.shareWXSessionButton.ym_Size = CGSizeMake(150, 50);
     
-    self.shareGifQQButton.center = CGPointMake(10, 360);
+    self.shareWBButton.center = CGPointMake(10, 360);
+    self.shareWBButton.ym_Size = CGSizeMake(150, 50);
+    
+    self.shareGifQQButton.center = CGPointMake(10, 410);
     self.shareGifQQButton.ym_Size = CGSizeMake(150, 50);
     
-    self.shareGifWXButton.center = CGPointMake(10, 410);
+    self.shareGifWXButton.center = CGPointMake(10, 460);
     self.shareGifWXButton.ym_Size = CGSizeMake(150, 50);
 }
 
