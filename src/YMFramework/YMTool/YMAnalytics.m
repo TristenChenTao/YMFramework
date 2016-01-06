@@ -46,7 +46,7 @@ static BOOL  debugMode;
 
 static NSString  *currentSessionId;
 
-static NSInteger kSendInterval = 60;
+static NSInteger kSendInterval = 10;
 
 static NSTimer *timer = nil;
 
@@ -124,9 +124,6 @@ dispatch_source_t timerSource;
 {
     [self applicationWillEnterForeground];
     analyticsModelArray = [[NSMutableArray alloc] init];
-    [self performSelector:@selector(requestInitInfo)
-               withObject:nil
-               afterDelay:0.5f];
     [self performSelector:@selector(reportLaunchEvent)
                withObject:nil
                afterDelay:0.5f];
