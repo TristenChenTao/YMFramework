@@ -6,13 +6,14 @@
 //  Copyright © 2015 YM. All rights reserved.
 //
 
-#import "AnalyticsModel.h"
+#import "YMAnalyticsModel.h"
+#import "NSString+YMAdditions.h"
 
-@interface AnalyticsModel() <NSCoding>
+@interface YMAnalyticsModel() <NSCoding>
 
 @end
 
-@implementation AnalyticsModel
+@implementation YMAnalyticsModel
 
 static NSString *kActionId = @"kActionId";
 static NSString *kActionTimestamp = @"kActionTimestamp";

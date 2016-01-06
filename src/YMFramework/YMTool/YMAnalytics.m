@@ -7,7 +7,7 @@
 //
 
 #import "YMAnalytics.h"
-#import "AnalyticsModel.h"
+#import "YMAnalyticsModel.h"
 #import "YMHTTPRequestManager.h"
 
 //for mac
@@ -95,7 +95,7 @@ dispatch_source_t timerSource;
 
 + (void)event:(NSString *)eventId
 {
-    AnalyticsModel *model = [[AnalyticsModel alloc] init];
+    YMAnalyticsModel *model = [[YMAnalyticsModel alloc] init];
     model.actionId = eventId;
     model.actionTimestamp = [NSString stringWithFormat:@"%.f",currentUTCTime];
     [analyticsModelArray addObject:model];
@@ -190,7 +190,7 @@ dispatch_source_t timerSource;
     }
 }
 
-+ (void)writeAlyticsModelInfoToDisk
++ (void)failWhenEnterBackground
 {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:analyticsModelArray];
     [[NSUserDefaults standardUserDefaults] setObject:currentSessionId
@@ -238,7 +238,7 @@ dispatch_source_t timerSource;
     
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (AnalyticsModel *model in actions) {
+    for (YMAnalyticsModel *model in actions) {
         NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
         [temp setValue:model.actionId forKey:@"actionid"];
         [temp setValue:model.actionTimestamp forKey:@"time"];
@@ -270,7 +270,7 @@ dispatch_source_t timerSource;
                                  }
                                  failure:^(NSURLRequest *request, NSError *error){
                                      if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
-                                         [self writeAlyticsModelInfoToDisk];
+                                         [self failWhenEnterBackground];
                                      }
                                  }];
 }

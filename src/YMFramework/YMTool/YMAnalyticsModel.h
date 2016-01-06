@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AnalyticsModel : NSObject
+@interface YMAnalyticsModel : NSObject
 
 @property (nonatomic, copy) NSString *actionId;
 
