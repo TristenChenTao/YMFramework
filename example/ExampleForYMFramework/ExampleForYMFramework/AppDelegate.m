@@ -38,14 +38,16 @@
 }
 
 - (BOOL)application:(UIApplication *)application
-      handleOpenURL:(NSURL *)url
+            openURL:(nonnull NSURL *)url
+  sourceApplication:(nullable NSString *)sourceApplication
+         annotation:(nonnull id)annotation
 {
     return [YMThirdPlatformTool handleURL:url];
 }
 
 - (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
+            openURL:(nonnull NSURL *)url
+            options:(nonnull NSDictionary<NSString *,id> *)options
 {
     return [YMThirdPlatformTool handleURL:url];
 }

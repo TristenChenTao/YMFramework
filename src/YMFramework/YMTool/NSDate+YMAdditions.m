@@ -5,9 +5,6 @@
 //  Created by Wenchao Ding on 29/1/15.
 //
 //
-
-#import <objc/runtime.h>
-
 #import "NSDate+YMAdditions.h"
 
 #import "NSString+YMAdditions.h"
@@ -17,8 +14,6 @@
 + (instancetype)ym_sharedCalendar;
 
 @end
-
-const static NSString *kSpecialTimeZoneKey = @"kSpecialTimeZoneKey";
 
 @implementation NSCalendar (YMAdditions)
 
@@ -30,14 +25,7 @@ const static NSString *kSpecialTimeZoneKey = @"kSpecialTimeZoneKey";
         instance = [NSCalendar currentCalendar];
     });
     
-    NSString *specialTimeZone = objc_getAssociatedObject([NSDate class], &kSpecialTimeZoneKey);
-    
-    if ([NSString ym_isContainString:specialTimeZone]) {
-         [instance setTimeZone:[NSTimeZone timeZoneWithAbbreviation:specialTimeZone]];
-    }
-    else {
-        [instance setTimeZone:[NSTimeZone defaultTimeZone]];
-    }
+    [instance setTimeZone:[NSTimeZone defaultTimeZone]];
     
     return instance;
 }
@@ -45,11 +33,6 @@ const static NSString *kSpecialTimeZoneKey = @"kSpecialTimeZoneKey";
 @end
 
 @implementation NSDate (YMAdditions)
-
-+ (void)ym_setSpecialTimeZone:(NSString *)timeZone
-{
-    objc_setAssociatedObject([NSDate class], &kSpecialTimeZoneKey, timeZone, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 
 - (NSInteger)ym_year
 {
