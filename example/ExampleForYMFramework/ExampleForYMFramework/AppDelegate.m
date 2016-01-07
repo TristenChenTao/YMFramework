@@ -22,6 +22,12 @@
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[YMFrameworkConfig sharedInstance] setupProductByID:@""
+                                                 version:@""
+                                                 channel:@""];
+    [YMAnalytics setDebugMode:YES];
+    [YMAnalytics startByUMengAppKey:@""
+                          channelID:@""];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[TestThreePlatformViewController alloc] init];
 //    self.window.rootViewController = [[ViewController alloc] init];

@@ -357,6 +357,8 @@
 		62EF081A1BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF08161BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m */; };
 		62EF82C31AE238A40068B34A /* URLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF82C11AE238A40068B34A /* URLParser.h */; };
 		62EF82C41AE238A40068B34A /* URLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF82C21AE238A40068B34A /* URLParser.m */; };
+		EF5AD0971C3BBAE300E657CC /* YMAnalyticsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = EF5AD0951C3BBAE300E657CC /* YMAnalyticsModel.h */; };
+		EF5AD0981C3BBAE300E657CC /* YMAnalyticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD0961C3BBAE300E657CC /* YMAnalyticsModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -709,6 +711,8 @@
 		62EF08161BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YMAdditionsForNSDate.m"; sourceTree = "<group>"; };
 		62EF82C11AE238A40068B34A /* URLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLParser.h; sourceTree = "<group>"; };
 		62EF82C21AE238A40068B34A /* URLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLParser.m; sourceTree = "<group>"; };
+		EF5AD0951C3BBAE300E657CC /* YMAnalyticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMAnalyticsModel.h; sourceTree = "<group>"; };
+		EF5AD0961C3BBAE300E657CC /* YMAnalyticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMAnalyticsModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1172,6 +1176,8 @@
 		62703E2C1B10490B005CA088 /* YMTool */ = {
 			isa = PBXGroup;
 			children = (
+				EF5AD0951C3BBAE300E657CC /* YMAnalyticsModel.h */,
+				EF5AD0961C3BBAE300E657CC /* YMAnalyticsModel.m */,
 				6278FEFF1B1D4FC0000B77A0 /* ThirdPlatformTool */,
 				62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */,
 				62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */,
@@ -1512,6 +1518,7 @@
 				625D568E1ADBAFD3007BCA33 /* AFNetworking.h in Headers */,
 				620860B41C1FF28400C6FBBD /* FLEXTableListViewController.h in Headers */,
 				620860961C1FF28400C6FBBD /* FLEXIvarEditorViewController.h in Headers */,
+				EF5AD0971C3BBAE300E657CC /* YMAnalyticsModel.h in Headers */,
 				622CE6261AE4EC90004D714B /* SSLocalizationInfo.h in Headers */,
 				622CE6141AE4EC90004D714B /* NSObject+PerformBlockAfterDelay.h in Headers */,
 				62E433631AE5F89D005445B2 /* MobClick.h in Headers */,
@@ -1721,6 +1728,7 @@
 				62C54F181B84516200004E80 /* UIImage+MultiFormat.m in Sources */,
 				620860F91C1FF28400C6FBBD /* FLEXHeapEnumerator.m in Sources */,
 				627AEEFC1C16AA870085349B /* SVProgressHUD.m in Sources */,
+				EF5AD0981C3BBAE300E657CC /* YMAnalyticsModel.m in Sources */,
 				620860D21C1FF28400C6FBBD /* FLEXNetworkHistoryTableViewController.m in Sources */,
 				620860BA1C1FF28400C6FBBD /* FLEXCookiesTableViewController.m in Sources */,
 				620860D81C1FF28400C6FBBD /* FLEXNetworkTransaction.m in Sources */,

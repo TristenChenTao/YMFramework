@@ -81,6 +81,7 @@
 
 - (void)qqLogin:(id)sender
 {
+    [YMAnalytics event:@"10000"];
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForQQ
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
                                           YM_Log(@"this is qqUserInfo: %@", platformUserInfo);
@@ -93,6 +94,7 @@
 
 - (void)wxLogin:(id)sender
 {
+    [YMAnalytics event:@"11000"];
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForWechat
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
                                           YM_Log(@"this is wxUserInfo: %@", platformUserInfo);
@@ -105,6 +107,7 @@
 
 - (void)wbLogin:(id)sender
 {
+    [YMAnalytics event:@"12000"];
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForWeibo
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
                                           YM_Log(@"this is wbUserInfo: %@", platformUserInfo);
@@ -118,6 +121,7 @@
 
 - (void)qqFriendShare:(id)sender
 {
+    [YMAnalytics event:@"13000"];
     NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
                                 @"contentType":@"nil",
                                 @"title":@"title",
@@ -137,6 +141,7 @@
 
 - (void)qqZoneShare:(id)sender
 {
+    [YMAnalytics event:@"14000"];
     NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
                                 @"contentType":@"nil",
                                 @"title":@"title",
@@ -156,6 +161,7 @@
 
 - (void)wxSessionShare:(id)sender
 {
+    [YMAnalytics event:@"15000"];
     NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatSession],
                                 @"contentType":@"nil",
                                 @"title":@"title",
@@ -175,6 +181,7 @@
 
 - (void)wxTimelineShare:(id)sender
 {
+    [YMAnalytics event:@"16000"];
     NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatTimeline],
                                 @"contentType":@"nil",
                                 @"title":@"title",
@@ -193,6 +200,7 @@
 }
 - (void)wbShare:(id)sender
 {
+    [YMAnalytics event:@"17000"];
     NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformForWeibo],
                                 @"contentType":@"nil",
                                 @"title":@"title",
