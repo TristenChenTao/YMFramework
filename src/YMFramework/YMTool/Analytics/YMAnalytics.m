@@ -18,11 +18,9 @@
 
 @implementation YMAnalytics
 
-//static NSString *URL_Domain = @"http://statistics.cornapp.com";
+static NSString *URL_Domain = @"http://statistics.cornapp.com";
 
-static NSString *URL_Domain = @"http://117.79.229.3:8068";
-
-static NSString *URL_Domain_IP = @"http://117.79.229.3:8068";
+static NSString *URL_Domain_IP = @"http://112.74.105.46:8892";
 
 static NSString *URL_Report_Action = @"/Interface/IosActive";
 
