@@ -252,8 +252,6 @@
 		62703E4B1B10490B005CA088 /* NSString+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E2E1B10490B005CA088 /* NSString+YMAdditions.m */; };
 		62703E4C1B10490B005CA088 /* UIColor+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E2F1B10490B005CA088 /* UIColor+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62703E4D1B10490B005CA088 /* UIColor+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E301B10490B005CA088 /* UIColor+YMAdditions.m */; };
-		62703E4E1B10490B005CA088 /* YMAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E311B10490B005CA088 /* YMAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62703E4F1B10490B005CA088 /* YMAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E321B10490B005CA088 /* YMAnalytics.m */; };
 		62703E521B10490B005CA088 /* YMCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E351B10490B005CA088 /* YMCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62703E531B10490B005CA088 /* YMCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E361B10490B005CA088 /* YMCache.m */; };
 		62703E541B10490B005CA088 /* YMDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E371B10490B005CA088 /* YMDeviceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -287,6 +285,10 @@
 		627AEEF91C16AA870085349B /* SVProgressHUD-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 627AEEF31C16AA870085349B /* SVProgressHUD-Prefix.pch */; };
 		627AEEFB1C16AA870085349B /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 627AEEF51C16AA870085349B /* SVProgressHUD.h */; };
 		627AEEFC1C16AA870085349B /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 627AEEF61C16AA870085349B /* SVProgressHUD.m */; };
+		627D6EFD1C3E0A220002F138 /* YMAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 627D6EF91C3E0A220002F138 /* YMAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		627D6EFE1C3E0A220002F138 /* YMAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 627D6EFA1C3E0A220002F138 /* YMAnalytics.m */; };
+		627D6EFF1C3E0A220002F138 /* YMAnalyticsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 627D6EFB1C3E0A220002F138 /* YMAnalyticsModel.h */; };
+		627D6F001C3E0A220002F138 /* YMAnalyticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 627D6EFC1C3E0A220002F138 /* YMAnalyticsModel.m */; };
 		627FFA2C1C0463B50034AF9C /* YMFramework Vender Version.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 627FFA2B1C0463B50034AF9C /* YMFramework Vender Version.rtf */; };
 		62974C111B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h in Headers */ = {isa = PBXBuildFile; fileRef = 62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62974C121B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m in Sources */ = {isa = PBXBuildFile; fileRef = 62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */; };
@@ -357,8 +359,6 @@
 		62EF081A1BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF08161BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m */; };
 		62EF82C31AE238A40068B34A /* URLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF82C11AE238A40068B34A /* URLParser.h */; };
 		62EF82C41AE238A40068B34A /* URLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF82C21AE238A40068B34A /* URLParser.m */; };
-		EF5AD0971C3BBAE300E657CC /* YMAnalyticsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = EF5AD0951C3BBAE300E657CC /* YMAnalyticsModel.h */; };
-		EF5AD0981C3BBAE300E657CC /* YMAnalyticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD0961C3BBAE300E657CC /* YMAnalyticsModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -606,8 +606,6 @@
 		62703E2E1B10490B005CA088 /* NSString+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YMAdditions.m"; sourceTree = "<group>"; };
 		62703E2F1B10490B005CA088 /* UIColor+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YMAdditions.h"; sourceTree = "<group>"; };
 		62703E301B10490B005CA088 /* UIColor+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YMAdditions.m"; sourceTree = "<group>"; };
-		62703E311B10490B005CA088 /* YMAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMAnalytics.h; sourceTree = "<group>"; };
-		62703E321B10490B005CA088 /* YMAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMAnalytics.m; sourceTree = "<group>"; };
 		62703E351B10490B005CA088 /* YMCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMCache.h; sourceTree = "<group>"; };
 		62703E361B10490B005CA088 /* YMCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMCache.m; sourceTree = "<group>"; };
 		62703E371B10490B005CA088 /* YMDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMDeviceInfo.h; sourceTree = "<group>"; };
@@ -641,6 +639,10 @@
 		627AEEF31C16AA870085349B /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
 		627AEEF51C16AA870085349B /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		627AEEF61C16AA870085349B /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		627D6EF91C3E0A220002F138 /* YMAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMAnalytics.h; sourceTree = "<group>"; };
+		627D6EFA1C3E0A220002F138 /* YMAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMAnalytics.m; sourceTree = "<group>"; };
+		627D6EFB1C3E0A220002F138 /* YMAnalyticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMAnalyticsModel.h; sourceTree = "<group>"; };
+		627D6EFC1C3E0A220002F138 /* YMAnalyticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMAnalyticsModel.m; sourceTree = "<group>"; };
 		627FFA2B1C0463B50034AF9C /* YMFramework Vender Version.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = "YMFramework Vender Version.rtf"; path = "YMFramework/YMFramework Vender Version.rtf"; sourceTree = "<group>"; };
 		62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YMAccessors.h"; sourceTree = "<group>"; };
 		62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YMAccessors.m"; sourceTree = "<group>"; };
@@ -711,8 +713,6 @@
 		62EF08161BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YMAdditionsForNSDate.m"; sourceTree = "<group>"; };
 		62EF82C11AE238A40068B34A /* URLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLParser.h; sourceTree = "<group>"; };
 		62EF82C21AE238A40068B34A /* URLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLParser.m; sourceTree = "<group>"; };
-		EF5AD0951C3BBAE300E657CC /* YMAnalyticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMAnalyticsModel.h; sourceTree = "<group>"; };
-		EF5AD0961C3BBAE300E657CC /* YMAnalyticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMAnalyticsModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1176,8 +1176,7 @@
 		62703E2C1B10490B005CA088 /* YMTool */ = {
 			isa = PBXGroup;
 			children = (
-				EF5AD0951C3BBAE300E657CC /* YMAnalyticsModel.h */,
-				EF5AD0961C3BBAE300E657CC /* YMAnalyticsModel.m */,
+				627D6EF81C3E0A220002F138 /* Analytics */,
 				6278FEFF1B1D4FC0000B77A0 /* ThirdPlatformTool */,
 				62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */,
 				62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */,
@@ -1187,8 +1186,6 @@
 				62703E2E1B10490B005CA088 /* NSString+YMAdditions.m */,
 				62703E2F1B10490B005CA088 /* UIColor+YMAdditions.h */,
 				62703E301B10490B005CA088 /* UIColor+YMAdditions.m */,
-				62703E311B10490B005CA088 /* YMAnalytics.h */,
-				62703E321B10490B005CA088 /* YMAnalytics.m */,
 				62703E351B10490B005CA088 /* YMCache.h */,
 				62703E361B10490B005CA088 /* YMCache.m */,
 				62703E371B10490B005CA088 /* YMDeviceInfo.h */,
@@ -1257,6 +1254,17 @@
 				627AEEF61C16AA870085349B /* SVProgressHUD.m */,
 			);
 			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		627D6EF81C3E0A220002F138 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				627D6EF91C3E0A220002F138 /* YMAnalytics.h */,
+				627D6EFA1C3E0A220002F138 /* YMAnalytics.m */,
+				627D6EFB1C3E0A220002F138 /* YMAnalyticsModel.h */,
+				627D6EFC1C3E0A220002F138 /* YMAnalyticsModel.m */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		62C54E1C1B84516200004E80 /* SDWebImage */ = {
@@ -1374,6 +1382,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				627D6EFD1C3E0A220002F138 /* YMAnalytics.h in Headers */,
 				627AEEEE1C16AA6B0085349B /* YMProgress.h in Headers */,
 				62AE9F2B1BF470500036D0B9 /* UIApplication+YMAdditions.h in Headers */,
 				62033DE91BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.h in Headers */,
@@ -1422,7 +1431,6 @@
 				62D2AACD1C3220E000A97384 /* YMSDKCall.h in Headers */,
 				620860BD1C1FF28400C6FBBD /* FLEXFileBrowserSearchOperation.h in Headers */,
 				62703E521B10490B005CA088 /* YMCache.h in Headers */,
-				62703E4E1B10490B005CA088 /* YMAnalytics.h in Headers */,
 				620860921C1FF28400C6FBBD /* FLEXFieldEditorView.h in Headers */,
 				620860C71C1FF28400C6FBBD /* FLEXLiveObjectsTableViewController.h in Headers */,
 				62703E5F1B10490B005CA088 /* UIWebView+YMAdditions.h in Headers */,
@@ -1518,7 +1526,6 @@
 				625D568E1ADBAFD3007BCA33 /* AFNetworking.h in Headers */,
 				620860B41C1FF28400C6FBBD /* FLEXTableListViewController.h in Headers */,
 				620860961C1FF28400C6FBBD /* FLEXIvarEditorViewController.h in Headers */,
-				EF5AD0971C3BBAE300E657CC /* YMAnalyticsModel.h in Headers */,
 				622CE6261AE4EC90004D714B /* SSLocalizationInfo.h in Headers */,
 				622CE6141AE4EC90004D714B /* NSObject+PerformBlockAfterDelay.h in Headers */,
 				62E433631AE5F89D005445B2 /* MobClick.h in Headers */,
@@ -1545,6 +1552,7 @@
 				620860AC1C1FF28400C6FBBD /* FLEXTableColumnHeader.h in Headers */,
 				620861041C1FF28400C6FBBD /* FLEXUtility.h in Headers */,
 				622CE6201AE4EC90004D714B /* SSDiskInfo.h in Headers */,
+				627D6EFF1C3E0A220002F138 /* YMAnalyticsModel.h in Headers */,
 				620860D91C1FF28400C6FBBD /* FLEXNetworkTransactionDetailTableViewController.h in Headers */,
 				625D56971ADBAFD3007BCA33 /* AFURLResponseSerialization.h in Headers */,
 				62C54F1D1B84516200004E80 /* UIImageView+WebCache.h in Headers */,
@@ -1694,6 +1702,7 @@
 				625D568B1ADBAFD3007BCA33 /* AFHTTPRequestOperationManager.m in Sources */,
 				620860C01C1FF28400C6FBBD /* FLEXFileBrowserTableViewController.m in Sources */,
 				620860FB1C1FF28400C6FBBD /* FLEXKeyboardHelpViewController.m in Sources */,
+				627D6F001C3E0A220002F138 /* YMAnalyticsModel.m in Sources */,
 				6278FF0B1B1D4FC0000B77A0 /* YMThirdPlatformUserInfo.m in Sources */,
 				620860DE1C1FF28400C6FBBD /* FLEXNetworkObserver.m in Sources */,
 				62C54F141B84516200004E80 /* UIButton+WebCache.m in Sources */,
@@ -1728,7 +1737,6 @@
 				62C54F181B84516200004E80 /* UIImage+MultiFormat.m in Sources */,
 				620860F91C1FF28400C6FBBD /* FLEXHeapEnumerator.m in Sources */,
 				627AEEFC1C16AA870085349B /* SVProgressHUD.m in Sources */,
-				EF5AD0981C3BBAE300E657CC /* YMAnalyticsModel.m in Sources */,
 				620860D21C1FF28400C6FBBD /* FLEXNetworkHistoryTableViewController.m in Sources */,
 				620860BA1C1FF28400C6FBBD /* FLEXCookiesTableViewController.m in Sources */,
 				620860D81C1FF28400C6FBBD /* FLEXNetworkTransaction.m in Sources */,
@@ -1737,6 +1745,7 @@
 				620860F71C1FF28400C6FBBD /* FLEXViewExplorerViewController.m in Sources */,
 				620860D41C1FF28400C6FBBD /* FLEXNetworkRecorder.m in Sources */,
 				6208607F1C1FF28400C6FBBD /* FLEXArgumentInputJSONObjectView.m in Sources */,
+				627D6EFE1C3E0A220002F138 /* YMAnalytics.m in Sources */,
 				620860AF1C1FF28400C6FBBD /* FLEXTableContentCell.m in Sources */,
 				620860CC1C1FF28400C6FBBD /* FLEXSystemLogMessage.m in Sources */,
 				620860991C1FF28400C6FBBD /* FLEXMethodCallingViewController.m in Sources */,
@@ -1783,7 +1792,6 @@
 				620860B31C1FF28400C6FBBD /* FLEXTableLeftCell.m in Sources */,
 				62065C2A1B2004AF003769C8 /* YMFrameworkConfig.m in Sources */,
 				620860F11C1FF28400C6FBBD /* FLEXObjectExplorerViewController.m in Sources */,
-				62703E4F1B10490B005CA088 /* YMAnalytics.m in Sources */,
 				62EF081A1BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m in Sources */,
 				62C54F1E1B84516200004E80 /* UIImageView+WebCache.m in Sources */,
 				6242FCC61B2FD822007DD69C /* YMURLProtocol.m in Sources */,
