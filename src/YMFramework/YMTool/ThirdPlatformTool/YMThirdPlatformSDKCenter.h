@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <YMFramework.h>
+
+#import "YMTool.h"
 #import "YMThirdPlatformShareEntity.h"
 #import "YMThirdPlatformUserInfo.h"
 
@@ -27,7 +28,8 @@ YM_MacrosSingletonInterface
 - (void)logoutWithThirdPlatformType:(YMThirdPlatformType)platformType;
 
 - (void)loginWithThirdPlatformType:(YMThirdPlatformType)platformType
-                           success:(LoginSuccessBlock)success failure:(LoginFailureBlock)failure
+                           success:(LoginSuccessBlock)success
+                           failure:(LoginFailureBlock)failure
                             cancel:(LoginCancelBlock)cancel;
 
 - (void)registerQQAppId:(NSString *)appId;
@@ -44,7 +46,7 @@ YM_MacrosSingletonInterface
                 failure:(ShareFailureBlock)failure
                  cancel:(ShareCancelBlock)cancel;
 
-+ (BOOL)isTheAPPInstalledWithThirdPlatformType:(YMThirdPlatformType)platformType;
++ (BOOL)isAPPInstalledForThirdPlatformType:(YMThirdPlatformType)platformType;
 
 + (BOOL)handleURL:(NSURL *)url;
 
