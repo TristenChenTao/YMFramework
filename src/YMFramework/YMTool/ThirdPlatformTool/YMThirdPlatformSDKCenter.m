@@ -14,20 +14,23 @@
 #import <TencentOpenAPI/sdkdef.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 
-#import "YMThirdPlatformSDKCenter.h"
 #import "WXApi.h"
 #import "AFNetworking.h"
 #import "WeiboSDK.h"
 
+#import "YMThirdPlatformSDKCenter.h"
+
 
 @interface YMThirdPlatformSDKCenter()
-<QQApiInterfaceDelegate,
+<
+QQApiInterfaceDelegate,
 WXApiDelegate,
 WeiboSDKDelegate,
 WBHttpRequestDelegate,
 TencentSessionDelegate,
 TencentApiInterfaceDelegate,
-TCAPIRequestDelegate>
+TCAPIRequestDelegate
+>
 
 
 @property (nonatomic, strong) LoginSuccessBlock qqLoginSuccess;
@@ -63,14 +66,16 @@ TCAPIRequestDelegate>
 @property (nonatomic, strong) ShareCancelBlock shareWeiboCancel;
 
 @property (nonatomic, copy) NSString *qqAppId;
+
 @property (nonatomic, copy) NSString *wxAppId;
 @property (nonatomic, copy) NSString *wxSecret;
+
 @property (nonatomic, copy) NSString *wbAppkey;
 @property (nonatomic, copy) NSString *wbAppscret;
 @property (nonatomic, copy) NSString *wbRedirectURL;
 
-@property (nonatomic, strong) YMThirdPlatformUserInfo *wxUserInfo;
-@property (nonatomic, strong) YMThirdPlatformUserInfo *wbUserInfo;
+@property (nonatomic, strong) YMThirdPlatformUserInfo *wxUserInfo;//代码审核建议使用规范
+@property (nonatomic, strong) YMThirdPlatformUserInfo *wbUserInfo;//代码审核建议使用规范
 
 @property (nonatomic, strong) YMThirdPlatformShareEntity *qqFriendEntity;
 @property (nonatomic, strong) YMThirdPlatformShareEntity *qqZoneEntity;
@@ -84,239 +89,6 @@ TCAPIRequestDelegate>
 
 @implementation YMThirdPlatformSDKCenter
 
-#pragma mark - private
-
-- (void)qqLogout
-{
-    [self.oauth logout:self];
-    [self registerQQAppId:self.qqAppId];
-}
-
-- (void)wbLogout
-{
-    [WeiboSDK logOutWithToken:self.wbUserInfo.accessToken
-                     delegate:[YMThirdPlatformSDKCenter sharedInstance]
-                      withTag:nil];
-}
-
-- (void)qqLoginWithSuccess:(LoginSuccessBlock)success
-                   failure:(LoginFailureBlock)failure
-                    cancel:(LoginCancelBlock)cancel
-{
-    NSArray* permissions = [NSArray arrayWithObjects:
-                            kOPEN_PERMISSION_GET_USER_INFO,
-                            kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
-                            kOPEN_PERMISSION_ADD_ALBUM,
-                            kOPEN_PERMISSION_ADD_IDOL,
-                            kOPEN_PERMISSION_ADD_ONE_BLOG,
-                            kOPEN_PERMISSION_ADD_PIC_T,
-                            kOPEN_PERMISSION_ADD_SHARE,
-                            kOPEN_PERMISSION_ADD_TOPIC,
-                            nil];
-    
-    [[[YMThirdPlatformSDKCenter sharedInstance] oauth] authorize:permissions];
-    
-    self.qqLoginSuccess = success;
-    self.qqLoginFailure = failure;
-    self.qqLoginCancel = cancel;
-}
-
-- (void)wxLoginWithSuccess:(LoginSuccessBlock)success
-                   failure:(LoginFailureBlock)failure
-                    cancel:(LoginCancelBlock)cancel
-{
-    SendAuthReq *req = [[SendAuthReq alloc] init];
-    req.scope = @"snsapi_userinfo";
-    req.state = @"xx";
-    [WXApi sendAuthReq:req
-        viewController:nil
-              delegate:self];
-    
-    self.wxLoginSuccess = success;
-    self.wxLoginFailure = failure;
-    self.wxLoginCancel = cancel;
-}
-
-- (void)wbLoginWithSuccess:(LoginSuccessBlock)success
-                   failure:(LoginFailureBlock)failure
-                    cancel:(LoginCancelBlock)cancel
-{
-    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-    request.redirectURI = self.wbRedirectURL;
-    request.scope = @"all";
-    [WeiboSDK sendRequest:request];
-    
-    self.wbLoginSuccess = success;
-    self.wbLoginFailure = failure;
-    self.wbLoginCancel = cancel;
-}
-
-+ (BOOL)isQQInstall
-{
-    return [TencentOAuth iphoneQQInstalled];
-}
-
-+ (BOOL)isWechatInstall
-{
-    return [WXApi isWXAppInstalled];
-}
-
-+ (BOOL)isWbInstall
-{
-    return [WeiboSDK isWeiboAppInstalled];
-}
-
-- (BOOL)getQQUserInfo
-{
-    return [self.oauth getUserInfo];
-}
-
-- (void)getWBUserInfo:(WBBaseResponse *)response
-{
-    WBAuthorizeResponse *resp = (WBAuthorizeResponse *)response;
-    self.wbUserInfo.accessToken = resp.accessToken;
-    self.wbUserInfo.userId = resp.userID;
-    self.wbUserInfo.expired = resp.expirationDate;
-    self.wbUserInfo.platformType = YMThirdPlatformForWeibo;
-    
-    __weak YMThirdPlatformSDKCenter *selfWeak= self;
-    
-    NSString *url = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@", self.wbUserInfo.accessToken, self.wbUserInfo.userId];
-    [[AFHTTPSessionManager manager] GET:url
-                             parameters:nil
-                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                                    NSDictionary *dic = (NSDictionary *)responseObject;
-                                    selfWeak.wbUserInfo.nickname = dic[@"screen_name"];
-                                    selfWeak.wbUserInfo.profileImageUrl = dic[@"profile_image_url"];
-                                    selfWeak.wbUserInfo.homepage = nil;
-                                    selfWeak.wbLoginSuccess(selfWeak.wbUserInfo);
-                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                    selfWeak.wbLoginFailure(error);
-                                }];
-}
-
-- (void)WXUserInfoWithResp:(SendAuthResp *)resp
-{
-    NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code", [YMThirdPlatformSDKCenter sharedInstance].wxAppId, [YMThirdPlatformSDKCenter sharedInstance].wxSecret, resp.code];
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    __weak YMThirdPlatformSDKCenter *selfWeak = self;
-    [manager GET:url
-      parameters:nil
-         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-             NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject
-                                                                     options:NSJSONReadingMutableContainers
-                                                                       error:nil];
-             selfWeak.wxUserInfo.platformType = YMThirdPlatformForWechat;
-             selfWeak.wxUserInfo.accessToken = content[@"access_token"];
-             selfWeak.wxUserInfo.expired = content[@"expires_in"];
-             NSString *userInfoURL = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@", content[@"access_token"], content[@"openid"]];
-             AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
-             manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-             [manager GET:userInfoURL
-               parameters:nil
-                  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                      NSDictionary *UserInfocontent = [NSJSONSerialization JSONObjectWithData:responseObject
-                                                                              options:NSJSONReadingMutableContainers
-                                                                                error:nil];
-                      selfWeak.wxUserInfo.userId = UserInfocontent[@"openid"];
-                      selfWeak.wxUserInfo.nickname = UserInfocontent[@"nickname"];
-                      selfWeak.wxUserInfo.profileImageUrl = UserInfocontent[@"headimgurl"];
-                      selfWeak.wxUserInfo.homepage = nil;
-                      selfWeak.wxLoginSuccess(selfWeak.wxUserInfo);
-                  } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                      selfWeak.wxLoginFailure(error);
-                  }];
-         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             selfWeak.wxLoginFailure(error);
-         }];
-}
-
-- (void)handleSendResult:(QQApiSendResultCode)sendResult
-{
-    switch (sendResult)
-    {
-        case EQQAPIAPPNOTREGISTED:
-        {
-            NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:ErrorStateShareAppNotRegister
-                                             userInfo:nil];
-            if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,error);
-                self.shareQQZoneFailure = nil;
-            } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,error);
-                self.shareQQFriendFailure = nil;
-            }
-        }
-            break;
-        case EQQAPIMESSAGECONTENTINVALID:
-        case EQQAPIMESSAGECONTENTNULL:
-        case EQQAPIMESSAGETYPEINVALID:
-        {
-            NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:ErrorStateSharePrameError
-                                             userInfo:nil];
-            if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,error);
-                self.shareQQZoneFailure = nil;
-            } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,error);
-                self.shareQQFriendFailure = nil;
-            }
-           
-        }
-            break;
-        case EQQAPIQQNOTINSTALLED:
-        {
-            NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:ErrorStateShareAppNotInstall
-                                             userInfo:nil];
-            if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,error);
-                self.shareQQZoneFailure = nil;
-            } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,error);
-                self.shareQQFriendFailure = nil;
-            }
-            
-        }
-            break;
-        case EQQAPIQQNOTSUPPORTAPI:
-        {
-            NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:ErrorStateShareInterfaceNotSupport
-                                             userInfo:nil];
-            if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,error);
-                self.shareQQZoneFailure = nil;
-            } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,error);
-                self.shareQQFriendFailure = nil;
-            }
-        }
-            break;
-        case EQQAPISENDFAILD:
-        {
-            NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:ErrorStateShareSentFailure
-                                             userInfo:nil];
-            if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,error);
-                self.shareQQZoneFailure = nil;
-            } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,error);
-                self.shareQQFriendFailure = nil;
-            }
-        }
-            break;
-        default:
-        {
-            //无错误发生
-        }
-            break;
-    }
-}
 
 #pragma mark - public
 
@@ -371,7 +143,7 @@ YM_MacrosSingletonImplemantion
     }
 }
 
-+ (BOOL)isTheAPPInstalledWithThirdPlatformType:(YMThirdPlatformType)platformType
++ (BOOL)isAPPInstalledForThirdPlatformType:(YMThirdPlatformType)platformType
 {
     BOOL flag = NO;
     switch (platformType) {
@@ -433,7 +205,6 @@ YM_MacrosSingletonImplemantion
         case YMThirdPlatformShareForQQZone:
         {
             NSURL *imageURL = [NSURL URLWithString:shareEntity.imageURL];
-            // 设置分享链接
             NSURL* url = [NSURL URLWithString:shareEntity.resourceURL];
             
             QQApiObject *imgObj = nil;
@@ -572,6 +343,249 @@ YM_MacrosSingletonImplemantion
         return YES;
 }
 
+#pragma mark - private
+
+- (void)qqLogout
+{
+    [self.oauth logout:self];
+    [self registerQQAppId:self.qqAppId];
+}
+
+- (void)wbLogout
+{
+    [WeiboSDK logOutWithToken:self.wbUserInfo.accessToken
+                     delegate:[YMThirdPlatformSDKCenter sharedInstance]
+                      withTag:nil];
+}
+
+- (void)qqLoginWithSuccess:(LoginSuccessBlock)success
+                   failure:(LoginFailureBlock)failure
+                    cancel:(LoginCancelBlock)cancel
+{
+    NSArray* permissions = [NSArray arrayWithObjects:
+                            kOPEN_PERMISSION_GET_USER_INFO,
+                            kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
+                            kOPEN_PERMISSION_ADD_ALBUM,
+                            kOPEN_PERMISSION_ADD_IDOL,
+                            kOPEN_PERMISSION_ADD_ONE_BLOG,
+                            kOPEN_PERMISSION_ADD_PIC_T,
+                            kOPEN_PERMISSION_ADD_SHARE,
+                            kOPEN_PERMISSION_ADD_TOPIC,
+                            nil];
+    
+    [[[YMThirdPlatformSDKCenter sharedInstance] oauth] authorize:permissions];
+    
+    self.qqLoginSuccess = success;
+    self.qqLoginFailure = failure;
+    self.qqLoginCancel = cancel;
+}
+
+- (void)wxLoginWithSuccess:(LoginSuccessBlock)success
+                   failure:(LoginFailureBlock)failure
+                    cancel:(LoginCancelBlock)cancel
+{
+    SendAuthReq *req = [[SendAuthReq alloc] init];
+    req.scope = @"snsapi_userinfo";
+    req.state = @"xx";
+    [WXApi sendAuthReq:req
+        viewController:nil
+              delegate:self];
+    
+    self.wxLoginSuccess = success;
+    self.wxLoginFailure = failure;
+    self.wxLoginCancel = cancel;
+}
+
+- (void)wbLoginWithSuccess:(LoginSuccessBlock)success
+                   failure:(LoginFailureBlock)failure
+                    cancel:(LoginCancelBlock)cancel
+{
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.redirectURI = self.wbRedirectURL;
+    request.scope = @"all";
+    [WeiboSDK sendRequest:request];
+    
+    self.wbLoginSuccess = success;
+    self.wbLoginFailure = failure;
+    self.wbLoginCancel = cancel;
+}
+
+//代码审核建议使用规范
++ (BOOL)isQQInstall
+{
+    return [TencentOAuth iphoneQQInstalled];
+}
+
+//代码审核建议使用规范
++ (BOOL)isWechatInstall
+{
+    return [WXApi isWXAppInstalled];
+}
+
+//代码审核建议使用规范
++ (BOOL)isWbInstall
+{
+    return [WeiboSDK isWeiboAppInstalled];
+}
+
+//代码审核建议使用规范
+- (BOOL)getQQUserInfo
+{
+    return [self.oauth getUserInfo];
+}
+
+- (void)getWBUserInfo:(WBBaseResponse *)response
+{
+    WBAuthorizeResponse *resp = (WBAuthorizeResponse *)response;
+    self.wbUserInfo.accessToken = resp.accessToken;
+    self.wbUserInfo.userId = resp.userID;
+    self.wbUserInfo.expired = resp.expirationDate;
+    self.wbUserInfo.platformType = YMThirdPlatformForWeibo;
+    
+    __weak YMThirdPlatformSDKCenter *selfWeak= self;
+    
+    NSString *url = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@", self.wbUserInfo.accessToken, self.wbUserInfo.userId];
+    
+    //代码审核建议使用规范：改成原生NSURLSession
+    [[AFHTTPSessionManager manager] GET:url
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                    NSDictionary *dic = (NSDictionary *)responseObject;
+                                    selfWeak.wbUserInfo.nickname = dic[@"screen_name"];
+                                    selfWeak.wbUserInfo.profileImageUrl = dic[@"profile_image_url"];
+                                    selfWeak.wbUserInfo.homepage = nil;
+                                    selfWeak.wbLoginSuccess(selfWeak.wbUserInfo);
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    selfWeak.wbLoginFailure(error);
+                                }];
+}
+
+- (void)WXUserInfoWithResp:(SendAuthResp *)resp
+{
+    NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code", [YMThirdPlatformSDKCenter sharedInstance].wxAppId, [YMThirdPlatformSDKCenter sharedInstance].wxSecret, resp.code];
+    
+    //代码审核建议使用规范：改成原生NSURLSession
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    __weak YMThirdPlatformSDKCenter *selfWeak = self;
+    [manager GET:url
+      parameters:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                                     options:NSJSONReadingMutableContainers
+                                                                       error:nil];
+             selfWeak.wxUserInfo.platformType = YMThirdPlatformForWechat;
+             selfWeak.wxUserInfo.accessToken = content[@"access_token"];
+             selfWeak.wxUserInfo.expired = content[@"expires_in"];
+             NSString *userInfoURL = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@", content[@"access_token"], content[@"openid"]];
+             AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+             manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+             [manager GET:userInfoURL
+               parameters:nil
+                  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                      NSDictionary *UserInfocontent = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                                                      options:NSJSONReadingMutableContainers
+                                                                                        error:nil];
+                      selfWeak.wxUserInfo.userId = UserInfocontent[@"openid"];
+                      selfWeak.wxUserInfo.nickname = UserInfocontent[@"nickname"];
+                      selfWeak.wxUserInfo.profileImageUrl = UserInfocontent[@"headimgurl"];
+                      selfWeak.wxUserInfo.homepage = nil;
+                      selfWeak.wxLoginSuccess(selfWeak.wxUserInfo);
+                  } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                      selfWeak.wxLoginFailure(error);
+                  }];
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             selfWeak.wxLoginFailure(error);
+         }];
+}
+
+- (void)handleSendResult:(QQApiSendResultCode)sendResult
+{
+    switch (sendResult)
+    {
+        case EQQAPIAPPNOTREGISTED:
+        {
+            NSError *error = [NSError errorWithDomain:@"domain"
+                                                 code:ErrorStateShareAppNotRegister
+                                             userInfo:nil];
+            if (self.shareQQZoneFailure) {
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
+                self.shareQQZoneFailure = nil;
+            } else if (self.shareQQFriendFailure) {
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
+                self.shareQQFriendFailure = nil;
+            }
+        }
+            break;
+        case EQQAPIMESSAGECONTENTINVALID:
+        case EQQAPIMESSAGECONTENTNULL:
+        case EQQAPIMESSAGETYPEINVALID:
+        {
+            NSError *error = [NSError errorWithDomain:@"domain"
+                                                 code:ErrorStateSharePrameError
+                                             userInfo:nil];
+            if (self.shareQQZoneFailure) {
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
+                self.shareQQZoneFailure = nil;
+            } else if (self.shareQQFriendFailure) {
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
+                self.shareQQFriendFailure = nil;
+            }
+            
+        }
+            break;
+        case EQQAPIQQNOTINSTALLED:
+        {
+            NSError *error = [NSError errorWithDomain:@"domain"
+                                                 code:ErrorStateShareAppNotInstall
+                                             userInfo:nil];
+            if (self.shareQQZoneFailure) {
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
+                self.shareQQZoneFailure = nil;
+            } else if (self.shareQQFriendFailure) {
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
+                self.shareQQFriendFailure = nil;
+            }
+            
+        }
+            break;
+        case EQQAPIQQNOTSUPPORTAPI:
+        {
+            NSError *error = [NSError errorWithDomain:@"domain"
+                                                 code:ErrorStateShareInterfaceNotSupport
+                                             userInfo:nil];
+            if (self.shareQQZoneFailure) {
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
+                self.shareQQZoneFailure = nil;
+            } else if (self.shareQQFriendFailure) {
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
+                self.shareQQFriendFailure = nil;
+            }
+        }
+            break;
+        case EQQAPISENDFAILD:
+        {
+            NSError *error = [NSError errorWithDomain:@"domain"
+                                                 code:ErrorStateShareSentFailure
+                                             userInfo:nil];
+            if (self.shareQQZoneFailure) {
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
+                self.shareQQZoneFailure = nil;
+            } else if (self.shareQQFriendFailure) {
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
+                self.shareQQFriendFailure = nil;
+            }
+        }
+            break;
+        default:
+        {
+            //无错误发生
+        }
+            break;
+    }
+}
+
+
 #pragma mark - TencentSessionDelegate
 
 - (void)tencentDidLogin
@@ -593,11 +607,13 @@ YM_MacrosSingletonImplemantion
     }
 }
 
+//代码审核建议使用规范
 - (void)tencentDidLogout
 {
     self.isLogin = NO;
 }
 
+//代码审核建议使用规范
 - (void)tencentDidNotNetWork
 {
     self.isLogin = NO;
@@ -607,7 +623,7 @@ YM_MacrosSingletonImplemantion
     self.qqLoginFailure(error);
 }
 
-- (void)getUserInfoResponse:(APIResponse*) response
+- (void)getUserInfoResponse:(APIResponse*)response
 {
     if (response.retCode == 1) {
         NSError *error = [NSError errorWithDomain:@"domain"
