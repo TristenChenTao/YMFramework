@@ -129,7 +129,6 @@
                                       }] ;
 }
 
-
 - (void)qqFriendShare:(id)sender
 {
     [YMAnalytics event:@"13000"];
