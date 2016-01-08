@@ -92,7 +92,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
 
 + (BOOL)isThirdPlatformAppInstalled:(YMThirdPlatformType)platformType
 {
-    return [YMThirdPlatformSDKCenter isTheAPPInstalledWithThirdPlatformType:platformType];
+    return [YMThirdPlatformSDKCenter isAPPInstalledForThirdPlatformType:platformType];
 }
 
 + (BOOL)handleURL:(NSURL *)url
