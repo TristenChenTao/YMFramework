@@ -329,16 +329,7 @@ TCAPIRequestDelegate>
 
 #pragma mark - public
 
-+ (instancetype)sharedInstance
-{
-    static YMThirdPlatformSDKCenter *sdkCall = nil;
-    static dispatch_once_t predicate = 0;
-    dispatch_once(&predicate, ^{
-        sdkCall = [[YMThirdPlatformSDKCenter alloc] init];
-    });
-    
-    return sdkCall;
-}
+YM_MacrosSingletonImplemantion
 
 - (void)logoutWithThirdPlatformType:(YMThirdPlatformType)platformType
 {

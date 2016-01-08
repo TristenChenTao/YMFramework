@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <YMFramework.h>
 #import "YMThirdPlatformShareEntity.h"
 #import "YMThirdPlatformUserInfo.h"
 
@@ -22,7 +22,7 @@ typedef void (^ShareCancelBlock)(YMThirdPlatformShareEntity *shareEntity);
 
 @property (nonatomic, assign) BOOL isLogin;
 
-+ (instancetype)sharedInstance;
+YM_MacrosSingletonInterface
 
 - (void)logoutWithThirdPlatformType:(YMThirdPlatformType)platformType;
 
