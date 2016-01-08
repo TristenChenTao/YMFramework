@@ -74,11 +74,10 @@
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-<<<<<<< HEAD
-=======
+
 	<key>UIMainStoryboardFile</key>
 	<string></string>
->>>>>>> TristenChen/master
+
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

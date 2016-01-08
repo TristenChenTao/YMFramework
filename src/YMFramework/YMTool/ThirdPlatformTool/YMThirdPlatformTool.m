@@ -60,53 +60,14 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                      failure:(void (^)(NSError *))failure
                       cancel:(void (^)(void))cancel
 {
-<<<<<<< HEAD
     [[YMThirdPlatformSDKCenter sharedInstance] loginWithThirdPlatformType:platformType
                                               success:^(YMThirdPlatformUserInfo *userInfo) {
                                                   success(userInfo);
-                                              } failure:^(NSError *__autoreleasing *error) {
+                                              } failure:^(NSError *error) {
                                                   failure(error);
-                                              } cancel:^(NSError *__autoreleasing *error) {
+                                              } cancel:^{
                                                   cancel();
                                               }];
-=======
-    switch (platformType) {
-        case YMThirdPlatformForQQ:
-        {
-            [[YMSDKCall singleton] qqLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
-                success(userInfo);
-            } failure:^(NSError *error) {
-                failure(error);
-            } cancel:^(void) {
-                cancel();
-            }];
-        }
-            break;
-        case YMThirdPlatformForWechat:
-        {
-            [[YMSDKCall singleton] wxLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
-                success(userInfo);
-            } failure:^(NSError *error) {
-                failure(error);
-            } cancel:^(void) {
-                cancel();
-            }];
-        }
-            break;
-        case YMThirdPlatformForWeibo:
-        {
-            [[YMSDKCall singleton] wbLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
-                success(userInfo);
-            } failure:^(NSError *error) {
-               failure(error);
-            } cancel:^(void) {
-                cancel();
-            }];
-        }
-        default:
-            break;
-    }
->>>>>>> TristenChen/master
 }
 
 + (void)logoutForPlatformType:(YMThirdPlatformType)platformType

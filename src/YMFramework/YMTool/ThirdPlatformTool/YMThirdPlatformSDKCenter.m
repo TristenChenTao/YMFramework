@@ -344,7 +344,6 @@ YM_MacrosSingletonImplemantion
                            failure:(LoginFailureBlock)failure
                             cancel:(LoginCancelBlock)cancel
 {
-<<<<<<< HEAD:src/YMFramework/YMTool/ThirdPlatformTool/YMThirdPlatformSDKCenter.m
     switch (platformType) {
         case YMThirdPlatformForQQ:
         {
@@ -370,23 +369,10 @@ YM_MacrosSingletonImplemantion
         default:
             break;
     }
-=======
-    SendAuthReq *req = [[SendAuthReq alloc] init];
-    req.scope = @"snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact";
-    req.state = @"xxx";
-    [WXApi sendAuthReq:req
-        viewController:nil
-              delegate:self];
-    
-    self.wxLoginSuccess = success;
-    self.wxLoginFailure = failure;
-    self.wxLoginCancel = cancel;
->>>>>>> TristenChen/master:src/YMFramework/YMTool/ThirdPlatformTool/YMSDKCall.m
 }
 
 + (BOOL)isTheAPPInstalledWithThirdPlatformType:(YMThirdPlatformType)platformType
 {
-<<<<<<< HEAD:src/YMFramework/YMTool/ThirdPlatformTool/YMThirdPlatformSDKCenter.m
     BOOL flag = NO;
     switch (platformType) {
         case YMThirdPlatformForQQ:
@@ -406,16 +392,6 @@ YM_MacrosSingletonImplemantion
         default:
             break;
     }
-=======
-    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-    request.userInfo = @{@"SSO_From": @"YMSDKCall",
-                         @"Other_Info_1": [NSNumber numberWithInt:123],
-                         @"Other_Info_2": @[@"obj1", @"obj2"],
-                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
-    request.redirectURI = self.wbRedirectURL;
-    request.scope = @"all";
-    [WeiboSDK sendRequest:request];
->>>>>>> TristenChen/master:src/YMFramework/YMTool/ThirdPlatformTool/YMSDKCall.m
     
     return flag;
 }
@@ -583,13 +559,8 @@ YM_MacrosSingletonImplemantion
     NSString *urlString = [url absoluteString];
     if ([urlString hasPrefix:@"tencent"]) {
         return [TencentOAuth HandleOpenURL:url] || [QQApiInterface handleOpenURL:url
-<<<<<<< HEAD:src/YMFramework/YMTool/ThirdPlatformTool/YMThirdPlatformSDKCenter.m
                                                                         delegate:[YMThirdPlatformSDKCenter sharedInstance]];
-    } else if ([urlString hasPrefix:@"wx"]) {
-=======
-                                                                        delegate:[YMSDKCall singleton]];
-    } else if ([urlString hasPrefix:@"weixin"]) {
->>>>>>> TristenChen/master:src/YMFramework/YMTool/ThirdPlatformTool/YMSDKCall.m
+    }  else if ([urlString hasPrefix:@"weixin"] || [urlString hasPrefix:@"wx"]) {
         return [WXApi handleOpenURL:url
                            delegate:[YMThirdPlatformSDKCenter sharedInstance]];
     }
