@@ -74,8 +74,7 @@ TCAPIRequestDelegate
 @property (nonatomic, copy) NSString *wbAppscret;
 @property (nonatomic, copy) NSString *wbRedirectURL;
 
-@property (nonatomic, strong) YMThirdPlatformUserInfo *wxUserInfo;//代码审核建议使用规范
-@property (nonatomic, strong) YMThirdPlatformUserInfo *wbUserInfo;//代码审核建议使用规范
+@property (nonatomic, strong) YMThirdPlatformUserInfo *wbUserInfo;
 
 @property (nonatomic, strong) YMThirdPlatformShareEntity *qqFriendEntity;
 @property (nonatomic, strong) YMThirdPlatformShareEntity *qqZoneEntity;
@@ -180,7 +179,6 @@ YM_MacrosSingletonImplemantion
 {
     _wxAppId = appId;
     _wxSecret = secret;
-    self.wxUserInfo = [[YMThirdPlatformUserInfo alloc] init];
     [WXApi registerApp:appId];
 }
 
@@ -252,6 +250,13 @@ YM_MacrosSingletonImplemantion
         case YMThirdPlatformShareForWechatSession:
         case YMThirdPlatformShareForWechatTimeline:
         {
+            if (![WXApi isWXAppInstalled]) {
+                NSError *error = [NSError errorWithDomain:@"domain"
+                                                     code:ErrorStateShareAppNotInstall
+                                                 userInfo:nil];
+                failure(shareEntity ,error);
+            }
+            
             NSURL *imageURL = [NSURL URLWithString:shareEntity.imageURL];
             NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
             UIImage *thumbImage = [UIImage imageWithData:imageData];
@@ -384,16 +389,22 @@ YM_MacrosSingletonImplemantion
                    failure:(LoginFailureBlock)failure
                     cancel:(LoginCancelBlock)cancel
 {
-    SendAuthReq *req = [[SendAuthReq alloc] init];
-    req.scope = @"snsapi_userinfo";
-    req.state = @"xx";
-    [WXApi sendAuthReq:req
-        viewController:nil
-              delegate:self];
-    
-    self.wxLoginSuccess = success;
-    self.wxLoginFailure = failure;
-    self.wxLoginCancel = cancel;
+    if ([WXApi isWXAppInstalled]) {
+        SendAuthReq *req = [[SendAuthReq alloc] init];
+        req.scope = @"snsapi_userinfo";
+        req.state = @"xx";
+        [WXApi sendAuthReq:req
+            viewController:nil
+                  delegate:self];
+        self.wxLoginSuccess = success;
+        self.wxLoginFailure = failure;
+        self.wxLoginCancel = cancel;
+    } else {
+        NSError *error = [NSError errorWithDomain:@"domain"
+                                             code:ErrorStateLoginAppNotInstall
+                                         userInfo:nil];
+        failure(error);
+    }
 }
 
 - (void)wbLoginWithSuccess:(LoginSuccessBlock)success
@@ -437,6 +448,8 @@ YM_MacrosSingletonImplemantion
 
 - (void)WXUserInfoWithResp:(SendAuthResp *)resp
 {
+    __block YMThirdPlatformUserInfo *wxUserInfo = [[YMThirdPlatformUserInfo alloc] init];
+    
     NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code", [YMThirdPlatformSDKCenter sharedInstance].wxAppId, [YMThirdPlatformSDKCenter sharedInstance].wxSecret, resp.code];
     
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
@@ -448,9 +461,9 @@ YM_MacrosSingletonImplemantion
              NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject
                                                                      options:NSJSONReadingMutableContainers
                                                                        error:nil];
-             selfWeak.wxUserInfo.platformType = YMThirdPlatformForWechat;
-             selfWeak.wxUserInfo.accessToken = content[@"access_token"];
-             selfWeak.wxUserInfo.expired = content[@"expires_in"];
+             wxUserInfo.platformType = YMThirdPlatformForWechat;
+             wxUserInfo.accessToken = content[@"access_token"];
+             wxUserInfo.expired = content[@"expires_in"];
              NSString *userInfoURL = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@", content[@"access_token"], content[@"openid"]];
              AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
              manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -460,11 +473,11 @@ YM_MacrosSingletonImplemantion
                       NSDictionary *UserInfocontent = [NSJSONSerialization JSONObjectWithData:responseObject
                                                                                       options:NSJSONReadingMutableContainers
                                                                                         error:nil];
-                      selfWeak.wxUserInfo.userId = UserInfocontent[@"openid"];
-                      selfWeak.wxUserInfo.nickname = UserInfocontent[@"nickname"];
-                      selfWeak.wxUserInfo.profileImageUrl = UserInfocontent[@"headimgurl"];
-                      selfWeak.wxUserInfo.homepage = nil;
-                      selfWeak.wxLoginSuccess(selfWeak.wxUserInfo);
+                      wxUserInfo.userId = UserInfocontent[@"openid"];
+                      wxUserInfo.nickname = UserInfocontent[@"nickname"];
+                      wxUserInfo.profileImageUrl = UserInfocontent[@"headimgurl"];
+                      wxUserInfo.homepage = nil;
+                      selfWeak.wxLoginSuccess(wxUserInfo);
                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                       selfWeak.wxLoginFailure(error);
                   }];
