@@ -25,12 +25,15 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>mqzone</string>
 				<string>tencent100371282</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>weixin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wx4868b35061f87885</string>
@@ -41,7 +44,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wb568898243</string>
+				<string>wb2447222363</string>
 			</array>
 		</dict>
 	</array>
@@ -71,6 +74,11 @@
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+<<<<<<< HEAD
+=======
+	<key>UIMainStoryboardFile</key>
+	<string></string>
+>>>>>>> TristenChen/master
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -5,7 +5,6 @@
 //  Created by Wenchao Ding on 29/1/15.
 //
 //
-
 #import "NSDate+YMAdditions.h"
 
 #import "NSString+YMAdditions.h"
@@ -16,14 +15,7 @@
 
 @end
 
-static NSString *kSpecialTimeZone = nil;
-
 @implementation NSCalendar (YMAdditions)
-
-+ (void)ym_setTimeZone:(NSString *)timeZone
-{
-    kSpecialTimeZone = timeZone;
-}
 
 + (instancetype)ym_sharedCalendar
 {
@@ -33,18 +25,12 @@ static NSString *kSpecialTimeZone = nil;
         instance = [NSCalendar currentCalendar];
     });
     
-    if ([NSString ym_isContainString:kSpecialTimeZone]) {
-         [instance setTimeZone:[NSTimeZone timeZoneWithAbbreviation:kSpecialTimeZone]];
-    }
-    else {
-        [instance setTimeZone:[NSTimeZone defaultTimeZone]];
-    }
+    [instance setTimeZone:[NSTimeZone defaultTimeZone]];
     
     return instance;
 }
 
 @end
-
 
 @implementation NSDate (YMAdditions)
 

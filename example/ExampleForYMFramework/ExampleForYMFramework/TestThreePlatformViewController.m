@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad
 {
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor]; //ddfsdfsdf
     
     [YMThirdPlatformTool setupQQByAppId:@"100371282"
                                  appKey:@"aed9b0303e3ed1e27bae87c33761161d"];
@@ -36,9 +36,9 @@
     [YMThirdPlatformTool setupWeChatByAppId:@"wx4868b35061f87885"
                                   appSecret:@"64020361b8ec4c99936c0e3999a9f249"];
     
-    [YMThirdPlatformTool setupSinaWeiboByAppKey:@"568898243"
-                                      appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
-                                    redirectUri:@"http://www.sharesdk.cn"];
+    [YMThirdPlatformTool setupSinaWeiboByAppKey:@"2447222363"
+                                      appSecret:@"57cf02f1baba0b9e7a548d464af29af8"
+                                    redirectUri:@"http://cornapp.com/"];
     
     [self.view addSubview:self.qqLoginButton];
     [self.view addSubview:self.wxLoginButton];
@@ -92,63 +92,68 @@
 
 - (void)qqLogin:(id)sender
 {
+    [YMAnalytics event:@"10000"];
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForQQ
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
-                                          NSLog(@"this is qqUserInfo: %@", platformUserInfo);
-                                      } failure:^(NSError **error) {
-                                          NSLog(@"this is qqLogin error:%@", *error);
+                                          YM_Log(@"this is qqUserInfo: %@", platformUserInfo);
+                                      } failure:^(NSError *error) {
+                                          YM_Log(@"this is qqLogin error:%@", error);
                                       } cancel:^{
-                                          NSLog(@"qqLogin cancel");
+                                          YM_Log(@"qqLogin cancel");
                                       }] ;
 }
 
 - (void)wxLogin:(id)sender
 {
+    [YMAnalytics event:@"11000"];
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForWechat
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
-                                          NSLog(@"this is wxUserInfo: %@", platformUserInfo);
-                                      } failure:^(NSError **error) {
-                                          NSLog(@"this is wxLogin error:%@", *error);
+                                          YM_Log(@"this is wxUserInfo: %@", platformUserInfo);
+                                      } failure:^(NSError *error) {
+                                          YM_Log(@"this is wxLogin error:%@", error);
                                       } cancel:^{
-                                          NSLog(@"wxLogin cancel");
+                                          YM_Log(@"wxLogin cancel");
                                       }] ;
 }
 
 - (void)wbLogin:(id)sender
 {
+    [YMAnalytics event:@"12000"];
     [YMThirdPlatformTool loginForPlatformType:YMThirdPlatformForWeibo
                                       success:^(YMThirdPlatformUserInfo *platformUserInfo) {
-                                          NSLog(@"this is wbUserInfo: %@", platformUserInfo);
-                                      } failure:^(NSError **error) {
-                                          NSLog(@"this is wbLogin error:%@", *error);
+                                          YM_Log(@"this is wbUserInfo: %@", platformUserInfo);
+                                      } failure:^(NSError *error) {
+                                          YM_Log(@"this is wbLogin error:%@", error);
                                       } cancel:^{
-                                          NSLog(@"wbLogin cancel");
+                                          YM_Log(@"wbLogin cancel");
                                       }] ;
 }
 
 
 - (void)qqFriendShare:(id)sender
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForQQFriend],
+    [YMAnalytics event:@"13000"];
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
                                 @"contentType":@"nil",
                                 @"title":@"title",
-                                @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
+                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.Gif",
                                 @"resourceUrl":@"https://www.baidu.com",
                                 @"contentText":@"description"};
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
-                                     NSLog(@"this is qqFriendShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity, NSError **error) {
-                                     NSLog(@"this is qqFriendShare failure %@", *error);
+                                     YM_Log(@"this is qqFriendShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity, NSError *error) {
+                                     YM_Log(@"this is qqFriendShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     NSLog(@"this is qqFriendCancel");
+                                     YM_Log(@"this is qqFriendCancel");
                                  }];
 }
 
 - (void)qqZoneShare:(id)sender
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForQQZone],
+    [YMAnalytics event:@"14000"];
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
                                 @"contentType":@"nil",
                                 @"title":@"title",
                                 @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
@@ -157,54 +162,57 @@
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
-                                     NSLog(@"this is qqZoneShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity, NSError **error) {
-                                     NSLog(@"this is qqZoneShare failure %@", *error);
+                                     YM_Log(@"this is qqZoneShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity, NSError *error) {
+                                     YM_Log(@"this is qqZoneShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     NSLog(@"this is qqZoneCancel");
+                                     YM_Log(@"this is qqZoneCancel");
                                  }];
 }
 
 - (void)wxSessionShare:(id)sender
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForWechatSession],
+    [YMAnalytics event:@"15000"];
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatSession],
                                 @"contentType":@"nil",
                                 @"title":@"title",
-                                @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
+                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
                                 @"resourceUrl":@"https://www.baidu.com",
                                 @"contentText":@"description"};
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
-                                     NSLog(@"this is wxSessionShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
-                                     NSLog(@"this is wxSessionShare failure %@", *error);
+                                     YM_Log(@"this is wxSessionShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError *error) {
+                                     YM_Log(@"this is wxSessionShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     NSLog(@"this is wxSessionCancel");
+                                     YM_Log(@"this is wxSessionCancel");
                                  }];
 }
 
 - (void)wxTimelineShare:(id)sender
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForWechatTimeline],
+    [YMAnalytics event:@"16000"];
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatTimeline],
                                 @"contentType":@"nil",
                                 @"title":@"title",
-                                @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
+                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
                                 @"resourceUrl":@"https://www.baidu.com",
                                 @"contentText":@"description"};
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
-                                     NSLog(@"this is wxTimelineShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
-                                     NSLog(@"this is wxTimelineShare failure %@", *error);
+                                     YM_Log(@"this is wxTimelineShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError *error) {
+                                     YM_Log(@"this is wxTimelineShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     NSLog(@"this is wxTimelineCancel");
+                                     YM_Log(@"this is wxTimelineCancel");
                                  }];
 }
 - (void)wbShare:(id)sender
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForWeibo],
+    [YMAnalytics event:@"17000"];
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformForWeibo],
                                 @"contentType":@"nil",
                                 @"title":@"title",
                                 @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
@@ -213,17 +221,17 @@
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
-                                     NSLog(@"this is weiboShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
-                                     NSLog(@"this is weiboShare failure %@", *error);
+                                     YM_Log(@"this is weiboShare success");
+                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError *error) {
+                                     YM_Log(@"this is weiboShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
-                                     NSLog(@"this is weiboCancel");
+                                     YM_Log(@"this is weiboCancel");
                                  }];
 }
 
 - (void)gifQQShare
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForQQFriend],
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
                                 @"contentType":@"nil",
                                 @"title":@"title",
                                 @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
@@ -233,8 +241,8 @@
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
                                      NSLog(@"this is weiboShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
-                                     NSLog(@"this is weiboShare failure %@", *error);
+                                 } failure:^(YMThirdPlatformShareEntity *shareEntity, NSError *error) {
+                                     NSLog(@"this is weiboShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
                                      NSLog(@"this is weiboCancel");
                                  }];
@@ -242,7 +250,7 @@
 
 - (void)gifWXShare
 {
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareTypeForWechatSession],
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatSession],
                                 @"contentType":@"nil",
                                 @"title":@"title",
                                 @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
@@ -252,8 +260,8 @@
     [YMThirdPlatformTool shareWithEntity:entity
                                  success:^(YMThirdPlatformShareEntity *shareEntity) {
                                      NSLog(@"this is weiboShare success");
-                                 } failure:^(YMThirdPlatformShareEntity *entity ,NSError **error) {
-                                     NSLog(@"this is weiboShare failure %@", *error);
+                                 } failure:^(YMThirdPlatformShareEntity *shareEntity, NSError *error) {
+                                     NSLog(@"this is weiboShare failure %@", error);
                                  } cancel:^(YMThirdPlatformShareEntity *entity){
                                      NSLog(@"this is weiboCancel");
                                  }];

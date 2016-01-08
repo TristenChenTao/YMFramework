@@ -22,6 +22,14 @@
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[YMFrameworkConfig sharedInstance] setupProductByID:@"5679842990210161107"
+                                                 version:@"0"
+                                                 channel:@"0"];
+    [YMAnalytics setUMengAppKey:@""
+                      channelID:@""];
+    [YMAnalytics setDebugMode:YES];
+    [YMAnalytics startReport];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[TestThreePlatformViewController alloc] init];
 //    self.window.rootViewController = [[ViewController alloc] init];
@@ -30,16 +38,18 @@
 }
 
 - (BOOL)application:(UIApplication *)application
-      handleOpenURL:(NSURL *)url
+            openURL:(nonnull NSURL *)url
+  sourceApplication:(nullable NSString *)sourceApplication
+         annotation:(nonnull id)annotation
 {
     return [YMThirdPlatformTool handleURL:url];
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
+- (BOOL)application:(UIApplication *)application
+            openURL:(nonnull NSURL *)url
+            options:(nonnull NSDictionary<NSString *,id> *)options
 {
-    return [YMThirdPlatformTool handleURL:url]; //微博专用跳转接口
+    return [YMThirdPlatformTool handleURL:url];
 }
 
 @end

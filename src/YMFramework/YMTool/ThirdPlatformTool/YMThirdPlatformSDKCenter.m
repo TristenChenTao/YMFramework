@@ -191,7 +191,7 @@ TCAPIRequestDelegate>
                                     selfWeak.wbUserInfo.homepage = nil;
                                     selfWeak.wbLoginSuccess(selfWeak.wbUserInfo);
                                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                    selfWeak.wbLoginFailure(&error);
+                                    selfWeak.wbLoginFailure(error);
                                 }];
 }
 
@@ -225,10 +225,10 @@ TCAPIRequestDelegate>
                       selfWeak.wxUserInfo.homepage = nil;
                       selfWeak.wxLoginSuccess(selfWeak.wxUserInfo);
                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                      selfWeak.wxLoginFailure(&error);
+                      selfWeak.wxLoginFailure(error);
                   }];
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             selfWeak.wxLoginFailure(&error);
+             selfWeak.wxLoginFailure(error);
          }];
 }
 
@@ -242,10 +242,10 @@ TCAPIRequestDelegate>
                                                  code:ErrorStateShareAppNotRegister
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
                 self.shareQQZoneFailure = nil;
             } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
                 self.shareQQFriendFailure = nil;
             }
         }
@@ -258,10 +258,10 @@ TCAPIRequestDelegate>
                                                  code:ErrorStateSharePrameError
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
                 self.shareQQZoneFailure = nil;
             } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
                 self.shareQQFriendFailure = nil;
             }
            
@@ -273,10 +273,10 @@ TCAPIRequestDelegate>
                                                  code:ErrorStateShareAppNotInstall
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
                 self.shareQQZoneFailure = nil;
             } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
                 self.shareQQFriendFailure = nil;
             }
             
@@ -288,10 +288,10 @@ TCAPIRequestDelegate>
                                                  code:ErrorStateShareInterfaceNotSupport
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
                 self.shareQQZoneFailure = nil;
             } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
                 self.shareQQFriendFailure = nil;
             }
         }
@@ -302,26 +302,17 @@ TCAPIRequestDelegate>
                                                  code:ErrorStateShareSentFailure
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
+                self.shareQQZoneFailure(self.qqZoneEntity,error);
                 self.shareQQZoneFailure = nil;
             } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
+                self.shareQQFriendFailure(self.qqFriendEntity,error);
                 self.shareQQFriendFailure = nil;
             }
         }
             break;
         default:
         {
-            NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:-2002
-                                             userInfo:nil];
-            if (self.shareQQZoneFailure) {
-                self.shareQQZoneFailure(self.qqZoneEntity,&error);
-                self.shareQQZoneFailure = nil;
-            } else if (self.shareQQFriendFailure) {
-                self.shareQQFriendFailure(self.qqFriendEntity,&error);
-                self.shareQQFriendFailure = nil;
-            }
+            //无错误发生
         }
             break;
     }
@@ -353,6 +344,7 @@ YM_MacrosSingletonImplemantion
                            failure:(LoginFailureBlock)failure
                             cancel:(LoginCancelBlock)cancel
 {
+<<<<<<< HEAD:src/YMFramework/YMTool/ThirdPlatformTool/YMThirdPlatformSDKCenter.m
     switch (platformType) {
         case YMThirdPlatformForQQ:
         {
@@ -378,10 +370,23 @@ YM_MacrosSingletonImplemantion
         default:
             break;
     }
+=======
+    SendAuthReq *req = [[SendAuthReq alloc] init];
+    req.scope = @"snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact";
+    req.state = @"xxx";
+    [WXApi sendAuthReq:req
+        viewController:nil
+              delegate:self];
+    
+    self.wxLoginSuccess = success;
+    self.wxLoginFailure = failure;
+    self.wxLoginCancel = cancel;
+>>>>>>> TristenChen/master:src/YMFramework/YMTool/ThirdPlatformTool/YMSDKCall.m
 }
 
 + (BOOL)isTheAPPInstalledWithThirdPlatformType:(YMThirdPlatformType)platformType
 {
+<<<<<<< HEAD:src/YMFramework/YMTool/ThirdPlatformTool/YMThirdPlatformSDKCenter.m
     BOOL flag = NO;
     switch (platformType) {
         case YMThirdPlatformForQQ:
@@ -401,6 +406,16 @@ YM_MacrosSingletonImplemantion
         default:
             break;
     }
+=======
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.userInfo = @{@"SSO_From": @"YMSDKCall",
+                         @"Other_Info_1": [NSNumber numberWithInt:123],
+                         @"Other_Info_2": @[@"obj1", @"obj2"],
+                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
+    request.redirectURI = self.wbRedirectURL;
+    request.scope = @"all";
+    [WeiboSDK sendRequest:request];
+>>>>>>> TristenChen/master:src/YMFramework/YMTool/ThirdPlatformTool/YMSDKCall.m
     
     return flag;
 }
@@ -429,7 +444,6 @@ YM_MacrosSingletonImplemantion
     _wbAppscret = secret;
     _wbRedirectURL = redirectURL;
     self.wbUserInfo = [[YMThirdPlatformUserInfo alloc] init];
-    [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:appKey];
 }
 
@@ -439,18 +453,29 @@ YM_MacrosSingletonImplemantion
                  cancel:(ShareCancelBlock)cancel
 {
     switch (shareEntity.shareType)  {
-        case YMThirdPlatformShareTypeForQQFriend:
-        case YMThirdPlatformShareTypeForQQZone:
+        case YMThirdPlatformShareForQQFriend:
+        case YMThirdPlatformShareForQQZone:
         {
-            NSURL *previewURL = [NSURL URLWithString:shareEntity.imageURL];
+            NSURL *imageURL = [NSURL URLWithString:shareEntity.imageURL];
             // 设置分享链接
             NSURL* url = [NSURL URLWithString:shareEntity.resourceURL];
-            QQApiNewsObject* imgObj = [QQApiNewsObject objectWithURL:url
-                                                               title:shareEntity.title
-                                                         description:shareEntity.contentText
-                                                     previewImageURL:previewURL];
+            
+            QQApiObject *imgObj = nil;
+            if ([imageURL.pathExtension caseInsensitiveCompare:@"gif"] == NSOrderedSame) {
+                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                imgObj = [QQApiImageObject objectWithData:imageData
+                                         previewImageData:imageData
+                                                    title:shareEntity.title
+                                              description:shareEntity.contentText];
+            } else {
+                imgObj = [QQApiNewsObject objectWithURL:url
+                                                  title:shareEntity.title
+                                            description:shareEntity.contentText
+                                        previewImageURL:imageURL];
+            }
+            
             // 设置分享到QZone的标志位
-            if (shareEntity.shareType == YMThirdPlatformShareTypeForQQZone) {
+            if (shareEntity.shareType == YMThirdPlatformShareForQQZone) {
                 self.qqZoneEntity = shareEntity;
                 
                 [imgObj setCflag: kQQAPICtrlFlagQZoneShareOnStart];
@@ -465,7 +490,7 @@ YM_MacrosSingletonImplemantion
             } else {
                 self.qqFriendEntity = shareEntity;
                 
-                [imgObj setCflag:kQQAPICtrlFlagQQShare];
+                //[imgObj setCflag:kQQAPICtrlFlagQQShare];
                 
                 self.shareQQFriendSuccess = success;
                 self.shareQQFriendFailure = failure;
@@ -477,23 +502,35 @@ YM_MacrosSingletonImplemantion
             }
         }
             break;
-        case YMThirdPlatformShareTypeForWechatSession:
-        case YMThirdPlatformShareTypeForWechatTimeline:
+        case YMThirdPlatformShareForWechatSession:
+        case YMThirdPlatformShareForWechatTimeline:
         {
-            WXWebpageObject *webPageObject = [WXWebpageObject object];
-            NSURL *url = [NSURL URLWithString:shareEntity.imageURL];
-            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+            NSURL *imageURL = [NSURL URLWithString:shareEntity.imageURL];
+            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+            UIImage *thumbImage = [UIImage imageWithData:imageData];
             
-            webPageObject.webpageUrl = shareEntity.resourceURL;
             WXMediaMessage *message = [WXMediaMessage message];
-            message.title = shareEntity.title;
-            message.description = shareEntity.contentText;
-            message.mediaObject = webPageObject;
-            [message setThumbImage:image];
+            if ([imageURL.pathExtension caseInsensitiveCompare:@"gif"] == NSOrderedSame) {
+                message = [WXMediaMessage message];
+                [message setThumbImage:thumbImage];
+                
+                WXEmoticonObject *ext = [WXEmoticonObject object];
+                ext.emoticonData = imageData;
+                
+                message.mediaObject = ext;
+            } else {
+                WXWebpageObject *webPageObject = [WXWebpageObject object];
+                webPageObject.webpageUrl = shareEntity.resourceURL;
+                
+                message.title = shareEntity.title;
+                message.description = shareEntity.contentText;
+                message.mediaObject = webPageObject;
+                [message setThumbImage:thumbImage];
+            }
             
             SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
             req.message = message;
-            if (shareEntity.shareType == YMThirdPlatformShareTypeForWechatSession) {
+            if (shareEntity.shareType == YMThirdPlatformShareForWechatSession) {
                 self.wxSessionEntity = shareEntity;
                 
                 req.scene = WXSceneSession;
@@ -513,7 +550,7 @@ YM_MacrosSingletonImplemantion
     
         }
             break;
-        case YMThirdPlatformShareTypeForWeibo:
+        case YMThirdPlatformShareForWeibo:
         {
             self.wbEntity = shareEntity;
             
@@ -546,8 +583,13 @@ YM_MacrosSingletonImplemantion
     NSString *urlString = [url absoluteString];
     if ([urlString hasPrefix:@"tencent"]) {
         return [TencentOAuth HandleOpenURL:url] || [QQApiInterface handleOpenURL:url
+<<<<<<< HEAD:src/YMFramework/YMTool/ThirdPlatformTool/YMThirdPlatformSDKCenter.m
                                                                         delegate:[YMThirdPlatformSDKCenter sharedInstance]];
     } else if ([urlString hasPrefix:@"wx"]) {
+=======
+                                                                        delegate:[YMSDKCall singleton]];
+    } else if ([urlString hasPrefix:@"weixin"]) {
+>>>>>>> TristenChen/master:src/YMFramework/YMTool/ThirdPlatformTool/YMSDKCall.m
         return [WXApi handleOpenURL:url
                            delegate:[YMThirdPlatformSDKCenter sharedInstance]];
     }
@@ -571,15 +613,12 @@ YM_MacrosSingletonImplemantion
 {
     self.isLogin = NO;
     if (cancelled) {
-        NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:-2001
-                                         userInfo:nil];
-        self.qqLoginCancel(&error);
+        self.qqLoginCancel();
     } else {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure
                                          userInfo:nil];
-        self.qqLoginFailure(&error);
+        self.qqLoginFailure(error);
     }
 }
 
@@ -594,7 +633,7 @@ YM_MacrosSingletonImplemantion
     NSError *error = [NSError errorWithDomain:@"domain"
                                          code:ErrorStateLoginNotNetWork
                                      userInfo:nil];
-    self.qqLoginFailure(&error);
+    self.qqLoginFailure(error);
 }
 
 - (void)getUserInfoResponse:(APIResponse*) response
@@ -603,7 +642,7 @@ YM_MacrosSingletonImplemantion
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateGetUserInfoFailure
                                          userInfo:nil];
-        self.qqLoginFailure(&error);
+        self.qqLoginFailure(error);
         return;
     }
     
@@ -690,20 +729,17 @@ YM_MacrosSingletonImplemantion
     } else if (resp.errCode == WXErrCodeCommon){
         //self.wxLoginFailure(@"普通错误类型");
     } else if (resp.errCode == WXErrCodeUserCancel){
-        NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:-2001
-                                         userInfo:nil];
-        self.wxLoginCancel(&error);
+        self.wxLoginCancel();
     } else if (resp.errCode == WXErrCodeSentFail){
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNotNetWork
                                          userInfo:nil];
-        self.wxLoginCancel(&error);
+        self.wxLoginFailure(error);
     } else if (resp.errCode == WXErrCodeAuthDeny){
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure
                                          userInfo:nil];
-        self.wxLoginCancel(&error);
+        self.wxLoginFailure(error);
     }
     
     self.wxLoginCancel = nil;
@@ -735,18 +771,18 @@ YM_MacrosSingletonImplemantion
                                              code:ErrorStateShareSentFailure
                                          userInfo:nil];
         if (self.shareWechatSessionFailure) {
-            self.shareWechatSessionFailure(self.wxSessionEntity, &error);
+            self.shareWechatSessionFailure(self.wxSessionEntity, error);
         } else if (self.shareWechatTimelineFailure) {
-            self.shareWechatTimelineFailure(self.wxTimelineEntity, &error);
+            self.shareWechatTimelineFailure(self.wxTimelineEntity, error);
         }
     } else if (resp.errCode == WXErrCodeUnsupport){
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateShareInterfaceNotSupport
                                          userInfo:nil];
         if (self.shareWechatSessionFailure) {
-            self.shareWechatSessionFailure(self.wxSessionEntity, &error);
+            self.shareWechatSessionFailure(self.wxSessionEntity, error);
         } else if (self.shareWechatTimelineFailure) {
-            self.shareWechatTimelineFailure(self.wxTimelineEntity, &error);
+            self.shareWechatTimelineFailure(self.wxTimelineEntity, error);
         }
     }
     
@@ -765,25 +801,24 @@ YM_MacrosSingletonImplemantion
     if (resp.statusCode == WeiboSDKResponseStatusCodeSuccess) {
         [self getWBUserInfo:resp];
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeUserCancel) {
-        NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:-2001
-                                         userInfo:nil];
-        self.wbLoginCancel(&error);
+        if (self.wbLoginCancel) {
+            self.wbLoginCancel();
+        }
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeAuthDeny) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure
                                          userInfo:nil];
-        self.wbLoginFailure(&error);
+        self.wbLoginFailure(error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeSentFail) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNotNetWork
                                          userInfo:nil];
-        self.wbLoginFailure(&error);
+        self.wbLoginFailure(error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeAuthDeny) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateLoginNormalFailure
                                          userInfo:nil];
-        self.wxLoginFailure(&error);
+        self.wxLoginFailure(error);
     }
     
     self.wbLoginCancel = nil;
@@ -800,17 +835,17 @@ YM_MacrosSingletonImplemantion
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateShareSentFailure
                                          userInfo:nil];
-        self.shareWeiboFailure(self.wbEntity,&error);
+        self.shareWeiboFailure(self.wbEntity,error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeShareInSDKFailed) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateShareNormalFailure
                                          userInfo:nil];
-        self.shareWeiboFailure(self.wbEntity,&error);
+        self.shareWeiboFailure(self.wbEntity,error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeUnsupport) {
         NSError *error = [NSError errorWithDomain:@"domain"
                                              code:ErrorStateShareInterfaceNotSupport
                                          userInfo:nil];
-       self.shareWeiboFailure(self.wbEntity,&error);
+       self.shareWeiboFailure(self.wbEntity,error);
     }
     
     self.shareWeiboSuccess = nil;

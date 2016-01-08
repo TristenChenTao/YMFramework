@@ -57,9 +57,10 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
 
 + (void)loginForPlatformType:(YMThirdPlatformType)platformType
                      success:(void (^)(YMThirdPlatformUserInfo *platformUserInfo))success
-                     failure:(void (^)(NSError *__autoreleasing *))failure
+                     failure:(void (^)(NSError *))failure
                       cancel:(void (^)(void))cancel
 {
+<<<<<<< HEAD
     [[YMThirdPlatformSDKCenter sharedInstance] loginWithThirdPlatformType:platformType
                                               success:^(YMThirdPlatformUserInfo *userInfo) {
                                                   success(userInfo);
@@ -68,6 +69,44 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                                               } cancel:^(NSError *__autoreleasing *error) {
                                                   cancel();
                                               }];
+=======
+    switch (platformType) {
+        case YMThirdPlatformForQQ:
+        {
+            [[YMSDKCall singleton] qqLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
+                success(userInfo);
+            } failure:^(NSError *error) {
+                failure(error);
+            } cancel:^(void) {
+                cancel();
+            }];
+        }
+            break;
+        case YMThirdPlatformForWechat:
+        {
+            [[YMSDKCall singleton] wxLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
+                success(userInfo);
+            } failure:^(NSError *error) {
+                failure(error);
+            } cancel:^(void) {
+                cancel();
+            }];
+        }
+            break;
+        case YMThirdPlatformForWeibo:
+        {
+            [[YMSDKCall singleton] wbLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
+                success(userInfo);
+            } failure:^(NSError *error) {
+               failure(error);
+            } cancel:^(void) {
+                cancel();
+            }];
+        }
+        default:
+            break;
+    }
+>>>>>>> TristenChen/master
 }
 
 + (void)logoutForPlatformType:(YMThirdPlatformType)platformType
@@ -77,13 +116,13 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
 
 + (void)shareWithEntity:(YMThirdPlatformShareEntity *)shareEntity
                 success:(void (^)(YMThirdPlatformShareEntity *shareEntity))success
-               failure:(void (^)(YMThirdPlatformShareEntity *, NSError *__autoreleasing *))failure
+                failure:(void (^)(YMThirdPlatformShareEntity *shareEntity, NSError *error))failure
                  cancel:(void (^)(YMThirdPlatformShareEntity *))cancel
 {
     [[YMThirdPlatformSDKCenter sharedInstance] shareWithEntity:shareEntity
                                    success:^(YMThirdPlatformShareEntity *entity){
                                        success(shareEntity);
-                                   } failure:^(YMThirdPlatformShareEntity *entiy,NSError **error) {
+                                   } failure:^(YMThirdPlatformShareEntity *entiy, NSError *error) {
                                        failure(entiy ,error);
                                    } cancel:^(YMThirdPlatformShareEntity *entity){
                                        cancel(entity);
