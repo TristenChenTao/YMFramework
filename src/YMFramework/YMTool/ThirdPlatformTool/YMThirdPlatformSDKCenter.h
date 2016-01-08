@@ -18,28 +18,17 @@ typedef void (^ShareFailureBlock)(YMThirdPlatformShareEntity *entity,NSError **e
 typedef void (^ShareSuccessBlock)(YMThirdPlatformShareEntity *shareEntity);
 typedef void (^ShareCancelBlock)(YMThirdPlatformShareEntity *shareEntity);
 
-@interface YMSDKCall : NSObject
+@interface YMThirdPlatformSDKCenter : NSObject
 
 @property (nonatomic, assign) BOOL isLogin;
 
-+ (instancetype)singleton;
++ (instancetype)sharedInstance;
 
-- (void)qqLogout;
+- (void)logoutWithThirdPlatformType:(YMThirdPlatformType)platformType;
 
-- (void)wbLogout;
-
-- (void)qqLoginWithSuccess:(LoginSuccessBlock)success
-                   failure:(LoginFailureBlock)failure
-                    cancel:(LoginCancelBlock)cancel;
-
-- (void)wxLoginWithSuccess:(LoginSuccessBlock)success
-                   failure:(LoginFailureBlock)failure
-                    cancel:(LoginCancelBlock)cancel;
-
-- (void)wbLoginWithSuccess:(LoginSuccessBlock)success
-                   failure:(LoginFailureBlock)failure
-                    cancel:(LoginCancelBlock)cancel;
-
+- (void)loginWithThirdPlatformType:(YMThirdPlatformType)platformType
+                           success:(LoginSuccessBlock)success failure:(LoginFailureBlock)failure
+                            cancel:(LoginCancelBlock)cancel;
 
 - (void)registerQQAppId:(NSString *)appId;
 
@@ -55,11 +44,7 @@ typedef void (^ShareCancelBlock)(YMThirdPlatformShareEntity *shareEntity);
                 failure:(ShareFailureBlock)failure
                  cancel:(ShareCancelBlock)cancel;
 
-+ (BOOL)isQQInstall;
-
-+ (BOOL)isWechatInstall;
-
-+ (BOOL)isWbInstall;
++ (BOOL)isTheAPPInstalledWithThirdPlatformType:(YMThirdPlatformType)platformType;
 
 + (BOOL)handleURL:(NSURL *)url;
 

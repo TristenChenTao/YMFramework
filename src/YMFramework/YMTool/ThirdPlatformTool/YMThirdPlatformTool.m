@@ -7,7 +7,7 @@
 //
 
 #import "YMThirdPlatformTool.h"
-#import "YMSDKCall.h"
+#import "YMThirdPlatformSDKCenter.h"
 #import "YMThirdPlatformUserInfo.h"
 #import "YMThirdPlatformShareEntity.h"
 
@@ -29,7 +29,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
     kWechatAppID = appId;
     kWechatAppSecret = appSecret;
     
-    [[YMSDKCall singleton] registerWXAppId:kWechatAppID WXAppSecret:kWechatAppSecret];
+    [[YMThirdPlatformSDKCenter sharedInstance] registerWXAppId:kWechatAppID WXAppSecret:kWechatAppSecret];
     
 }
 
@@ -39,7 +39,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
     kQQAppID = appId;
     kQQAppKey = appKey;
     
-    [[YMSDKCall singleton] registerQQAppId:kQQAppID];
+    [[YMThirdPlatformSDKCenter sharedInstance] registerQQAppId:kQQAppID];
 }
 
 + (void)setupSinaWeiboByAppKey:(NSString *)appKey
@@ -50,7 +50,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
     kSinaWeiboAppSecret = appSecret;
     kSinaWeiboAppRedirectURL = redirectUri;
     
-    [[YMSDKCall singleton] registerWBAppKey:kSinaWeiboAppKey
+    [[YMThirdPlatformSDKCenter sharedInstance] registerWBAppKey:kSinaWeiboAppKey
                                    appScret:kSinaWeiboAppSecret
                                 redirectURL:kSinaWeiboAppRedirectURL];
 }
@@ -60,64 +60,19 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                      failure:(void (^)(NSError *__autoreleasing *))failure
                       cancel:(void (^)(void))cancel
 {
-    switch (platformType) {
-        case YMThirdPlatformForQQ:
-        {
-            [[YMSDKCall singleton] qqLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
-                success(userInfo);
-            } failure:^(NSError **error) {
-                failure(error);
-            } cancel:^(NSError *__autoreleasing *error) {
-                cancel();
-            }];
-        }
-            break;
-        case YMThirdPlatformForWechat:
-        {
-            [[YMSDKCall singleton] wxLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
-                success(userInfo);
-            } failure:^(NSError **error) {
-                failure(error);
-            } cancel:^(NSError *__autoreleasing *error) {
-                cancel();
-            }];
-        }
-            break;
-        case YMThirdPlatformForWeibo:
-        {
-            [[YMSDKCall singleton] wbLoginWithSuccess:^(YMThirdPlatformUserInfo *userInfo) {
-                success(userInfo);
-            } failure:^(NSError **error) {
-               failure(error);
-            } cancel:^(NSError *__autoreleasing *error) {
-                cancel();
-            }];
-        }
-        default:
-            break;
-    }
+    [[YMThirdPlatformSDKCenter sharedInstance] loginWithThirdPlatformType:platformType
+                                              success:^(YMThirdPlatformUserInfo *userInfo) {
+                                                  success(userInfo);
+                                              } failure:^(NSError *__autoreleasing *error) {
+                                                  failure(error);
+                                              } cancel:^(NSError *__autoreleasing *error) {
+                                                  cancel();
+                                              }];
 }
 
 + (void)logoutForPlatformType:(YMThirdPlatformType)platformType
 {
-    switch (platformType) {
-        case YMThirdPlatformForQQ:
-        {
-            [[YMSDKCall singleton] qqLogout];
-        }
-            break;
-        case YMThirdPlatformForWechat:
-        {
-            //未找到接口
-        }
-            break;
-        case YMThirdPlatformForWeibo:
-        {
-            [[YMSDKCall singleton] wbLogout];
-        }
-        default:
-            break;
-    }
+    [[YMThirdPlatformSDKCenter sharedInstance] logoutWithThirdPlatformType:platformType];
 }
 
 + (void)shareWithEntity:(YMThirdPlatformShareEntity *)shareEntity
@@ -125,7 +80,7 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
                failure:(void (^)(YMThirdPlatformShareEntity *, NSError *__autoreleasing *))failure
                  cancel:(void (^)(YMThirdPlatformShareEntity *))cancel
 {
-    [[YMSDKCall singleton] shareWithEntity:shareEntity
+    [[YMThirdPlatformSDKCenter sharedInstance] shareWithEntity:shareEntity
                                    success:^(YMThirdPlatformShareEntity *entity){
                                        success(shareEntity);
                                    } failure:^(YMThirdPlatformShareEntity *entiy,NSError **error) {
@@ -137,28 +92,12 @@ static NSString *kSinaWeiboAppRedirectURL = nil;
 
 + (BOOL)isThirdPlatformAppInstalled:(YMThirdPlatformType)platformType
 {
-    BOOL flag = NO;
-    switch (platformType) {
-        case YMThirdPlatformForQQ:
-            flag = [YMSDKCall isQQInstall];
-            break;
-        case YMThirdPlatformForWechat:
-            flag =  [YMSDKCall isWechatInstall];
-            break;
-        case YMThirdPlatformForWeibo:
-            flag = [YMSDKCall isWbInstall];
-        default:
-            break;
-    }
-    
-    return flag;
+    return [YMThirdPlatformSDKCenter isTheAPPInstalledWithThirdPlatformType:platformType];
 }
 
 + (BOOL)handleURL:(NSURL *)url
 {
-    return [YMSDKCall handleURL:url];
+    return [YMThirdPlatformSDKCenter handleURL:url];
 }
-
-
 
 @end

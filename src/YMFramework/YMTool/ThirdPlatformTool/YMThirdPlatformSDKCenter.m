@@ -14,13 +14,13 @@
 #import <TencentOpenAPI/sdkdef.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 
-#import "YMSDKCall.h"
+#import "YMThirdPlatformSDKCenter.h"
 #import "WXApi.h"
 #import "AFNetworking.h"
 #import "WeiboSDK.h"
 
 
-@interface YMSDKCall()
+@interface YMThirdPlatformSDKCenter()
 <QQApiInterfaceDelegate,
 WXApiDelegate,
 WeiboSDKDelegate,
@@ -82,9 +82,89 @@ TCAPIRequestDelegate>
 
 @end
 
-@implementation YMSDKCall
+@implementation YMThirdPlatformSDKCenter
 
 #pragma mark - private
+
+- (void)qqLogout
+{
+    [self.oauth logout:self];
+    [self registerQQAppId:self.qqAppId];
+}
+
+- (void)wbLogout
+{
+    [WeiboSDK logOutWithToken:self.wbUserInfo.accessToken
+                     delegate:[YMThirdPlatformSDKCenter sharedInstance]
+                      withTag:nil];
+}
+
+- (void)qqLoginWithSuccess:(LoginSuccessBlock)success
+                   failure:(LoginFailureBlock)failure
+                    cancel:(LoginCancelBlock)cancel
+{
+    NSArray* permissions = [NSArray arrayWithObjects:
+                            kOPEN_PERMISSION_GET_USER_INFO,
+                            kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
+                            kOPEN_PERMISSION_ADD_ALBUM,
+                            kOPEN_PERMISSION_ADD_IDOL,
+                            kOPEN_PERMISSION_ADD_ONE_BLOG,
+                            kOPEN_PERMISSION_ADD_PIC_T,
+                            kOPEN_PERMISSION_ADD_SHARE,
+                            kOPEN_PERMISSION_ADD_TOPIC,
+                            nil];
+    
+    [[[YMThirdPlatformSDKCenter sharedInstance] oauth] authorize:permissions];
+    
+    self.qqLoginSuccess = success;
+    self.qqLoginFailure = failure;
+    self.qqLoginCancel = cancel;
+}
+
+- (void)wxLoginWithSuccess:(LoginSuccessBlock)success
+                   failure:(LoginFailureBlock)failure
+                    cancel:(LoginCancelBlock)cancel
+{
+    SendAuthReq *req = [[SendAuthReq alloc] init];
+    req.scope = @"snsapi_userinfo";
+    req.state = @"xx";
+    [WXApi sendAuthReq:req
+        viewController:nil
+              delegate:self];
+    
+    self.wxLoginSuccess = success;
+    self.wxLoginFailure = failure;
+    self.wxLoginCancel = cancel;
+}
+
+- (void)wbLoginWithSuccess:(LoginSuccessBlock)success
+                   failure:(LoginFailureBlock)failure
+                    cancel:(LoginCancelBlock)cancel
+{
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.redirectURI = self.wbRedirectURL;
+    request.scope = @"all";
+    [WeiboSDK sendRequest:request];
+    
+    self.wbLoginSuccess = success;
+    self.wbLoginFailure = failure;
+    self.wbLoginCancel = cancel;
+}
+
++ (BOOL)isQQInstall
+{
+    return [TencentOAuth iphoneQQInstalled];
+}
+
++ (BOOL)isWechatInstall
+{
+    return [WXApi isWXAppInstalled];
+}
+
++ (BOOL)isWbInstall
+{
+    return [WeiboSDK isWeiboAppInstalled];
+}
 
 - (BOOL)getQQUserInfo
 {
@@ -99,7 +179,7 @@ TCAPIRequestDelegate>
     self.wbUserInfo.expired = resp.expirationDate;
     self.wbUserInfo.platformType = YMThirdPlatformForWeibo;
     
-    __weak YMSDKCall *selfWeak= self;
+    __weak YMThirdPlatformSDKCenter *selfWeak= self;
     
     NSString *url = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@", self.wbUserInfo.accessToken, self.wbUserInfo.userId];
     [[AFHTTPSessionManager manager] GET:url
@@ -117,10 +197,10 @@ TCAPIRequestDelegate>
 
 - (void)WXUserInfoWithResp:(SendAuthResp *)resp
 {
-    NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code", [YMSDKCall singleton].wxAppId, [YMSDKCall singleton].wxSecret, resp.code];
+    NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code", [YMThirdPlatformSDKCenter sharedInstance].wxAppId, [YMThirdPlatformSDKCenter sharedInstance].wxSecret, resp.code];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    __weak YMSDKCall *selfWeak = self;
+    __weak YMThirdPlatformSDKCenter *selfWeak = self;
     [manager GET:url
       parameters:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -249,80 +329,89 @@ TCAPIRequestDelegate>
 
 #pragma mark - public
 
-+ (instancetype)singleton
++ (instancetype)sharedInstance
 {
-    static YMSDKCall *sdkCall = nil;
+    static YMThirdPlatformSDKCenter *sdkCall = nil;
     static dispatch_once_t predicate = 0;
     dispatch_once(&predicate, ^{
-        sdkCall = [[YMSDKCall alloc] init];
+        sdkCall = [[YMThirdPlatformSDKCenter alloc] init];
     });
     
     return sdkCall;
 }
 
-- (void)qqLogout
+- (void)logoutWithThirdPlatformType:(YMThirdPlatformType)platformType
 {
-    [self.oauth logout:self];
-    [self registerQQAppId:self.qqAppId];
+    switch (platformType) {
+        case YMThirdPlatformForQQ:
+            [self qqLogout];
+            break;
+        case YMThirdPlatformForWechat:
+            //未找到接口
+            break;
+        case YMThirdPlatformForWeibo:
+            [self wbLogout];
+            break;
+        default:
+            break;
+    }
 }
 
-- (void)wbLogout
+- (void)loginWithThirdPlatformType:(YMThirdPlatformType)platformType
+                           success:(LoginSuccessBlock)success
+                           failure:(LoginFailureBlock)failure
+                            cancel:(LoginCancelBlock)cancel
 {
-    [WeiboSDK logOutWithToken:self.wbUserInfo.accessToken
-                     delegate:[YMSDKCall singleton]
-                      withTag:nil];
+    switch (platformType) {
+        case YMThirdPlatformForQQ:
+        {
+            [self qqLoginWithSuccess:success
+                             failure:failure
+                              cancel:cancel];
+        }
+            break;
+        case YMThirdPlatformForWechat:
+        {
+            [self wxLoginWithSuccess:success
+                             failure:failure
+                              cancel:cancel];
+        }
+            break;
+        case YMThirdPlatformForWeibo:
+        {
+            [self wbLoginWithSuccess:success
+                             failure:failure
+                              cancel:cancel];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
-- (void)qqLoginWithSuccess:(LoginSuccessBlock)success
-                   failure:(LoginFailureBlock)failure
-                    cancel:(LoginCancelBlock)cancel
++ (BOOL)isTheAPPInstalledWithThirdPlatformType:(YMThirdPlatformType)platformType
 {
-    NSArray* permissions = [NSArray arrayWithObjects:
-                            kOPEN_PERMISSION_GET_USER_INFO,
-                            kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
-                            kOPEN_PERMISSION_ADD_ALBUM,
-                            kOPEN_PERMISSION_ADD_IDOL,
-                            kOPEN_PERMISSION_ADD_ONE_BLOG,
-                            kOPEN_PERMISSION_ADD_PIC_T,
-                            kOPEN_PERMISSION_ADD_SHARE,
-                            kOPEN_PERMISSION_ADD_TOPIC,
-                            nil];
-
-    [[[YMSDKCall singleton] oauth] authorize:permissions];
+    BOOL flag = NO;
+    switch (platformType) {
+        case YMThirdPlatformForQQ:
+        {
+            flag = [self isQQInstall];
+        }
+            break;
+        case YMThirdPlatformForWechat:
+        {
+            flag = [self isWechatInstall];
+        }
+            break;
+        case YMThirdPlatformForWeibo:
+        {
+            flag = [self isWbInstall];
+        }
+        default:
+            break;
+    }
     
-    self.qqLoginSuccess = success;
-    self.qqLoginFailure = failure;
-    self.qqLoginCancel = cancel;
-}
-
-- (void)wxLoginWithSuccess:(LoginSuccessBlock)success
-                   failure:(LoginFailureBlock)failure
-                    cancel:(LoginCancelBlock)cancel
-{
-    SendAuthReq *req = [[SendAuthReq alloc] init];
-    req.scope = @"snsapi_userinfo";
-    req.state = @"xx";
-    [WXApi sendAuthReq:req
-        viewController:nil
-              delegate:self];
-    
-    self.wxLoginSuccess = success;
-    self.wxLoginFailure = failure;
-    self.wxLoginCancel = cancel;
-}
-
-- (void)wbLoginWithSuccess:(LoginSuccessBlock)success
-                   failure:(LoginFailureBlock)failure
-                    cancel:(LoginCancelBlock)cancel
-{
-    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-    request.redirectURI = self.wbRedirectURL;
-    request.scope = @"all";
-    [WeiboSDK sendRequest:request];
-    
-    self.wbLoginSuccess = success;
-    self.wbLoginFailure = failure;
-    self.wbLoginCancel = cancel;
+    return flag;
 }
 
 - (void)registerQQAppId:(NSString *)appId
@@ -461,35 +550,20 @@ TCAPIRequestDelegate>
     }
 }
 
-+ (BOOL)isQQInstall
-{
-    return [TencentOAuth iphoneQQInstalled];
-}
-
-+ (BOOL)isWechatInstall
-{
-    return [WXApi isWXAppInstalled];
-}
-
-+ (BOOL)isWbInstall
-{
-    return [WeiboSDK isWeiboAppInstalled];
-}
-
 + (BOOL)handleURL:(NSURL *)url
 {
     NSString *urlString = [url absoluteString];
     if ([urlString hasPrefix:@"tencent"]) {
         return [TencentOAuth HandleOpenURL:url] || [QQApiInterface handleOpenURL:url
-                                                                        delegate:[YMSDKCall singleton]];
+                                                                        delegate:[YMThirdPlatformSDKCenter sharedInstance]];
     } else if ([urlString hasPrefix:@"wx"]) {
         return [WXApi handleOpenURL:url
-                           delegate:[YMSDKCall singleton]];
+                           delegate:[YMThirdPlatformSDKCenter sharedInstance]];
     }
 
     else if ([urlString hasPrefix:@"wb"]) {
         return [WeiboSDK handleOpenURL:url
-                              delegate:[YMSDKCall singleton]];
+                              delegate:[YMThirdPlatformSDKCenter sharedInstance]];
     } else
         return YES;
 }
