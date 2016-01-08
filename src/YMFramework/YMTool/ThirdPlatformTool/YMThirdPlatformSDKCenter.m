@@ -149,17 +149,17 @@ YM_MacrosSingletonImplemantion
     switch (platformType) {
         case YMThirdPlatformForQQ:
         {
-            flag = [self isQQInstall];
+            flag = [TencentOAuth iphoneQQInstalled];
         }
             break;
         case YMThirdPlatformForWechat:
         {
-            flag = [self isWechatInstall];
+            flag = [WXApi isWXAppInstalled];
         }
             break;
         case YMThirdPlatformForWeibo:
         {
-            flag = [self isWbInstall];
+            flag = [WeiboSDK isWeiboAppInstalled];
         }
         default:
             break;
@@ -410,30 +410,6 @@ YM_MacrosSingletonImplemantion
     self.wbLoginCancel = cancel;
 }
 
-//代码审核建议使用规范
-+ (BOOL)isQQInstall
-{
-    return [TencentOAuth iphoneQQInstalled];
-}
-
-//代码审核建议使用规范
-+ (BOOL)isWechatInstall
-{
-    return [WXApi isWXAppInstalled];
-}
-
-//代码审核建议使用规范
-+ (BOOL)isWbInstall
-{
-    return [WeiboSDK isWeiboAppInstalled];
-}
-
-//代码审核建议使用规范
-- (BOOL)getQQUserInfo
-{
-    return [self.oauth getUserInfo];
-}
-
 - (void)getWBUserInfo:(WBBaseResponse *)response
 {
     WBAuthorizeResponse *resp = (WBAuthorizeResponse *)response;
@@ -446,7 +422,6 @@ YM_MacrosSingletonImplemantion
     
     NSString *url = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@", self.wbUserInfo.accessToken, self.wbUserInfo.userId];
     
-    //代码审核建议使用规范：改成原生NSURLSession
     [[AFHTTPSessionManager manager] GET:url
                              parameters:nil
                                 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -464,7 +439,6 @@ YM_MacrosSingletonImplemantion
 {
     NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code", [YMThirdPlatformSDKCenter sharedInstance].wxAppId, [YMThirdPlatformSDKCenter sharedInstance].wxSecret, resp.code];
     
-    //代码审核建议使用规范：改成原生NSURLSession
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     __weak YMThirdPlatformSDKCenter *selfWeak = self;
@@ -591,7 +565,7 @@ YM_MacrosSingletonImplemantion
 - (void)tencentDidLogin
 {
     self.isLogin = YES;
-    [self getQQUserInfo];
+    [self.oauth getUserInfo];
 }
 
 - (void)tencentDidNotLogin:(BOOL)cancelled
@@ -607,13 +581,11 @@ YM_MacrosSingletonImplemantion
     }
 }
 
-//代码审核建议使用规范
 - (void)tencentDidLogout
 {
     self.isLogin = NO;
 }
 
-//代码审核建议使用规范
 - (void)tencentDidNotNetWork
 {
     self.isLogin = NO;
