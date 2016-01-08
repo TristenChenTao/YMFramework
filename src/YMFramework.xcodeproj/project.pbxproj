@@ -346,8 +346,8 @@
 		62D2AAC81C3220C200A97384 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 62D2AAB61C3220C200A97384 /* WeiboSDK.bundle */; };
 		62D2AAC91C3220C200A97384 /* WeiboSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AAB71C3220C200A97384 /* WeiboSDK.h */; };
 		62D2AACA1C3220C200A97384 /* WeiboUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AAB81C3220C200A97384 /* WeiboUser.h */; };
-		62D2AACD1C3220E000A97384 /* YMSDKCall.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AACB1C3220E000A97384 /* YMSDKCall.h */; };
-		62D2AACE1C3220E000A97384 /* YMSDKCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AACC1C3220E000A97384 /* YMSDKCall.m */; };
+		62D2AACD1C3220E000A97384 /* YMThirdPlatformSDKCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */; };
+		62D2AACE1C3220E000A97384 /* YMThirdPlatformSDKCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */; };
 		62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */; };
 		62E433631AE5F89D005445B2 /* MobClick.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433601AE5F89D005445B2 /* MobClick.h */; };
 		62E433641AE5F89D005445B2 /* MobClickSocialAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */; };
@@ -698,8 +698,8 @@
 		62D2AAB61C3220C200A97384 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		62D2AAB71C3220C200A97384 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		62D2AAB81C3220C200A97384 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
-		62D2AACB1C3220E000A97384 /* YMSDKCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSDKCall.h; sourceTree = "<group>"; };
-		62D2AACC1C3220E000A97384 /* YMSDKCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSDKCall.m; sourceTree = "<group>"; };
+		62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMThirdPlatformSDKCenter.h; sourceTree = "<group>"; };
+		62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMThirdPlatformSDKCenter.m; sourceTree = "<group>"; };
 		62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		62E433601AE5F89D005445B2 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
@@ -1229,8 +1229,8 @@
 		6278FEFF1B1D4FC0000B77A0 /* ThirdPlatformTool */ = {
 			isa = PBXGroup;
 			children = (
-				62D2AACB1C3220E000A97384 /* YMSDKCall.h */,
-				62D2AACC1C3220E000A97384 /* YMSDKCall.m */,
+				62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */,
+				62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */,
 				6278FF001B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.h */,
 				6278FF011B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.m */,
 				6278FF021B1D4FC0000B77A0 /* YMThirdPlatformTool.h */,
@@ -1413,7 +1413,7 @@
 				62C54F0E1B84516200004E80 /* SDWebImageManager.h in Headers */,
 				62703E4A1B10490B005CA088 /* NSString+YMAdditions.h in Headers */,
 				620860F01C1FF28400C6FBBD /* FLEXObjectExplorerViewController.h in Headers */,
-				62D2AACD1C3220E000A97384 /* YMSDKCall.h in Headers */,
+				62D2AACD1C3220E000A97384 /* YMThirdPlatformSDKCenter.h in Headers */,
 				620860BD1C1FF28400C6FBBD /* FLEXFileBrowserSearchOperation.h in Headers */,
 				62703E521B10490B005CA088 /* YMCache.h in Headers */,
 				62703E4E1B10490B005CA088 /* YMAnalytics.h in Headers */,
@@ -1803,7 +1803,7 @@
 				620860C41C1FF28400C6FBBD /* FLEXInstancesTableViewController.m in Sources */,
 				62703E4D1B10490B005CA088 /* UIColor+YMAdditions.m in Sources */,
 				62033DEA1BE0DBCB00F799F1 /* UIFont+YMFontSizeAdditions.m in Sources */,
-				62D2AACE1C3220E000A97384 /* YMSDKCall.m in Sources */,
+				62D2AACE1C3220E000A97384 /* YMThirdPlatformSDKCenter.m in Sources */,
 				622CE62F1AE4EC90004D714B /* SSProcessorInfo.m in Sources */,
 				62C54F051B84516200004E80 /* SDImageCache.m in Sources */,
 				620860CE1C1FF28400C6FBBD /* FLEXSystemLogTableViewCell.m in Sources */,
