@@ -18,9 +18,17 @@
 
 @implementation YMAnalytics
 
-static NSString *URL_Domain = @"http://117.79.229.3:8068";
+/**
+ *  正式站
+ */
+static NSString *URL_Domain = @"http://statistics.cornapp.com";
+static NSString *URL_Domain_IP = @"http://117.79.229.3:8068";
 
-static NSString *URL_Domain_IP = @"http://112.74.105.46:8892";
+/**
+ *  测试站
+ */
+static NSString *URL_Domain_TEST = @"http://112.74.105.46:8892";
+static NSString *URL_Domain_IP_TEST = @"http://112.74.105.46:8892";
 
 static NSString *URL_Report_Action = @"/Interface/IosActive";
 
@@ -44,7 +52,18 @@ static NSInteger kSendInterval = 60;
 
 static NSTimer *kTimer = nil;
 
+static NSString *kURL_Domain_Indeed = nil;
+static NSString *kURL_Domain_IP_Indeed = nil;
+
 #pragma mark - public method
+
++ (void)load
+{
+    kURL_Domain_Indeed = URL_Domain;
+    kURL_Domain_IP_Indeed = URL_Domain_IP;
+    
+    [super load];
+}
 
 + (void)setUMengAppKey:(NSString *)appKey
              channelID:(NSString *)channelID
@@ -91,6 +110,13 @@ static NSTimer *kTimer = nil;
     
     if (kDebugMode) {
         kSendInterval = 10;
+        
+        kURL_Domain_Indeed = URL_Domain_TEST;
+        kURL_Domain_IP_Indeed = URL_Domain_IP_TEST;
+    }
+    else {
+        kURL_Domain_Indeed = URL_Domain;
+        kURL_Domain_IP_Indeed = URL_Domain_IP;
     }
 }
 
@@ -181,8 +207,8 @@ static NSTimer *kTimer = nil;
     
     [YMHTTPRequestManager requestWithMethodType:YMHttpMethodTypeForGet
                                     relativeURL:URL_Init_Info
-                                        baseURL:URL_Domain
-                                         baseIP:URL_Domain_IP
+                                        baseURL:kURL_Domain_Indeed
+                                         baseIP:kURL_Domain_IP_Indeed
                                     headerField:nil
                                      parameters:nil
                                         timeout:5
@@ -238,8 +264,8 @@ static NSTimer *kTimer = nil;
     
     [YMHTTPRequestManager uploadJSONData:data
                              relativeURL:URL_Report_Action
-                                 baseURL:URL_Domain
-                                  baseIP:URL_Domain_IP
+                                 baseURL:kURL_Domain_Indeed
+                                  baseIP:kURL_Domain_IP_Indeed
                              headerField:nil
                               parameters:nil
                                  timeout:3
@@ -271,8 +297,8 @@ static NSTimer *kTimer = nil;
     static int repeatReportLaunchCountIfFail = 0;
     [YMHTTPRequestManager requestWithMethodType:YMHttpMethodTypeForGet
                                     relativeURL:URL_Report_Launch
-                                        baseURL:URL_Domain
-                                         baseIP:URL_Domain_IP
+                                        baseURL:kURL_Domain_Indeed
+                                         baseIP:kURL_Domain_IP_Indeed
                                     headerField:nil
                                      parameters:nil
                                         timeout:5

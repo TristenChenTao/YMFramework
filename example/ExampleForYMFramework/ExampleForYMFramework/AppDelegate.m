@@ -27,7 +27,9 @@
                                                  channel:@"0"];
     [YMAnalytics setUMengAppKey:@""
                       channelID:@""];
+#ifdef DEBUG
     [YMAnalytics setDebugMode:YES];
+#endif
     [YMAnalytics startReport];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
