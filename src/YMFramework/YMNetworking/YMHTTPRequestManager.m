@@ -15,6 +15,7 @@
 #import "YMDeviceInfo.h"
 #import "YMUI.h"
 #import "NSString+YMAdditions.h"
+#import "YMHttpParameterFactory.h"
 
 @interface YMHTTPRequestManager()
 
@@ -135,11 +136,12 @@ static BOOL kIsReachable = YES;
         requestSerializer.timeoutInterval = timeout;
     }
     
-    parameters = [YMHTTPRequestManager packageParameters:parameters];
+    NSMutableDictionary *finalParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    [finalParameters addEntriesFromDictionary:[YMHttpParameterFactory creatProductInfo]];
     
     NSMutableURLRequest *request = [requestSerializer requestWithMethod:requestType
                                                               URLString:URLAddress
-                                                             parameters:parameters
+                                                             parameters:finalParameters
                                                                   error:nil];
     
     [headerField enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -305,11 +307,12 @@ static BOOL kIsReachable = YES;
         requestSerializer.timeoutInterval = timeout;
     }
     
-    parameters = [YMHTTPRequestManager packageParameters:parameters];
+    NSMutableDictionary *finalParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    [finalParameters addEntriesFromDictionary:[YMHttpParameterFactory creatProductInfo]];
     
     NSMutableURLRequest *request = [requestSerializer multipartFormRequestWithMethod:@"POST"
                                                                            URLString:URLAddress
-                                                                          parameters:parameters
+                                                                          parameters:finalParameters
                                                            constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                                                for (int i = 0; i < data.count ; i++) {
                                                                    
@@ -346,31 +349,6 @@ static BOOL kIsReachable = YES;
     if (success) {
         success(operation.request, ResultCode, ResultMessage,data);
     }
-}
-
-+ (NSDictionary *)packageParameters:(NSDictionary *)parameters
-{
-    NSDictionary *baseInfo = @{@"proID" : [YMFrameworkConfig sharedInstance].productID,
-                               @"edition" : [YMFrameworkConfig sharedInstance].productVersion,
-                               @"channel" : [YMFrameworkConfig sharedInstance].productChannel,
-                               @"uid" : [YMFrameworkConfig sharedInstance].userID,
-                               @"deviceId" : [YMDeviceInfo idfaString],
-                               @"device" : [YMDeviceInfo deviceVersion],
-                               @"scrH" : @(kYm_ScreenHeight),
-                               @"scrW" : @(kYm_ScreenWidth),
-                               @"lang" : [YMDeviceInfo language],
-                               @"network" : [YMDeviceInfo newtworkType],
-                               @"isCrack" : @([YMDeviceInfo isJailBroken]),
-                               @"country" : [YMDeviceInfo country],
-                               @"osType" : @(1),
-                               @"osVer" : @([YMDeviceInfo systemVersion])
-                               };
-    
-    
-    NSMutableDictionary *finalParameters = [NSMutableDictionary dictionaryWithDictionary:baseInfo];
-    [finalParameters addEntriesFromDictionary:parameters];
-    
-    return finalParameters;
 }
 
 @end

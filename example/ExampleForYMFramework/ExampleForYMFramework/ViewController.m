@@ -41,9 +41,9 @@ static NSString * const kProductChannel = @"1";
     
     //    [self testWebpForWebView];
     
-    [self testYMProgress];
-    
-    [self testBackgroundTask];
+//    [self testYMProgress];
+//    
+//    [self testBackgroundTask];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion
@@ -73,6 +73,7 @@ static NSString * const kProductChannel = @"1";
                                         success:^(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage, id data)
      {
          NSLog(@"data %@",data);
+         NSLog(@"url is %@",request.URL.absoluteString);
          
      }
                                         failure:^(NSURLRequest *request, NSError *error)

@@ -13,8 +13,11 @@
 #import "NSString+YMAdditions.h"
 #import "YMFrameworkConfig.h"
 #import "YMDeviceInfo.h"
+#import "YMHttpParameterFactory.h"
+
 
 #import "MobClick.h"
+
 
 @implementation YMAnalytics
 
@@ -267,7 +270,7 @@ static NSString *kURL_Domain_IP_Indeed = nil;
                                  baseURL:kURL_Domain_Indeed
                                   baseIP:kURL_Domain_IP_Indeed
                              headerField:nil
-                              parameters:nil
+                              parameters:[YMHttpParameterFactory creatDeviceInfo]
                                  timeout:3
                                  success:^(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage, id data){
                                      [actions removeAllObjects];
@@ -300,7 +303,7 @@ static NSString *kURL_Domain_IP_Indeed = nil;
                                         baseURL:kURL_Domain_Indeed
                                          baseIP:kURL_Domain_IP_Indeed
                                     headerField:nil
-                                     parameters:nil
+                                     parameters:[YMHttpParameterFactory creatDeviceInfo]
                                         timeout:5
                                         success:^(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage, id data) {
                                             repeatReportLaunchCountIfFail = 0;

@@ -290,6 +290,8 @@
 		627D6EFF1C3E0A220002F138 /* YMAnalyticsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 627D6EFB1C3E0A220002F138 /* YMAnalyticsModel.h */; };
 		627D6F001C3E0A220002F138 /* YMAnalyticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 627D6EFC1C3E0A220002F138 /* YMAnalyticsModel.m */; };
 		627FFA2C1C0463B50034AF9C /* YMFramework Vender Version.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 627FFA2B1C0463B50034AF9C /* YMFramework Vender Version.rtf */; };
+		628E20F51C44A62A0026CD1A /* YMHttpParameterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 628E20F31C44A62A0026CD1A /* YMHttpParameterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		628E20F61C44A62A0026CD1A /* YMHttpParameterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 628E20F41C44A62A0026CD1A /* YMHttpParameterFactory.m */; };
 		62974C111B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h in Headers */ = {isa = PBXBuildFile; fileRef = 62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62974C121B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m in Sources */ = {isa = PBXBuildFile; fileRef = 62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */; };
 		629FDBE11BE4981500D496C1 /* libPushSDK-1.8.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 629FDBE01BE4981500D496C1 /* libPushSDK-1.8.8.a */; };
@@ -644,6 +646,8 @@
 		627D6EFB1C3E0A220002F138 /* YMAnalyticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMAnalyticsModel.h; sourceTree = "<group>"; };
 		627D6EFC1C3E0A220002F138 /* YMAnalyticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMAnalyticsModel.m; sourceTree = "<group>"; };
 		627FFA2B1C0463B50034AF9C /* YMFramework Vender Version.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = "YMFramework Vender Version.rtf"; path = "YMFramework/YMFramework Vender Version.rtf"; sourceTree = "<group>"; };
+		628E20F31C44A62A0026CD1A /* YMHttpParameterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMHttpParameterFactory.h; sourceTree = "<group>"; };
+		628E20F41C44A62A0026CD1A /* YMHttpParameterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMHttpParameterFactory.m; sourceTree = "<group>"; };
 		62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YMAccessors.h"; sourceTree = "<group>"; };
 		62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YMAccessors.m"; sourceTree = "<group>"; };
 		629FDBE01BE4981500D496C1 /* libPushSDK-1.8.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.8.a"; sourceTree = "<group>"; };
@@ -1169,6 +1173,8 @@
 				6279043B1ADBC65D00F84BFB /* UIImageView+YMNetworking.m */,
 				625D56A41ADBB02C007BCA33 /* YMHTTPRequestManager.h */,
 				625D56A51ADBB02C007BCA33 /* YMHTTPRequestManager.m */,
+				628E20F31C44A62A0026CD1A /* YMHttpParameterFactory.h */,
+				628E20F41C44A62A0026CD1A /* YMHttpParameterFactory.m */,
 			);
 			path = YMNetworking;
 			sourceTree = "<group>";
@@ -1382,6 +1388,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				628E20F51C44A62A0026CD1A /* YMHttpParameterFactory.h in Headers */,
 				627D6EFD1C3E0A220002F138 /* YMAnalytics.h in Headers */,
 				627AEEEE1C16AA6B0085349B /* YMProgress.h in Headers */,
 				62AE9F2B1BF470500036D0B9 /* UIApplication+YMAdditions.h in Headers */,
@@ -1715,6 +1722,7 @@
 				627904431ADBC7D000F84BFB /* YMImageDownloader.m in Sources */,
 				620860AB1C1FF28400C6FBBD /* FLEXMultiColumnTableView.m in Sources */,
 				625D56981ADBAFD3007BCA33 /* AFURLResponseSerialization.m in Sources */,
+				628E20F61C44A62A0026CD1A /* YMHttpParameterFactory.m in Sources */,
 				622CE62B1AE4EC90004D714B /* SSNetworkInfo.m in Sources */,
 				620860791C1FF28400C6FBBD /* FLEXArgumentInputDateView.m in Sources */,
 				620860A61C1FF28400C6FBBD /* FLEXWindow.m in Sources */,
