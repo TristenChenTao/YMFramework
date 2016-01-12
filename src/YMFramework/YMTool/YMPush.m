@@ -64,4 +64,13 @@ callbackSelector:(SEL)cbSelector
                  object:theTarget];
 }
 
++ (void)setTags:(NSSet *)tags
+callbackSelector:(SEL)cbSelector
+         object:(id)theTarget
+{
+    [APService setTags:tags
+      callbackSelector:cbSelector
+                object:theTarget];
+}
+
 @end

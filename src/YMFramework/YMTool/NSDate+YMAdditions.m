@@ -5,8 +5,9 @@
 //  Created by Wenchao Ding on 29/1/15.
 //
 //
-
 #import "NSDate+YMAdditions.h"
+
+#import "NSString+YMAdditions.h"
 
 @interface NSCalendar (YMAdditions)
 
@@ -24,11 +25,12 @@
         instance = [NSCalendar currentCalendar];
     });
     
+    [instance setTimeZone:[NSTimeZone defaultTimeZone]];
+    
     return instance;
 }
 
 @end
-
 
 @implementation NSDate (YMAdditions)
 

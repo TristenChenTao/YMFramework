@@ -37,8 +37,8 @@ static NSString *kResultDataKey = @"Data";
     
     _ResultTimestamp = [obj ym_integerForKey:kResultTimestamp];
     
-    if (obj[kResultCodeKey]) {
-        _data = obj[kResultCodeKey];
+    if (obj[kResultDataKey]) {
+        _data = obj[kResultDataKey];
     }
     
     return self;

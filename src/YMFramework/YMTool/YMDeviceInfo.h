@@ -77,4 +77,11 @@
 
 + (BOOL)isJailBroken;
 
+
++ (NSString *)macString;
+
++ (NSString *)idfaString;
+
++ (NSString *)idfvString;
+
 @end

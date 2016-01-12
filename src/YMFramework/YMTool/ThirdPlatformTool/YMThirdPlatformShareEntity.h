@@ -1,42 +1,25 @@
 //
-//  YMThirdPlatformShareEntity.h
-//  YMFramework
+//  QDThirdPlatformShareEntity.h
+//  TestThreePlatform2
 //
-//  Created by Tristen on 1/15/15.
-//  Copyright (c) 2015 YM. All rights reserved.
+//  Created by yumi_iOS on 12/11/15.
+//  Copyright © 2015 yumi_iOS. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-typedef enum
+typedef NS_ENUM(NSUInteger, YMThirdPlatformShareType)
 {
     YMThirdPlatformShareForWeibo = 1,
-    YMThirdPlatformShareForQQSpace = 2,
-    YMThirdPlatformShareForWechatTimeline =  3,
-    YMThirdPlatformShareForWechatSession =  4,
+    YMThirdPlatformShareForQQZone = 2,
+    YMThirdPlatformShareForWechatTimeline = 3,
+    YMThirdPlatformShareForWechatSession = 4,
     YMThirdPlatformShareForQQFriend = 5,
-    YMThirdPlatformShareForFacebook = 6,
-    YMThirdPlatformShareForTwitter = 7,
-}YMThirdPlatformShareType;
-
-typedef enum
-{
-    YMThirdPlatformContentForNews = 1,
-    YMThirdPlatformContentForImage = 2,
-    YMThirdPlatformContentForApp =  3,
-}YMThirdPlatformContentType;
-
-typedef enum
-{
-    YMThirdPlatformCallbackTypeForWebURL = 1,
-    YMThirdPlatformCallbackTypeForHTTPRequest = 2,
-}YMThirdPlatformCallbackType;
+};
 
 @interface YMThirdPlatformShareEntity : NSObject
 
 @property(nonatomic, assign)YMThirdPlatformShareType shareType;
-
-@property(nonatomic, assign)YMThirdPlatformContentType contentType;
 
 @property(nonatomic, copy) NSString *title;
 
@@ -45,11 +28,6 @@ typedef enum
 @property(nonatomic, copy) NSString *imageURL;
 
 @property(nonatomic, copy) NSString *resourceURL;
-
-@property(nonatomic, copy) NSString *callbackAddress;
-
-@property(nonatomic, assign)YMThirdPlatformCallbackType callbackType;
-
 
 - (instancetype)initWithData:(NSDictionary *)obj;
 

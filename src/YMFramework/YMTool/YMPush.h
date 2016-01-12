@@ -44,4 +44,11 @@
 callbackSelector:(SEL)cbSelector
           object:(id)theTarget;
 
+/**
+ *  设置标签，用于精确推送
+ */
++ (void)setTags:(NSSet *)tags
+callbackSelector:(SEL)cbSelector
+         object:(id)theTarget;
+
 @end
