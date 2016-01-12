@@ -207,31 +207,32 @@ static NSString *kURL_Domain_IP_Indeed = nil;
 {
     static int repeatRequestInitInfoCountIfFail = 0;
     
-    [YMHTTPManager GET:URL_Init_Info
-               baseURL:kURL_Domain_Indeed
-                baseIP:kURL_Domain_IP_Indeed
-            parameters:[YMHttpParameterFactory creatDeviceInfo]
-               timeout:5
-              progress:nil
-               success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
-                   NSDictionary *result = responseData.data;
-                   kCurrentSessionId = [[result objectForKey:@"SessionId"] stringValue];
-                   kCurrentUTCTime = [[result objectForKey:@"UtcTime"] doubleValue];
-                   [self setCurrentTimer];
-                   
-                   repeatRequestInitInfoCountIfFail = 0;
-               }
-               failure:^(NSURLSessionDataTask *task, NSError *error) {
-                   if (repeatRequestInitInfoCountIfFail < 3) {
-                       dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC));
-                       dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
-                                      {
-                                          [YMAnalytics requestInitInfo];
-                                      });
-                       
-                       repeatRequestInitInfoCountIfFail++;
-                   }
-               }];
+    [YMHTTPManager requestWithMethodType:YMHttpRequestTypeForGet
+                             relativeURL:URL_Init_Info
+                                 baseURL:kURL_Domain_Indeed
+                                  baseIP:kURL_Domain_IP_Indeed
+                              parameters:[YMHttpParameterFactory creatDeviceInfo]
+                                 timeout:5
+                                progress:nil
+                                 success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
+                                     NSDictionary *result = responseData.data;
+                                     kCurrentSessionId = [[result objectForKey:@"SessionId"] stringValue];
+                                     kCurrentUTCTime = [[result objectForKey:@"UtcTime"] doubleValue];
+                                     [self setCurrentTimer];
+                                     
+                                     repeatRequestInitInfoCountIfFail = 0;
+                                 }
+                                 failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                     if (repeatRequestInitInfoCountIfFail < 3) {
+                                         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC));
+                                         dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                                                        {
+                                                            [YMAnalytics requestInitInfo];
+                                                        });
+                                         
+                                         repeatRequestInitInfoCountIfFail++;
+                                     }
+                                 }];
 }
 
 + (void)requestReportActions:(NSMutableArray *)actions
@@ -297,25 +298,26 @@ static NSString *kURL_Domain_IP_Indeed = nil;
 {
     static int repeatReportLaunchCountIfFail = 0;
     
-    [YMHTTPManager GET:URL_Report_Launch
-               baseURL:kURL_Domain_Indeed
-                baseIP:kURL_Domain_IP_Indeed
-            parameters:[YMHttpParameterFactory creatDeviceInfo]
-               timeout:5
-              progress:nil
-               success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
-                   repeatReportLaunchCountIfFail = 0;
-               }
-               failure:^(NSURLSessionDataTask *task, NSError *error) {
-                   if (repeatReportLaunchCountIfFail < 3) {
-                       dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC));
-                       dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
-                                      {
-                                          [YMAnalytics reportLaunch];
-                                      });
-                       repeatReportLaunchCountIfFail++;
-                   }
-               }];
+    [YMHTTPManager requestWithMethodType:YMHttpRequestTypeForGet
+                             relativeURL:URL_Report_Launch
+                                 baseURL:kURL_Domain_Indeed
+                                  baseIP:kURL_Domain_IP_Indeed
+                              parameters:[YMHttpParameterFactory creatDeviceInfo]
+                                 timeout:5
+                                progress:nil
+                                 success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
+                                     repeatReportLaunchCountIfFail = 0;
+                                 }
+                                 failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                     if (repeatReportLaunchCountIfFail < 3) {
+                                         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC));
+                                         dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                                                        {
+                                                            [YMAnalytics reportLaunch];
+                                                        });
+                                         repeatReportLaunchCountIfFail++;
+                                     }
+                                 }];
 }
 
 @end

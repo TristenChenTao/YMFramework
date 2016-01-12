@@ -45,80 +45,73 @@ static BOOL kIsReachable = YES;
     return kIsReachable;
 }
 
-+ (NSURLSessionDataTask *)GET:(NSString *)relativeURL
-                      baseURL:(NSString *)baseURL
-                       baseIP:(NSString *)baseIP
-                   parameters:(NSDictionary *)parameters
-                      timeout:(float)timeout
-                     progress:(void (^)(NSProgress *progress)) downloadProgress
-                      success:(void (^)(NSURLSessionDataTask *task, YMHTTPResponseData *responseData))success
-                      failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
++ (NSURLSessionDataTask *)requestWithMethodType:(YMHttpRequestType)methodType
+                                    relativeURL:(NSString *)relativeURL
+                                        baseURL:(NSString *)baseURL
+                                         baseIP:(NSString *)baseIP
+                                     parameters:(NSDictionary *)parameters
+                                        timeout:(float)timeout
+                                       progress:(void (^)(NSProgress *progress)) downloadProgress
+                                        success:(void (^)(NSURLSessionDataTask *task, YMHTTPResponseData *responseData))success
+                                        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
     AFHTTPSessionManager *manager = [YMHTTPManager prepareForTimeout:timeout];
     NSDictionary *finalParameters = [YMHTTPManager packageParameters:parameters];
     __block NSURLSessionDataTask *task;
-    task = [manager GET:[baseURL stringByAppendingString:relativeURL]
-             parameters:finalParameters
-               progress:downloadProgress
-                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    [YMHTTPManager handleSucceedResponse:responseObject
-                                      URLSessionDataTask:task
-                                                 success:success];
-                }
-                failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    task = [manager GET:[baseIP stringByAppendingString:relativeURL]
-                             parameters:finalParameters
-                               progress:downloadProgress
-                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                                    [YMHTTPManager handleSucceedResponse:responseObject
-                                                      URLSessionDataTask:task
-                                                                 success:success];
-                                }
-                                failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                    [YMHTTPManager handleFailureTask:task
-                                                               error:error
-                                                             failure:failure];
-                                }];
-                }];
     
-    return task;
-}
+    //GET
+    if(methodType == YMHttpRequestTypeForGet) {
+        task = [manager GET:[baseURL stringByAppendingString:relativeURL]
+                 parameters:finalParameters
+                   progress:downloadProgress
+                    success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                        [YMHTTPManager handleSucceedResponse:responseObject
+                                          URLSessionDataTask:task
+                                                     success:success];
+                    }
+                    failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                        task = [manager GET:[baseIP stringByAppendingString:relativeURL]
+                                 parameters:finalParameters
+                                   progress:downloadProgress
+                                    success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                        [YMHTTPManager handleSucceedResponse:responseObject
+                                                          URLSessionDataTask:task
+                                                                     success:success];
+                                    }
+                                    failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                        [YMHTTPManager handleFailureTask:task
+                                                                   error:error
+                                                                 failure:failure];
+                                    }];
+                    }];
 
-+ (NSURLSessionDataTask *)POST:(NSString *)relativeURL
-                       baseURL:(NSString *)baseURL
-                        baseIP:(NSString *)baseIP
-                    parameters:(NSDictionary *)parameters
-                       timeout:(float)timeout
-                      progress:(void (^)(NSProgress *progress)) downloadProgress
-                       success:(void (^)(NSURLSessionDataTask *task, YMHTTPResponseData *responseData))success
-                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
-{
-    AFHTTPSessionManager *manager = [YMHTTPManager prepareForTimeout:timeout];
-    NSDictionary *finalParameters = [YMHTTPManager packageParameters:parameters];
-    __block NSURLSessionDataTask *task = nil;
-    task = [manager POST:[baseURL stringByAppendingString:relativeURL]
-              parameters:finalParameters
-                progress:downloadProgress
-                 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                     [YMHTTPManager handleSucceedResponse:responseObject
-                                       URLSessionDataTask:task
-                                                  success:success];
-                 }
-                 failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                     task = [manager POST:[baseIP stringByAppendingString:relativeURL]
-                               parameters:finalParameters
-                                 progress:downloadProgress
-                                  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                                      [YMHTTPManager handleSucceedResponse:responseObject
-                                                        URLSessionDataTask:task
-                                                                   success:success];
-                                  }
-                                  failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                      [YMHTTPManager handleFailureTask:task
-                                                                 error:error
-                                                               failure:failure];
-                                  }];
-                 }];
+    }
+    //POST
+    else if(methodType == YMHttpRequestTypeForPost) {
+        task = [manager POST:[baseURL stringByAppendingString:relativeURL]
+                  parameters:finalParameters
+                    progress:downloadProgress
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                         [YMHTTPManager handleSucceedResponse:responseObject
+                                           URLSessionDataTask:task
+                                                      success:success];
+                     }
+                     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         task = [manager POST:[baseIP stringByAppendingString:relativeURL]
+                                   parameters:finalParameters
+                                     progress:downloadProgress
+                                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                          [YMHTTPManager handleSucceedResponse:responseObject
+                                                            URLSessionDataTask:task
+                                                                       success:success];
+                                      }
+                                      failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                          [YMHTTPManager handleFailureTask:task
+                                                                     error:error
+                                                                   failure:failure];
+                                      }];
+                     }];
+    }
     
     return task;
 }
@@ -270,10 +263,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
     
 }
 
-
 + (NSDictionary *)packageParameters:(NSDictionary *)parameters
 {
-    
     NSMutableDictionary *finalParameters = [NSMutableDictionary dictionaryWithDictionary:[YMHttpParameterFactory creatProductInfo]];
     [finalParameters addEntriesFromDictionary:parameters];
     

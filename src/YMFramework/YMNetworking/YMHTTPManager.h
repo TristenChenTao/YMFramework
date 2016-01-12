@@ -23,8 +23,9 @@ typedef enum
 + (BOOL)isReachable;
 
 /**
- *  HTTP GET请求
+ *  HTTP请求
  *
+ *  @param methodType  请求方法
  *  @param relativeURL 接口相对地址
  *  @param baseURL     域名
  *  @param baseIP      IP地址(当域名解析失败时使用IP地址请求)
@@ -35,37 +36,15 @@ typedef enum
  *  @return
  */
 
-+ (NSURLSessionDataTask *)GET:(NSString *)relativeURL
-                      baseURL:(NSString *)baseURL
-                       baseIP:(NSString *)baseIP
-                   parameters:(NSDictionary *)parameters
-                      timeout:(float)timeout
-                     progress:(void (^)(NSProgress *progress)) downloadProgress
-                      success:(void (^)(NSURLSessionDataTask *task, YMHTTPResponseData *responseData))success
-                      failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
-/**
- *  HTTP POST请求
- *
- *  @param relativeURL 接口相对地址
- *  @param baseURL     域名
- *  @param baseIP      IP地址(当域名解析失败时使用IP地址请求)
- *  @param parameters  请求参数
- *  @param timeout     超时设置(默认设置是5秒)
- *  @param success     请求成功回调
- *  @param failure     请求失败回调
- *  @return
- */
-
-+ (NSURLSessionDataTask *)POST:(NSString *)relativeURL
-                       baseURL:(NSString *)baseURL
-                        baseIP:(NSString *)baseIP
-                    parameters:(NSDictionary *)parameters
-                       timeout:(float)timeout
-                      progress:(void (^)(NSProgress *progress)) downloadProgress
-                       success:(void (^)(NSURLSessionDataTask *task, YMHTTPResponseData *responseData))success
-                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
++ (NSURLSessionDataTask *)requestWithMethodType:(YMHttpRequestType)methodType
+                                    relativeURL:(NSString *)relativeURL
+                                        baseURL:(NSString *)baseURL
+                                         baseIP:(NSString *)baseIP
+                                     parameters:(NSDictionary *)parameters
+                                        timeout:(float)timeout
+                                       progress:(void (^)(NSProgress *progress)) downloadProgress
+                                        success:(void (^)(NSURLSessionDataTask *task, YMHTTPResponseData *responseData))success
+                                        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 /**
  *  HTTP Web请求
  *

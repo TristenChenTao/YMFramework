@@ -61,21 +61,22 @@ static NSString * const kProductChannel = @"1";
 
 -(void)testHttpRequest
 {
-    NSURLSessionDataTask *task = [YMHTTPManager GET:@"/ServerTime/ServerTimes.ashx?m=STime"
-                                            baseURL:@"http://test.fortune.cornapp.com"
-                                             baseIP:@"http://112.74.105.46:8086"
-                                         parameters:nil
-                                            timeout:1
-                                           progress:^(NSProgress *downloadProgress) {
-                                               NSLog(@"downloadProgress is %@",downloadProgress);
-                                           }
-                                            success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
-                                                NSLog(@"%@",responseData.ResultMessage);
-                                                NSLog(@"request URL is %@",task.currentRequest.URL.absoluteString);
-                                            }
-                                            failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                                NSLog(@"error %@",error.localizedDescription);
-                                            }];
+    NSURLSessionDataTask *task = [YMHTTPManager requestWithMethodType:YMHttpRequestTypeForGet
+                                                          relativeURL:@"/ServerTime/ServerTimes.ashx?m=STime"
+                                                              baseURL:@"http://test.fortune.cornapp.com"
+                                                               baseIP:@"http://112.74.105.46:8086"
+                                                           parameters:nil
+                                                              timeout:1
+                                                             progress:^(NSProgress *downloadProgress) {
+                                                                 NSLog(@"downloadProgress is %@",downloadProgress);
+                                                             }
+                                                              success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
+                                                                  NSLog(@"%@",responseData.ResultMessage);
+                                                                  NSLog(@"request URL is %@",task.currentRequest.URL.absoluteString);
+                                                              }
+                                                              failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                                                  NSLog(@"error %@",error.localizedDescription);
+                                                              }];
 }
 
 -(void)testUIImageViewDownloadImage
