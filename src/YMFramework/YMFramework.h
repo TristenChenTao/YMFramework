@@ -19,7 +19,8 @@ FOUNDATION_EXPORT const unsigned char YMFrameworkVersionString[];
 #import <YMFramework/YMDeviceInfo.h>
 #import <YMFramework/UIView+YMFrameAdditions.h>
 #import <YMFramework/UIColor+YMAdditions.h>
-#import <YMFramework/YMHTTPRequestManager.h>
+#import <YMFramework/YMHTTPManager.h>
+#import <YMFramework/YMHTTPResponseData.h>
 #import <YMFramework/YMImageDownloader.h>
 #import <YMFramework/UIButton+YMNetworking.h>
 #import <YMFramework/UIImageView+YMNetworking.h>
@@ -46,3 +47,4 @@ FOUNDATION_EXPORT const unsigned char YMFrameworkVersionString[];
 #import <YMFramework/NSString+YMAdditionsForNSDate.h>
 #import <YMFramework/UIApplication+YMAdditions.h>
 #import <YMFramework/YMProgress.h>
+#import <YMFramework/YMHttpParameterFactory.h>

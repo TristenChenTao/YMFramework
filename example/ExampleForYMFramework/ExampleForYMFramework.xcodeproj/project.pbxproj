@@ -15,7 +15,6 @@
 		628A6B8E1C04127C00ECEEFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 628A6B8C1C04127C00ECEEFD /* LaunchScreen.storyboard */; };
 		628A6B991C04127C00ECEEFD /* ExampleForYMFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B981C04127C00ECEEFD /* ExampleForYMFrameworkTests.m */; };
 		628A6BAD1C0412FD00ECEEFD /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 628A6BA41C0412FD00ECEEFD /* PushConfig.plist */; };
-		62CCFC371C04134800E1AE5F /* YMFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628A6BBA1C04130B00ECEEFD /* YMFramework.framework */; };
 		62CCFC3B1C04329B00E1AE5F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CCFC3A1C04329B00E1AE5F /* CFNetwork.framework */; };
 		62CCFC401C0432A100E1AE5F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CCFC3F1C0432A100E1AE5F /* CoreFoundation.framework */; };
 		62CCFC421C0432A600E1AE5F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CCFC411C0432A600E1AE5F /* CoreTelephony.framework */; };
@@ -34,6 +33,7 @@
 		62D2AADF1C32345300A97384 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D2AADD1C32345300A97384 /* TencentOpenAPI.framework */; };
 		62D2AAE01C32345300A97384 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 62D2AADE1C32345300A97384 /* WeiboSDK.bundle */; };
 		62D2AAE21C32345F00A97384 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D2AAE11C32345F00A97384 /* WebP.framework */; };
+		62F828EE1C44CF6600B1B9EA /* YMFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628A6BBA1C04130B00ECEEFD /* YMFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F828EE1C44CF6600B1B9EA /* YMFramework.framework in Frameworks */,
 				62CCFC581C0432EE00E1AE5F /* libsqlite3.tbd in Frameworks */,
 				62CCFC561C0432E900E1AE5F /* libstdc++.tbd in Frameworks */,
 				62CCFC541C0432E500E1AE5F /* libicucore.tbd in Frameworks */,
@@ -118,7 +119,6 @@
 				62CCFC421C0432A600E1AE5F /* CoreTelephony.framework in Frameworks */,
 				62CCFC401C0432A100E1AE5F /* CoreFoundation.framework in Frameworks */,
 				62CCFC3B1C04329B00E1AE5F /* CFNetwork.framework in Frameworks */,
-				62CCFC371C04134800E1AE5F /* YMFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

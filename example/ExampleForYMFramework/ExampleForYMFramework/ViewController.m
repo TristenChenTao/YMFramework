@@ -29,21 +29,19 @@ static NSString * const kProductChannel = @"1";
                                                  version:kProductVersion
                                                  channel:kProductChannel];
     
-        [self testHttpRequest];
+    [self testHttpRequest];
     //
     //    [self testUIImageViewDownloadImage];
-    
     //    [self testUIButtonDownloadImage];
-    
-    //    [self testFetchWebViewTitle];
-    
+    [self testFetchWebViewTitle];
     //    [self testWebp];
-    
     //    [self testWebpForWebView];
+    //    [self testYMProgress];
+    //    [self testBackgroundTask];
     
-    [self testYMProgress];
+    [self testUploadImage];
     
-    [self testBackgroundTask];
+    [self testUploadJSONData];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion
@@ -63,22 +61,22 @@ static NSString * const kProductChannel = @"1";
 
 -(void)testHttpRequest
 {
-    [YMHTTPRequestManager requestWithMethodType:YMHttpMethodTypeForGet
-                                    relativeURL:@"/ServerTime/ServerTimes.ashx?m=STime"
-                                        baseURL:@"http://test.fortune.cornapp.com"
-                                         baseIP:@"http://112.74.105.46:8086"
-                                    headerField:nil
-                                     parameters:nil
-                                        timeout:15
-                                        success:^(NSURLRequest *request, NSInteger ResultCode, NSString *ResultMessage, id data)
-     {
-         NSLog(@"data %@",data);
-         
-     }
-                                        failure:^(NSURLRequest *request, NSError *error)
-     {
-         NSLog(@"error %@",error.localizedDescription);
-     }];
+    NSURLSessionDataTask *task = [YMHTTPManager requestWithMethodType:YMHttpRequestTypeForGet
+                                                          relativeURL:@"/ServerTime/ServerTimes.ashx?m=STime"
+                                                              baseURL:@"http://test.fortune.cornapp.com"
+                                                               baseIP:@"http://112.74.105.46:8086"
+                                                           parameters:nil
+                                                              timeout:1
+                                                             progress:^(NSProgress *downloadProgress) {
+                                                                 NSLog(@"downloadProgress is %@",downloadProgress);
+                                                             }
+                                                              success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
+                                                                  NSLog(@"%@",responseData.ResultMessage);
+                                                                  NSLog(@"request URL is %@",task.currentRequest.URL.absoluteString);
+                                                              }
+                                                              failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                                                  NSLog(@"error %@",error.localizedDescription);
+                                                              }];
 }
 
 -(void)testUIImageViewDownloadImage
@@ -102,11 +100,10 @@ static NSString * const kProductChannel = @"1";
     [self.view addSubview:webView];
     webView.delegate = self;
     
-    NSMutableURLRequest *request = [YMHTTPRequestManager requestWithMethodType:YMHttpMethodTypeForGet
-                                                                    URLAddress:@"http://www.xinhuanet.com/"
-                                                                       timeout:10
-                                                                    parameters:nil
-                                                                   headerField:nil];
+    NSMutableURLRequest *request = [YMHTTPManager requestWithMethodType:YMHttpRequestTypeForGet
+                                                             URLAddress:@"http://www.xinhuanet.com/"
+                                                                timeout:10
+                                                             parameters:nil];
     [webView loadRequest:request];
 }
 
@@ -161,11 +158,11 @@ static NSString * const kProductChannel = @"1";
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
                    {
                        //            [YMProgress showFailStatus:@"错误"];
-//                       [YMProgress showFailStatus:@"无网络"
-//                                     withFailType:YMProgrssFailTypeForNotReachable];
+                       //                       [YMProgress showFailStatus:@"无网络"
+                       //                                     withFailType:YMProgrssFailTypeForNotReachable];
                        
-//                       [YMProgress showFailStatus:@"定位错误"
-//                                     withFailType:YMProgrssFailTypeForLocation];
+                       //                       [YMProgress showFailStatus:@"定位错误"
+                       //                                     withFailType:YMProgrssFailTypeForLocation];
                        //        [YMProgress showWithStatus:@"加载中"];
                        
                        [YMProgress showInfoWithStatus:@"请输入密码"];
@@ -183,6 +180,59 @@ static NSString * const kProductChannel = @"1";
     }
     
     YM_BgTaskEnd();
+}
+
+- (void)testUploadImage
+{
+    UIImage *testImage = [UIImage imageNamed:@"弹窗"];
+    NSArray *images = [[NSArray alloc]initWithObjects:testImage, nil];
+    NSArray *names = [[NSArray alloc]initWithObjects:@"image0", nil];
+    
+    [YMHTTPManager uploadImages:images
+                     imageNames:names
+                    relativeURL:@"/Account/ChangeUserAvatar.ashx?m=UpdateUserAvatar"
+                        baseURL:@"http://test.fortune.cornapp.com"
+                         baseIP:@"http://112.74.105.46:8086"
+                     parameters:nil
+                        timeout:30
+                       progress:^(NSProgress *progress) {
+                           NSLog(@"progress %@",progress);
+                       }
+                        success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
+                            NSLog(@"%@",responseData.ResultMessage);
+                        }
+                        failure:^(NSURLSessionDataTask *task, NSError *error) {
+                            NSLog(@"error %@",error.localizedDescription);
+                        }];
+}
+
+- (void)testUploadJSONData
+{
+    NSArray *phoneArray = @[@"123123",@"233242342",@"234234234"];
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:phoneArray
+                                                   options:kNilOptions
+                                                     error:nil];
+    //用于测试
+    NSString *jsonString = [[NSString alloc] initWithData:data
+                                                 encoding:NSUTF8StringEncoding];
+    NSLog(@"jsonString is %@",jsonString);
+    
+    [YMHTTPManager uploadJSONData:data
+                      relativeURL:@"/FriendsRanking/UserFriRank.ashx?m=UploadContracts"
+                          baseURL:@"http://test.fortune.cornapp.com"
+                           baseIP:@"http://112.74.105.46:8086"
+                       parameters:nil
+                          timeout:10
+                         progress:^(NSProgress *progress) {
+                             NSLog(@"progress %@",progress);
+                         }
+                          success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
+                              NSLog(@"%@",responseData.ResultMessage);
+                          }
+                          failure:^(NSURLSessionDataTask *task, NSError *error) {
+                              NSLog(@"error %@",error.localizedDescription);
+                          }];
 }
 
 @end

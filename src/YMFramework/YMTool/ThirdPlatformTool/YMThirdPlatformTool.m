@@ -10,6 +10,8 @@
 #import "YMThirdPlatformSDKCenter.h"
 #import "YMThirdPlatformUserInfo.h"
 #import "YMThirdPlatformShareEntity.h"
+#import "YMTool.h"
+#import "NSString+YMAdditions.h"
 
 @implementation YMThirdPlatformTool
 

@@ -27,12 +27,14 @@
                                                  channel:@"0"];
     [YMAnalytics setUMengAppKey:@""
                       channelID:@""];
+#ifdef DEBUG
     [YMAnalytics setDebugMode:YES];
+#endif
     [YMAnalytics startReport];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[TestThreePlatformViewController alloc] init];
-//    self.window.rootViewController = [[ViewController alloc] init];
+//    self.window.rootViewController = [[TestThreePlatformViewController alloc] init];
+    self.window.rootViewController = [[ViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;
 }

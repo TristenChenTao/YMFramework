@@ -183,49 +183,25 @@
 
 + (NSString *)idfaString
 {
-    NSBundle *adSupportBundle = [NSBundle bundleWithPath:@"/System/Library/Frameworks/AdSupport.framework"];
-    [adSupportBundle load];
+    NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     
-    if (adSupportBundle == nil) {
+    if ([NSString ym_isEmptyString:idfa]) {
+        
         return @"";
     }
-    else{
-        
-        Class asIdentifierMClass = NSClassFromString(@"ASIdentifierManager");
-        
-        if(asIdentifierMClass == nil){
-            return @"";
-        }
-        else{
-            
-            //for no arc
-            //ASIdentifierManager *asIM = [[[asIdentifierMClass alloc] init] autorelease];
-            //for arc
-            ASIdentifierManager *asIM = [[asIdentifierMClass alloc] init];
-            
-            if (asIM == nil) {
-                return @"";
-            }
-            else{
-                
-                if(asIM.advertisingTrackingEnabled){
-                    return [asIM.advertisingIdentifier UUIDString];
-                }
-                else{
-                    return [asIM.advertisingIdentifier UUIDString];
-                }
-            }
-        }
-    }
+    
+    return idfa;
 }
 
 + (NSString *)idfvString
 {
-    if([[UIDevice currentDevice] respondsToSelector:@selector( identifierForVendor)]) {
-        return [[UIDevice currentDevice].identifierForVendor UUIDString];
+    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    
+    if ([NSString ym_isEmptyString:idfv]) {
+        return @"";
     }
     
-    return @"";
+    return idfv;
 }
 
 
