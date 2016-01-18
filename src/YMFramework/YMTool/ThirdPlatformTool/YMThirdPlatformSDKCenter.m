@@ -252,7 +252,7 @@ YM_MacrosSingletonImplemantion
         {
             if (![WXApi isWXAppInstalled]) {
                 NSError *error = [NSError errorWithDomain:@"domain"
-                                                     code:ErrorStateShareAppNotInstall
+                                                     code:YMThirdPlatformErrorStateShareAppNotInstall
                                                  userInfo:nil];
                 failure(shareEntity ,error);
             }
@@ -401,7 +401,7 @@ YM_MacrosSingletonImplemantion
         self.wxLoginCancel = cancel;
     } else {
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateLoginAppNotInstall
+                                             code:YMThirdPlatformErrorStateLoginAppNotInstall
                                          userInfo:nil];
         failure(error);
     }
@@ -493,7 +493,7 @@ YM_MacrosSingletonImplemantion
         case EQQAPIAPPNOTREGISTED:
         {
             NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:ErrorStateShareAppNotRegister
+                                                 code:YMThirdPlatformErrorStateShareAppNotRegister
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
                 self.shareQQZoneFailure(self.qqZoneEntity,error);
@@ -509,7 +509,7 @@ YM_MacrosSingletonImplemantion
         case EQQAPIMESSAGETYPEINVALID:
         {
             NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:ErrorStateSharePrameError
+                                                 code:YMThirdPlatformErrorStateSharePrameError
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
                 self.shareQQZoneFailure(self.qqZoneEntity,error);
@@ -524,7 +524,7 @@ YM_MacrosSingletonImplemantion
         case EQQAPIQQNOTINSTALLED:
         {
             NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:ErrorStateShareAppNotInstall
+                                                 code:YMThirdPlatformErrorStateShareAppNotInstall
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
                 self.shareQQZoneFailure(self.qqZoneEntity,error);
@@ -539,7 +539,7 @@ YM_MacrosSingletonImplemantion
         case EQQAPIQQNOTSUPPORTAPI:
         {
             NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:ErrorStateShareInterfaceNotSupport
+                                                 code:YMThirdPlatformErrorStateShareInterfaceNotSupport
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
                 self.shareQQZoneFailure(self.qqZoneEntity,error);
@@ -553,7 +553,7 @@ YM_MacrosSingletonImplemantion
         case EQQAPISENDFAILD:
         {
             NSError *error = [NSError errorWithDomain:@"domain"
-                                                 code:ErrorStateShareSentFailure
+                                                 code:YMThirdPlatformErrorStateShareSentFailure
                                              userInfo:nil];
             if (self.shareQQZoneFailure) {
                 self.shareQQZoneFailure(self.qqZoneEntity,error);
@@ -588,7 +588,7 @@ YM_MacrosSingletonImplemantion
         self.qqLoginCancel();
     } else {
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateLoginNormalFailure
+                                             code:YMThirdPlatformErrorStateLoginNormalFailure
                                          userInfo:nil];
         self.qqLoginFailure(error);
     }
@@ -603,7 +603,7 @@ YM_MacrosSingletonImplemantion
 {
     self.isLogin = NO;
     NSError *error = [NSError errorWithDomain:@"domain"
-                                         code:ErrorStateLoginNotNetWork
+                                         code:YMThirdPlatformErrorStateLoginNotNetWork
                                      userInfo:nil];
     self.qqLoginFailure(error);
 }
@@ -612,7 +612,7 @@ YM_MacrosSingletonImplemantion
 {
     if (response.retCode == 1) {
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateGetUserInfoFailure
+                                             code:YMThirdPlatformErrorStateGetUserInfoFailure
                                          userInfo:nil];
         self.qqLoginFailure(error);
         return;
@@ -704,12 +704,12 @@ YM_MacrosSingletonImplemantion
         self.wxLoginCancel();
     } else if (resp.errCode == WXErrCodeSentFail){
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateLoginNotNetWork
+                                             code:YMThirdPlatformErrorStateLoginNotNetWork
                                          userInfo:nil];
         self.wxLoginFailure(error);
     } else if (resp.errCode == WXErrCodeAuthDeny){
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateLoginNormalFailure
+                                             code:YMThirdPlatformErrorStateLoginNormalFailure
                                          userInfo:nil];
         self.wxLoginFailure(error);
     }
@@ -740,7 +740,7 @@ YM_MacrosSingletonImplemantion
         }
     } else if (resp.errCode == WXErrCodeSentFail){
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateShareSentFailure
+                                             code:YMThirdPlatformErrorStateShareSentFailure
                                          userInfo:nil];
         if (self.shareWechatSessionFailure) {
             self.shareWechatSessionFailure(self.wxSessionEntity, error);
@@ -749,7 +749,7 @@ YM_MacrosSingletonImplemantion
         }
     } else if (resp.errCode == WXErrCodeUnsupport){
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateShareInterfaceNotSupport
+                                             code:YMThirdPlatformErrorStateShareInterfaceNotSupport
                                          userInfo:nil];
         if (self.shareWechatSessionFailure) {
             self.shareWechatSessionFailure(self.wxSessionEntity, error);
@@ -778,17 +778,17 @@ YM_MacrosSingletonImplemantion
         }
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeAuthDeny) {
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateLoginNormalFailure
+                                             code:YMThirdPlatformErrorStateLoginNormalFailure
                                          userInfo:nil];
         self.wbLoginFailure(error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeSentFail) {
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateLoginNotNetWork
+                                             code:YMThirdPlatformErrorStateLoginNotNetWork
                                          userInfo:nil];
         self.wbLoginFailure(error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeAuthDeny) {
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateLoginNormalFailure
+                                             code:YMThirdPlatformErrorStateLoginNormalFailure
                                          userInfo:nil];
         self.wxLoginFailure(error);
     }
@@ -805,17 +805,17 @@ YM_MacrosSingletonImplemantion
         self.shareWeiboCancel(self.wbEntity);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeSentFail) {
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateShareSentFailure
+                                             code:YMThirdPlatformErrorStateShareSentFailure
                                          userInfo:nil];
         self.shareWeiboFailure(self.wbEntity,error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeShareInSDKFailed) {
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateShareNormalFailure
+                                             code:YMThirdPlatformErrorStateShareNormalFailure
                                          userInfo:nil];
         self.shareWeiboFailure(self.wbEntity,error);
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeUnsupport) {
         NSError *error = [NSError errorWithDomain:@"domain"
-                                             code:ErrorStateShareInterfaceNotSupport
+                                             code:YMThirdPlatformErrorStateShareInterfaceNotSupport
                                          userInfo:nil];
        self.shareWeiboFailure(self.wbEntity,error);
     }
