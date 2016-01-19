@@ -8,7 +8,6 @@
 
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/TencentOAuthObject.h>
-#import <TencentOpenAPI/TencentApiInterface.h>
 #import <TencentOpenAPI/QQApiInterfaceObject.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/sdkdef.h>
@@ -28,7 +27,6 @@ WXApiDelegate,
 WeiboSDKDelegate,
 WBHttpRequestDelegate,
 TencentSessionDelegate,
-TencentApiInterfaceDelegate,
 TCAPIRequestDelegate
 >
 
@@ -371,9 +369,7 @@ YM_MacrosSingletonImplemantion
                             kOPEN_PERMISSION_GET_USER_INFO,
                             kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
                             kOPEN_PERMISSION_ADD_ALBUM,
-                            kOPEN_PERMISSION_ADD_IDOL,
                             kOPEN_PERMISSION_ADD_ONE_BLOG,
-                            kOPEN_PERMISSION_ADD_PIC_T,
                             kOPEN_PERMISSION_ADD_SHARE,
                             kOPEN_PERMISSION_ADD_TOPIC,
                             nil];

@@ -327,7 +327,6 @@
 		62C54F1F1B84516200004E80 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 62C54E3C1B84516200004E80 /* UIView+WebCacheOperation.h */; };
 		62C54F201B84516200004E80 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C54E3D1B84516200004E80 /* UIView+WebCacheOperation.m */; };
 		62D2AAB91C3220C200A97384 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D2AAA51C3220C200A97384 /* TencentOpenAPI.framework */; };
-		62D2AABA1C3220C200A97384 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 62D2AAA61C3220C200A97384 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		62D2AABB1C3220C200A97384 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D2AAA81C3220C200A97384 /* libWeChatSDK.a */; };
 		62D2AABC1C3220C200A97384 /* WechatAuthSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AAA91C3220C200A97384 /* WechatAuthSDK.h */; };
 		62D2AABD1C3220C200A97384 /* WXApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AAAA1C3220C200A97384 /* WXApi.h */; };
@@ -679,7 +678,6 @@
 		62C54E3C1B84516200004E80 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		62C54E3D1B84516200004E80 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		62D2AAA51C3220C200A97384 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
-		62D2AAA61C3220C200A97384 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		62D2AAA81C3220C200A97384 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		62D2AAA91C3220C200A97384 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		62D2AAAA1C3220C200A97384 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -1315,7 +1313,6 @@
 			isa = PBXGroup;
 			children = (
 				62D2AAA51C3220C200A97384 /* TencentOpenAPI.framework */,
-				62D2AAA61C3220C200A97384 /* TencentOpenApi_IOS_Bundle.bundle */,
 			);
 			path = QQSDK;
 			sourceTree = "<group>";
@@ -1637,7 +1634,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62D2AABA1C3220C200A97384 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				620860DF1C1FF28400C6FBBD /* LICENSE in Resources */,
 				62D2AAC81C3220C200A97384 /* WeiboSDK.bundle in Resources */,
 				620860B61C1FF28400C6FBBD /* LICENSE in Resources */,
