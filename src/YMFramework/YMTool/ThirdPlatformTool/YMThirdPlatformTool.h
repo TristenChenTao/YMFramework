@@ -11,18 +11,18 @@
 @class YMThirdPlatformUserInfo;
 @class YMThirdPlatformShareEntity;
 
-typedef NS_ENUM(NSInteger, ErrorState)
+typedef NS_ENUM(NSInteger, YMThirdPlatformErrorState)
 {
-    ErrorStateLoginNormalFailure = -1000,
-    ErrorStateLoginNotNetWork,
-    ErrorStateLoginAppNotInstall,
-    ErrorStateGetUserInfoFailure,
-    ErrorStateShareNormalFailure,
-    ErrorStateShareAppNotRegister,
-    ErrorStateSharePrameError,
-    ErrorStateShareAppNotInstall,
-    ErrorStateShareInterfaceNotSupport,
-    ErrorStateShareSentFailure,
+    YMThirdPlatformErrorStateLoginNormalFailure = -1000,
+    YMThirdPlatformErrorStateLoginNotNetWork,
+    YMThirdPlatformErrorStateLoginAppNotInstall,
+    YMThirdPlatformErrorStateGetUserInfoFailure,
+    YMThirdPlatformErrorStateShareNormalFailure,
+    YMThirdPlatformErrorStateShareAppNotRegister,
+    YMThirdPlatformErrorStateSharePrameError,
+    YMThirdPlatformErrorStateShareAppNotInstall,
+    YMThirdPlatformErrorStateShareInterfaceNotSupport,
+    YMThirdPlatformErrorStateShareSentFailure,
 };
 
 typedef NS_ENUM(NSUInteger, YMThirdPlatformType) {

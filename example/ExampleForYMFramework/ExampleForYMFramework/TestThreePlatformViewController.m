@@ -135,7 +135,7 @@
     NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
                                 @"contentType":@"nil",
                                 @"title":@"title",
-                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.Gif",
+                                @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
                                 @"resourceUrl":@"https://www.baidu.com",
                                 @"contentText":@"description"};
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
@@ -152,7 +152,7 @@
 - (void)qqZoneShare:(id)sender
 {
     [YMAnalytics event:@"14000"];
-    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQFriend],
+    NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForQQZone],
                                 @"contentType":@"nil",
                                 @"title":@"title",
                                 @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
@@ -175,7 +175,7 @@
     NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatSession],
                                 @"contentType":@"nil",
                                 @"title":@"title",
-                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
+                                @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
                                 @"resourceUrl":@"https://www.baidu.com",
                                 @"contentText":@"description"};
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
@@ -195,7 +195,7 @@
     NSDictionary *entityDic = @{@"shareType":[NSNumber numberWithUnsignedInteger:YMThirdPlatformShareForWechatTimeline],
                                 @"contentType":@"nil",
                                 @"title":@"title",
-                                @"imageUrl":@"http://ww1.sinaimg.cn/bmiddle/754e3dc7gw1e75xkgm3kqg206t03rtgh.gif",
+                                @"imageUrl":@"http://img0w.pconline.com.cn/pconline/1308/30/3449971_06.jpg",
                                 @"resourceUrl":@"https://www.baidu.com",
                                 @"contentText":@"description"};
     YMThirdPlatformShareEntity *entity = [[YMThirdPlatformShareEntity  alloc] initWithData:entityDic];
