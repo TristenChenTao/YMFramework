@@ -29,19 +29,19 @@ static NSString * const kProductChannel = @"1";
                                                  version:kProductVersion
                                                  channel:kProductChannel];
     
-    [self testHttpRequest];
-    //
-    //    [self testUIImageViewDownloadImage];
-    //    [self testUIButtonDownloadImage];
-    [self testFetchWebViewTitle];
-    //    [self testWebp];
-    //    [self testWebpForWebView];
-    //    [self testYMProgress];
-    //    [self testBackgroundTask];
+//    [self testHttpRequest];
     
-    [self testUploadImage];
-    
-    [self testUploadJSONData];
+//    [self testUIImageViewDownloadImage];
+//    [self testUIButtonDownloadImage];
+//    [self testFetchWebViewTitle];
+    [self testWebp];
+//    [self testWebpForWebView];
+//    [self testYMProgress];
+//    [self testBackgroundTask];
+//    
+//    [self testUploadImage];
+//    
+//    [self testUploadJSONData];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion

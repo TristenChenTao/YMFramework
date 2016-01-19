@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62560AE31C48A62D000D352F /* YMFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62560AE01C48A624000D352F /* YMFramework.framework */; };
-		62560AE41C48A62D000D352F /* YMFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62560AE01C48A624000D352F /* YMFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6226E8921C4E25E300B362DC /* YMFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6226E8911C4E25E300B362DC /* YMFramework.framework */; };
 		627AEF031C16C3600085349B /* YMProgress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 627AEF021C16C3600085349B /* YMProgress.bundle */; };
 		628A6B801C04127C00ECEEFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B7F1C04127C00ECEEFD /* main.m */; };
 		628A6B831C04127C00ECEEFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B821C04127C00ECEEFD /* AppDelegate.m */; };
@@ -21,18 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		62560ADF1C48A624000D352F /* PBXContainerItemProxy */ = {
+		6226E89B1C4E274100B362DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62560AD91C48A623000D352F /* YMFramework.xcodeproj */;
+			containerPortal = 6226E8961C4E274100B362DC /* YMFramework.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6215970B1ADB5875003CACA7;
-			remoteInfo = YMFramework;
-		};
-		62560AE51C48A62D000D352F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 62560AD91C48A623000D352F /* YMFramework.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6215970A1ADB5875003CACA7;
 			remoteInfo = YMFramework;
 		};
 /* End PBXContainerItemProxy section */
@@ -44,7 +36,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				62560AE41C48A62D000D352F /* YMFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,7 +43,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		62560AD91C48A623000D352F /* YMFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YMFramework.xcodeproj; path = ../../../../src/YMFramework.xcodeproj; sourceTree = "<group>"; };
+		6226E8911C4E25E300B362DC /* YMFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YMFramework.framework; path = /Users/Tristen/Development/YMFramework/example/ExampleForYMFramework/ExampleForYMFramework/YMFramework/YMFramework.framework; sourceTree = "<absolute>"; };
+		6226E8961C4E274100B362DC /* YMFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YMFramework.xcodeproj; path = ../../../../src/YMFramework.xcodeproj; sourceTree = "<group>"; };
 		627AEF021C16C3600085349B /* YMProgress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YMProgress.bundle; sourceTree = "<group>"; };
 		628A6B7B1C04127C00ECEEFD /* ExampleForYMFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleForYMFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628A6B7F1C04127C00ECEEFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,17 +68,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62560AE31C48A62D000D352F /* YMFramework.framework in Frameworks */,
+				6226E8921C4E25E300B362DC /* YMFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		62560ADA1C48A623000D352F /* Products */ = {
+		6226E8971C4E274100B362DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62560AE01C48A624000D352F /* YMFramework.framework */,
+				6226E89C1C4E274100B362DC /* YMFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,8 +139,8 @@
 		628A6BA31C0412FD00ECEEFD /* YMFramework */ = {
 			isa = PBXGroup;
 			children = (
+				6226E8961C4E274100B362DC /* YMFramework.xcodeproj */,
 				628F1CE71C4CEA7800FBDE6C /* WeiboSDK.bundle */,
-				62560AD91C48A623000D352F /* YMFramework.xcodeproj */,
 				627AEF021C16C3600085349B /* YMProgress.bundle */,
 				628A6BA41C0412FD00ECEEFD /* PushConfig.plist */,
 			);
@@ -178,7 +170,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				62560AE61C48A62D000D352F /* PBXTargetDependency */,
 			);
 			name = ExampleForYMFramework;
 			productName = ExampleForYMFramework;
@@ -196,7 +187,7 @@
 				TargetAttributes = {
 					628A6B7A1C04127C00ECEEFD = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 6ZUQ6HT9EU;
+						DevelopmentTeam = 3R6UTCFNFX;
 					};
 				};
 			};
@@ -213,8 +204,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 62560ADA1C48A623000D352F /* Products */;
-					ProjectRef = 62560AD91C48A623000D352F /* YMFramework.xcodeproj */;
+					ProductGroup = 6226E8971C4E274100B362DC /* Products */;
+					ProjectRef = 6226E8961C4E274100B362DC /* YMFramework.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -225,11 +216,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		62560AE01C48A624000D352F /* YMFramework.framework */ = {
+		6226E89C1C4E274100B362DC /* YMFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = YMFramework.framework;
-			remoteRef = 62560ADF1C48A624000D352F /* PBXContainerItemProxy */;
+			remoteRef = 6226E89B1C4E274100B362DC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -262,14 +253,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		62560AE61C48A62D000D352F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = YMFramework;
-			targetProxy = 62560AE51C48A62D000D352F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		628A6B8C1C04127C00ECEEFD /* LaunchScreen.storyboard */ = {
@@ -323,7 +306,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -361,7 +344,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -379,16 +362,13 @@
 					"$(PROJECT_DIR)/ExampleForYMFramework/YMFramework/ShareSDK",
 					"$(PROJECT_DIR)/ExampleForYMFramework/YMFramework",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"SD_WEBP=1",
-					"DEBUG=1",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				INFOPLIST_FILE = ExampleForYMFramework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cornapp.YMAssistantFor3;
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.com.cornapp.YMGoodLuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "db98d547-0241-454c-93b6-3528cbc2187c";
+				PROVISIONING_PROFILE = "f0bdd790-2d31-4d66-880d-a23a2f464242";
 			};
 			name = Debug;
 		};
@@ -404,13 +384,13 @@
 					"$(PROJECT_DIR)/ExampleForYMFramework/YMFramework/ShareSDK",
 					"$(PROJECT_DIR)/ExampleForYMFramework/YMFramework",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = "SD_WEBP=1";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = ExampleForYMFramework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cornapp.YMAssistantFor3;
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.com.cornapp.YMGoodLuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "db98d547-0241-454c-93b6-3528cbc2187c";
+				PROVISIONING_PROFILE = "f0bdd790-2d31-4d66-880d-a23a2f464242";
 			};
 			name = Release;
 		};
