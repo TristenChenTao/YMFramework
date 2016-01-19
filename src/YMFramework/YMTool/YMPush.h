@@ -10,10 +10,20 @@
 
 @interface YMPush : NSObject
 
-/**
- *  初始化
+/*
+ * 推送启动配置
+ *
+ * @param launchingOption 启动参数.
+ * @param appKey
+ * @param channel 发布渠道
+ * @param isProduction 是否生产环境. 如果为开发状态,设置为 NO; 如果为生产状态,应改为 YES.
+ * 此接口必须在 App 启动时调用
  */
-+ (void)setupWithOption:(NSDictionary *)launchingOption;
+
++ (void)setupWithOption:(NSDictionary *)launchingOption
+                 appKey:(NSString *)appKey
+                channel:(NSString *)channel
+       apsForProduction:(BOOL)isProduction;
 
 /**
  *  注册APNS类型

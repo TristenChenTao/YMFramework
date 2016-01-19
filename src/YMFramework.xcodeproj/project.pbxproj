@@ -241,7 +241,6 @@
 		624CE5301B21565500C62E08 /* UIImage+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 624CE52E1B21565500C62E08 /* UIImage+YMAdditions.m */; };
 		625220DA1B5F429500EC902B /* UIButton+YMHitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 625220D81B5F429500EC902B /* UIButton+YMHitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		625220DB1B5F429500EC902B /* UIButton+YMHitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 625220D91B5F429500EC902B /* UIButton+YMHitAdditions.m */; };
-		6258F2261B04719000C0B785 /* APService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6258F2241B04719000C0B785 /* APService.h */; };
 		625D56B31ADBB02C007BCA33 /* YMHTTPManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 625D56A41ADBB02C007BCA33 /* YMHTTPManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		625D56B41ADBB02C007BCA33 /* YMHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 625D56A51ADBB02C007BCA33 /* YMHTTPManager.m */; };
 		62703E4A1B10490B005CA088 /* NSString+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E2D1B10490B005CA088 /* NSString+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -290,7 +289,6 @@
 		628E20F61C44A62A0026CD1A /* YMHttpParameterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 628E20F41C44A62A0026CD1A /* YMHttpParameterFactory.m */; };
 		62974C111B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h in Headers */ = {isa = PBXBuildFile; fileRef = 62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62974C121B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m in Sources */ = {isa = PBXBuildFile; fileRef = 62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */; };
-		629FDBE11BE4981500D496C1 /* libPushSDK-1.8.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 629FDBE01BE4981500D496C1 /* libPushSDK-1.8.8.a */; };
 		62AE9F2B1BF470500036D0B9 /* UIApplication+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62AE9F291BF470500036D0B9 /* UIApplication+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62AE9F2C1BF470500036D0B9 /* UIApplication+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AE9F2A1BF470500036D0B9 /* UIApplication+YMAdditions.m */; };
 		62B4B60F1B18478B00834DCF /* YMDebugging.h in Headers */ = {isa = PBXBuildFile; fileRef = 62B4B60D1B18478B00834DCF /* YMDebugging.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -348,6 +346,8 @@
 		62D2AACA1C3220C200A97384 /* WeiboUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AAB81C3220C200A97384 /* WeiboUser.h */; };
 		62D2AACD1C3220E000A97384 /* YMThirdPlatformSDKCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */; };
 		62D2AACE1C3220E000A97384 /* YMThirdPlatformSDKCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */; };
+		62DB9DC71C4DD15600624672 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DB9DC51C4DD15600624672 /* jpush-ios-2.1.0.a */; };
+		62DB9DC81C4DD15600624672 /* JPUSHService.h in Headers */ = {isa = PBXBuildFile; fileRef = 62DB9DC61C4DD15600624672 /* JPUSHService.h */; };
 		62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */; };
 		62E433631AE5F89D005445B2 /* MobClick.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433601AE5F89D005445B2 /* MobClick.h */; };
 		62E433641AE5F89D005445B2 /* MobClickSocialAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */; };
@@ -593,7 +593,6 @@
 		624CE52E1B21565500C62E08 /* UIImage+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YMAdditions.m"; sourceTree = "<group>"; };
 		625220D81B5F429500EC902B /* UIButton+YMHitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+YMHitAdditions.h"; sourceTree = "<group>"; };
 		625220D91B5F429500EC902B /* UIButton+YMHitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+YMHitAdditions.m"; sourceTree = "<group>"; };
-		6258F2241B04719000C0B785 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
 		625D56A41ADBB02C007BCA33 /* YMHTTPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMHTTPManager.h; sourceTree = "<group>"; };
 		625D56A51ADBB02C007BCA33 /* YMHTTPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMHTTPManager.m; sourceTree = "<group>"; };
 		62703E2D1B10490B005CA088 /* NSString+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YMAdditions.h"; sourceTree = "<group>"; };
@@ -642,7 +641,6 @@
 		628E20F41C44A62A0026CD1A /* YMHttpParameterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMHttpParameterFactory.m; sourceTree = "<group>"; };
 		62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YMAccessors.h"; sourceTree = "<group>"; };
 		62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YMAccessors.m"; sourceTree = "<group>"; };
-		629FDBE01BE4981500D496C1 /* libPushSDK-1.8.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.8.a"; sourceTree = "<group>"; };
 		62AE9F291BF470500036D0B9 /* UIApplication+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+YMAdditions.h"; sourceTree = "<group>"; };
 		62AE9F2A1BF470500036D0B9 /* UIApplication+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+YMAdditions.m"; sourceTree = "<group>"; };
 		62B4B60D1B18478B00834DCF /* YMDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMDebugging.h; sourceTree = "<group>"; };
@@ -700,6 +698,8 @@
 		62D2AAB81C3220C200A97384 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
 		62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMThirdPlatformSDKCenter.h; sourceTree = "<group>"; };
 		62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMThirdPlatformSDKCenter.m; sourceTree = "<group>"; };
+		62DB9DC51C4DD15600624672 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
+		62DB9DC61C4DD15600624672 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		62E433601AE5F89D005445B2 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
@@ -716,11 +716,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DB9DC71C4DD15600624672 /* jpush-ios-2.1.0.a in Frameworks */,
 				6244CF201C0D93A70004C2B8 /* WebP.framework in Frameworks */,
 				62D2AABF1C3220C200A97384 /* libWeiboSDK.a in Frameworks */,
 				62D2AAB91C3220C200A97384 /* TencentOpenAPI.framework in Frameworks */,
 				62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */,
-				629FDBE11BE4981500D496C1 /* libPushSDK-1.8.8.a in Frameworks */,
 				62D2AABB1C3220C200A97384 /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1104,8 +1104,8 @@
 		6258F2231B04719000C0B785 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
-				629FDBE01BE4981500D496C1 /* libPushSDK-1.8.8.a */,
-				6258F2241B04719000C0B785 /* APService.h */,
+				62DB9DC51C4DD15600624672 /* jpush-ios-2.1.0.a */,
+				62DB9DC61C4DD15600624672 /* JPUSHService.h */,
 			);
 			path = JPush;
 			sourceTree = "<group>";
@@ -1161,8 +1161,6 @@
 				6279043B1ADBC65D00F84BFB /* UIImageView+YMNetworking.m */,
 				625D56A41ADBB02C007BCA33 /* YMHTTPManager.h */,
 				625D56A51ADBB02C007BCA33 /* YMHTTPManager.m */,
-				625D56A41ADBB02C007BCA33 /* YMHTTPRequestManager.h */,
-				625D56A51ADBB02C007BCA33 /* YMHTTPRequestManager.m */,
 				628E20F31C44A62A0026CD1A /* YMHttpParameterFactory.h */,
 				628E20F41C44A62A0026CD1A /* YMHttpParameterFactory.m */,
 			);
@@ -1422,7 +1420,6 @@
 				6278FF081B1D4FC0000B77A0 /* YMThirdPlatformTool.h in Headers */,
 				62D2AAC21C3220C200A97384 /* WBHttpRequest+WeiboToken.h in Headers */,
 				627AEEF71C16AA870085349B /* SVIndefiniteAnimatedView.h in Headers */,
-				62A2E4ED1BCB887C00035C83 /* WeiboSDK.h in Headers */,
 				621C36311C29342C009911F1 /* AFSecurityPolicy.h in Headers */,
 				6278FF061B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.h in Headers */,
 				62B4B60F1B18478B00834DCF /* YMDebugging.h in Headers */,
@@ -1464,8 +1461,6 @@
 				620860CD1C1FF28400C6FBBD /* FLEXSystemLogTableViewCell.h in Headers */,
 				620860F61C1FF28400C6FBBD /* FLEXViewExplorerViewController.h in Headers */,
 				6208608C1C1FF28400C6FBBD /* FLEXArgumentInputView.h in Headers */,
-				62A2E4E71BCB887C00035C83 /* WBHttpRequest+WeiboUser.h in Headers */,
-				625D56991ADBAFD3007BCA33 /* AFURLSessionManager.h in Headers */,
 				620860FC1C1FF28400C6FBBD /* FLEXKeyboardShortcutManager.h in Headers */,
 				62C54F131B84516200004E80 /* UIButton+WebCache.h in Headers */,
 				620860A11C1FF28400C6FBBD /* FLEXManager.h in Headers */,
@@ -1478,7 +1473,6 @@
 				620861021C1FF28400C6FBBD /* FLEXRuntimeUtility.h in Headers */,
 				62D2AAC41C3220C200A97384 /* WBHttpRequest.h in Headers */,
 				622CE6301AE4EC90004D714B /* SSUUID.h in Headers */,
-				625D568F1ADBAFD3007BCA33 /* AFNetworkReachabilityManager.h in Headers */,
 				62D2AAC31C3220C200A97384 /* WBHttpRequest+WeiboUser.h in Headers */,
 				620860DB1C1FF28400C6FBBD /* FLEXNetworkTransactionTableViewCell.h in Headers */,
 				62D2AAC51C3220C200A97384 /* WBSDKBasicButton.h in Headers */,
@@ -1496,7 +1490,6 @@
 				620860801C1FF28400C6FBBD /* FLEXArgumentInputNotSupportedView.h in Headers */,
 				6242FCBE1B2FD78A007DD69C /* STWebPDecoder.h in Headers */,
 				62C54F021B84516200004E80 /* NSData+ImageContentType.h in Headers */,
-				6258F2261B04719000C0B785 /* APService.h in Headers */,
 				622CE6281AE4EC90004D714B /* SSMemoryInfo.h in Headers */,
 				620860BB1C1FF28400C6FBBD /* FLEXFileBrowserFileOperationController.h in Headers */,
 				621C36371C29342C009911F1 /* AFURLSessionManager.h in Headers */,
@@ -1522,6 +1515,7 @@
 				622CE61C1AE4EC90004D714B /* SSBatteryInfo.h in Headers */,
 				620860761C1FF28400C6FBBD /* FLEXArgumentInputColorView.h in Headers */,
 				6208610A1C1FF28400C6FBBD /* FLEXImagePreviewViewController.h in Headers */,
+				62DB9DC81C4DD15600624672 /* JPUSHService.h in Headers */,
 				622CE61A1AE4EC90004D714B /* SSApplicationInfo.h in Headers */,
 				622CE62C1AE4EC90004D714B /* SSProcessInfo.h in Headers */,
 				62C54F151B84516200004E80 /* UIImage+GIF.h in Headers */,
@@ -1542,8 +1536,6 @@
 				622CE6161AE4EC90004D714B /* SSAccelerometerInfo.h in Headers */,
 				622CE6221AE4EC90004D714B /* SSHardwareInfo.h in Headers */,
 				620860C51C1FF28400C6FBBD /* FLEXLibrariesTableViewController.h in Headers */,
-				62A2E4E61BCB887C00035C83 /* WBHttpRequest+WeiboToken.h in Headers */,
-				625D568C1ADBAFD3007BCA33 /* AFHTTPSessionManager.h in Headers */,
 				620860A51C1FF28400C6FBBD /* FLEXWindow.h in Headers */,
 				6208609A1C1FF28400C6FBBD /* FLEXPropertyEditorViewController.h in Headers */,
 				620860B71C1FF28400C6FBBD /* FLEXClassesTableViewController.h in Headers */,
@@ -1714,7 +1706,6 @@
 				620861091C1FF28400C6FBBD /* FLEXHierarchyTableViewController.m in Sources */,
 				627904431ADBC7D000F84BFB /* YMImageDownloader.m in Sources */,
 				620860AB1C1FF28400C6FBBD /* FLEXMultiColumnTableView.m in Sources */,
-				625D56981ADBAFD3007BCA33 /* AFURLResponseSerialization.m in Sources */,
 				628E20F61C44A62A0026CD1A /* YMHttpParameterFactory.m in Sources */,
 				622CE62B1AE4EC90004D714B /* SSNetworkInfo.m in Sources */,
 				620860791C1FF28400C6FBBD /* FLEXArgumentInputDateView.m in Sources */,
