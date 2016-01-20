@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6226E8921C4E25E300B362DC /* YMFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6226E8911C4E25E300B362DC /* YMFramework.framework */; };
+		625525621C4F617D00E529A0 /* YMFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 625525611C4F617400E529A0 /* YMFramework.framework */; };
+		625525631C4F617D00E529A0 /* YMFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 625525611C4F617400E529A0 /* YMFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		627AEF031C16C3600085349B /* YMProgress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 627AEF021C16C3600085349B /* YMProgress.bundle */; };
 		628A6B801C04127C00ECEEFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B7F1C04127C00ECEEFD /* main.m */; };
 		628A6B831C04127C00ECEEFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B821C04127C00ECEEFD /* AppDelegate.m */; };
@@ -20,22 +21,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6226E89B1C4E274100B362DC /* PBXContainerItemProxy */ = {
+		625525601C4F617400E529A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6226E8961C4E274100B362DC /* YMFramework.xcodeproj */;
+			containerPortal = 6255255B1C4F617400E529A0 /* YMFramework.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6215970B1ADB5875003CACA7;
+			remoteInfo = YMFramework;
+		};
+		625525641C4F617D00E529A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6255255B1C4F617400E529A0 /* YMFramework.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6215970A1ADB5875003CACA7;
 			remoteInfo = YMFramework;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		62560AE71C48A62D000D352F /* Embed Frameworks */ = {
+		62A198971C4F3E3E00A66C82 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				625525631C4F617D00E529A0 /* YMFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,8 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6226E8911C4E25E300B362DC /* YMFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YMFramework.framework; path = /Users/Tristen/Development/YMFramework/example/ExampleForYMFramework/ExampleForYMFramework/YMFramework/YMFramework.framework; sourceTree = "<absolute>"; };
-		6226E8961C4E274100B362DC /* YMFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YMFramework.xcodeproj; path = ../../../../src/YMFramework.xcodeproj; sourceTree = "<group>"; };
+		6255255B1C4F617400E529A0 /* YMFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YMFramework.xcodeproj; path = ../../../../src/YMFramework.xcodeproj; sourceTree = "<group>"; };
 		627AEF021C16C3600085349B /* YMProgress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YMProgress.bundle; sourceTree = "<group>"; };
 		628A6B7B1C04127C00ECEEFD /* ExampleForYMFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleForYMFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628A6B7F1C04127C00ECEEFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,17 +76,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6226E8921C4E25E300B362DC /* YMFramework.framework in Frameworks */,
+				625525621C4F617D00E529A0 /* YMFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6226E8971C4E274100B362DC /* Products */ = {
+		6255255C1C4F617400E529A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6226E89C1C4E274100B362DC /* YMFramework.framework */,
+				625525611C4F617400E529A0 /* YMFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,7 +147,7 @@
 		628A6BA31C0412FD00ECEEFD /* YMFramework */ = {
 			isa = PBXGroup;
 			children = (
-				6226E8961C4E274100B362DC /* YMFramework.xcodeproj */,
+				6255255B1C4F617400E529A0 /* YMFramework.xcodeproj */,
 				628F1CE71C4CEA7800FBDE6C /* WeiboSDK.bundle */,
 				627AEF021C16C3600085349B /* YMProgress.bundle */,
 				628A6BA41C0412FD00ECEEFD /* PushConfig.plist */,
@@ -165,11 +173,12 @@
 				628A6B771C04127C00ECEEFD /* Sources */,
 				628A6B791C04127C00ECEEFD /* Resources */,
 				628A6B781C04127C00ECEEFD /* Frameworks */,
-				62560AE71C48A62D000D352F /* Embed Frameworks */,
+				62A198971C4F3E3E00A66C82 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				625525651C4F617D00E529A0 /* PBXTargetDependency */,
 			);
 			name = ExampleForYMFramework;
 			productName = ExampleForYMFramework;
@@ -204,8 +213,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 6226E8971C4E274100B362DC /* Products */;
-					ProjectRef = 6226E8961C4E274100B362DC /* YMFramework.xcodeproj */;
+					ProductGroup = 6255255C1C4F617400E529A0 /* Products */;
+					ProjectRef = 6255255B1C4F617400E529A0 /* YMFramework.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -216,11 +225,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		6226E89C1C4E274100B362DC /* YMFramework.framework */ = {
+		625525611C4F617400E529A0 /* YMFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = YMFramework.framework;
-			remoteRef = 6226E89B1C4E274100B362DC /* PBXContainerItemProxy */;
+			remoteRef = 625525601C4F617400E529A0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -253,6 +262,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		625525651C4F617D00E529A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YMFramework;
+			targetProxy = 625525641C4F617D00E529A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		628A6B8C1C04127C00ECEEFD /* LaunchScreen.storyboard */ = {
