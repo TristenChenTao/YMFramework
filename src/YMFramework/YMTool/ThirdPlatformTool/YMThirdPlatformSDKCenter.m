@@ -769,14 +769,13 @@ YM_MacrosSingletonImplemantion
     if (resp.statusCode == WeiboSDKResponseStatusCodeSuccess) {
         [self getWBUserInfo:resp];
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeUserCancel) {
-        
         //处理在分享时未登录的情况
         if (self.shareWeiboCancel) {
             self.shareWeiboCancel(self.wbEntity);
             
             self.shareWeiboSuccess = nil;
+            self.shareWeiboFailure = nil;
             self.shareWeiboCancel = nil;
-            self.wbLoginFailure = nil;
         }
         else if(self.wbLoginCancel)
         {
@@ -827,8 +826,8 @@ YM_MacrosSingletonImplemantion
     }
     
     self.shareWeiboSuccess = nil;
+    self.shareWeiboFailure = nil;
     self.shareWeiboCancel = nil;
-    self.wbLoginFailure = nil;
 }
                 
 @end
