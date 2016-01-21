@@ -769,7 +769,11 @@ YM_MacrosSingletonImplemantion
     if (resp.statusCode == WeiboSDKResponseStatusCodeSuccess) {
         [self getWBUserInfo:resp];
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeUserCancel) {
-        if (self.wbLoginCancel) {
+        if (self.shareWeiboCancel) {
+            self.shareWeiboCancel(self.wbEntity);
+        }
+        else if(self.wbLoginCancel)
+        {
             self.wbLoginCancel();
         }
     } else if (resp.statusCode == WeiboSDKResponseStatusCodeAuthDeny) {
