@@ -18,13 +18,13 @@
     switch (level) {
         case 1:
             if(kYm_iPhone6Plus_standard) {
-                size = 23;
+                size = 20;
             }
             else if (kYm_iPhone6Plus_zoomed) {
-                size = 22;
+                size = 20;
             }
             else if(kYm_iPhone6_standard) {
-                size = 20;
+                size = 18;
             }
             else {
                 size = 18;
@@ -32,13 +32,13 @@
             break;
         case 2:
             if(kYm_iPhone6Plus_standard) {
-                size = 21;
+                size = 18;
             }
             else if (kYm_iPhone6Plus_zoomed) {
-                size = 20;
+                size = 18;
             }
             else if(kYm_iPhone6_standard) {
-                size = 18;
+                size = 16;
             }
             else {
                 size = 16;
@@ -46,13 +46,13 @@
             break;
         case 3:
             if(kYm_iPhone6Plus_standard) {
-                size = 19;
+                size = 15.3;
             }
             else if (kYm_iPhone6Plus_zoomed) {
-                size = 18;
+                size = 15.3;
             }
             else if(kYm_iPhone6_standard) {
-                size = 16;
+                size = 14;
             }
             else {
                 size = 14;
@@ -60,13 +60,13 @@
             break;
         case 4:
             if(kYm_iPhone6Plus_standard) {
-                size = 16;
+                size = 13.3;
             }
             else if (kYm_iPhone6Plus_zoomed) {
-                size = 15;
+                size = 13.3;
             }
             else if(kYm_iPhone6_standard) {
-                size = 14;
+                size = 12;
             }
             else {
                 size = 12;
@@ -74,20 +74,31 @@
             break;
         case 5:
             if(kYm_iPhone6Plus_standard) {
-                size = 14;
+                size = 11;
             }
             else if (kYm_iPhone6Plus_zoomed) {
-                size = 13;
+                size = 11;
             }
             else if(kYm_iPhone6_standard) {
-                size = 12;
+                size = 10;
             }
             else {
                 size = 10;
             }
             break;
         case 6:
-            size = 10;
+            if(kYm_iPhone6Plus_standard) {
+                size = 11;
+            }
+            else if (kYm_iPhone6Plus_zoomed) {
+                size = 11;
+            }
+            else if(kYm_iPhone6_standard) {
+                size = 10;
+            }
+            else {
+                size = 10;
+            }
             break;
         default:
             size = 10;
