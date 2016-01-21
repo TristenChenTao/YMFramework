@@ -200,6 +200,14 @@ YM_MacrosSingletonImplemantion
         case YMThirdPlatformShareForQQFriend:
         case YMThirdPlatformShareForQQZone:
         {
+            if (![TencentOAuth iphoneQQInstalled]) {
+                NSError *error = [NSError errorWithDomain:@"domain"
+                                                     code:YMThirdPlatformErrorStateShareAppNotInstall
+                                                 userInfo:nil];
+                failure(shareEntity ,error);
+                return;
+            }
+            
             NSURL *imageURL = [NSURL URLWithString:shareEntity.imageURL];
             NSURL* url = [NSURL URLWithString:shareEntity.resourceURL];
             
@@ -253,6 +261,8 @@ YM_MacrosSingletonImplemantion
                                                      code:YMThirdPlatformErrorStateShareAppNotInstall
                                                  userInfo:nil];
                 failure(shareEntity ,error);
+                
+                return;
             }
             
             NSURL *imageURL = [NSURL URLWithString:shareEntity.imageURL];
