@@ -57,4 +57,11 @@
  */
 - (BOOL)ym_isAppStoreURL;
 
+/**
+ *  判断是否是包含表情
+ *
+ *  @return
+ */
+- (BOOL)ym_isContainsEmoji;
+
 @end
