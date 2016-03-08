@@ -271,10 +271,21 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
         
         NSBundle *imageBundle = [NSBundle bundleWithURL:url];
         
-        UIImage* infoImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"info" ofType:@"png"]];
-        UIImage* successImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"success" ofType:@"png"]];
-        UIImage* errorImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error" ofType:@"png"]];
+        UIImage* infoImage = nil;
+        UIImage* successImage = nil;
+        UIImage* errorImage = nil;
 
+        if (kYm_iPhone6Plus) {
+            infoImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"info@3x" ofType:@"png"]];
+            successImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"success@3x" ofType:@"png"]];
+            errorImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error@3x" ofType:@"png"]];
+        }
+        else {
+            infoImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"info@2x" ofType:@"png"]];
+            successImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"success@2x" ofType:@"png"]];
+            errorImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error@2x" ofType:@"png"]];
+        }
+        
         if ([[UIImage class] instancesRespondToSelector:@selector(imageWithRenderingMode:)]) {
             SVProgressHUDInfoImage = [infoImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             SVProgressHUDSuccessImage = [successImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];

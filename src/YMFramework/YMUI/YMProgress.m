@@ -41,9 +41,16 @@ static UIImage *kFailTypeForLocation;
                           withExtension:@"bundle"];
     NSBundle *imageBundle = [NSBundle bundleWithURL:url];
     
-    kFailTypeForNormal = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error" ofType:@"png"]];
-    kFailTypeForNotReachable = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"failTypeForNotReachable" ofType:@"png"]];
-    kFailTypeForLocation = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"failTypeForLocation" ofType:@"png"]];
+    if (kYm_iPhone6Plus) {
+        kFailTypeForNormal = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error@3x" ofType:@"png"]];
+        kFailTypeForNotReachable = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"failTypeForNotReachable@3x" ofType:@"png"]];
+        kFailTypeForLocation = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"failTypeForLocation@3x" ofType:@"png"]];
+    }
+    else {
+        kFailTypeForNormal = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error@2x" ofType:@"png"]];
+        kFailTypeForNotReachable = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"failTypeForNotReachable@2x" ofType:@"png"]];
+        kFailTypeForLocation = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"failTypeForLocation@2x" ofType:@"png"]];
+    }
 }
 
 + (void)showWithStatus:(NSString *)status
