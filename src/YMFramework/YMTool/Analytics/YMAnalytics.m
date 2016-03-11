@@ -48,6 +48,8 @@ static double  kCurrentUTCTime;
 
 static BOOL  kDebugMode;
 
+static BOOL kIsRequestingReport = NO;
+
 static NSString  *kCurrentSessionId;
 
 static NSInteger kSendInterval = 60;
@@ -244,9 +246,18 @@ static dispatch_source_t KTimerSource;
         return;
     }
     
+    if (kIsRequestingReport) {
+        return;
+    }
+    
+    kIsRequestingReport = YES;
+    
+    
+    __block NSArray *reportArray = [actions copy];
+
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (YMAnalyticsModel *model in actions) {
+    for (YMAnalyticsModel *model in reportArray) {
         NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
         [temp setValue:model.actionId forKey:@"actionid"];
         [temp setValue:model.actionTimestamp forKey:@"time"];
@@ -274,12 +285,14 @@ static dispatch_source_t KTimerSource;
                           timeout:5
                          progress:nil
                           success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
-                              [actions removeAllObjects];
+                              [actions removeObjectsInArray:reportArray];
+                              kIsRequestingReport = NO;
                           }
                           failure:^(NSURLSessionDataTask *task, NSError *error) {
                               if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
                                   [self saveActionsIfEnterBackgroundReportFail];
                               }
+                              kIsRequestingReport = NO;
                           }];
 }
 
