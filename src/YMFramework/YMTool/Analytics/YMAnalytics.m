@@ -140,7 +140,8 @@ static dispatch_source_t KTimerSource;
 {
     YM_BgTaskBegin();
     [self requestReportActions:kAnalyticsModelArray
-                     sessionId:kCurrentSessionId];
+                     sessionId:kCurrentSessionId
+                  inBackground:YES];
     YM_BgTaskEnd();
     
     [self stopTimer];
@@ -199,12 +200,17 @@ static dispatch_source_t KTimerSource;
             [self requestReportActions:actions
                              sessionId:sessionId];
         }
-        [[NSUserDefaults standardUserDefaults] setObject:nil
-                                                  forKey:KAnalyticsModelArrayKey];
-        [[NSUserDefaults standardUserDefaults] setObject:nil
-                                                  forKey:KSessionIDKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        [YMAnalytics cleanDiskData];
     }
+}
+
++ (void)cleanDiskData
+{
+    [[NSUserDefaults standardUserDefaults] setObject:nil
+                                              forKey:KAnalyticsModelArrayKey];
+    [[NSUserDefaults standardUserDefaults] setObject:nil
+                                              forKey:KSessionIDKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (void)requestInitInfo
@@ -242,6 +248,18 @@ static dispatch_source_t KTimerSource;
 + (void)requestReportActions:(NSMutableArray *)actions
                    sessionId:(NSString *)sessionId
 {
+    [YMAnalytics requestReportActions:actions sessionId:sessionId inBackground:NO];
+}
+
++ (void)requestReportActions:(NSMutableArray *)actions
+                   sessionId:(NSString *)sessionId
+                inBackground:(BOOL)inBackground
+{
+    
+    if (inBackground) {
+        [self saveActionsIfEnterBackground];
+    }
+    
     if (actions == nil || actions.count == 0 || [NSString ym_isEmptyString:sessionId]) {
         return;
     }
@@ -287,16 +305,17 @@ static dispatch_source_t KTimerSource;
                           success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
                               [actions removeObjectsInArray:reportArray];
                               kIsRequestingReport = NO;
+                              
+                              if (inBackground) {
+                                  [YMAnalytics cleanDiskData];
+                              }
                           }
                           failure:^(NSURLSessionDataTask *task, NSError *error) {
-                              if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
-                                  [self saveActionsIfEnterBackgroundReportFail];
-                              }
                               kIsRequestingReport = NO;
                           }];
 }
 
-+ (void)saveActionsIfEnterBackgroundReportFail
++ (void)saveActionsIfEnterBackground
 {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:kAnalyticsModelArray];
     [[NSUserDefaults standardUserDefaults] setObject:kCurrentSessionId
