@@ -15,7 +15,6 @@
 		628A6B861C04127C00ECEEFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B851C04127C00ECEEFD /* ViewController.m */; };
 		628A6B8B1C04127C00ECEEFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 628A6B8A1C04127C00ECEEFD /* Assets.xcassets */; };
 		628A6B8E1C04127C00ECEEFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 628A6B8C1C04127C00ECEEFD /* LaunchScreen.storyboard */; };
-		628A6BAD1C0412FD00ECEEFD /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 628A6BA41C0412FD00ECEEFD /* PushConfig.plist */; };
 		628F1CE81C4CEA7800FBDE6C /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 628F1CE71C4CEA7800FBDE6C /* WeiboSDK.bundle */; };
 		62D2AAD51C32334100A97384 /* TestThreePlatformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */; };
 /* End PBXBuildFile section */
@@ -65,7 +64,6 @@
 		628A6B8F1C04127C00ECEEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		628A6B981C04127C00ECEEFD /* ExampleForYMFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleForYMFrameworkTests.m; sourceTree = "<group>"; };
 		628A6B9A1C04127C00ECEEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		628A6BA41C0412FD00ECEEFD /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		628F1CE71C4CEA7800FBDE6C /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		62D2AAD31C32334100A97384 /* TestThreePlatformViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestThreePlatformViewController.h; sourceTree = "<group>"; };
 		62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestThreePlatformViewController.m; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 				6255255B1C4F617400E529A0 /* YMFramework.xcodeproj */,
 				628F1CE71C4CEA7800FBDE6C /* WeiboSDK.bundle */,
 				627AEF021C16C3600085349B /* YMProgress.bundle */,
-				628A6BA41C0412FD00ECEEFD /* PushConfig.plist */,
 			);
 			path = YMFramework;
 			sourceTree = "<group>";
@@ -240,7 +237,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				627AEF031C16C3600085349B /* YMProgress.bundle in Resources */,
-				628A6BAD1C0412FD00ECEEFD /* PushConfig.plist in Resources */,
 				628F1CE81C4CEA7800FBDE6C /* WeiboSDK.bundle in Resources */,
 				628A6B8E1C04127C00ECEEFD /* LaunchScreen.storyboard in Resources */,
 				628A6B8B1C04127C00ECEEFD /* Assets.xcassets in Resources */,
