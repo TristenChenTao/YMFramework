@@ -49,6 +49,7 @@ static NSString * const kProductChannel = @"1";
 {
     [super motionEnded:motion
              withEvent:event];
+    [YMDebugging setNetworkDebuggingEnabled:YES];
     [YMDebugging showExplorer];
     
     static BOOL kFirstShow = YES;
