@@ -29,12 +29,12 @@ static NSString * const kProductChannel = @"1";
                                                  version:kProductVersion
                                                  channel:kProductChannel];
     
-//    [self testHttpRequest];
+    [self testHttpRequest];
     
 //    [self testUIImageViewDownloadImage];
 //    [self testUIButtonDownloadImage];
 //    [self testFetchWebViewTitle];
-    [self testWebp];
+//    [self testWebp];
 //    [self testWebpForWebView];
 //    [self testYMProgress];
 //    [self testBackgroundTask];
@@ -73,7 +73,7 @@ static NSString * const kProductChannel = @"1";
                                                              }
                                                               success:^(NSURLSessionDataTask *task, YMHTTPResponseData *responseData) {
                                                                   NSLog(@"%@",responseData.ResultMessage);
-                                                                  NSLog(@"request URL is %@",task.currentRequest.URL.absoluteString);
+                                                                  NSLog(@"request URL is %@",responseData.data);
                                                               }
                                                               failure:^(NSURLSessionDataTask *task, NSError *error) {
                                                                   NSLog(@"error %@",error.localizedDescription);
