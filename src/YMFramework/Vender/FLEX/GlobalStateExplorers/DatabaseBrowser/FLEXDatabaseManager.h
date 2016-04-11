@@ -13,10 +13,10 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol FLEXDatabaseManager <NSObject>
+@interface FLEXDatabaseManager : NSObject
 
-@required
-- (instancetype)initWithPath:(NSString*)path;
+
+- (instancetype)initWithPath:(NSString*)aPath;
 
 - (BOOL)open;
 - (NSArray *)queryAllTables;

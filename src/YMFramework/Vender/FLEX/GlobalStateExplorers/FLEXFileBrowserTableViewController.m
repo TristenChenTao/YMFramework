@@ -190,7 +190,6 @@
 {
     NSString *fullPath = [self filePathAtIndexPath:indexPath];
     NSString *subpath = [fullPath lastPathComponent];
-    NSString *pathExtension = [subpath pathExtension];
     
     BOOL isDirectory = NO;
     BOOL stillExists = [[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDirectory];
@@ -198,27 +197,27 @@
         UIViewController *drillInViewController = nil;
         if (isDirectory) {
             drillInViewController = [[[self class] alloc] initWithPath:fullPath];
-        } else if ([FLEXUtility isImagePathExtension:pathExtension]) {
+        } else if ([FLEXUtility isImagePathExtension:[fullPath pathExtension]]) {
             UIImage *image = [UIImage imageWithContentsOfFile:fullPath];
             drillInViewController = [[FLEXImagePreviewViewController alloc] initWithImage:image];
         } else {
             // Special case keyed archives, json, and plists to get more readable data.
             NSString *prettyString = nil;
-            if ([pathExtension isEqual:@"archive"] || [pathExtension isEqual:@"coded"]) {
+            if ([[subpath pathExtension] isEqual:@"archive"]) {
                 prettyString = [[NSKeyedUnarchiver unarchiveObjectWithFile:fullPath] description];
-            } else if ([pathExtension isEqualToString:@"json"]) {
+            } else if ([[subpath pathExtension] isEqualToString:@"json"]) {
                 prettyString = [FLEXUtility prettyJSONStringFromData:[NSData dataWithContentsOfFile:fullPath]];
-            } else if ([pathExtension isEqualToString:@"plist"]) {
+            } else if ([[subpath pathExtension] isEqualToString:@"plist"]) {
                 NSData *fileData = [NSData dataWithContentsOfFile:fullPath];
                 prettyString = [[NSPropertyListSerialization propertyListWithData:fileData options:0 format:NULL error:NULL] description];
             }
             
             if ([prettyString length] > 0) {
                 drillInViewController = [[FLEXWebViewController alloc] initWithText:prettyString];
-            } else if ([FLEXWebViewController supportsPathExtension:pathExtension]) {
+            } else if ([FLEXWebViewController supportsPathExtension:[subpath pathExtension]]) {
                 drillInViewController = [[FLEXWebViewController alloc] initWithURL:[NSURL fileURLWithPath:fullPath]];
-            } else if ([FLEXTableListViewController supportsExtension:subpath.pathExtension]) {
-                drillInViewController = [[FLEXTableListViewController alloc] initWithPath:fullPath];
+            } else if ([[subpath pathExtension] isEqualToString:@"db"]) {
+              drillInViewController = [[FLEXTableListViewController alloc] initWithPath:fullPath];
             }
             else {
                 NSString *fileString = [NSString stringWithContentsOfFile:fullPath encoding:NSUTF8StringEncoding error:NULL];

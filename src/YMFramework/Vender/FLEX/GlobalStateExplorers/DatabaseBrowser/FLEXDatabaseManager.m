@@ -6,17 +6,21 @@
 //  Copyright © 2015年 Peng Tao. All rights reserved.
 //
 
-#import "FLEXSQLiteDatabaseManager.h"
+
+
+#import "FLEXDatabaseManager.h"
 #import <sqlite3.h>
 
 
 static NSString *const QUERY_TABLENAMES_SQL = @"SELECT name FROM sqlite_master WHERE type='table' ORDER BY name";
 
-@implementation FLEXSQLiteDatabaseManager
+
+@implementation FLEXDatabaseManager
 {
     sqlite3* _db;
     NSString* _databasePath;
 }
+
 
 - (instancetype)initWithPath:(NSString*)aPath
 {
@@ -27,6 +31,7 @@ static NSString *const QUERY_TABLENAMES_SQL = @"SELECT name FROM sqlite_master W
     }
     return self;
 }
+
 
 - (BOOL)open {
     if (_db) {
