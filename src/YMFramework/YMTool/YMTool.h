@@ -83,3 +83,13 @@ dispatch_block_t block = ^{ \
 }; \
 dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block); \
 }
+
+///---------------------------------------------------------------------------------
+/// @name Dev AlertView Macros
+///---------------------------------------------------------------------------------
+
+#ifdef DEBUG
+    #define YM_AlertMessage(msg) [[[UIAlertView alloc] initWithTitle:@"警告" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show]
+#else
+    #define YM_AlertMessage(msg)
+#endif
