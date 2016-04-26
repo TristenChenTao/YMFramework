@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef BOOL(^YMWebViewShouldStartHandler)(UIWebView *webView, UIViewController *containerVC, NSURLRequest *request, UIWebViewNavigationType navigationType);
+
 @protocol YMWebViewDelegate <NSObject>
 
 @optional
@@ -36,7 +38,16 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 
 @interface YMWebView : UIWebView
 
-@property (nonatomic, weak) id <YMWebViewDelegate>	ym_Delegate;
+@property (nonatomic, weak) id <YMWebViewDelegate> ym_Delegate;
+
+- (instancetype)initWithContainerVC:(UIViewController *)viewController;
+
+/**
+ *  加载全局URL链接处理器
+ *
+ *  @param handler
+ */
++(void)loadGlobalShouldStartHandler:(YMWebViewShouldStartHandler)handler;
 
 @end
 

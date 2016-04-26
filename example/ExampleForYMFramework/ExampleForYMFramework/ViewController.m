@@ -245,34 +245,32 @@ YMWebViewDelegate
 
 - (void)testYMWebView
 {
-    YMWebView *webView = [[YMWebView alloc] initWithFrame:self.view.bounds];
+    YMWebView *webView = [[YMWebView alloc] initWithContainerVC:self];
+    webView.frame = self.view.bounds;
     [self.view addSubview:webView];
     webView.ym_Delegate = self;
+    
+    self.navigationItem.title = @"首页";
     
     NSMutableURLRequest *request = [YMHTTPManager requestWithMethodType:YMHttpRequestTypeForGet
                                                              URLAddress:@"http://www.xinhuanet.com/"
                                                                 timeout:10
                                                              parameters:nil];
     [webView loadRequest:request];
-}
-
-#pragma mark - YMWebViewDelegate
-
-- (BOOL)webView:(UIWebView *)webView
-shouldStartLoadWithRequest:(NSURLRequest *)request
- navigationType:(UIWebViewNavigationType)navigationType
-{
-    NSString *url = request.URL.absoluteString;
-    NSLog(@"url is %@",url);
-    NSLog(@"navigationType is %ld",navigationType);
     
-    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
-        BaseWebVC *webVC = [[BaseWebVC alloc] initWithRequest:request];
-        [self.navigationController pushViewController:webVC animated:YES];
-        return NO;
-    }
-    
-    return YES;
+    [YMWebView loadGlobalShouldStartHandler:^BOOL(UIWebView *webView, UIViewController *containerVC, NSURLRequest *request, UIWebViewNavigationType navigationType) {
+        NSString *url = request.URL.absoluteString;
+        NSLog(@"url is %@",url);
+        NSLog(@"navigationType is %ld",navigationType);
+        
+        if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+            BaseWebVC *webVC = [[BaseWebVC alloc] initWithRequest:request];
+            [containerVC.navigationController pushViewController:webVC animated:YES];
+            return NO;
+        }
+        
+        return YES;
+    }];
 }
 
 @end

@@ -19,22 +19,27 @@ UIActionSheetDelegate,
 UIGestureRecognizerDelegate
 >
 
-@property (nonatomic, copy  ) NSString *savedImageURL;
-@property (nonatomic, assign) BOOL     savingImage;
+@property (nonatomic, assign) BOOL             savingImage;
+@property (nonatomic, copy  ) NSString         *savedImageURL;
+@property (nonatomic, weak  ) UIViewController *containerVC;
 
 @end
 
 @implementation YMWebView
 
+static YMWebViewShouldStartHandler kHandler;
+
 #pragma mark - public methods
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithContainerVC:(UIViewController *)viewController
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
         self.delegate = self;
         self.allowsInlineMediaPlayback = YES;
         self.backgroundColor = [UIColor whiteColor];
+        
+        self.containerVC = viewController;
         
         //移除webview上下边缘的黑色阴影
         UIScrollView  *scrollView = [self.subviews objectAtIndex:0];
@@ -50,6 +55,11 @@ UIGestureRecognizerDelegate
         [self addLongPressRecognizer];
     }
     return self;
+}
+
++(void)loadGlobalShouldStartHandler:(YMWebViewShouldStartHandler)handler
+{
+    kHandler = handler;
 }
 
 #pragma mark - private methods
@@ -72,8 +82,6 @@ UIGestureRecognizerDelegate
     
     return NO;
 }
-
-
 
 #pragma mark UIWebViewDelegate
 
@@ -108,6 +116,10 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     }
     
     if (_savingImage) {
+        return NO;
+    }
+    
+    if (kHandler(webView, _containerVC, request, navigationType) == NO) {
         return NO;
     }
     
