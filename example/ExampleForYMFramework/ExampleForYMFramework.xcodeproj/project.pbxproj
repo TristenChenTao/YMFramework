@@ -17,6 +17,7 @@
 		628A6B8E1C04127C00ECEEFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 628A6B8C1C04127C00ECEEFD /* LaunchScreen.storyboard */; };
 		628F1CE81C4CEA7800FBDE6C /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 628F1CE71C4CEA7800FBDE6C /* WeiboSDK.bundle */; };
 		62D2AAD51C32334100A97384 /* TestThreePlatformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */; };
+		C1CF9F0D1CCF3886001DD236 /* BaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CF9F0C1CCF3886001DD236 /* BaseWebVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		628F1CE71C4CEA7800FBDE6C /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		62D2AAD31C32334100A97384 /* TestThreePlatformViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestThreePlatformViewController.h; sourceTree = "<group>"; };
 		62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestThreePlatformViewController.m; sourceTree = "<group>"; };
+		C1CF9F0B1CCF3886001DD236 /* BaseWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebVC.h; sourceTree = "<group>"; };
+		C1CF9F0C1CCF3886001DD236 /* BaseWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				628A6B851C04127C00ECEEFD /* ViewController.m */,
 				62D2AAD31C32334100A97384 /* TestThreePlatformViewController.h */,
 				62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */,
+				C1CF9F0B1CCF3886001DD236 /* BaseWebVC.h */,
+				C1CF9F0C1CCF3886001DD236 /* BaseWebVC.m */,
 				628A6B8A1C04127C00ECEEFD /* Assets.xcassets */,
 				628A6B8C1C04127C00ECEEFD /* LaunchScreen.storyboard */,
 				628A6B8F1C04127C00ECEEFD /* Info.plist */,
@@ -254,6 +259,7 @@
 				628A6B861C04127C00ECEEFD /* ViewController.m in Sources */,
 				628A6B831C04127C00ECEEFD /* AppDelegate.m in Sources */,
 				628A6B801C04127C00ECEEFD /* main.m in Sources */,
+				C1CF9F0D1CCF3886001DD236 /* BaseWebVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

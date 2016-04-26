@@ -64,4 +64,11 @@
  */
 - (BOOL)ym_isContainsEmoji;
 
+/**
+ *  生成MD5
+ *
+ *  @return
+ */
+- (NSString *)ym_MD5;
+
 @end

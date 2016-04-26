@@ -194,6 +194,8 @@
 		C15141DF1CBB760900694EA5 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C15141BE1CBB760900694EA5 /* UIImageView+WebCache.m */; };
 		C15141E01CBB760900694EA5 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = C15141BF1CBB760900694EA5 /* UIView+WebCacheOperation.h */; };
 		C15141E11CBB760900694EA5 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C15141C01CBB760900694EA5 /* UIView+WebCacheOperation.m */; };
+		C17FBE421CCF0FF300A94598 /* YMWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = C17FBE401CCF0FF300A94598 /* YMWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C17FBE431CCF0FF300A94598 /* YMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C17FBE411CCF0FF300A94598 /* YMWebView.m */; };
 		C1C62A531CBB4CEF00E4587F /* FLEXArgumentInputColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = C1C629AE1CBB4CEF00E4587F /* FLEXArgumentInputColorView.h */; };
 		C1C62A541CBB4CEF00E4587F /* FLEXArgumentInputColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C629AF1CBB4CEF00E4587F /* FLEXArgumentInputColorView.m */; };
 		C1C62A551CBB4CEF00E4587F /* FLEXArgumentInputDateView.h in Headers */ = {isa = PBXBuildFile; fileRef = C1C629B01CBB4CEF00E4587F /* FLEXArgumentInputDateView.h */; };
@@ -554,6 +556,8 @@
 		C15141BE1CBB760900694EA5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		C15141BF1CBB760900694EA5 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		C15141C01CBB760900694EA5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		C17FBE401CCF0FF300A94598 /* YMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMWebView.h; sourceTree = "<group>"; };
+		C17FBE411CCF0FF300A94598 /* YMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMWebView.m; sourceTree = "<group>"; };
 		C1C629AE1CBB4CEF00E4587F /* FLEXArgumentInputColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputColorView.h; sourceTree = "<group>"; };
 		C1C629AF1CBB4CEF00E4587F /* FLEXArgumentInputColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXArgumentInputColorView.m; sourceTree = "<group>"; };
 		C1C629B01CBB4CEF00E4587F /* FLEXArgumentInputDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputDateView.h; sourceTree = "<group>"; };
@@ -1011,6 +1015,8 @@
 		62703E3E1B10490B005CA088 /* YMUI */ = {
 			isa = PBXGroup;
 			children = (
+				C17FBE401CCF0FF300A94598 /* YMWebView.h */,
+				C17FBE411CCF0FF300A94598 /* YMWebView.m */,
 				62703E3F1B10490B005CA088 /* UIView+YMFrameAdditions.h */,
 				62703E401B10490B005CA088 /* UIView+YMFrameAdditions.m */,
 				62703E411B10490B005CA088 /* UIView+YMLineViewAdditions.h */,
@@ -1449,6 +1455,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C17FBE421CCF0FF300A94598 /* YMWebView.h in Headers */,
 				C15141D41CBB760900694EA5 /* UIButton+WebCache.h in Headers */,
 				621C363B1C293A6F009911F1 /* YMHTTPResponseData.h in Headers */,
 				C1C62AFE1CBB4FBD00E4587F /* WBHttpRequest+WeiboToken.h in Headers */,
@@ -1830,6 +1837,7 @@
 				C1C62AA91CBB4CEF00E4587F /* FLEXSystemLogTableViewCell.m in Sources */,
 				C1C62ACE1CBB4CEF00E4587F /* FLEXObjectExplorerViewController.m in Sources */,
 				62EF081A1BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m in Sources */,
+				C17FBE431CCF0FF300A94598 /* YMWebView.m in Sources */,
 				C15141C21CBB760900694EA5 /* MKAnnotationView+WebCache.m in Sources */,
 				C1C62A6C1CBB4CEF00E4587F /* FLEXArgumentInputViewFactory.m in Sources */,
 				6242FCC61B2FD822007DD69C /* YMURLProtocol.m in Sources */,

@@ -8,12 +8,17 @@
 
 #import <YMFramework/YMFramework.h>
 #import "ViewController.h"
+#import "BaseWebVC.h"
 
 static NSString * const kProductID = @"10000";
 static NSString * const kProductVersion = @"1";
 static NSString * const kProductChannel = @"1";
 
-@interface ViewController ()<UIWebViewDelegate>
+@interface ViewController ()
+<
+UIWebViewDelegate,
+YMWebViewDelegate
+>
 
 @end
 
@@ -42,6 +47,8 @@ static NSString * const kProductChannel = @"1";
 //    [self testUploadImage];
 //    
 //    [self testUploadJSONData];
+    
+    [self testYMWebView];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion
@@ -234,6 +241,38 @@ static NSString * const kProductChannel = @"1";
                           failure:^(NSURLSessionDataTask *task, NSError *error) {
                               NSLog(@"error %@",error.localizedDescription);
                           }];
+}
+
+- (void)testYMWebView
+{
+    YMWebView *webView = [[YMWebView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:webView];
+    webView.ym_Delegate = self;
+    
+    NSMutableURLRequest *request = [YMHTTPManager requestWithMethodType:YMHttpRequestTypeForGet
+                                                             URLAddress:@"http://www.xinhuanet.com/"
+                                                                timeout:10
+                                                             parameters:nil];
+    [webView loadRequest:request];
+}
+
+#pragma mark - YMWebViewDelegate
+
+- (BOOL)webView:(UIWebView *)webView
+shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSString *url = request.URL.absoluteString;
+    NSLog(@"url is %@",url);
+    NSLog(@"navigationType is %ld",navigationType);
+    
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        BaseWebVC *webVC = [[BaseWebVC alloc] initWithRequest:request];
+        [self.navigationController pushViewController:webVC animated:YES];
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end
