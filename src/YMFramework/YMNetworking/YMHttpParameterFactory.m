@@ -19,7 +19,8 @@
     NSDictionary *productInfo = @{@"proID" : [YMFrameworkConfig sharedInstance].productID,
                                   @"edition" : [YMFrameworkConfig sharedInstance].productVersion,
                                   @"channel" : [YMFrameworkConfig sharedInstance].productChannel,
-                                  @"uid" : [YMFrameworkConfig sharedInstance].userID
+                                  @"uid" : [YMFrameworkConfig sharedInstance].userID,
+                                  @"osType" : @(1)
                                   };
     return productInfo;
 }
