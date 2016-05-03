@@ -7,6 +7,7 @@
 //
 
 #import "MJRefreshNormalHeader.h"
+#import "NSBundle+YMAdditions.h"
 
 @interface MJRefreshNormalHeader()
 {
@@ -20,7 +21,13 @@
 - (UIImageView *)arrowView
 {
     if (!_arrowView) {
-        UIImage *image = [UIImage imageNamed:MJRefreshSrcName(@"arrow.png")] ?: [UIImage imageNamed:MJRefreshFrameworkSrcName(@"arrow.png")];
+        //YM Code Review:修改Bundle路径
+        //UIImage *image = [UIImage imageNamed:MJRefreshSrcName(@"arrow.png")] ?: [UIImage imageNamed:MJRefreshFrameworkSrcName(@"arrow.png")];
+        NSBundle *bundle = [NSBundle bundleForClass:self.class];
+        UIImage *image = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"arrow@2x"
+                                                                              ofType:@"png"
+                                                                         inDirectory:@"/HeaderView"]];
+        
         UIImageView *arrowView = [[UIImageView alloc] initWithImage:image];
         [self addSubview:_arrowView = arrowView];
     }

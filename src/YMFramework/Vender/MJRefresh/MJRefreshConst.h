@@ -30,13 +30,8 @@
 #define MJRefreshLabelFont [UIFont boldSystemFontOfSize:14]
 
 // 图片路径
-
-//YM Code Review:修改Bundle路径
-//#define MJRefreshSrcName(file) [@"MJRefresh.bundle" stringByAppendingPathComponent:file]
-//#define MJRefreshFrameworkSrcName(file) [@"Frameworks/MJRefresh.framework/MJRefresh.bundle" stringByAppendingPathComponent:file]
-
-#define MJRefreshSrcName(file) [@"YMProgress.bundle" stringByAppendingPathComponent:file]
-#define MJRefreshFrameworkSrcName(file) [@"YMFramework.framework/YMProgress.bundle" stringByAppendingPathComponent:file]
+#define MJRefreshSrcName(file) [@"MJRefresh.bundle" stringByAppendingPathComponent:file]
+#define MJRefreshFrameworkSrcName(file) [@"Frameworks/MJRefresh.framework/MJRefresh.bundle" stringByAppendingPathComponent:file]
 
 // 常量
 UIKIT_EXTERN const CGFloat MJRefreshHeaderHeight;

@@ -154,7 +154,6 @@
 		62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */; };
 		62E433631AE5F89D005445B2 /* MobClick.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433601AE5F89D005445B2 /* MobClick.h */; };
 		62E433641AE5F89D005445B2 /* MobClickSocialAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */; };
-		62E8269D1C48C65200802F4B /* YMProgress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 62E8269B1C48C65200802F4B /* YMProgress.bundle */; };
 		62EF08171BF231F8009BB1BB /* NSDate+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62EF08181BF231F8009BB1BB /* NSDate+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */; };
 		62EF08191BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF08151BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -414,6 +413,9 @@
 		C1C62B1F1CBB55A700E4587F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C62B121CBB55A700E4587F /* AFURLResponseSerialization.m */; };
 		C1C62B201CBB55A700E4587F /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C1C62B131CBB55A700E4587F /* AFURLSessionManager.h */; };
 		C1C62B211CBB55A700E4587F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C62B141CBB55A700E4587F /* AFURLSessionManager.m */; };
+		C1EB59401CD8A9A300F47F51 /* YMFramework.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C1EB593F1CD8A9A300F47F51 /* YMFramework.bundle */; };
+		C1EB59431CD8AC8700F47F51 /* NSBundle+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C1EB59411CD8AC8700F47F51 /* NSBundle+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1EB59441CD8AC8700F47F51 /* NSBundle+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EB59421CD8AC8700F47F51 /* NSBundle+YMAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -554,7 +556,6 @@
 		62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		62E433601AE5F89D005445B2 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
-		62E8269B1C48C65200802F4B /* YMProgress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YMProgress.bundle; sourceTree = "<group>"; };
 		62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YMAdditions.h"; sourceTree = "<group>"; };
 		62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YMAdditions.m"; sourceTree = "<group>"; };
 		62EF08151BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YMAdditionsForNSDate.h"; sourceTree = "<group>"; };
@@ -814,6 +815,9 @@
 		C1C62B121CBB55A700E4587F /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		C1C62B131CBB55A700E4587F /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		C1C62B141CBB55A700E4587F /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		C1EB593F1CD8A9A300F47F51 /* YMFramework.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YMFramework.bundle; sourceTree = "<group>"; };
+		C1EB59411CD8AC8700F47F51 /* NSBundle+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+YMAdditions.h"; sourceTree = "<group>"; };
+		C1EB59421CD8AC8700F47F51 /* NSBundle+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+YMAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -869,7 +873,7 @@
 		6215970D1ADB5875003CACA7 /* YMFramework */ = {
 			isa = PBXGroup;
 			children = (
-				62E8269B1C48C65200802F4B /* YMProgress.bundle */,
+				C1EB593F1CD8A9A300F47F51 /* YMFramework.bundle */,
 				625D56711ADBAF52007BCA33 /* Vender */,
 				621597101ADB5875003CACA7 /* YMFramework.h */,
 				62703E2C1B10490B005CA088 /* YMTool */,
@@ -1085,6 +1089,8 @@
 				62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */,
 				62AE9F291BF470500036D0B9 /* UIApplication+YMAdditions.h */,
 				62AE9F2A1BF470500036D0B9 /* UIApplication+YMAdditions.m */,
+				C1EB59411CD8AC8700F47F51 /* NSBundle+YMAdditions.h */,
+				C1EB59421CD8AC8700F47F51 /* NSBundle+YMAdditions.m */,
 			);
 			path = YMTool;
 			sourceTree = "<group>";
@@ -1625,6 +1631,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EB59431CD8AC8700F47F51 /* NSBundle+YMAdditions.h in Headers */,
 				C17FBE421CCF0FF300A94598 /* YMWebView.h in Headers */,
 				C15141D41CBB760900694EA5 /* UIButton+WebCache.h in Headers */,
 				C1190EA41CD88F640004B260 /* MJRefreshBackGifFooter.h in Headers */,
@@ -1888,9 +1895,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62E8269D1C48C65200802F4B /* YMProgress.bundle in Resources */,
 				C1C62A911CBB4CEF00E4587F /* LICENSE in Resources */,
 				C1190EB01CD88F640004B260 /* MJRefresh.bundle in Resources */,
+				C1EB59401CD8A9A300F47F51 /* YMFramework.bundle in Resources */,
 				C1C62B031CBB4FBD00E4587F /* WeiboSDK.bundle in Resources */,
 				627FFA2C1C0463B50034AF9C /* YMFramework Vender Version.rtf in Resources */,
 				C1C62ABC1CBB4CEF00E4587F /* LICENSE in Resources */,
@@ -1944,6 +1951,7 @@
 				C1C62A541CBB4CEF00E4587F /* FLEXArgumentInputColorView.m in Sources */,
 				C1C62ABB1CBB4CEF00E4587F /* FLEXNetworkObserver.m in Sources */,
 				C15141C81CBB760900694EA5 /* SDWebImageCompat.m in Sources */,
+				C1EB59441CD8AC8700F47F51 /* NSBundle+YMAdditions.m in Sources */,
 				C1C62AEA1CBB4CEF00E4587F /* FLEXHierarchyTableViewController.m in Sources */,
 				622CE6271AE4EC90004D714B /* SSLocalizationInfo.m in Sources */,
 				627904431ADBC7D000F84BFB /* YMImageDownloader.m in Sources */,

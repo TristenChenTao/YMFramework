@@ -49,3 +49,4 @@ FOUNDATION_EXPORT const unsigned char YMFrameworkVersionString[];
 #import <YMFramework/YMProgress.h>
 #import <YMFramework/YMHttpParameterFactory.h>
 #import <YMFramework/YMWebView.h>
+#import <YMFramework/NSBundle+YMAdditions.h>

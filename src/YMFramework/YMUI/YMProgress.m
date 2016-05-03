@@ -12,6 +12,7 @@
 
 #import "UIColor+YMAdditions.h"
 #import "YMDeviceInfo.h"
+#import "NSBundle+YMAdditions.h"
 
 @implementation YMProgress
 
@@ -37,19 +38,32 @@ static UIImage *kFailTypeForLocation;
     }
     
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    NSURL *url = [bundle URLForResource:@"YMProgress"
-                          withExtension:@"bundle"];
-    NSBundle *imageBundle = [NSBundle bundleWithURL:url];
     
     if (kYm_iPhone6Plus) {
-        kFailTypeForNormal = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error@3x" ofType:@"png"]];
-        kFailTypeForNotReachable = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"failTypeForNotReachable@3x" ofType:@"png"]];
-        kFailTypeForLocation = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"failTypeForLocation@3x" ofType:@"png"]];
+        kFailTypeForNormal = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"error@3x"
+                                                                                    ofType:@"png"
+                                                                               inDirectory:@"/Progress"]];
+        
+        kFailTypeForNotReachable = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"failTypeForNotReachable@3x"
+                                                                                          ofType:@"png"
+                                                                                     inDirectory:@"/Progress"]];
+        
+        kFailTypeForLocation = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"failTypeForLocation@3x"
+                                                                                      ofType:@"png"
+                                                                                 inDirectory:@"/Progress"]];
     }
     else {
-        kFailTypeForNormal = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error@2x" ofType:@"png"]];
-        kFailTypeForNotReachable = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"failTypeForNotReachable@2x" ofType:@"png"]];
-        kFailTypeForLocation = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"failTypeForLocation@2x" ofType:@"png"]];
+        kFailTypeForNormal = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"error@2x"
+                                                                                    ofType:@"png"
+                                                                               inDirectory:@"/Progress"]];
+        
+        kFailTypeForNotReachable = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"failTypeForNotReachable@2x"
+                                                                                          ofType:@"png"
+                                                                                     inDirectory:@"/Progress"]];
+        
+        kFailTypeForLocation = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"failTypeForLocation@2x"
+                                                                                      ofType:@"png"
+                                                                                 inDirectory:@"/Progress"]];
     }
 }
 

@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		625525621C4F617D00E529A0 /* YMFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 625525611C4F617400E529A0 /* YMFramework.framework */; };
-		625525631C4F617D00E529A0 /* YMFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 625525611C4F617400E529A0 /* YMFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		627AEF031C16C3600085349B /* YMProgress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 627AEF021C16C3600085349B /* YMProgress.bundle */; };
 		628A6B801C04127C00ECEEFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B7F1C04127C00ECEEFD /* main.m */; };
 		628A6B831C04127C00ECEEFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B821C04127C00ECEEFD /* AppDelegate.m */; };
 		628A6B861C04127C00ECEEFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B851C04127C00ECEEFD /* ViewController.m */; };
@@ -18,19 +15,22 @@
 		628F1CE81C4CEA7800FBDE6C /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 628F1CE71C4CEA7800FBDE6C /* WeiboSDK.bundle */; };
 		62D2AAD51C32334100A97384 /* TestThreePlatformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */; };
 		C1CF9F0D1CCF3886001DD236 /* BaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CF9F0C1CCF3886001DD236 /* BaseWebVC.m */; };
+		C1EB59471CD8B34900F47F51 /* YMFramework.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C1EB59461CD8B34900F47F51 /* YMFramework.bundle */; };
+		C1EB594F1CD8B35F00F47F51 /* YMFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EB594E1CD8B35600F47F51 /* YMFramework.framework */; };
+		C1EB59501CD8B35F00F47F51 /* YMFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1EB594E1CD8B35600F47F51 /* YMFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		625525601C4F617400E529A0 /* PBXContainerItemProxy */ = {
+		C1EB594D1CD8B35600F47F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6255255B1C4F617400E529A0 /* YMFramework.xcodeproj */;
+			containerPortal = C1EB59481CD8B35600F47F51 /* YMFramework.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6215970B1ADB5875003CACA7;
 			remoteInfo = YMFramework;
 		};
-		625525641C4F617D00E529A0 /* PBXContainerItemProxy */ = {
+		C1EB59511CD8B35F00F47F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6255255B1C4F617400E529A0 /* YMFramework.xcodeproj */;
+			containerPortal = C1EB59481CD8B35600F47F51 /* YMFramework.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 6215970A1ADB5875003CACA7;
 			remoteInfo = YMFramework;
@@ -44,7 +44,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				625525631C4F617D00E529A0 /* YMFramework.framework in Embed Frameworks */,
+				C1EB59501CD8B35F00F47F51 /* YMFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,8 +52,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6255255B1C4F617400E529A0 /* YMFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YMFramework.xcodeproj; path = ../../../../src/YMFramework.xcodeproj; sourceTree = "<group>"; };
-		627AEF021C16C3600085349B /* YMProgress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YMProgress.bundle; sourceTree = "<group>"; };
 		628A6B7B1C04127C00ECEEFD /* ExampleForYMFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleForYMFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628A6B7F1C04127C00ECEEFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		628A6B811C04127C00ECEEFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,6 +68,8 @@
 		62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestThreePlatformViewController.m; sourceTree = "<group>"; };
 		C1CF9F0B1CCF3886001DD236 /* BaseWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebVC.h; sourceTree = "<group>"; };
 		C1CF9F0C1CCF3886001DD236 /* BaseWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebVC.m; sourceTree = "<group>"; };
+		C1EB59461CD8B34900F47F51 /* YMFramework.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YMFramework.bundle; sourceTree = "<group>"; };
+		C1EB59481CD8B35600F47F51 /* YMFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YMFramework.xcodeproj; path = ../../../../src/YMFramework.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,21 +77,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				625525621C4F617D00E529A0 /* YMFramework.framework in Frameworks */,
+				C1EB594F1CD8B35F00F47F51 /* YMFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6255255C1C4F617400E529A0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				625525611C4F617400E529A0 /* YMFramework.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		628A6B721C04127C00ECEEFD = {
 			isa = PBXGroup;
 			children = (
@@ -150,9 +142,9 @@
 		628A6BA31C0412FD00ECEEFD /* YMFramework */ = {
 			isa = PBXGroup;
 			children = (
-				6255255B1C4F617400E529A0 /* YMFramework.xcodeproj */,
+				C1EB59481CD8B35600F47F51 /* YMFramework.xcodeproj */,
+				C1EB59461CD8B34900F47F51 /* YMFramework.bundle */,
 				628F1CE71C4CEA7800FBDE6C /* WeiboSDK.bundle */,
-				627AEF021C16C3600085349B /* YMProgress.bundle */,
 			);
 			path = YMFramework;
 			sourceTree = "<group>";
@@ -163,6 +155,14 @@
 			);
 			name = Framework;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		C1EB59491CD8B35600F47F51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1EB594E1CD8B35600F47F51 /* YMFramework.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,7 +180,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				625525651C4F617D00E529A0 /* PBXTargetDependency */,
+				C1EB59521CD8B35F00F47F51 /* PBXTargetDependency */,
 			);
 			name = ExampleForYMFramework;
 			productName = ExampleForYMFramework;
@@ -215,8 +215,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 6255255C1C4F617400E529A0 /* Products */;
-					ProjectRef = 6255255B1C4F617400E529A0 /* YMFramework.xcodeproj */;
+					ProductGroup = C1EB59491CD8B35600F47F51 /* Products */;
+					ProjectRef = C1EB59481CD8B35600F47F51 /* YMFramework.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -227,11 +227,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		625525611C4F617400E529A0 /* YMFramework.framework */ = {
+		C1EB594E1CD8B35600F47F51 /* YMFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = YMFramework.framework;
-			remoteRef = 625525601C4F617400E529A0 /* PBXContainerItemProxy */;
+			remoteRef = C1EB594D1CD8B35600F47F51 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -241,9 +241,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				627AEF031C16C3600085349B /* YMProgress.bundle in Resources */,
 				628F1CE81C4CEA7800FBDE6C /* WeiboSDK.bundle in Resources */,
 				628A6B8E1C04127C00ECEEFD /* LaunchScreen.storyboard in Resources */,
+				C1EB59471CD8B34900F47F51 /* YMFramework.bundle in Resources */,
 				628A6B8B1C04127C00ECEEFD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,10 +266,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		625525651C4F617D00E529A0 /* PBXTargetDependency */ = {
+		C1EB59521CD8B35F00F47F51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = YMFramework;
-			targetProxy = 625525641C4F617D00E529A0 /* PBXContainerItemProxy */;
+			targetProxy = C1EB59511CD8B35F00F47F51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -387,7 +387,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = dev.com.cornapp.YMGoodLuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "606a991b-063e-464c-85e4-ff5563e48b07";
+				PROVISIONING_PROFILE = "611f4591-37ed-4abd-bf0e-29379f7c1fa6";
 			};
 			name = Debug;
 		};
@@ -409,7 +409,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = dev.com.cornapp.YMGoodLuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "606a991b-063e-464c-85e4-ff5563e48b07";
+				PROVISIONING_PROFILE = "611f4591-37ed-4abd-bf0e-29379f7c1fa6";
 			};
 			name = Release;
 		};

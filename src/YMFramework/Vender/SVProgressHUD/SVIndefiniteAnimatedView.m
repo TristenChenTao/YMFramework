@@ -8,6 +8,8 @@
 
 #import "SVIndefiniteAnimatedView.h"
 
+#import "NSBundle+YMAdditions.h"
+
 #pragma mark SVIndefiniteAnimatedView
 
 @interface SVIndefiniteAnimatedView ()
@@ -60,10 +62,10 @@
         NSBundle *bundle = [NSBundle bundleForClass:self.class];
         //YM Code Review:修改Bundle路径
 //        NSURL *url = [bundle URLForResource:@"SVProgressHUD" withExtension:@"bundle"];
-        NSURL *url = [bundle URLForResource:@"YMProgress" withExtension:@"bundle"];
-        
-        NSBundle *imageBundle = [NSBundle bundleWithURL:url];
-        NSString *path = [imageBundle pathForResource:@"angle-mask" ofType:@"png"];
+    
+        NSString *path = [bundle ym_pathForResource:@"angle-mask"
+                                             ofType:@"png"
+                                        inDirectory:@"/Progress"];
         
         maskLayer.contents = (id)[[UIImage imageWithContentsOfFile:path] CGImage];;
         maskLayer.frame = _indefiniteAnimatedLayer.bounds;

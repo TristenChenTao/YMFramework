@@ -41,7 +41,7 @@ YMWebViewDelegate
 //    [self testFetchWebViewTitle];
 //    [self testWebp];
 //    [self testWebpForWebView];
-//    [self testYMProgress];
+    [self testYMProgress];
 //    [self testBackgroundTask];
 //    
 //    [self testUploadImage];

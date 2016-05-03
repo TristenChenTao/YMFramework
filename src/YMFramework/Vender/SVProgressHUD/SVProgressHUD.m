@@ -15,6 +15,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "YMDeviceInfo.h"
+#import "NSBundle+YMAdditions.h"
 
 NSString * const SVProgressHUDDidReceiveTouchEventNotification = @"SVProgressHUDDidReceiveTouchEventNotification";
 NSString * const SVProgressHUDDidTouchDownInsideNotification = @"SVProgressHUDDidTouchDownInsideNotification";
@@ -267,23 +268,36 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
         NSBundle *bundle = [NSBundle bundleForClass:self.class];
         //YM Code Review:修改Bundle路径
 //                NSURL *url = [bundle URLForResource:@"SVProgressHUD" withExtension:@"bundle"];
-        NSURL *url = [bundle URLForResource:@"YMProgress" withExtension:@"bundle"];
-        
-        NSBundle *imageBundle = [NSBundle bundleWithURL:url];
         
         UIImage* infoImage = nil;
         UIImage* successImage = nil;
         UIImage* errorImage = nil;
 
         if (kYm_iPhone6Plus) {
-            infoImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"info@3x" ofType:@"png"]];
-            successImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"success@3x" ofType:@"png"]];
-            errorImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error@3x" ofType:@"png"]];
+            infoImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"info@3x"
+                                                                               ofType:@"png"
+                                                                          inDirectory:@"/Progress"]];
+            
+            successImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"success@3x"
+                                                                                  ofType:@"png"
+                                                                             inDirectory:@"/Progress"]];
+            
+            errorImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"error@3x"
+                                                                                ofType:@"png"
+                                                                           inDirectory:@"/Progress"]];
         }
         else {
-            infoImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"info@2x" ofType:@"png"]];
-            successImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"success@2x" ofType:@"png"]];
-            errorImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error@2x" ofType:@"png"]];
+            infoImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"info@2x"
+                                                                               ofType:@"png"
+                                                                          inDirectory:@"/Progress"]];
+            
+            successImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"success@2x"
+                                                                                  ofType:@"png"
+                                                                             inDirectory:@"/Progress"]];
+            
+            errorImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"error@2x"
+                                                                                ofType:@"png"
+                                                                           inDirectory:@"/Progress"]];
         }
         
         if ([[UIImage class] instancesRespondToSelector:@selector(imageWithRenderingMode:)]) {
