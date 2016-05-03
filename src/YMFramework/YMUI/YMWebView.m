@@ -12,6 +12,9 @@
 #import "YMUI.h"
 #import "UIView+YMFrameAdditions.h"
 #import "YMImageDownloader.h"
+#import "MJRefresh.h"
+#import "UIFont+YMFontSizeAdditions.h"
+#import "UIColor+YMAdditions.h"
 
 @interface YMWebView()
 <UIWebViewDelegate,
@@ -31,25 +34,25 @@ static YMWebViewShouldStartHandler kHandler;
 
 #pragma mark - public methods
 
++(void)loadGlobalShouldStartHandler:(YMWebViewShouldStartHandler)handler
+{
+    kHandler = handler;
+}
+
 - (instancetype)initWithContainerVC:(UIViewController *)viewController
 {
     self = [super init];
     if (self) {
-        self.delegate = self;
-        self.allowsInlineMediaPlayback = YES;
-        self.backgroundColor = [UIColor whiteColor];
         
-        self.containerVC = viewController;
+        __unsafe_unretained YMWebView *webView = self;
+        webView.delegate = self;
         
-        //移除webview上下边缘的黑色阴影
-        UIScrollView  *scrollView = [self.subviews objectAtIndex:0];
-        if (scrollView) {
-            for (UIView *v in [scrollView subviews]) {
-                if ([v isKindOfClass:[UIImageView class]]) {
-                    [v removeFromSuperview];
-                }
-            }
-        }
+        webView.allowsInlineMediaPlayback = YES;
+        webView.backgroundColor = [UIColor whiteColor];
+        webView.containerVC = viewController;
+        
+        // 添加下拉刷新控件
+        [self addHeader];
         
         //添加长按手势获取图片
         [self addLongPressRecognizer];
@@ -57,9 +60,34 @@ static YMWebViewShouldStartHandler kHandler;
     return self;
 }
 
-+(void)loadGlobalShouldStartHandler:(YMWebViewShouldStartHandler)handler
+- (void)loadRequest:(NSURLRequest *)request
 {
-    kHandler = handler;
+    [self.scrollView.mj_header beginRefreshing];
+    [super loadRequest:request];
+}
+
+- (void)addHeader
+{
+    __unsafe_unretained YMWebView *webView = self;
+    
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [webView reload];
+    }];
+    
+    header.automaticallyChangeAlpha = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
+    
+    // 设置文字
+//    [header setTitle:@"Pull down to refresh" forState:MJRefreshStateIdle];
+//    [header setTitle:@"Release to refresh" forState:MJRefreshStatePulling];
+//    [header setTitle:@"Loading ..." forState:MJRefreshStateRefreshing];
+    
+    // 设置字体
+    header.stateLabel.font = [UIFont ym_standFontOfLevel:3];
+    // 设置颜色
+    header.stateLabel.textColor = [UIColor ym_colorWithHexString:@"8995b0"];
+
+    self.scrollView.mj_header = header;
 }
 
 #pragma mark - private methods
@@ -94,6 +122,8 @@ static YMWebViewShouldStartHandler kHandler;
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    [webView.scrollView.mj_header endRefreshing];
+    
     if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webViewDidFinishLoad:)]) {
         [_ym_Delegate webViewDidFinishLoad:webView];
     }
@@ -101,6 +131,8 @@ static YMWebViewShouldStartHandler kHandler;
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
+    [webView.scrollView.mj_header endRefreshing];
+    
     if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:didFailLoadWithError:)]) {
         [_ym_Delegate webView:webView
              didFailLoadWithError:error];

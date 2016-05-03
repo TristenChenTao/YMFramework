@@ -42,6 +42,8 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 
 - (instancetype)initWithContainerVC:(UIViewController *)viewController;
 
+- (void)loadRequest:(NSURLRequest *)request;
+
 /**
  *  加载全局URL链接处理器
  *

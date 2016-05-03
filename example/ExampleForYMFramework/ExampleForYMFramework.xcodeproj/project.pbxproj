@@ -387,7 +387,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = dev.com.cornapp.YMGoodLuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de76a160-6ef3-4d15-8560-de55ae0b109c";
+				PROVISIONING_PROFILE = "606a991b-063e-464c-85e4-ff5563e48b07";
 			};
 			name = Debug;
 		};
@@ -409,7 +409,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = dev.com.cornapp.YMGoodLuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de76a160-6ef3-4d15-8560-de55ae0b109c";
+				PROVISIONING_PROFILE = "606a991b-063e-464c-85e4-ff5563e48b07";
 			};
 			name = Release;
 		};

@@ -32,7 +32,7 @@
 - (YMWebView *)webView
 {
     if (_webView == nil) {
-        _webView = [[YMWebView alloc] init];
+        _webView = [[YMWebView alloc] initWithContainerVC:self];
         _webView.ym_Delegate = self;
         _webView.frame = self.view.bounds;
     }
