@@ -94,7 +94,8 @@ static YMWebViewShouldStartHandler kHandler;
 
 - (void)addLongPressRecognizer
 {
-    UILongPressGestureRecognizer *longTapRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressTap:)];
+    UILongPressGestureRecognizer *longTapRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                                                    action:@selector(handleLongPressTap:)];
     [longTapRecognizer setDelegate:self];
     [self addGestureRecognizer:longTapRecognizer];
 }
@@ -143,9 +144,9 @@ static YMWebViewShouldStartHandler kHandler;
 shouldStartLoadWithRequest:(NSURLRequest *)request
  navigationType:(UIWebViewNavigationType)navigationType
 {
-    if ([self isSameURLWithRequest:request]) {
-        return NO;
-    }
+//    if ([self isSameURLWithRequest:request]) {
+//        return NO;
+//    }
     
     if (_savingImage) {
         return NO;
