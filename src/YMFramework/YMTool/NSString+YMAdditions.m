@@ -144,11 +144,6 @@
     return returnValue;
 }
 
-/**
- *  生成MD5
- *
- *  @return
- */
 - (NSString *)ym_MD5
 {
     const char *cStr = [self UTF8String];
@@ -161,6 +156,17 @@
             result[8], result[9], result[10], result[11],
             result[12], result[13], result[14], result[15]
             ];
+}
+
+- (BOOL)ym_isMobileNumber
+{
+    if (self.length != 11) {
+        return NO;
+    }
+    
+    NSString *MOBILE = @"^1(3[0-9]|4[57]|5[0-35-9]|8[0-9]|70)\\d{8}$";
+    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
+    return [regextestmobile evaluateWithObject:self];
 }
 
 @end

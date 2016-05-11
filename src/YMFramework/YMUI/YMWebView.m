@@ -51,6 +51,7 @@ static YMWebViewShouldStartHandler kHandler;
         webView.backgroundColor = [UIColor whiteColor];
         webView.containerVC = viewController;
         
+        
         // 添加下拉刷新控件
         [self addHeader];
         

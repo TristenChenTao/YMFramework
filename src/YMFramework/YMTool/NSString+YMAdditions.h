@@ -71,4 +71,11 @@
  */
 - (NSString *)ym_MD5;
 
+/**
+ *  判断是否是是手机号
+ *
+ *  @return
+ */
+- (BOOL)ym_isMobileNumber;
+
 @end

@@ -41,14 +41,14 @@ YMWebViewDelegate
 //    [self testFetchWebViewTitle];
 //    [self testWebp];
 //    [self testWebpForWebView];
-    [self testYMProgress];
+//    [self testYMProgress];
 //    [self testBackgroundTask];
-//    
 //    [self testUploadImage];
-//    
 //    [self testUploadJSONData];
     
-    [self testYMWebView];
+//    [self testYMWebView];
+    
+    [self testIsPhoneNumber];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion
@@ -271,6 +271,15 @@ YMWebViewDelegate
         
         return YES;
     }];
+}
+
+- (void)testIsPhoneNumber
+{
+    NSString *phone = @"15980287196";
+    
+    if([phone ym_isMobileNumber]){
+        [YMProgress showSuccessStatus:@"是手机号"];
+    }
 }
 
 @end
