@@ -149,7 +149,6 @@
 		62D2AABE1C3220C200A97384 /* WXApiObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AAAB1C3220C200A97384 /* WXApiObject.h */; };
 		62D2AACD1C3220E000A97384 /* YMThirdPlatformSDKCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */; };
 		62D2AACE1C3220E000A97384 /* YMThirdPlatformSDKCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */; };
-		62DB9DC71C4DD15600624672 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DB9DC51C4DD15600624672 /* jpush-ios-2.1.0.a */; };
 		62DB9DC81C4DD15600624672 /* JPUSHService.h in Headers */ = {isa = PBXBuildFile; fileRef = 62DB9DC61C4DD15600624672 /* JPUSHService.h */; };
 		62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */; };
 		62E433631AE5F89D005445B2 /* MobClick.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433601AE5F89D005445B2 /* MobClick.h */; };
@@ -198,6 +197,7 @@
 		C1190EB71CD88F640004B260 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C1190E911CD88F640004B260 /* UIScrollView+MJRefresh.m */; };
 		C1190EB81CD88F640004B260 /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C1190E921CD88F640004B260 /* UIView+MJExtension.h */; };
 		C1190EB91CD88F640004B260 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1190E931CD88F640004B260 /* UIView+MJExtension.m */; };
+		C14FEBCE1CEEE75C00B7EFE1 /* jpush-ios-2.1.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C14FEBCD1CEEE75C00B7EFE1 /* jpush-ios-2.1.6.a */; };
 		C15141C11CBB760900694EA5 /* MKAnnotationView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = C15141A01CBB760800694EA5 /* MKAnnotationView+WebCache.h */; };
 		C15141C21CBB760900694EA5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C15141A11CBB760800694EA5 /* MKAnnotationView+WebCache.m */; };
 		C15141C31CBB760900694EA5 /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = C15141A21CBB760800694EA5 /* NSData+ImageContentType.h */; };
@@ -551,7 +551,6 @@
 		62D2AAAB1C3220C200A97384 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMThirdPlatformSDKCenter.h; sourceTree = "<group>"; };
 		62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMThirdPlatformSDKCenter.m; sourceTree = "<group>"; };
-		62DB9DC51C4DD15600624672 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		62DB9DC61C4DD15600624672 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		62E433601AE5F89D005445B2 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
@@ -600,6 +599,7 @@
 		C1190E911CD88F640004B260 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		C1190E921CD88F640004B260 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		C1190E931CD88F640004B260 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		C14FEBCD1CEEE75C00B7EFE1 /* jpush-ios-2.1.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.6.a"; sourceTree = "<group>"; };
 		C15141A01CBB760800694EA5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		C15141A11CBB760800694EA5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		C15141A21CBB760800694EA5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -833,13 +833,13 @@
 				622DEFDC1C4CF3A100DEEA3D /* SystemConfiguration.framework in Frameworks */,
 				622DEFDA1C4CF37A00DEEA3D /* CoreTelephony.framework in Frameworks */,
 				622DEFD81C4CF36400DEEA3D /* CoreFoundation.framework in Frameworks */,
+				C14FEBCE1CEEE75C00B7EFE1 /* jpush-ios-2.1.6.a in Frameworks */,
 				622DEFD51C4CF33D00DEEA3D /* CFNetwork.framework in Frameworks */,
 				628F1CEF1C4CEF4E00FBDE6C /* ImageIO.framework in Frameworks */,
 				62C2C25D1C48C61500395E10 /* libz.tbd in Frameworks */,
 				62C2C2591C48C5F000395E10 /* libicucore.tbd in Frameworks */,
 				62C2C2571C48C5E800395E10 /* libstdc++.tbd in Frameworks */,
 				62C2C2551C48C5E200395E10 /* libsqlite3.tbd in Frameworks */,
-				62DB9DC71C4DD15600624672 /* jpush-ios-2.1.0.a in Frameworks */,
 				C1C62AFA1CBB4FBD00E4587F /* libWeiboSDK.a in Frameworks */,
 				6244CF201C0D93A70004C2B8 /* WebP.framework in Frameworks */,
 				62D2AAB91C3220C200A97384 /* TencentOpenAPI.framework in Frameworks */,
@@ -993,7 +993,7 @@
 		6258F2231B04719000C0B785 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
-				62DB9DC51C4DD15600624672 /* jpush-ios-2.1.0.a */,
+				C14FEBCD1CEEE75C00B7EFE1 /* jpush-ios-2.1.6.a */,
 				62DB9DC61C4DD15600624672 /* JPUSHService.h */,
 			);
 			path = JPush;
