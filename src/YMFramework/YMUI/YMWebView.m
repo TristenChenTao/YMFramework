@@ -15,6 +15,7 @@
 #import "MJRefresh.h"
 #import "UIFont+YMFontSizeAdditions.h"
 #import "UIColor+YMAdditions.h"
+#import "UIView+YMFrameAdditions.h"
 
 @interface YMWebView()
 <UIWebViewDelegate,
@@ -74,20 +75,20 @@ static YMWebViewShouldStartHandler kHandler;
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [webView reload];
     }];
-    
+    header.backgroundColor = [UIColor clearColor];
     header.automaticallyChangeAlpha = YES;
     header.lastUpdatedTimeLabel.hidden = YES;
     
     // 设置文字
 //    [header setTitle:@"Pull down to refresh" forState:MJRefreshStateIdle];
 //    [header setTitle:@"Release to refresh" forState:MJRefreshStatePulling];
-//    [header setTitle:@"Loading ..." forState:MJRefreshStateRefreshing];
+    [header setTitle:@"加载中" forState:MJRefreshStateRefreshing];
     
     // 设置字体
     header.stateLabel.font = [UIFont ym_standFontOfLevel:3];
     // 设置颜色
     header.stateLabel.textColor = [UIColor ym_colorWithHexString:@"8995b0"];
-
+    
     self.scrollView.mj_header = header;
 }
 

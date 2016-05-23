@@ -35,7 +35,7 @@ YMWebViewDelegate
                                                  channel:kProductChannel];
     
 //    [self testHttpRequest];
-    
+//    
 //    [self testUIImageViewDownloadImage];
 //    [self testUIButtonDownloadImage];
 //    [self testFetchWebViewTitle];
@@ -46,9 +46,9 @@ YMWebViewDelegate
 //    [self testUploadImage];
 //    [self testUploadJSONData];
     
-//    [self testYMWebView];
+    [self testYMWebView];
     
-    [self testIsPhoneNumber];
+//    [self testIsPhoneNumber];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion
