@@ -150,6 +150,18 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 //        return NO;
 //    }
     
+    BOOL bLoadRequest = YES; //等于YES表示还是没有经过处理
+    
+    if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
+        bLoadRequest = [_ym_Delegate webView:self
+                  shouldStartLoadWithRequest:request
+                              navigationType:navigationType];
+    }
+    
+    if(bLoadRequest == NO) {
+        return NO;
+    }
+    
     if (_savingImage) {
         return NO;
     }
@@ -158,17 +170,8 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
         return NO;
     }
     
-    BOOL bLoadRequest = YES; //等于YES表示还是没有经过处理
-    
-    if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
-        bLoadRequest = [_ym_Delegate webView:self
-                      shouldStartLoadWithRequest:request
-                                  navigationType:navigationType];
-    }
-    
-    return bLoadRequest;
+    return YES;
 }
-
 
 #pragma mark - UIScrollViewDelegate
 
