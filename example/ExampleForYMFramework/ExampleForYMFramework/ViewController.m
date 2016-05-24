@@ -39,16 +39,17 @@ YMWebViewDelegate
 //    [self testUIImageViewDownloadImage];
 //    [self testUIButtonDownloadImage];
 //    [self testFetchWebViewTitle];
-//    [self testWebp];
+    [self testWebp];
 //    [self testWebpForWebView];
 //    [self testYMProgress];
 //    [self testBackgroundTask];
 //    [self testUploadImage];
 //    [self testUploadJSONData];
     
-    [self testYMWebView];
+//    [self testYMWebView];
     
 //    [self testIsPhoneNumber];
+
 }
 
 - (void)motionEnded:(UIEventSubtype)motion
@@ -128,9 +129,9 @@ YMWebViewDelegate
 - (void)testWebp
 {
     //标准webpURL
-    NSString *url = @"http://img01.taobaocdn.com/imgextra/i1/1123492339/T2XX3ZXhXXXXXXXXXX_!!1123492339.jpg_.webp";
+//    NSString *url = @"http://img01.taobaocdn.com/imgextra/i1/1123492339/T2XX3ZXhXXXXXXXXXX_!!1123492339.jpg_.webp";
     //玉米webpURL
-//  NSString *url = @"http://yumi2014.b0.upaiyun.com/banner/14483353790a62cd5be70e4e2f877e410df031febc.jpg!webp.orginal";
+  NSString *url = @"http://yumi2014.b0.upaiyun.com/banner/14483353790a62cd5be70e4e2f877e410df031febc.jpg!webp.orginal";
     
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     imgView.backgroundColor = [UIColor redColor];

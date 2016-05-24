@@ -33,8 +33,8 @@
     [YMAnalytics startReport];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.window.rootViewController = [[TestThreePlatformViewController alloc] init];
-    
+
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[TestThreePlatformViewController alloc] init]];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
