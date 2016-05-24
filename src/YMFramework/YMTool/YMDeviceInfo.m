@@ -6,6 +6,7 @@
 //
 //
 
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <UMMobClick/MobClick.h>
 
 //for mac

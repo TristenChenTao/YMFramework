@@ -10,6 +10,283 @@
 
 @interface SystemServices () {
     // Private
+    
+    /* All System Information in Dictionary Format */
+    NSDictionary *allSystemInformation;
+    
+    /* Hardware Information */
+    
+    // System Uptime (dd hh mm)
+    NSString *systemsUptime;
+    
+    // Model of Device
+    NSString *deviceModel;
+    
+    // Device Name
+    NSString *deviceName;
+    
+    // System Name
+    NSString *systemName;
+    
+    // System Version
+    NSString *systemsVersion;
+    
+    // System Device Type (Not Formatted = iPhone1,0)
+    NSString *systemDeviceTypeNotFormatted;
+    
+    // System Device Type (Formatted = iPhone 1)
+    NSString *systemDeviceTypeFormatted;
+    
+    // Get the Screen Width (X)
+    NSInteger screenWidth;
+    
+    // Get the Screen Height (Y)
+    NSInteger screenHeight;
+    
+    // Get the Screen Brightness
+    float screenBrightness;
+    
+    // Multitasking enabled?
+    BOOL multitaskingEnabled;
+    
+    // Proximity sensor enabled?
+    BOOL proximitySensorEnabled;
+    
+    // Debugger Attached?
+    BOOL debuggerAttached;
+    
+    // Plugged In?
+    BOOL pluggedIn;
+    
+    /* Jailbreak Check */
+    
+    // Jailbroken?
+    int jailbroken;
+    
+    /* Processor Information */
+    
+    // Number of processors
+    NSInteger numberProcessors;
+    
+    // Number of Active Processors
+    NSInteger numberActiveProcessors;
+    
+    // Processor Speed in MHz
+    NSInteger processorSpeed;
+    
+    // Processor Bus Speed in MHz
+    NSInteger processorBusSpeed;
+    
+    /* Accessory Information */
+    
+    // Are any accessories attached?
+    BOOL accessoriesAttached;
+    
+    // Are headphone attached?
+    BOOL headphonesAttached;
+    
+    // Number of attached accessories
+    NSInteger numberAttachedAccessories;
+    
+    // Name of attached accessory/accessories (seperated by , comma's)
+    NSString *nameAttachedAccessories;
+    
+    /* Carrier Information */
+    
+    // Carrier Name
+    NSString *carrierName;
+    
+    // Carrier Country
+    NSString *carrierCountry;
+    
+    // Carrier Mobile Country Code
+    NSString *carrierMobileCountryCode;
+    
+    // Carrier ISO Country Code
+    NSString *carrierISOCountryCode;
+    
+    // Carrier Mobile Network Code
+    NSString *carrierMobileNetworkCode;
+    
+    // Carrier Allows VOIP
+    BOOL carrierAllowsVOIP;
+    
+    /* Battery Information */
+    
+    // Battery Level
+    float batteryLevel;
+    
+    // Charging?
+    BOOL charging;
+    
+    // Fully Charged?
+    BOOL fullyCharged;
+    
+    /* Network Information */
+    
+    // Get Current IP Address
+    NSString *currentIPAddress;
+    
+    // Get Current MAC Address
+    NSString *currentMACAddress;
+    
+    // Get External IP Address
+    NSString *externalIPAddress;
+    
+    // Get Cell IP Address
+    NSString *cellIPAddress;
+    
+    // Get Cell MAC Address
+    NSString *cellMACAddress;
+    
+    // Get Cell Netmask Address
+    NSString *cellNetmaskAddress;
+    
+    // Get Cell Broadcast Address
+    NSString *cellBroadcastAddress;
+    
+    // Get WiFi IP Address
+    NSString *wiFiIPAddress;
+    
+    // Get WiFi MAC Address
+    NSString *wiFiMACAddress;
+    
+    // Get WiFi Netmask Address
+    NSString *wiFiNetmaskAddress;
+    
+    // Get WiFi Broadcast Address
+    NSString *wiFiBroadcastAddress;
+    
+    // Get WiFi Router Address
+    NSString *wiFiRouterAddress;
+    
+    // Connected to WiFi?
+    BOOL connectedToWiFi;
+    
+    // Connected to Cellular Network?
+    BOOL connectedToCellNetwork;
+    
+    /* Process Information */
+    
+    // Process ID
+    int processID;
+    
+    // Process Name
+    NSString *processName;
+    
+    // Process Status
+    int processStatus;
+    
+    // Parent Process ID
+    int parentPID;
+    
+    // List of process information including PID's, Names, PPID's, and Status'
+    NSMutableArray *processesInformation;
+    
+    /* Disk Information */
+    
+    // Total Disk Space
+    NSString *diskSpace;
+    
+    // Total Free Disk Space (Raw)
+    NSString *freeDiskSpaceinRaw;
+    
+    // Total Free Disk Space (Percentage)
+    NSString *freeDiskSpaceinPercent;
+    
+    // Total Used Disk Space (Raw)
+    NSString *usedDiskSpaceinRaw;
+    
+    // Total Used Disk Space (Percentage)
+    NSString *usedDiskSpaceinPercent;
+    
+    // Get the total disk space in long format
+    long long longDiskSpace;
+    
+    // Get the total free disk space in long format
+    long long longFreeDiskSpace;
+    
+    /* Memory Information */
+    
+    // Total Memory
+    double totalMemory;
+    
+    // Free Memory (Raw)
+    double freeMemoryinRaw;
+    
+    // Free Memory (Percent)
+    double freeMemoryinPercent;
+    
+    // Used Memory (Raw)
+    double usedMemoryinRaw;
+    
+    // Used Memory (Percent)
+    double usedMemoryinPercent;
+    
+    // Active Memory (Raw)
+    double activeMemoryinRaw;
+    
+    // Active Memory (Percent)
+    double activeMemoryinPercent;
+    
+    // Inactive Memory (Raw)
+    double inactiveMemoryinRaw;
+    
+    // Inactive Memory (Percent)
+    double inactiveMemoryinPercent;
+    
+    // Wired Memory (Raw)
+    double wiredMemoryinRaw;
+    
+    // Wired Memory (Percent)
+    double wiredMemoryinPercent;
+    
+    // Purgable Memory (Raw)
+    double purgableMemoryinRaw;
+    
+    // Purgable Memory (Percent)
+    double purgableMemoryinPercent;
+    
+    /* Accelerometer Information */
+    
+    // Device Orientation
+    UIInterfaceOrientation deviceOrientation;
+    
+    /* Localization Information */
+    
+    // Country
+    NSString *country;
+    
+    // Language
+    NSString *language;
+    
+    // TimeZone
+    NSString *timeZoneSS;
+    
+    // Currency Symbol
+    NSString *currency;
+    
+    /* Application Information */
+    
+    // Application Version
+    NSString *applicationVersion;
+    
+    // Clipboard Content
+    NSString *clipboardContent;
+    
+    /* Universal Unique Identifiers */
+    
+    // Unique ID
+    NSString *uniqueID;
+    
+    // Device Signature
+    NSString *deviceSignature;
+    
+    // CFUUID
+    NSString *cfuuid;
+    
+    // CPU Usage
+    float cpuUsage;
 }
 
 // Get all System Information (All Methods)
@@ -19,7 +296,7 @@
 
 @implementation SystemServices
 
-@dynamic allSystemInformation, systemsUptime, deviceModel, deviceName, systemName, systemsVersion, systemDeviceTypeNotFormatted, systemDeviceTypeFormatted, screenWidth, screenHeight, screenBrightness, multitaskingEnabled, proximitySensorEnabled, debuggerAttached, pluggedIn, jailbroken, numberProcessors, numberActiveProcessors, processorSpeed, processorBusSpeed, accessoriesAttached, headphonesAttached, numberAttachedAccessories, nameAttachedAccessories, carrierName, carrierCountry, carrierMobileCountryCode, carrierISOCountryCode, carrierMobileNetworkCode, carrierAllowsVOIP, batteryLevel, charging, fullyCharged, currentIPAddress, currentMACAddress, externalIPAddress, cellIPAddress, cellMACAddress, cellNetmaskAddress, cellBroadcastAddress, wiFiIPAddress, wiFiMACAddress, wiFiNetmaskAddress, wiFiBroadcastAddress, connectedToWiFi, connectedToCellNetwork, processID, processName, processStatus, parentPID, processesInformation, diskSpace, freeDiskSpaceinRaw, freeDiskSpaceinPercent, usedDiskSpaceinRaw, usedDiskSpaceinPercent, longDiskSpace, longFreeDiskSpace, totalMemory, freeMemoryinRaw, freeMemoryinPercent, usedMemoryinRaw, usedMemoryinPercent, activeMemoryinRaw, activeMemoryinPercent, inactiveMemoryinRaw, inactiveMemoryinPercent, wiredMemoryinRaw, wiredMemoryinPercent, purgableMemoryinRaw, purgableMemoryinPercent, deviceOrientation, country, language, timeZoneSS, currency, applicationVersion, clipboardContent, uniqueID, deviceSignature, cfuuid;
+@dynamic allSystemInformation, systemsUptime, deviceModel, deviceName, systemName, systemsVersion, systemDeviceTypeNotFormatted, systemDeviceTypeFormatted, screenWidth, screenHeight, screenBrightness, multitaskingEnabled, proximitySensorEnabled, debuggerAttached, pluggedIn, jailbroken, numberProcessors, numberActiveProcessors, processorSpeed, processorBusSpeed, accessoriesAttached, headphonesAttached, numberAttachedAccessories, nameAttachedAccessories, carrierName, carrierCountry, carrierMobileCountryCode, carrierISOCountryCode, carrierMobileNetworkCode, carrierAllowsVOIP, batteryLevel, charging, fullyCharged, currentIPAddress, currentMACAddress, externalIPAddress, cellIPAddress, cellMACAddress, cellNetmaskAddress, cellBroadcastAddress, wiFiIPAddress, wiFiMACAddress, wiFiNetmaskAddress, wiFiBroadcastAddress, wiFiRouterAddress, connectedToWiFi, connectedToCellNetwork, processID, processName, processStatus, parentPID, processesInformation, diskSpace, freeDiskSpaceinRaw, freeDiskSpaceinPercent, usedDiskSpaceinRaw, usedDiskSpaceinPercent, longDiskSpace, longFreeDiskSpace, totalMemory, freeMemoryinRaw, freeMemoryinPercent, usedMemoryinRaw, usedMemoryinPercent, activeMemoryinRaw, activeMemoryinPercent, inactiveMemoryinRaw, inactiveMemoryinPercent, wiredMemoryinRaw, wiredMemoryinPercent, purgableMemoryinRaw, purgableMemoryinPercent, deviceOrientation, country, language, timeZoneSS, currency, applicationVersion, clipboardContent, uniqueID, deviceSignature, cfuuid, cpuUsage;
 
 // Singleton
 + (id)sharedServices {
@@ -171,48 +448,52 @@
     return [SSBatteryInfo fullyCharged];
 }
 
-- (NSString *)currentIPAddress {
+- (nullable NSString *)currentIPAddress {
     return [SSNetworkInfo currentIPAddress];
 }
 
-- (NSString *)currentMACAddress{
+- (nullable NSString *)currentMACAddress{
     return [SSNetworkInfo currentMACAddress];
 }
 
-- (NSString *)externalIPAddress {
+- (nullable NSString *)externalIPAddress {
     return [SSNetworkInfo externalIPAddress];
 }
 
-- (NSString *)cellIPAddress {
+- (nullable NSString *)cellIPAddress {
     return [SSNetworkInfo cellIPAddress];
 }
 
-- (NSString *)cellMACAddress {
+- (nullable NSString *)cellMACAddress {
     return [SSNetworkInfo cellMACAddress];
 }
 
-- (NSString *)cellNetmaskAddress {
+- (nullable NSString *)cellNetmaskAddress {
     return [SSNetworkInfo cellNetmaskAddress];
 }
 
-- (NSString *)cellBroadcastAddress {
+- (nullable NSString *)cellBroadcastAddress {
     return [SSNetworkInfo cellBroadcastAddress];
 }
 
-- (NSString *)wiFiIPAddress {
+- (nullable NSString *)wiFiIPAddress {
     return [SSNetworkInfo wiFiIPAddress];
 }
 
-- (NSString *)wiFiMACAddress {
+- (nullable NSString *)wiFiMACAddress {
     return [SSNetworkInfo wiFiMACAddress];
 }
 
-- (NSString *)wiFiNetmaskAddress {
+- (nullable NSString *)wiFiNetmaskAddress {
     return [SSNetworkInfo wiFiNetmaskAddress];
 }
 
-- (NSString *)wiFiBroadcastAddress {
+- (nullable NSString *)wiFiBroadcastAddress {
     return [SSNetworkInfo wiFiBroadcastAddress];
+}
+
+- (nullable NSString *)wiFiRouterAddress {
+    return [SSNetworkInfo wiFiRouterAddress];
 }
 
 - (BOOL)connectedToWiFi {
@@ -363,6 +644,10 @@
     return [SSUUID cfuuid];
 }
 
+- (float)cpuUsage {
+    return [SSApplicationInfo cpuUsage];
+}
+
 - (NSDictionary *)allSystemInformation {
     return [self getAllSystemInformation];
 }
@@ -380,21 +665,21 @@
     NSString *SystemVersion = [self systemsVersion];
     NSString *SystemDeviceTypeFormattedNO = [self systemDeviceTypeNotFormatted];
     NSString *SystemDeviceTypeFormattedYES = [self systemDeviceTypeFormatted];
-    NSString *ScreenWidth = [NSString stringWithFormat:@"%d", [self screenWidth]];
-    NSString *ScreenHeight = [NSString stringWithFormat:@"%d", [self screenHeight]];
+    NSString *ScreenWidth = [NSString stringWithFormat:@"%ld", (long)[self screenWidth]];
+    NSString *ScreenHeight = [NSString stringWithFormat:@"%ld", (long)[self screenHeight]];
     NSString *ScreenBrightness = [NSString stringWithFormat:@"%f", [self screenBrightness]];
     NSString *MultitaskingEnabled = ([self multitaskingEnabled]) ? @"Yes" : @"No";
     NSString *ProximitySensorEnabled = ([self proximitySensorEnabled]) ? @"Yes" : @"No";
     NSString *DebuggerAttached = ([self debuggerAttached]) ? @"Yes" : @"No";
     NSString *PluggedIn = ([self pluggedIn]) ? @"Yes" : @"No";
     NSString *Jailbroken = [NSString stringWithFormat:@"%d", [self jailbroken]];
-    NSString *NumberProcessors = [NSString stringWithFormat:@"%d", [self numberProcessors]];
-    NSString *NumberActiveProcessors = [NSString stringWithFormat:@"%d", [self numberActiveProcessors]];
-    NSString *ProcessorSpeed = [NSString stringWithFormat:@"%d", [self processorSpeed]];
-    NSString *ProcessorBusSpeed = [NSString stringWithFormat:@"%d", [self processorBusSpeed]];
+    NSString *NumberProcessors = [NSString stringWithFormat:@"%ld", (long)[self numberProcessors]];
+    NSString *NumberActiveProcessors = [NSString stringWithFormat:@"%ld", (long)[self numberActiveProcessors]];
+    NSString *ProcessorSpeed = [NSString stringWithFormat:@"%ld", (long)[self processorSpeed]];
+    NSString *ProcessorBusSpeed = [NSString stringWithFormat:@"%ld", (long)[self processorBusSpeed]];
     NSString *AccessoriesAttached = ([self accessoriesAttached]) ? @"Yes" : @"No";
     NSString *HeadphonesAttached = ([self headphonesAttached]) ? @"Yes" : @"No";
-    NSString *NumberAttachedAccessories = [NSString stringWithFormat:@"%d", [self numberAttachedAccessories]];
+    NSString *NumberAttachedAccessories = [NSString stringWithFormat:@"%ld", (long)[self numberAttachedAccessories]];
     NSString *NameAttachedAccessories = [self nameAttachedAccessories];
     NSString *CarrierName = [self carrierName];
     NSString *CarrierCountry = [self carrierCountry];
@@ -416,6 +701,7 @@
     NSString *WiFiMACAddress = [self wiFiMACAddress];
     NSString *WiFiNetmaskAddress = [self wiFiNetmaskAddress];
     NSString *WiFiBroadcastAddress = [self wiFiBroadcastAddress];
+    NSString *WiFiRouterAddress = [self wiFiRouterAddress];
     NSString *ConnectedToWiFi = ([self connectedToWiFi]) ? @"Yes" : @"No";
     NSString *ConnectedToCellNetwork = ([self connectedToCellNetwork]) ? @"Yes" : @"No";
     NSString *ProcessID = [NSString stringWithFormat:@"%d", [self processID]];
@@ -443,7 +729,7 @@
     NSString *WiredMemoryYES = [NSString stringWithFormat:@"%f", [self wiredMemoryinPercent]];
     NSString *PurgableMemoryNO = [NSString stringWithFormat:@"%f", [self purgableMemoryinRaw]];
     NSString *PurgableMemoryYES = [NSString stringWithFormat:@"%f", [self purgableMemoryinPercent]];
-    NSString *DeviceOrientation = [NSString stringWithFormat:@"%d", [self deviceOrientation]];
+    NSString *DeviceOrientation = [NSString stringWithFormat:@"%ld", [self deviceOrientation]];
     NSString *Country = [self country];
     NSString *Language = [self language];
     NSString *TimeZone = [self timeZoneSS];
@@ -453,6 +739,7 @@
     NSString *UniqueID = [self uniqueID];
     NSString *DeviceSignature = [self deviceSignature];
     NSString *CFUUID = [self cfuuid];
+    NSString *CPUUsage = [NSString stringWithFormat:@"%f", [self cpuUsage]];
     
     // Check to make sure all values are valid (if not, make them)
     if (SystemUptime == nil || SystemUptime.length <= 0) {
@@ -627,6 +914,10 @@
         // Invalid value
         WiFiBroadcastAddress = @"Unknown";
     }
+    if (WiFiRouterAddress == nil || WiFiRouterAddress.length <= 0) {
+        // Invalid value
+        WiFiRouterAddress = @"Unknown";
+    }
     if (ConnectedToWiFi == nil || ConnectedToWiFi.length <= 0) {
         // Invalid value
         ConnectedToWiFi = @"Unknown";
@@ -775,6 +1066,10 @@
         // Invalid value
         CFUUID = @"Unknown";
     }
+    if (CPUUsage == nil || CPUUsage.length <= 0) {
+        // Invalid value
+        CPUUsage = @"Unknown";
+    }
     
     // Get all Information in a dictionary
     SystemInformationDict = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
@@ -800,6 +1095,7 @@
                                                                  AccessoriesAttached,
                                                                  HeadphonesAttached,
                                                                  NumberAttachedAccessories,
+                                                                 NameAttachedAccessories,
                                                                  CarrierName,
                                                                  CarrierCountry,
                                                                  CarrierMobileCountryCode,
@@ -811,7 +1107,6 @@
                                                                  FullyCharged,
                                                                  CurrentIPAddress,
                                                                  CurrentMACAddress,
-                                                                 
                                                                  ExternalIPAddress,
                                                                  CellIPAddress,
                                                                  CellMACAddress,
@@ -821,6 +1116,7 @@
                                                                  WiFiMACAddress,
                                                                  WiFiNetmaskAddress,
                                                                  WiFiBroadcastAddress,
+                                                                 WiFiRouterAddress,
                                                                  ConnectedToWiFi,
                                                                  ConnectedToCellNetwork,
                                                                  ProcessID,
@@ -858,6 +1154,7 @@
                                                                  UniqueID,
                                                                  DeviceSignature,
                                                                  CFUUID,
+                                                                 CPUUsage,
                                                                  nil]
                                                         forKeys:[NSArray arrayWithObjects:
                                                                  @"Uptime (dd hh mm)",
@@ -882,6 +1179,7 @@
                                                                  @"AccessoriesAttached",
                                                                  @"HeadphonesAttached",
                                                                  @"NumberAttachedAccessories",
+                                                                 @"NameAttachedAccessories",
                                                                  @"CarrierName",
                                                                  @"CarrierCountry",
                                                                  @"CarrierMobileCountryCode",
@@ -902,6 +1200,7 @@
                                                                  @"WiFiMACAddress",
                                                                  @"WiFiNetmaskAddress",
                                                                  @"WiFiBroadcastAddress",
+                                                                 @"WiFiRouterAddress",
                                                                  @"ConnectedToWiFi",
                                                                  @"ConnectedToCellNetwork",
                                                                  @"ProcessID",
@@ -939,6 +1238,7 @@
                                                                  @"UniqueID",
                                                                  @"DeviceSignature",
                                                                  @"CFUUID",
+                                                                 @"CPUUsage",
                                                                  nil]];
     
     // Check if Dictionary is populated

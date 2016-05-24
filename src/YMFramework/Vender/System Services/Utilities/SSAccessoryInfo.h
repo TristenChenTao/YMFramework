@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Shmoopi LLC. All rights reserved.
 //
 
-#import "SystemServicesConstants.h"
+#import <Foundation/Foundation.h>
 
 @interface SSAccessoryInfo : NSObject
 
@@ -22,6 +22,6 @@
 + (NSInteger)numberAttachedAccessories;
 
 // Name of attached accessory/accessories (seperated by , comma's)
-+ (NSString *)nameAttachedAccessories;
++ (nullable NSString *)nameAttachedAccessories;
 
 @end

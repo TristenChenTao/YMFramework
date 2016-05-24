@@ -6,7 +6,11 @@
 //  Copyright (c) 2012 Shmoopi LLC. All rights reserved.
 //
 
-#import "SystemServicesConstants.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+// Core Motion
+#import <CoreMotion/CoreMotion.h>
 
 @interface SSAccelerometerInfo : NSObject {
     CMMotionManager *motionManager;
@@ -22,25 +26,25 @@
 + (UIInterfaceOrientation)deviceOrientation;
 
 // Attitude
-@property (nonatomic, readonly) NSString *attitudeString;
+@property (nonatomic, readonly, nullable) NSString *attitudeString;
 
 // Gravity
-@property (nonatomic, readonly) NSString *gravityString;
+@property (nonatomic, readonly, nullable) NSString *gravityString;
 
 // Magnetic Field
-@property (nonatomic, readonly) NSString *magneticFieldString;
+@property (nonatomic, readonly, nullable) NSString *magneticFieldString;
 
 // Rotation Rate
-@property (nonatomic, readonly) NSString *rotationRateString;
+@property (nonatomic, readonly, nullable) NSString *rotationRateString;
 
 // User Acceleration
-@property (nonatomic, readonly) NSString *userAccelerationString;
+@property (nonatomic, readonly, nullable) NSString *userAccelerationString;
 
 // Raw Gyroscope
-@property (nonatomic, readonly) NSString *rawGyroscopeString;
+@property (nonatomic, readonly, nullable) NSString *rawGyroscopeString;
 
 // Raw Accelerometer
-@property (nonatomic, readonly) NSString *rawAccelerometerString;
+@property (nonatomic, readonly, nullable) NSString *rawAccelerometerString;
 
 /**
  * startLoggingMotionData

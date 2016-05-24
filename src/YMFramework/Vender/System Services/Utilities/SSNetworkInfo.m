@@ -8,12 +8,238 @@
 
 #import "SSNetworkInfo.h"
 
+// ifaddrs
+#import <ifaddrs.h>
+
+// inet
+#import <arpa/inet.h>
+
+// route
+#if TARGET_IPHONE_SIMULATOR
+#include <net/route.h>
+#else
+#include "route.h"
+#endif
+
+// sysctl
+#import <sys/sysctl.h>
+
+#include <net/if.h>
+#include <net/if_dl.h>
+#include <sys/ioctl.h>
+
+# pragma mark - Router Info
+
+#define RTF_PRCLONING	0x10000		/* protocol requires cloning */
+#define RTF_WASCLONED	0x20000		/* route generated through cloning */
+#define RTF_PROTO3	0x40000		/* protocol specific routing flag */
+
+#define RTAX_DST	0	/* destination sockaddr present */
+#define RTAX_GATEWAY	1	/* gateway sockaddr present */
+#define RTAX_NETMASK	2	/* netmask sockaddr present */
+#define RTAX_GENMASK	3	/* cloning mask sockaddr present */
+#define RTAX_IFP	4	/* interface name sockaddr present */
+#define RTAX_IFA	5	/* interface addr sockaddr present */
+#define RTAX_AUTHOR	6	/* sockaddr for author of redirect */
+#define RTAX_BRD	7	/* for NEWADDR, broadcast or p-p dest addr */
+#define RTAX_MAX	8	/* size of array to allocate */
+
+#define RTA_DST		0x1	/* destination sockaddr present */
+#define RTA_GATEWAY	0x2	/* gateway sockaddr present */
+#define RTA_NETMASK	0x4	/* netmask sockaddr present */
+#define RTA_GENMASK	0x8	/* cloning mask sockaddr present */
+#define RTA_IFP		0x10	/* interface name sockaddr present */
+#define RTA_IFA		0x20	/* interface addr sockaddr present */
+#define RTA_AUTHOR	0x40	/* sockaddr for author of redirect */
+#define RTA_BRD		0x80	/* for NEWADDR, broadcast or p-p dest addr */
+
+@interface Route_Info : NSObject
+{
+    struct sockaddr     m_addrs[RTAX_MAX];
+    struct rt_msghdr2   m_rtm;
+    int                 m_len;      /* length of the sockaddr array */
+}
+- initWithRtm: (struct rt_msghdr2*) rtm;
+
++ (NSMutableArray*) getRoutes;
++ (nullable Route_Info*) getRoute:(struct rt_msghdr2 *)rtm;
+
+- (nullable NSString*) getDestination;
+- (nullable NSString*) getNetmask;
+- (nullable NSString*) getGateway;
+- (nullable NSString*) getAddrStringByIndex: (int)rtax_index;
+
+- (void) setAddr:(struct sockaddr*)sa index:(int)rtax_index;
+@end
+
+@implementation Route_Info
+
+-initWithRtm: (struct rt_msghdr2*) rtm
+{
+    int i;
+    struct sockaddr* sa = (struct sockaddr*)(rtm + 1);
+    
+    memcpy(&(m_rtm), rtm, sizeof(struct rt_msghdr2));
+    for(i = 0; i < RTAX_MAX; i++)
+    {
+        [self setAddr:&(sa[i]) index:i];
+    }
+    
+    return self;
+}
+
++ (NSMutableArray*) getRoutes
+{
+    NSMutableArray* routeArray = [NSMutableArray array];
+    Route_Info* route = nil;
+    
+    size_t len;
+    int mib[6];
+    char *buf;
+    register struct rt_msghdr2 *rtm;
+    
+    mib[0] = CTL_NET;
+    mib[1] = PF_ROUTE;
+    mib[2] = 0;
+    mib[3] = 0;
+    mib[4] = NET_RT_DUMP2;
+    mib[5] = 0;
+    
+    sysctl(mib, 6, NULL, &len, NULL, 0);
+    buf = malloc(len);
+    if (buf && sysctl(mib, 6, buf, &len, NULL, 0) == 0)
+    {
+        for (char * ptr = buf; ptr < buf + len; ptr += rtm->rtm_msglen)
+        {
+            rtm = (struct rt_msghdr2 *)ptr;
+            route = [self getRoute:rtm];
+            if(route != nil)
+            {
+                [routeArray addObject:route];
+                break;
+            }
+        }
+    }
+    
+    free(buf);
+    
+    return routeArray;
+}
+
+
++ (nullable Route_Info*) getRoute:(struct rt_msghdr2 *)rtm
+{
+    struct sockaddr* dst_sa = (struct sockaddr *)(rtm + 1);
+    Route_Info* route = nil;
+    
+    if(rtm->rtm_addrs & RTA_DST)
+    {
+        if(dst_sa->sa_family == AF_INET && !((rtm->rtm_flags & RTF_WASCLONED) && (rtm->rtm_parentflags & RTF_PRCLONING)))
+        {
+            route = [[Route_Info alloc] initWithRtm:rtm];
+        }
+    }
+    
+    return route;
+}
+
+-(void) setAddr:(struct sockaddr*)sa index:(int)rtax_index
+{
+    if(rtax_index >= 0 && rtax_index < RTAX_MAX)
+    {
+        memcpy(&(m_addrs[rtax_index]), sa, sizeof(struct sockaddr));
+    }
+}
+
+-(nullable NSString*) getDestination
+{
+    return [self getAddrStringByIndex:RTAX_DST];
+}
+
+-(nullable NSString*) getNetmask
+{
+    return [self getAddrStringByIndex:RTAX_NETMASK];
+}
+
+-(nullable NSString*) getGateway
+{
+    return [self getAddrStringByIndex:RTAX_GATEWAY];
+}
+
+
+-(nullable NSString*) getAddrStringByIndex: (int)rtax_index
+{
+    NSString * routeString = nil;
+    struct sockaddr* sa = &(m_addrs[rtax_index]);
+    int flagVal = 1 << rtax_index;
+    
+    if(!(m_rtm.rtm_addrs & flagVal))
+    {
+        return nil;
+    }
+    
+    if(rtax_index >= 0 && rtax_index < RTAX_MAX)
+    {
+        switch(sa->sa_family)
+        {
+            case AF_INET:
+            {
+                struct sockaddr_in* si = (struct sockaddr_in *)sa;
+                if(si->sin_addr.s_addr == INADDR_ANY)
+                    routeString = @"default";
+                else
+                    routeString = [NSString stringWithCString:(char *)inet_ntoa(si->sin_addr) encoding:NSASCIIStringEncoding];
+            }
+                break;
+                
+            case AF_LINK:
+            {
+                struct sockaddr_dl* sdl = (struct sockaddr_dl*)sa;
+                if(sdl->sdl_nlen + sdl->sdl_alen + sdl->sdl_slen == 0)
+                {
+                    routeString = [NSString stringWithFormat: @"link #%d", sdl->sdl_index];
+                }
+                else
+                    routeString = [NSString stringWithCString:link_ntoa(sdl) encoding:NSASCIIStringEncoding];
+            }
+                break;
+                
+            default:
+            {
+                char a[3 * sa->sa_len];
+                char *cp;
+                char *sep = "";
+                int i;
+                
+                if(sa->sa_len == 0)
+                {
+                    routeString = nil;
+                }
+                else
+                {
+                    a[0] = '\0';
+                    for(i = 0, cp = a; i < sa->sa_len; i++)
+                    {
+                        cp += sprintf(cp, "%s%02x", sep, (unsigned char)sa->sa_data[i]);
+                        sep = ":";
+                    }
+                    routeString = [NSString stringWithCString:a encoding:NSASCIIStringEncoding];
+                }
+            }
+        }
+    }
+    
+    return routeString;
+}
+
+@end
+
 @implementation SSNetworkInfo
 
 // Network Information
 
 // Get Current IP Address
-+ (NSString *)currentIPAddress {
++ (nullable NSString *)currentIPAddress {
     // Get the current IP Address
     
     // Check which interface is currently in use
@@ -52,7 +278,7 @@
 }
 
 // Get Current MAC Address
-+ (NSString *)currentMACAddress {
++ (nullable NSString *)currentMACAddress {
     // Get the current interface MAC Address
     
     // Check which interface is currently in use
@@ -91,7 +317,7 @@
 }
 
 // Get the External IP Address
-+ (NSString *)externalIPAddress {
++ (nullable NSString *)externalIPAddress {
     @try {
         // Check if we have an internet connection then try to get the External IP Address
         if (![self connectedToCellNetwork] && ![self connectedToWiFi]) {
@@ -152,7 +378,7 @@
 }
 
 // Get Cell IP Address
-+ (NSString *)cellIPAddress {
++ (nullable NSString *)cellIPAddress {
     // Get the Cell IP Address
     @try {
         // Set a string for the address
@@ -213,8 +439,70 @@
     }
 }
 
+// Get Cell IPv6 Address
++ (nullable NSString *)cellIPv6Address {
+    // Get the Cell IP Address
+    @try {
+        // Set a string for the address
+        NSString *IPAddress;
+        // Set up structs to hold the interfaces and the temporary address
+        struct ifaddrs *Interfaces;
+        struct ifaddrs *Temp;
+        struct sockaddr_in6 *s6;
+        char buf[INET6_ADDRSTRLEN];
+        
+        // If it's 0, then it's good
+        if (!getifaddrs(&Interfaces))
+        {
+            // Loop through the list of interfaces
+            Temp = Interfaces;
+            
+            // Run through it while it's still available
+            while(Temp != NULL)
+            {
+                // If the temp interface is a valid interface
+                if(Temp->ifa_addr->sa_family == AF_INET6)
+                {
+                    // Check if the interface is Cell
+                    if([[NSString stringWithUTF8String:Temp->ifa_name] isEqualToString:@"pdp_ip0"])
+                    {
+                        s6 = (struct sockaddr_in6 *)Temp->ifa_addr;
+                        
+                        if (inet_ntop(AF_INET6, (void *)&(s6->sin6_addr), buf, sizeof(buf)) == NULL) {
+                            // Failed to find it
+                            IPAddress = nil;
+                        } else {
+                            // Got the Cell IP Address
+                            IPAddress = [NSString stringWithUTF8String:buf];
+                        }
+                    }
+                }
+                
+                // Set the temp value to the next interface
+                Temp = Temp->ifa_next;
+            }
+        }
+        
+        // Free the memory of the interfaces
+        freeifaddrs(Interfaces);
+        
+        // Check to make sure it's not empty
+        if (IPAddress == nil || IPAddress.length <= 0) {
+            // Empty, return not found
+            return nil;
+        }
+        
+        // Return the IP Address of the WiFi
+        return IPAddress;
+    }
+    @catch (NSException *exception) {
+        // Error, IP Not found
+        return nil;
+    }
+}
+
 // Get Cell MAC Address
-+ (NSString *)cellMACAddress {
++ (nullable NSString *)cellMACAddress {
     // Get the Cell MAC Address
     @try {
         // Start by setting the variables to get the Cell Mac Address
@@ -294,7 +582,7 @@
 }
 
 // Get Cell Netmask Address
-+ (NSString *)cellNetmaskAddress {
++ (nullable NSString *)cellNetmaskAddress {
     // Get the Cell Netmask Address
     @try {
         // Set up the variable
@@ -344,7 +632,7 @@
 }
 
 // Get Cell Broadcast Address
-+ (NSString *)cellBroadcastAddress {
++ (nullable NSString *)cellBroadcastAddress {
     // Get the Cell Broadcast Address
     @try {
         // Set up strings for the IP and Netmask
@@ -386,7 +674,7 @@
         NSUInteger BA = ~NM | IP;
         
         // Make a string for the address
-        NSString *BroadcastAddress = [NSString stringWithFormat:@"%lu.%lu.%lu.%lu", (BA & 0xFF000000) >> 24,
+        NSString *BroadcastAddress = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld", (BA & 0xFF000000) >> 24,
                                       (BA & 0x00FF0000) >> 16, (BA & 0x0000FF00) >> 8, BA & 0x000000FF];
         
         // Check to make sure the string is valid
@@ -405,7 +693,7 @@
 }
 
 // Get WiFi IP Address
-+ (NSString *)wiFiIPAddress {
++ (nullable NSString *)wiFiIPAddress {
     // Get the WiFi IP Address
     @try {
         // Set a string for the address
@@ -462,8 +750,74 @@
     }
 }
 
+// Get WiFi IPv6 Address
++ (nullable NSString *)wiFiIPv6Address {
+    // Get the WiFi IP Address
+    @try {
+        // Set a string for the address
+        NSString *IPAddress;
+        // Set up structs to hold the interfaces and the temporary address
+        struct ifaddrs *Interfaces;
+        struct ifaddrs *Temp;
+        // Set up int for success or fail
+        int Status = 0;
+        
+        // Get all the network interfaces
+        Status = getifaddrs(&Interfaces);
+        
+        // If it's 0, then it's good
+        if (Status == 0)
+        {
+            // Loop through the list of interfaces
+            Temp = Interfaces;
+            
+            // Run through it while it's still available
+            while(Temp != NULL)
+            {
+                // If the temp interface is a valid interface
+                if(Temp->ifa_addr->sa_family == AF_INET6)
+                {
+                    // Check if the interface is WiFi
+                    if([[NSString stringWithUTF8String:Temp->ifa_name] isEqualToString:@"en0"])
+                    {
+                        // Get the WiFi IP Address
+                        struct sockaddr_in6 *addr6 = (struct sockaddr_in6 *)Temp->ifa_addr;
+                        char buf[INET6_ADDRSTRLEN];
+                        if (inet_ntop(AF_INET6, (void *)&(addr6->sin6_addr), buf, sizeof(buf)) == NULL) {
+                            // Failed to find it
+                            IPAddress = nil;
+                        } else {
+                            // Got the Cell IP Address
+                            IPAddress = [NSString stringWithUTF8String:buf];
+                        }
+                    }
+                }
+                
+                // Set the temp value to the next interface
+                Temp = Temp->ifa_next;
+            }
+        }
+        
+        // Free the memory of the interfaces
+        freeifaddrs(Interfaces);
+        
+        // Check to make sure it's not empty
+        if (IPAddress == nil || IPAddress.length <= 0) {
+            // Empty, return not found
+            return nil;
+        }
+        
+        // Return the IP Address of the WiFi
+        return IPAddress;
+    }
+    @catch (NSException *exception) {
+        // Error, IP Not found
+        return nil;
+    }
+}
+
 // Get WiFi MAC Address
-+ (NSString *)wiFiMACAddress {
++ (nullable NSString *)wiFiMACAddress {
     // Get the WiFi MAC Address
     @try {
         // Start by setting the variables to get the WiFi Mac Address
@@ -543,7 +897,7 @@
 }
 
 // Get WiFi Netmask Address
-+ (NSString *)wiFiNetmaskAddress {
++ (nullable NSString *)wiFiNetmaskAddress {
     // Get the WiFi Netmask Address
     @try {
         // Set up the variable
@@ -593,7 +947,7 @@
 }
 
 // Get WiFi Broadcast Address
-+ (NSString *)wiFiBroadcastAddress {
++ (nullable NSString *)wiFiBroadcastAddress {
     // Get the WiFi Broadcast Address
     @try {
         // Set up strings for the IP and Netmask
@@ -681,4 +1035,29 @@
     }
 }
 
++ (nullable NSString *)wiFiRouterAddress {
+    // Get the WiFi Router Address
+    @try {
+        // Set the ip address variable
+        NSString *routerIP = nil;
+        // Set the router array variable with the routing information
+        NSMutableArray *routerArray = [Route_Info getRoutes];
+        // Run through the array
+        for(int i = 0; i < (int)[routerArray count]; i++)
+        {
+            // Set the router info
+            Route_Info* router = (Route_Info*)[routerArray objectAtIndex:i];
+            routerIP = [router getGateway];
+        }
+        // Return Successful
+        return routerIP;
+    }
+    @catch (NSException *exception) {
+        // Error
+        return nil;
+    }
+}
+
 @end
+
+

@@ -10,6 +10,18 @@
 
 #import "SSJailbreakCheck.h"
 
+// UIKit
+#import <UIKit/UIKit.h>
+
+// stat
+#import <sys/stat.h>
+
+// sysctl
+#import <sys/sysctl.h>
+
+// System Version Less Than
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
 // Failed jailbroken checks
 enum {
     // Failed the Jailbreak Check
@@ -47,12 +59,14 @@ enum {
     // Make an int to monitor how many checks are failed
     int motzart = 0;
     
-    // URL Check
-    //Vendor Modified by YM:iOS9下不再适用，会弹出警告日志
-//    if ([self urlCheck] != NOTJAIL) {
-//        // Jailbroken
-//        motzart += 3;
-//    }
+    // Check if iOS 8 or lower
+    if (SYSTEM_VERSION_LESS_THAN(@"9.0")) {
+        // URL Check
+        if ([self urlCheck] != NOTJAIL) {
+            // Jailbroken
+            motzart += 3;
+        }
+    }
     
     // Cydia Check
     if ([self cydiaCheck] != NOTJAIL) {
@@ -72,22 +86,25 @@ enum {
         motzart += 2;
     }
     
-    // Processes Check
-    if ([self processesCheck] != NOTJAIL) {
-        // Jailbroken
-        motzart += 2;
-    }
-    
-    // FSTab Check
-    if ([self fstabCheck] != NOTJAIL) {
-        // Jailbroken
-        motzart += 1;
-    }
-    
-    // Shell Check
-    if ([self systemCheck] != NOTJAIL) {
-        // Jailbroken
-        motzart += 2;
+    // Check if iOS 8 or lower
+    if (SYSTEM_VERSION_LESS_THAN(@"9.0")) {
+        // Processes Check
+        if ([self processesCheck] != NOTJAIL) {
+            // Jailbroken
+            motzart += 2;
+        }
+        
+        // FSTab Check
+        if ([self fstabCheck] != NOTJAIL) {
+            // Jailbroken
+            motzart += 1;
+        }
+        
+        // Shell Check
+        if ([self systemCheck] != NOTJAIL) {
+            // Jailbroken
+            motzart += 2;
+        }
     }
     
     // Symbolic Link Check
@@ -308,8 +325,8 @@ enum {
     size_t miblen = 4;
     
     // Make a new size and int of the sysctl calls
-    size_t size;
-    int st = sysctl(mib, miblen, NULL, &size, NULL, 0);
+    size_t size = 0;
+    int st;
     
     // Make new structs for the processes
     struct kinfo_proc * process = NULL;
@@ -318,7 +335,7 @@ enum {
     // Do get all the processes while there are no errors
     do {
         // Add to the size
-        size += size / 10;
+        size += (size / 10);
         // Get the new process
         newprocess = realloc(process, size);
         // If the process selected doesn't exist
@@ -336,7 +353,7 @@ enum {
         process = newprocess;
         
         // Set the st to the next process
-        st = sysctl(mib, miblen, process, &size, NULL, 0);
+        st = sysctl(mib, (int)miblen, process, &size, NULL, 0);
         
     } while (st == -1 && errno == ENOMEM);
     
@@ -346,7 +363,7 @@ enum {
         // And the size of the processes is 0
         if (size % sizeof(struct kinfo_proc) == 0){
             // Define the new process
-            int nprocess = size / sizeof(struct kinfo_proc);
+            int nprocess = (int)(size / sizeof(struct kinfo_proc));
             // If the process exists
             if (nprocess){
                 // Create a new array
@@ -377,6 +394,10 @@ enum {
             }
         }
     }
+    
+    // Free the process array
+    free(process);
+    
     // If no processes are found, return nothing
     return nil;
 }

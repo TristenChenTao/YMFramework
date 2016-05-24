@@ -6,8 +6,9 @@
 //  Copyright (c) 2012 Shmoopi LLC. All rights reserved.
 //
 
-#import "SystemServicesConstants.h"
+#import <Foundation/Foundation.h>
 
+NS_CLASS_DEPRECATED_IOS(2_0, 9_0, "SSProcessInfo is deprecated. Process information is no longer allowed in iOS 9")
 @interface SSProcessInfo : NSObject
 
 // Process Information
@@ -16,7 +17,7 @@
 + (int)processID;
 
 // Process Name
-+ (NSString *)processName;
++ (nullable NSString *)processName;
 
 // Process Status
 + (int)processStatus;
@@ -28,6 +29,6 @@
 + (int)parentPIDForProcess:(int)pid;
 
 // List of process information including PID's, Names, PPID's, and Status'
-+ (NSMutableArray *)processesInformation;
++ (nullable NSMutableArray *)processesInformation;
 
 @end
