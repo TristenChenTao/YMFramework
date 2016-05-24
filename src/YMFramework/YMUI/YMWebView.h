@@ -34,6 +34,8 @@ didFailLoadWithError:(NSError *)error;
 shouldStartLoadWithRequest:(NSURLRequest *)request
  navigationType:(UIWebViewNavigationType)navigationType;
 
+- (void)webViewShouldRefresh:(UIWebView *)webView;
+
 @end
 
 @interface YMWebView : UIWebView
@@ -43,6 +45,8 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 - (instancetype)initWithContainerVC:(UIViewController *)viewController;
 
 - (void)loadRequest:(NSURLRequest *)request;
+
+- (void)loadRequestByRefresh:(NSURLRequest *)request;
 
 /**
  *  加载全局URL链接处理器

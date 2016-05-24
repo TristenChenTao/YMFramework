@@ -27,6 +27,8 @@ UIGestureRecognizerDelegate
 @property (nonatomic, copy  ) NSString         *savedImageURL;
 @property (nonatomic, weak  ) UIViewController *containerVC;
 
+@property (nonatomic, strong) NSURLRequest *orignalRequest;
+
 @end
 
 @implementation YMWebView
@@ -62,18 +64,35 @@ static YMWebViewShouldStartHandler kHandler;
     return self;
 }
 
+- (void)loadRequestByRefresh:(NSURLRequest *)request
+{
+    self.orignalRequest = request;
+    [self.scrollView.mj_header beginRefreshing];
+}
+
 - (void)loadRequest:(NSURLRequest *)request
 {
-    [self.scrollView.mj_header beginRefreshing];
+    self.orignalRequest = request;
     [super loadRequest:request];
 }
+
 
 - (void)addHeader
 {
     __unsafe_unretained YMWebView *webView = self;
     
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [webView reload];
+        if (webView.ym_Delegate && [webView.ym_Delegate respondsToSelector:@selector(webViewShouldRefresh:)]) {
+            [webView.ym_Delegate webViewShouldRefresh:webView];
+        }
+        else {
+            if (webView.request) {
+                [webView reload];
+            }
+            else {
+                [webView loadRequest:self.orignalRequest];
+            }
+        }
     }];
     header.backgroundColor = [UIColor clearColor];
     header.automaticallyChangeAlpha = YES;
