@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 cornapp. All rights reserved.
 //
 
+#import <UMMobClick/MobClick.h>
+
 #import "YMAnalytics.h"
 #import "YMAnalyticsModel.h"
 #import "YMHTTPManager.h"
@@ -13,10 +15,6 @@
 #import "YMFrameworkConfig.h"
 #import "YMDeviceInfo.h"
 #import "YMHttpParameterFactory.h"
-
-
-#import "MobClick.h"
-
 
 @implementation YMAnalytics
 
@@ -76,9 +74,9 @@ static dispatch_source_t KTimerSource;
 {
     //友盟
     if ([NSString ym_isContainString:appKey]) {
-        [MobClick startWithAppkey:appKey
-                     reportPolicy:SEND_INTERVAL
-                        channelId:channelID];
+;
+        UMConfigInstance.appKey = appKey;
+        UMConfigInstance.channelId = channelID;
         
         NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         [MobClick setAppVersion:version];

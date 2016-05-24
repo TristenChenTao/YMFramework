@@ -150,9 +150,6 @@
 		62D2AACD1C3220E000A97384 /* YMThirdPlatformSDKCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */; };
 		62D2AACE1C3220E000A97384 /* YMThirdPlatformSDKCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */; };
 		62DB9DC81C4DD15600624672 /* JPUSHService.h in Headers */ = {isa = PBXBuildFile; fileRef = 62DB9DC61C4DD15600624672 /* JPUSHService.h */; };
-		62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */; };
-		62E433631AE5F89D005445B2 /* MobClick.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433601AE5F89D005445B2 /* MobClick.h */; };
-		62E433641AE5F89D005445B2 /* MobClickSocialAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */; };
 		62EF08171BF231F8009BB1BB /* NSDate+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62EF08181BF231F8009BB1BB /* NSDate+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */; };
 		62EF08191BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF08151BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -233,6 +230,7 @@
 		C15141E11CBB760900694EA5 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C15141C01CBB760900694EA5 /* UIView+WebCacheOperation.m */; };
 		C17FBE421CCF0FF300A94598 /* YMWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = C17FBE401CCF0FF300A94598 /* YMWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C17FBE431CCF0FF300A94598 /* YMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C17FBE411CCF0FF300A94598 /* YMWebView.m */; };
+		C1B1E1431CF4474200124D11 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B1E1421CF4474200124D11 /* UMMobClick.framework */; };
 		C1C62A531CBB4CEF00E4587F /* FLEXArgumentInputColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = C1C629AE1CBB4CEF00E4587F /* FLEXArgumentInputColorView.h */; };
 		C1C62A541CBB4CEF00E4587F /* FLEXArgumentInputColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C629AF1CBB4CEF00E4587F /* FLEXArgumentInputColorView.m */; };
 		C1C62A551CBB4CEF00E4587F /* FLEXArgumentInputDateView.h in Headers */ = {isa = PBXBuildFile; fileRef = C1C629B01CBB4CEF00E4587F /* FLEXArgumentInputDateView.h */; };
@@ -552,9 +550,6 @@
 		62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMThirdPlatformSDKCenter.h; sourceTree = "<group>"; };
 		62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMThirdPlatformSDKCenter.m; sourceTree = "<group>"; };
 		62DB9DC61C4DD15600624672 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
-		62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
-		62E433601AE5F89D005445B2 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
-		62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YMAdditions.h"; sourceTree = "<group>"; };
 		62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YMAdditions.m"; sourceTree = "<group>"; };
 		62EF08151BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YMAdditionsForNSDate.h"; sourceTree = "<group>"; };
@@ -635,6 +630,7 @@
 		C15141C01CBB760900694EA5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		C17FBE401CCF0FF300A94598 /* YMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMWebView.h; sourceTree = "<group>"; };
 		C17FBE411CCF0FF300A94598 /* YMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMWebView.m; sourceTree = "<group>"; };
+		C1B1E1421CF4474200124D11 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
 		C1C629AE1CBB4CEF00E4587F /* FLEXArgumentInputColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputColorView.h; sourceTree = "<group>"; };
 		C1C629AF1CBB4CEF00E4587F /* FLEXArgumentInputColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXArgumentInputColorView.m; sourceTree = "<group>"; };
 		C1C629B01CBB4CEF00E4587F /* FLEXArgumentInputDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputDateView.h; sourceTree = "<group>"; };
@@ -827,6 +823,7 @@
 			files = (
 				622DEFE61C4CF3FE00DEEA3D /* QuartzCore.framework in Frameworks */,
 				622DEFE41C4CF3F400DEEA3D /* AVFoundation.framework in Frameworks */,
+				C1B1E1431CF4474200124D11 /* UMMobClick.framework in Frameworks */,
 				622DEFE21C4CF3E300DEEA3D /* CoreLocation.framework in Frameworks */,
 				622DEFE01C4CF3D900DEEA3D /* Security.framework in Frameworks */,
 				622DEFDE1C4CF3C400DEEA3D /* CoreGraphics.framework in Frameworks */,
@@ -843,7 +840,6 @@
 				C1C62AFA1CBB4FBD00E4587F /* libWeiboSDK.a in Frameworks */,
 				6244CF201C0D93A70004C2B8 /* WebP.framework in Frameworks */,
 				62D2AAB91C3220C200A97384 /* TencentOpenAPI.framework in Frameworks */,
-				62E433621AE5F89D005445B2 /* libMobClickLibrary.a in Frameworks */,
 				62D2AABB1C3220C200A97384 /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1002,6 +998,7 @@
 		625D56711ADBAF52007BCA33 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				C1B1E1421CF4474200124D11 /* UMMobClick.framework */,
 				C1190E671CD88F640004B260 /* MJRefresh */,
 				62D2AAA31C3220C200A97384 /* ThirdPlatformSDK */,
 				6244CF1F1C0D93A70004C2B8 /* WebP.framework */,
@@ -1010,7 +1007,6 @@
 				62C54E1C1B84516200004E80 /* SDWebImage */,
 				6242FCB21B2FD789007DD69C /* STWebP */,
 				6258F2231B04719000C0B785 /* JPush */,
-				62E4335E1AE5F89D005445B2 /* UMAnalytics */,
 				622CE5EF1AE4EC90004D714B /* System Services */,
 				62EF82C01AE238A40068B34A /* URLParser */,
 				625D56741ADBAFD3007BCA33 /* AFNetworking */,
@@ -1242,16 +1238,6 @@
 				C1C62AF91CBB4FBD00E4587F /* WeiboUser.h */,
 			);
 			path = WeiboSDK;
-			sourceTree = "<group>";
-		};
-		62E4335E1AE5F89D005445B2 /* UMAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				62E4335F1AE5F89D005445B2 /* libMobClickLibrary.a */,
-				62E433601AE5F89D005445B2 /* MobClick.h */,
-				62E433611AE5F89D005445B2 /* MobClickSocialAnalytics.h */,
-			);
-			path = UMAnalytics;
 			sourceTree = "<group>";
 		};
 		62E826991C48C64200802F4B /* Framework */ = {
@@ -1797,7 +1783,6 @@
 				C1C62A9C1CBB4CEF00E4587F /* FLEXGlobalsTableViewController.h in Headers */,
 				622CE6141AE4EC90004D714B /* NSObject+PerformBlockAfterDelay.h in Headers */,
 				C15141D11CBB760900694EA5 /* SDWebImageOperation.h in Headers */,
-				62E433631AE5F89D005445B2 /* MobClick.h in Headers */,
 				C1C62AD71CBB4CEF00E4587F /* FLEXToolbarItem.h in Headers */,
 				C1C62AD31CBB4CEF00E4587F /* FLEXViewExplorerViewController.h in Headers */,
 				62D2AABC1C3220C200A97384 /* WechatAuthSDK.h in Headers */,
@@ -1815,7 +1800,6 @@
 				C1C62B001CBB4FBD00E4587F /* WBSDKBasicButton.h in Headers */,
 				C1C62AD51CBB4CEF00E4587F /* FLEXExplorerToolbar.h in Headers */,
 				622CE6221AE4EC90004D714B /* SSHardwareInfo.h in Headers */,
-				62E433641AE5F89D005445B2 /* MobClickSocialAnalytics.h in Headers */,
 				C1C62AE71CBB4CEF00E4587F /* FLEXHierarchyTableViewCell.h in Headers */,
 				C1C62A841CBB4CEF00E4587F /* FLEXRealmDefines.h in Headers */,
 				C1190EB81CD88F640004B260 /* UIView+MJExtension.h in Headers */,
@@ -2211,6 +2195,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YMFramework/Vender/**",
+					"$(PROJECT_DIR)/YMFramework/Vender",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"SD_WEBP=1",
@@ -2248,6 +2233,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YMFramework/Vender/**",
+					"$(PROJECT_DIR)/YMFramework/Vender",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = "SD_WEBP=1";
 				INFOPLIST_FILE = YMFramework/Info.plist;
