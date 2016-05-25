@@ -817,6 +817,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				622DEFDA1C4CF37A00DEEA3D /* CoreTelephony.framework in Frameworks */,
 				622DEFE61C4CF3FE00DEEA3D /* QuartzCore.framework in Frameworks */,
 				622DEFE41C4CF3F400DEEA3D /* AVFoundation.framework in Frameworks */,
 				C1B1E1431CF4474200124D11 /* UMMobClick.framework in Frameworks */,
@@ -824,7 +825,6 @@
 				622DEFE01C4CF3D900DEEA3D /* Security.framework in Frameworks */,
 				622DEFDE1C4CF3C400DEEA3D /* CoreGraphics.framework in Frameworks */,
 				622DEFDC1C4CF3A100DEEA3D /* SystemConfiguration.framework in Frameworks */,
-				622DEFDA1C4CF37A00DEEA3D /* CoreTelephony.framework in Frameworks */,
 				622DEFD81C4CF36400DEEA3D /* CoreFoundation.framework in Frameworks */,
 				C14FEBCE1CEEE75C00B7EFE1 /* jpush-ios-2.1.6.a in Frameworks */,
 				622DEFD51C4CF33D00DEEA3D /* CFNetwork.framework in Frameworks */,
