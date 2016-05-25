@@ -34,9 +34,23 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[TestThreePlatformViewController alloc] init]];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
-    self.window.rootViewController = nav;
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+
+    ViewController *vc1 = [[ViewController alloc] init];
+    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:vc1];
+    nav1.tabBarItem.title = @"基础框架";
+    nav1.navigationBarHidden = YES;
+    [tabBarController addChildViewController:nav1];
+    
+    
+    TestThreePlatformViewController *vc2 = [[TestThreePlatformViewController alloc] init];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:vc2];
+    nav2.tabBarItem.title = @"社交平台";
+    nav2.navigationBarHidden = YES;
+    [tabBarController addChildViewController:nav2];
+
+    self.window.rootViewController = tabBarController;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
