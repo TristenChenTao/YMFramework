@@ -43,10 +43,10 @@ YMWebViewDelegate
 //    [self testWebpForWebView];
 //    [self testYMProgress];
 //    [self testBackgroundTask];
-    [self testUploadImage];
+//    [self testUploadImage];
 //    [self testUploadJSONData];
     
-//    [self testYMWebView];
+    [self testYMWebView];
     
 //    [self testIsPhoneNumber];
 
@@ -254,7 +254,7 @@ YMWebViewDelegate
     self.navigationItem.title = @"首页";
     
     NSMutableURLRequest *request = [YMHTTPManager requestWithMethodType:YMHttpRequestTypeForGet
-                                                             URLAddress:@"http://www.xinhuanet.com/"
+                                                             URLAddress:@"http://www.baidu.com"
                                                                 timeout:10
                                                              parameters:nil];
     [webView loadRequest:request];

@@ -16,6 +16,9 @@
 #import "UIFont+YMFontSizeAdditions.h"
 #import "UIColor+YMAdditions.h"
 #import "UIView+YMFrameAdditions.h"
+#import "YMWebFailView.h"
+#import "Masonry.h"
+#import "YMProgress.h"
 
 @interface YMWebView()
 <UIWebViewDelegate,
@@ -28,6 +31,9 @@ UIGestureRecognizerDelegate
 @property (nonatomic, weak  ) UIViewController *containerVC;
 
 @property (nonatomic, strong) NSURLRequest *orignalRequest;
+
+@property (nonatomic, strong) YMWebFailView *failView;
+@property (nonatomic, assign) BOOL hasRequestSuccess;
 
 @end
 
@@ -54,6 +60,7 @@ static YMWebViewShouldStartHandler kHandler;
         webView.backgroundColor = [UIColor whiteColor];
         webView.containerVC = viewController;
         
+        [self addFailView];
         
         // 添加下拉刷新控件
         [self addHeader];
@@ -86,12 +93,7 @@ static YMWebViewShouldStartHandler kHandler;
             [webView.ym_Delegate webViewShouldRefresh:webView];
         }
         else {
-            if (webView.request) {
-                [webView reload];
-            }
-            else {
-                [webView loadRequest:self.orignalRequest];
-            }
+            [webView loadRequest:self.orignalRequest];
         }
     }];
     header.backgroundColor = [UIColor clearColor];
@@ -109,6 +111,18 @@ static YMWebViewShouldStartHandler kHandler;
     header.stateLabel.textColor = [UIColor ym_colorWithHexString:@"8995b0"];
     
     self.scrollView.mj_header = header;
+}
+
+- (void)addFailView
+{
+    self.failView = [[YMWebFailView alloc] init];
+
+    [self.scrollView addSubview:self.failView];
+    self.failView.alpha = 0.0;
+    
+    [self.failView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(self.scrollView);
+    }];
 }
 
 #pragma mark - private methods
@@ -146,6 +160,9 @@ static YMWebViewShouldStartHandler kHandler;
 {
     [webView.scrollView.mj_header endRefreshing];
     
+    self.failView.alpha = 0.0;
+    self.hasRequestSuccess = YES;
+    
     if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webViewDidFinishLoad:)]) {
         [_ym_Delegate webViewDidFinishLoad:webView];
     }
@@ -154,6 +171,13 @@ static YMWebViewShouldStartHandler kHandler;
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     [webView.scrollView.mj_header endRefreshing];
+    
+    if (self.hasRequestSuccess == NO) {
+        self.failView.alpha = 1.0;
+    }
+    else {
+        [YMProgress showFailStatus:@"网络连接失败"];
+    }
     
     if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:didFailLoadWithError:)]) {
         [_ym_Delegate webView:webView
