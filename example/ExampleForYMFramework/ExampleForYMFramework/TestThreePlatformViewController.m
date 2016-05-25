@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad
 {
-    self.view.backgroundColor = [UIColor whiteColor]; //ddfsdfsdf
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [YMThirdPlatformTool setupQQByAppId:@"100371282"
                                  appKey:@"aed9b0303e3ed1e27bae87c33761161d"];

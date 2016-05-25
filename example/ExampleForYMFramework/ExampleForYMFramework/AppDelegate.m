@@ -8,9 +8,12 @@
 
 #import <YMFramework/YMFramework.h>
 
+#import <Bugtags/Bugtags.h>
+
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "TestThreePlatformViewController.h"
+#import "BaseVenderVC.h"
 
 @interface AppDelegate ()
 
@@ -48,10 +51,20 @@
     nav2.tabBarItem.title = @"社交平台";
     nav2.navigationBarHidden = YES;
     [tabBarController addChildViewController:nav2];
+    
+    BaseVenderVC *vc3 = [[BaseVenderVC alloc] init];
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:vc3];
+    nav3.tabBarItem.title = @"BaseVender";
+    nav3.navigationBarHidden = YES;
+    [tabBarController addChildViewController:nav3];
 
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];
+    
+    [Bugtags startWithAppKey:@"d52480aa42ebf840bb397342bb5e3808"
+             invocationEvent:BTGInvocationEventShake];
+    
     return YES;
 }
 

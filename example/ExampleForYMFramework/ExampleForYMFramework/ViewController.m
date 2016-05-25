@@ -39,11 +39,11 @@ YMWebViewDelegate
 //    [self testUIImageViewDownloadImage];
 //    [self testUIButtonDownloadImage];
 //    [self testFetchWebViewTitle];
-    [self testWebp];
+//    [self testWebp];
 //    [self testWebpForWebView];
 //    [self testYMProgress];
 //    [self testBackgroundTask];
-//    [self testUploadImage];
+    [self testUploadImage];
 //    [self testUploadJSONData];
     
 //    [self testYMWebView];
@@ -193,7 +193,7 @@ YMWebViewDelegate
 
 - (void)testUploadImage
 {
-    UIImage *testImage = [UIImage imageNamed:@"弹窗"];
+    UIImage *testImage = [UIImage imageNamed:@"测试图片上传"];
     NSArray *images = [[NSArray alloc]initWithObjects:testImage, nil];
     NSArray *names = [[NSArray alloc]initWithObjects:@"image0", nil];
     
