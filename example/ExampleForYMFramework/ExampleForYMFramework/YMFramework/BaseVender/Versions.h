@@ -4,4 +4,4 @@
 
 //Bugtags       1.2.6   https://work.bugtags.com
 
-//Aspects       1.3.1   https://github.com/steipete/Aspects
+//Aspects       1.4.2   https://github.com/steipete/Aspects

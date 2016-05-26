@@ -48,9 +48,9 @@
 {
     [UIViewController aspect_hookSelector:@selector(viewWillAppear:)
                               withOptions:AspectPositionAfter
-                               usingBlock:^(id instance, NSArray *arguments) {
-                                   NSLog(@"instance is %@",instance);
-    } error:NULL];
-}
+                               usingBlock:^(id<AspectInfo> info, BOOL animated) {
+                                   UIViewController *controller = [info instance];
+                                   controller.view.backgroundColor = [UIColor grayColor];
+                               } error:NULL];}
 
 @end
