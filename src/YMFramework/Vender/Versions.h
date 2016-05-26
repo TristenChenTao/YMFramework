@@ -19,6 +19,6 @@
 //////////////////////////////////////内部使用//////////////////////////////////////
  YYModel       1.0.3   https://github.com/ibireme/YYModel
  Masonry       1.0.0   https://github.com/SnapKit/Masonry
- Aspects       1.3.1   https://github.com/steipete/Aspects
+ Aspects       1.4.2   https://github.com/steipete/Aspects
 
 */
