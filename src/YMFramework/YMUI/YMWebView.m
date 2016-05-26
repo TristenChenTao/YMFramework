@@ -53,11 +53,12 @@ static YMWebViewShouldStartHandler kHandler;
     self = [super init];
     if (self) {
         
+        self.allowsInlineMediaPlayback = YES;
+        self.backgroundColor = [UIColor clearColor];
+        self.opaque = NO;
+        
         __unsafe_unretained YMWebView *webView = self;
         webView.delegate = self;
-        
-        webView.allowsInlineMediaPlayback = YES;
-        webView.backgroundColor = [UIColor whiteColor];
         webView.containerVC = viewController;
         
         [self addFailView];
