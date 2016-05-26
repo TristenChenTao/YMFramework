@@ -48,6 +48,10 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 
 - (void)loadRequestByRefresh:(NSURLRequest *)request;
 
+- (void)reloadByRefresh;
+
+- (void)reload;
+
 /**
  *  加载全局URL链接处理器
  *

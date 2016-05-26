@@ -83,6 +83,15 @@ static YMWebViewShouldStartHandler kHandler;
     [super loadRequest:request];
 }
 
+- (void)reloadByRefresh
+{
+    [self.scrollView.mj_header beginRefreshing];
+}
+
+- (void)reload
+{
+    [self loadRequest:self.orignalRequest];
+}
 
 - (void)addHeader
 {
