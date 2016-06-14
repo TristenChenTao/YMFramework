@@ -365,7 +365,7 @@
 				TargetAttributes = {
 					628A6B7A1C04127C00ECEEFD = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 3R6UTCFNFX;
+						DevelopmentTeam = M3UZ9C4262;
 					};
 				};
 			};
@@ -568,9 +568,9 @@
 				INFOPLIST_FILE = ExampleForYMFramework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = dev.com.cornapp.YMGoodLuck;
+				PRODUCT_BUNDLE_IDENTIFIER = test.com.cornapp.YMGoodLuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de76a160-6ef3-4d15-8560-de55ae0b109c";
+				PROVISIONING_PROFILE = "03b404e0-da7e-49a1-a7a7-d78d53d71fe9";
 			};
 			name = Debug;
 		};
@@ -591,9 +591,9 @@
 				INFOPLIST_FILE = ExampleForYMFramework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = dev.com.cornapp.YMGoodLuck;
+				PRODUCT_BUNDLE_IDENTIFIER = test.com.cornapp.YMGoodLuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de76a160-6ef3-4d15-8560-de55ae0b109c";
+				PROVISIONING_PROFILE = "03b404e0-da7e-49a1-a7a7-d78d53d71fe9";
 			};
 			name = Release;
 		};

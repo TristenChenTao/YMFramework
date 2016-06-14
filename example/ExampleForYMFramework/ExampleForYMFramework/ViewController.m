@@ -46,7 +46,7 @@ YMWebViewDelegate
 //    [self testUploadImage];
 //    [self testUploadJSONData];
     
-    [self testYMWebView];
+//    [self testYMWebView];
     
 //    [self testIsPhoneNumber];
 
