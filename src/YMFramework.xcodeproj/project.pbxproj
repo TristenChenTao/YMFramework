@@ -160,7 +160,7 @@
 		C1190EB71CD88F640004B260 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C1190E911CD88F640004B260 /* UIScrollView+MJRefresh.m */; };
 		C1190EB81CD88F640004B260 /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C1190E921CD88F640004B260 /* UIView+MJExtension.h */; };
 		C1190EB91CD88F640004B260 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1190E931CD88F640004B260 /* UIView+MJExtension.m */; };
-		C14FEBCE1CEEE75C00B7EFE1 /* jpush-ios-2.1.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C14FEBCD1CEEE75C00B7EFE1 /* jpush-ios-2.1.6.a */; };
+		C11BEDA51D0FDF21002A574D /* jpush-ios-2.1.7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C11BEDA41D0FDF21002A574D /* jpush-ios-2.1.7.a */; };
 		C17FBE421CCF0FF300A94598 /* YMWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = C17FBE401CCF0FF300A94598 /* YMWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C17FBE431CCF0FF300A94598 /* YMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C17FBE411CCF0FF300A94598 /* YMWebView.m */; };
 		C1B1E1431CF4474200124D11 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B1E1421CF4474200124D11 /* UMMobClick.framework */; };
@@ -592,7 +592,7 @@
 		C1190E911CD88F640004B260 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		C1190E921CD88F640004B260 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		C1190E931CD88F640004B260 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
-		C14FEBCD1CEEE75C00B7EFE1 /* jpush-ios-2.1.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.6.a"; sourceTree = "<group>"; };
+		C11BEDA41D0FDF21002A574D /* jpush-ios-2.1.7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.7.a"; sourceTree = "<group>"; };
 		C17FBE401CCF0FF300A94598 /* YMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMWebView.h; sourceTree = "<group>"; };
 		C17FBE411CCF0FF300A94598 /* YMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMWebView.m; sourceTree = "<group>"; };
 		C1B1E1421CF4474200124D11 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
@@ -890,11 +890,11 @@
 				622DEFE41C4CF3F400DEEA3D /* AVFoundation.framework in Frameworks */,
 				C1B1E1431CF4474200124D11 /* UMMobClick.framework in Frameworks */,
 				622DEFE21C4CF3E300DEEA3D /* CoreLocation.framework in Frameworks */,
+				C11BEDA51D0FDF21002A574D /* jpush-ios-2.1.7.a in Frameworks */,
 				622DEFE01C4CF3D900DEEA3D /* Security.framework in Frameworks */,
 				622DEFDE1C4CF3C400DEEA3D /* CoreGraphics.framework in Frameworks */,
 				622DEFDC1C4CF3A100DEEA3D /* SystemConfiguration.framework in Frameworks */,
 				622DEFD81C4CF36400DEEA3D /* CoreFoundation.framework in Frameworks */,
-				C14FEBCE1CEEE75C00B7EFE1 /* jpush-ios-2.1.6.a in Frameworks */,
 				622DEFD51C4CF33D00DEEA3D /* CFNetwork.framework in Frameworks */,
 				628F1CEF1C4CEF4E00FBDE6C /* ImageIO.framework in Frameworks */,
 				62C2C25D1C48C61500395E10 /* libz.tbd in Frameworks */,
@@ -1014,7 +1014,7 @@
 		6258F2231B04719000C0B785 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
-				C14FEBCD1CEEE75C00B7EFE1 /* jpush-ios-2.1.6.a */,
+				C11BEDA41D0FDF21002A574D /* jpush-ios-2.1.7.a */,
 				62DB9DC61C4DD15600624672 /* JPUSHService.h */,
 			);
 			path = JPush;
