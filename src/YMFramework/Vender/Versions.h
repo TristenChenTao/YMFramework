@@ -2,7 +2,7 @@
  UMAnalytics	4.0.2		http://dev.umeng.com/analytics/ios/sdk-download
  JPush			2.1.6		http://docs.jpush.io/resources/#sdk
  FLEX			2.3.0		https://github.com/Flipboard/FLEX
- QQSDK   		3.1.0		http://wiki.open.qq.com/wiki/mobile/SDK下载
+ QQSDK   		2.9.5		http://wiki.open.qq.com/wiki/mobile/SDK下载
  WechatSDK		1.7		https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319164&token=&lang=zh_CN
  WeiboSDK		3.1.4		https://github.com/sinaweibosdk/weibo_ios_sdk
  WebP			0.5.0		https://github.com/webmproject/libwebp （此版本升级需要依赖SDWebImage的版本支持）
