@@ -10,7 +10,7 @@
 
 typedef void(^YMWebImageCompletionBlock)(UIImage *image, NSError *error, NSURL *imageURL);
 
-typedef void(^YMWebImageDownloaderProgressBlock)(NSInteger receivedSize, NSInteger expectedSize);
+typedef void(^YMWebImageDownloaderProgressBlock)(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL);
 
 typedef void(^YMImageDownloaderProgressBlock)(NSInteger receivedSize, NSInteger expectedSize);
 
@@ -25,6 +25,7 @@ typedef void(^YMImageDownloaderCompletedBlock)(UIImage *image, NSError *error, B
                     progress:(YMImageDownloaderProgressBlock)progressBlock
                    completed:(YMImageDownloaderCompletedBlock)completedBlock;
 
-+ (BOOL)cachedImageExistsForURL:(NSString *)url;
++ (void)cachedImageExistsForURL:(NSString *)url
+                     completion:(void (^)(BOOL isInCache))completion;
 
 @end

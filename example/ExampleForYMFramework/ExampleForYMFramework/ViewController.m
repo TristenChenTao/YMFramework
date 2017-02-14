@@ -39,9 +39,9 @@ YMWebViewDelegate
 //    [self testUIImageViewDownloadImage];
 //    [self testUIButtonDownloadImage];
 //    [self testFetchWebViewTitle];
-//    [self testWebp];
+    [self testWebp];
 //    [self testWebpForWebView];
-    [self testYMProgress];
+//    [self testYMProgress];
 //    [self testBackgroundTask];
 //    [self testUploadImage];
 //    [self testUploadJSONData];
@@ -138,9 +138,11 @@ YMWebViewDelegate
     [imgView ym_setImageWithURL:url];
     [self.view addSubview:imgView];
     
-    if ([YMImageDownloader cachedImageExistsForURL:url]) {
-        NSLog(@"has cached");
-    }
+    [YMImageDownloader cachedImageExistsForURL:url completion:^(BOOL isInCache) {
+        if(isInCache){
+            NSLog(@"has cached");
+        }
+    }];
 }
 
 - (void)testWebpForWebView

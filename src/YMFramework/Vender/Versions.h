@@ -4,12 +4,13 @@
  QQSDK   		3.1.3		http://wiki.open.qq.com/wiki/mobile/SDK%E4%B8%8B%E8%BD%BD
  WechatSDK		1.7.6		https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319164&token=&lang=zh_CN
  WeiboSDK		3.1.4		https://github.com/sinaweibosdk/weibo_ios_sdk
- WebP			0.5.0		https://github.com/webmproject/libwebp
+ WebP			0.6.0		https://github.com/webmproject/libwebp
  
 //////////////////////////////////////源码有改动//////////////////////////////////////
  AFNetworking	 3.1.0		https://github.com/AFNetworking/AFNetworking
- SVProgressHUD   2.1.2		   https://github.com/TransitApp/SVProgressHUD
- SDWebImage      3.8.1		https://github.com/rs/SDWebImage
+ SVProgressHUD   2.1.2		https://github.com/TransitApp/SVProgressHUD
+ SDWebImage      4.0.0		https://github.com/rs/SDWebImage
+ FLAnimatedImage 1.0.12     https://github.com/Flipboard/FLAnimatedImage
  STWebPDecoder	 Null		https://github.com/cysp/STWebPDecoder
  MJRefresh		 3.1.0		https://github.com/CoderMJLee/MJRefresh
 

@@ -59,16 +59,12 @@
     });
     
     
-    if (![self.sd_imageURL.absoluteString isEqualToString:url]) {
-        [self sd_cancelCurrentImageLoad];
-    }
-    
     [self sd_setImageWithURL:[NSURL URLWithString:url]
             placeholderImage:placeholder
                      options:SDWebImageRetryFailed |SDWebImageContinueInBackground | SDWebImageHighPriority
-                    progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                    progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL){
                         if (progressBlock) {
-                            progressBlock(receivedSize, expectedSize);
+                            progressBlock(receivedSize, expectedSize, targetURL);
                         }
                     }
                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {

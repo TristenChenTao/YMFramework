@@ -16,13 +16,14 @@
                  fromDisk:(BOOL)fromDisk
 {
     [[SDImageCache sharedImageCache] removeImageForKey:key
-                                              fromDisk:fromDisk];
+                                              fromDisk:fromDisk
+                                        withCompletion:nil];
 }
 
 + (void)clearCache
 {
     [[SDImageCache sharedImageCache] clearMemory];
-    [[SDImageCache sharedImageCache] clearDisk];
+    [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
 }
 
 + (NSUInteger)totalCacheSize

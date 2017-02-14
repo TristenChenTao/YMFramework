@@ -25,22 +25,23 @@
                     progress:(YMImageDownloaderProgressBlock)progressBlock
                    completed:(YMImageDownloaderCompletedBlock)completedBlock
 {
-    [SDWebImageManager.sharedManager downloadImageWithURL:[NSURL URLWithString:url]
-                                                  options:0
-                                                 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                                                     if(progressBlock) {
-                                                         progressBlock(receivedSize,expectedSize);
-                                                     }
-                                                 } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-                                                     if (completedBlock) {
-                                                         completedBlock(image,error,finished,imageURL);
-                                                     }
-                                                 }];
+    [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:url] options:0
+                                               progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+                                                   if(progressBlock) {
+                                                       progressBlock(receivedSize,expectedSize);
+                                                   }
+                                               } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+                                                   if (completedBlock) {
+                                                       completedBlock(image,error,finished,imageURL);
+                                                   }
+                                               }];
 }
 
-+ (BOOL)cachedImageExistsForURL:(NSString *)url
++ (void)cachedImageExistsForURL:(NSString *)url
+ completion:(void (^)(BOOL isInCache))completion
 {
-    return [[SDWebImageManager sharedManager] cachedImageExistsForURL:[NSURL URLWithString:url]];
+    [[SDWebImageManager sharedManager] cachedImageExistsForURL:[NSURL URLWithString:url]
+                                                    completion:completion];
 }
 
 @end
