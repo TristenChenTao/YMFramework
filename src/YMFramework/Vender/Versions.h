@@ -2,7 +2,7 @@
  UMAnalytics	4.2.4		http://dev.umeng.com/analytics/ios/sdk-download
  FLEX			2.4.0		https://github.com/Flipboard/FLEX
  QQSDK   		3.1.3		http://wiki.open.qq.com/wiki/mobile/SDK%E4%B8%8B%E8%BD%BD
- WechatSDK		1.7.1		https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319164&token=&lang=zh_CN
+ WechatSDK		1.7.6		https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319164&token=&lang=zh_CN
  WeiboSDK		3.1.4		https://github.com/sinaweibosdk/weibo_ios_sdk
  WebP			0.5.0		https://github.com/webmproject/libwebp
  
@@ -25,3 +25,4 @@
 
 */
 
+¡
