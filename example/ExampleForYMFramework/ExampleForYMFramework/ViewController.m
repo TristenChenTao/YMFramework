@@ -39,14 +39,14 @@ YMWebViewDelegate
 //    [self testUIImageViewDownloadImage];
 //    [self testUIButtonDownloadImage];
 //    [self testFetchWebViewTitle];
-    [self testWebp];
+//    [self testWebp];
 //    [self testWebpForWebView];
 //    [self testYMProgress];
 //    [self testBackgroundTask];
 //    [self testUploadImage];
 //    [self testUploadJSONData];
     
-//    [self testYMWebView];
+    [self testYMWebView];
     
 //    [self testIsPhoneNumber];
 

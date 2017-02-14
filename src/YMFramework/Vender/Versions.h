@@ -12,12 +12,11 @@
  SDWebImage      4.0.0		https://github.com/rs/SDWebImage
  FLAnimatedImage 1.0.12     https://github.com/Flipboard/FLAnimatedImage
  STWebPDecoder	 Null		https://github.com/cysp/STWebPDecoder
- MJRefresh		 3.1.0		https://github.com/CoderMJLee/MJRefresh
+ MJRefresh		 3.1.12		https://github.com/CoderMJLee/MJRefresh
 
  
 /////////////////////////////////////待替换//////////////////////////////////////
-  JPush			2.1.7		http://docs.jpush.io/resources/#sdk
+JPush			2.1.7		http://docs.jpush.io/resources/#sdk
 
 */
 
-¡
