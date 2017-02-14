@@ -1,5 +1,5 @@
 /*
- UMAnalytics	4.0.4		http://dev.umeng.com/analytics/ios/sdk-download
+ UMAnalytics	4.2.4		http://dev.umeng.com/analytics/ios/sdk-download
  JPush			2.1.7		http://docs.jpush.io/resources/#sdk
  FLEX			2.3.0		https://github.com/Flipboard/FLEX
  QQSDK   		2.9.5		http://wiki.open.qq.com/wiki/mobile/SDK下载

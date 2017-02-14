@@ -74,7 +74,7 @@ static dispatch_source_t KTimerSource;
 {
     //友盟
     if ([NSString ym_isContainString:appKey]) {
-;
+
         UMConfigInstance.appKey = appKey;
         UMConfigInstance.channelId = channelID;
         

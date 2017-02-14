@@ -121,7 +121,7 @@ YMWebViewDelegate
     NSString *title = [webView ym_fetchHtmlNormalTitle];
     NSLog(@"fetch Html Normal Title is %@",title);
 }
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     NSLog(@"error is %@",error.localizedDescription);
 }
