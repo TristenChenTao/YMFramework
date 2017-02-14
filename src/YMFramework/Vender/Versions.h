@@ -11,10 +11,8 @@
  SVProgressHUD   1.1.3		   https://github.com/TransitApp/SVProgressHUD
  SDWebImage      3.8.1		https://github.com/rs/SDWebImage
  STWebPDecoder	 Null		https://github.com/cysp/STWebPDecoder
- System-Services 1.1.1   	https://github.com/Shmoopi/iOS-System-Services
  MJRefresh		 3.1.0		https://github.com/CoderMJLee/MJRefresh
 
- 
  
 /////////////////////////////////////待替换//////////////////////////////////////
   JPush			2.1.7		http://docs.jpush.io/resources/#sdk
