@@ -17,7 +17,6 @@
 #import "UIColor+YMAdditions.h"
 #import "UIView+YMFrameAdditions.h"
 #import "YMWebFailView.h"
-#import "Masonry.h"
 #import "YMProgress.h"
 
 @interface YMWebView()
@@ -128,11 +127,8 @@ static YMWebViewShouldStartHandler kHandler;
     self.failView = [[YMWebFailView alloc] init];
 
     [self.scrollView addSubview:self.failView];
+    self.failView.bounds = self.scrollView.bounds;
     self.failView.alpha = 0.0;
-    
-    [self.failView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(self.scrollView);
-    }];
 }
 
 #pragma mark - private methods

@@ -8,7 +8,6 @@
 
 #import "YMWebFailView.h"
 
-#import "Masonry.h"
 #import "YMUI.h"
 #import "UIColor+YMAdditions.h"
 #import "UIFont+YMFontSizeAdditions.h"
@@ -41,15 +40,14 @@
 
 - (void)setupViewLayout
 {
-    [self.logoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(@(kYm_ScreenWidth / 2));
-        make.top.equalTo(self.mas_top).offset(kYm_ScreenHeight * 0.219);
-    }];
+    CGPoint center = CGPointMake(kYm_ScreenWidth / 2, 0);
+    self.logoImageView.center = center;
+    self.logoImageView.frame = CGRectMake(self.logoImageView.frame.origin.x, kYm_ScreenHeight * 0.219, self.logoImageView.frame.size.width, self.logoImageView.frame.size.height);
     
-    [self.tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(@(kYm_ScreenWidth / 2));
-        make.top.equalTo(self.logoImageView.mas_bottom).offset(kYm_ScreenHeight * 0.036);
-    }];
+    self.tipLabel.center = center;
+    float y = self.logoImageView.frame.origin.y + self.logoImageView.frame.size.height;
+    self.tipLabel.frame = CGRectMake(self.tipLabel.frame.origin.x, y, self.tipLabel.frame.size.width, self.tipLabel.frame.size.height);
+    
 }
 
 #pragma mark - setter and getter
