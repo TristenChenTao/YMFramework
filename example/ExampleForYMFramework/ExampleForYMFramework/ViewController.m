@@ -39,9 +39,9 @@ YMWebViewDelegate
 //    [self testUIImageViewDownloadImage];
 //    [self testUIButtonDownloadImage];
 //    [self testFetchWebViewTitle];
-    [self testWebp];
+//    [self testWebp];
 //    [self testWebpForWebView];
-//    [self testYMProgress];
+    [self testYMProgress];
 //    [self testBackgroundTask];
 //    [self testUploadImage];
 //    [self testUploadJSONData];
@@ -166,15 +166,15 @@ YMWebViewDelegate
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
                    {
-                       //            [YMProgress showFailStatus:@"错误"];
-                       //                       [YMProgress showFailStatus:@"无网络"
-                       //                                     withFailType:YMProgrssFailTypeForNotReachable];
+//                       [YMProgress showFailStatus:@"错误"];
+//                       [YMProgress showFailStatus:@"无网络"
+//                                     withFailType:YMProgrssFailTypeForNotReachable];
+//                       
+//                       [YMProgress showFailStatus:@"定位错误"
+//                                     withFailType:YMProgrssFailTypeForLocation];
+                       [YMProgress showWithStatus:@"加载中"];
                        
-                       //                       [YMProgress showFailStatus:@"定位错误"
-                       //                                     withFailType:YMProgrssFailTypeForLocation];
-                       //        [YMProgress showWithStatus:@"加载中"];
-                       
-                       [YMProgress showInfoWithStatus:@"请输入密码"];
+//                       [YMProgress showInfoWithStatus:@"请输入密码"];
                        
                    });
 }

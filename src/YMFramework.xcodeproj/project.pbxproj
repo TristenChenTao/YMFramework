@@ -21,6 +21,15 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		544DE2311E52E24500F96AEF /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 544DE2281E52E24500F96AEF /* SVIndefiniteAnimatedView.h */; };
+		544DE2321E52E24500F96AEF /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DE2291E52E24500F96AEF /* SVIndefiniteAnimatedView.m */; };
+		544DE2331E52E24500F96AEF /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 544DE22A1E52E24500F96AEF /* SVProgressAnimatedView.h */; };
+		544DE2341E52E24600F96AEF /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DE22B1E52E24500F96AEF /* SVProgressAnimatedView.m */; };
+		544DE2351E52E24600F96AEF /* SVProgressHUD-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 544DE22C1E52E24500F96AEF /* SVProgressHUD-Prefix.pch */; };
+		544DE2361E52E24600F96AEF /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 544DE22D1E52E24500F96AEF /* SVProgressHUD.h */; };
+		544DE2371E52E24600F96AEF /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DE22E1E52E24500F96AEF /* SVProgressHUD.m */; };
+		544DE2381E52E24600F96AEF /* SVRadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 544DE22F1E52E24500F96AEF /* SVRadialGradientLayer.h */; };
+		544DE2391E52E24600F96AEF /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DE2301E52E24500F96AEF /* SVRadialGradientLayer.m */; };
 		54BCB71A1E52A4C5007D0A2C /* FLEXArgumentInputColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BCB6731E52A4C5007D0A2C /* FLEXArgumentInputColorView.h */; };
 		54BCB71B1E52A4C5007D0A2C /* FLEXArgumentInputColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BCB6741E52A4C5007D0A2C /* FLEXArgumentInputColorView.m */; };
 		54BCB71C1E52A4C5007D0A2C /* FLEXArgumentInputDateView.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BCB6751E52A4C5007D0A2C /* FLEXArgumentInputDateView.h */; };
@@ -242,11 +251,6 @@
 		627904431ADBC7D000F84BFB /* YMImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 627904411ADBC7D000F84BFB /* YMImageDownloader.m */; };
 		627AEEEE1C16AA6B0085349B /* YMProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 627AEEEC1C16AA6B0085349B /* YMProgress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		627AEEEF1C16AA6B0085349B /* YMProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 627AEEED1C16AA6B0085349B /* YMProgress.m */; };
-		627AEEF71C16AA870085349B /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 627AEEF11C16AA870085349B /* SVIndefiniteAnimatedView.h */; };
-		627AEEF81C16AA870085349B /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 627AEEF21C16AA870085349B /* SVIndefiniteAnimatedView.m */; };
-		627AEEF91C16AA870085349B /* SVProgressHUD-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 627AEEF31C16AA870085349B /* SVProgressHUD-Prefix.pch */; };
-		627AEEFB1C16AA870085349B /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 627AEEF51C16AA870085349B /* SVProgressHUD.h */; };
-		627AEEFC1C16AA870085349B /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 627AEEF61C16AA870085349B /* SVProgressHUD.m */; };
 		627D6EFD1C3E0A220002F138 /* YMAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 627D6EF91C3E0A220002F138 /* YMAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		627D6EFE1C3E0A220002F138 /* YMAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 627D6EFA1C3E0A220002F138 /* YMAnalytics.m */; };
 		627D6EFF1C3E0A220002F138 /* YMAnalyticsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 627D6EFB1C3E0A220002F138 /* YMAnalyticsModel.h */; };
@@ -388,6 +392,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		544DE2281E52E24500F96AEF /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		544DE2291E52E24500F96AEF /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		544DE22A1E52E24500F96AEF /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		544DE22B1E52E24500F96AEF /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		544DE22C1E52E24500F96AEF /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		544DE22D1E52E24500F96AEF /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		544DE22E1E52E24500F96AEF /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		544DE22F1E52E24500F96AEF /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		544DE2301E52E24500F96AEF /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		54BCB6731E52A4C5007D0A2C /* FLEXArgumentInputColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputColorView.h; sourceTree = "<group>"; };
 		54BCB6741E52A4C5007D0A2C /* FLEXArgumentInputColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXArgumentInputColorView.m; sourceTree = "<group>"; };
 		54BCB6751E52A4C5007D0A2C /* FLEXArgumentInputDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputDateView.h; sourceTree = "<group>"; };
@@ -613,11 +626,6 @@
 		627904411ADBC7D000F84BFB /* YMImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMImageDownloader.m; sourceTree = "<group>"; };
 		627AEEEC1C16AA6B0085349B /* YMProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMProgress.h; sourceTree = "<group>"; };
 		627AEEED1C16AA6B0085349B /* YMProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMProgress.m; sourceTree = "<group>"; };
-		627AEEF11C16AA870085349B /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
-		627AEEF21C16AA870085349B /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
-		627AEEF31C16AA870085349B /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
-		627AEEF51C16AA870085349B /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		627AEEF61C16AA870085349B /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		627D6EF91C3E0A220002F138 /* YMAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMAnalytics.h; sourceTree = "<group>"; };
 		627D6EFA1C3E0A220002F138 /* YMAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMAnalytics.m; sourceTree = "<group>"; };
 		627D6EFB1C3E0A220002F138 /* YMAnalyticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMAnalyticsModel.h; sourceTree = "<group>"; };
@@ -789,6 +797,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		544DE2271E52E24500F96AEF /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				544DE2281E52E24500F96AEF /* SVIndefiniteAnimatedView.h */,
+				544DE2291E52E24500F96AEF /* SVIndefiniteAnimatedView.m */,
+				544DE22A1E52E24500F96AEF /* SVProgressAnimatedView.h */,
+				544DE22B1E52E24500F96AEF /* SVProgressAnimatedView.m */,
+				544DE22C1E52E24500F96AEF /* SVProgressHUD-Prefix.pch */,
+				544DE22D1E52E24500F96AEF /* SVProgressHUD.h */,
+				544DE22E1E52E24500F96AEF /* SVProgressHUD.m */,
+				544DE22F1E52E24500F96AEF /* SVRadialGradientLayer.h */,
+				544DE2301E52E24500F96AEF /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		54BCB6701E52A4C5007D0A2C /* FLEX */ = {
 			isa = PBXGroup;
 			children = (
@@ -1140,13 +1164,13 @@
 		625D56711ADBAF52007BCA33 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				544DE2271E52E24500F96AEF /* SVProgressHUD */,
 				54BCB6701E52A4C5007D0A2C /* FLEX */,
 				C1CE664E1CF59981007549E7 /* Versions.h */,
 				C1B1E1421CF4474200124D11 /* UMMobClick.framework */,
 				C1190E671CD88F640004B260 /* MJRefresh */,
 				62D2AAA31C3220C200A97384 /* ThirdPlatformSDK */,
 				6244CF1F1C0D93A70004C2B8 /* WebP.framework */,
-				627AEEF01C16AA870085349B /* SVProgressHUD */,
 				62C54E1C1B84516200004E80 /* SDWebImage */,
 				6242FCB21B2FD789007DD69C /* STWebP */,
 				6258F2231B04719000C0B785 /* JPush */,
@@ -1270,18 +1294,6 @@
 				6278FF051B1D4FC0000B77A0 /* YMThirdPlatformUserInfo.m */,
 			);
 			path = ThirdPlatformTool;
-			sourceTree = "<group>";
-		};
-		627AEEF01C16AA870085349B /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				627AEEF11C16AA870085349B /* SVIndefiniteAnimatedView.h */,
-				627AEEF21C16AA870085349B /* SVIndefiniteAnimatedView.m */,
-				627AEEF31C16AA870085349B /* SVProgressHUD-Prefix.pch */,
-				627AEEF51C16AA870085349B /* SVProgressHUD.h */,
-				627AEEF61C16AA870085349B /* SVProgressHUD.m */,
-			);
-			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		627D6EF81C3E0A220002F138 /* Analytics */ = {
@@ -1551,6 +1563,7 @@
 				54BCB7771E52A4C5007D0A2C /* FLEXNetworkHistoryTableViewController.h in Headers */,
 				54BCB77F1E52A4C5007D0A2C /* FLEXNetworkTransactionDetailTableViewController.h in Headers */,
 				54BCB7321E52A4C5007D0A2C /* FLEXArgumentInputViewFactory.h in Headers */,
+				544DE2351E52E24600F96AEF /* SVProgressHUD-Prefix.pch in Headers */,
 				6242FCC51B2FD822007DD69C /* YMURLProtocol.h in Headers */,
 				54BCB74E1E52A4C5007D0A2C /* FLEXTableColumnHeader.h in Headers */,
 				624CE52F1B21565500C62E08 /* UIImage+YMAdditions.h in Headers */,
@@ -1559,7 +1572,6 @@
 				54BCB76D1E52A4C5007D0A2C /* FLEXSystemLogMessage.h in Headers */,
 				C1C62B1E1CBB55A700E4587F /* AFURLResponseSerialization.h in Headers */,
 				C1190EB61CD88F640004B260 /* UIScrollView+MJRefresh.h in Headers */,
-				627AEEF91C16AA870085349B /* SVProgressHUD-Prefix.pch in Headers */,
 				54BCB7A81E52A4C6007D0A2C /* FLEXMultilineTableViewCell.h in Headers */,
 				54BCB7A21E52A4C6007D0A2C /* FLEXHeapEnumerator.h in Headers */,
 				C1F1D1E81CF454A4005C5A5B /* UIImage+WebP.h in Headers */,
@@ -1582,7 +1594,6 @@
 				C1190EAE1CD88F640004B260 /* MJRefreshStateHeader.h in Headers */,
 				C1C62B171CBB55A700E4587F /* AFNetworking.h in Headers */,
 				C1190EB11CD88F640004B260 /* MJRefresh.h in Headers */,
-				627AEEF71C16AA870085349B /* SVIndefiniteAnimatedView.h in Headers */,
 				C1190E9C1CD88F640004B260 /* MJRefreshHeader.h in Headers */,
 				6278FF061B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.h in Headers */,
 				62B4B60F1B18478B00834DCF /* YMDebugging.h in Headers */,
@@ -1642,15 +1653,17 @@
 				C1F1D1D31CF454A4005C5A5B /* SDImageCache.h in Headers */,
 				54BCB74C1E52A4C5007D0A2C /* FLEXSQLiteDatabaseManager.h in Headers */,
 				C1F1D1EC1CF454A4005C5A5B /* UIImageView+WebCache.h in Headers */,
+				544DE2331E52E24500F96AEF /* SVProgressAnimatedView.h in Headers */,
 				54BCB73A1E52A4C5007D0A2C /* FLEXIvarEditorViewController.h in Headers */,
+				544DE2381E52E24600F96AEF /* SVRadialGradientLayer.h in Headers */,
 				C1F1D1DB1CF454A4005C5A5B /* SDWebImageDownloaderOperation.h in Headers */,
 				54BCB79C1E52A4C6007D0A2C /* FLEXViewExplorerViewController.h in Headers */,
 				6242FCBB1B2FD789007DD69C /* STWebP.h in Headers */,
+				544DE2361E52E24600F96AEF /* SVProgressHUD.h in Headers */,
 				54BCB7501E52A4C5007D0A2C /* FLEXTableContentCell.h in Headers */,
 				62EF82C31AE238A40068B34A /* URLParser.h in Headers */,
 				54BCB72A1E52A4C5007D0A2C /* FLEXArgumentInputStructView.h in Headers */,
 				54BCB71E1E52A4C5007D0A2C /* FLEXArgumentInputFontsPickerView.h in Headers */,
-				627AEEFB1C16AA870085349B /* SVProgressHUD.h in Headers */,
 				62D2AABE1C3220C200A97384 /* WXApiObject.h in Headers */,
 				54BCB7881E52A4C6007D0A2C /* FLEXClassExplorerViewController.h in Headers */,
 				54BCB7B41E52A4C6007D0A2C /* FLEXImagePreviewViewController.h in Headers */,
@@ -1660,6 +1673,7 @@
 				62DB9DC81C4DD15600624672 /* JPUSHService.h in Headers */,
 				C1190E961CD88F640004B260 /* MJRefreshBackFooter.h in Headers */,
 				54BCB7691E52A4C5007D0A2C /* FLEXLiveObjectsTableViewController.h in Headers */,
+				544DE2311E52E24500F96AEF /* SVIndefiniteAnimatedView.h in Headers */,
 				54BCB7981E52A4C6007D0A2C /* FLEXSetExplorerViewController.h in Headers */,
 				C1F1D1EA1CF454A4005C5A5B /* UIImageView+HighlightedWebCache.h in Headers */,
 				54BCB7A01E52A4C6007D0A2C /* FLEXToolbarItem.h in Headers */,
@@ -1808,6 +1822,7 @@
 				54BCB7A91E52A4C6007D0A2C /* FLEXMultilineTableViewCell.m in Sources */,
 				6278FF0B1B1D4FC0000B77A0 /* YMThirdPlatformUserInfo.m in Sources */,
 				54BCB7911E52A4C6007D0A2C /* FLEXImageExplorerViewController.m in Sources */,
+				544DE2371E52E24600F96AEF /* SVProgressHUD.m in Sources */,
 				54BCB71B1E52A4C5007D0A2C /* FLEXArgumentInputColorView.m in Sources */,
 				54BCB71F1E52A4C5007D0A2C /* FLEXArgumentInputFontsPickerView.m in Sources */,
 				C1EB59441CD8AC8700F47F51 /* NSBundle+YMAdditions.m in Sources */,
@@ -1848,10 +1863,10 @@
 				54BCB74D1E52A4C5007D0A2C /* FLEXSQLiteDatabaseManager.m in Sources */,
 				54BCB7931E52A4C6007D0A2C /* FLEXLayerExplorerViewController.m in Sources */,
 				C1C62B191CBB55A700E4587F /* AFNetworkReachabilityManager.m in Sources */,
-				627AEEFC1C16AA870085349B /* SVProgressHUD.m in Sources */,
 				627D6EFE1C3E0A220002F138 /* YMAnalytics.m in Sources */,
 				54BCB75C1E52A4C5007D0A2C /* FLEXCookiesTableViewController.m in Sources */,
 				6278FF091B1D4FC0000B77A0 /* YMThirdPlatformTool.m in Sources */,
+				544DE2391E52E24600F96AEF /* SVRadialGradientLayer.m in Sources */,
 				C1F1D1E31CF454A4005C5A5B /* UIButton+WebCache.m in Sources */,
 				C1C62B1B1CBB55A700E4587F /* AFSecurityPolicy.m in Sources */,
 				62703E601B10490B005CA088 /* UIWebView+YMAdditions.m in Sources */,
@@ -1865,10 +1880,10 @@
 				C1F1D1D01CF454A4005C5A5B /* MKAnnotationView+WebCache.m in Sources */,
 				62703E5C1B10490B005CA088 /* UIView+YMFrameAdditions.m in Sources */,
 				54BCB7621E52A4C5007D0A2C /* FLEXFileBrowserTableViewController.m in Sources */,
+				544DE2341E52E24600F96AEF /* SVProgressAnimatedView.m in Sources */,
 				C1190EA31CD88F640004B260 /* MJRefreshAutoStateFooter.m in Sources */,
 				C1F1D1ED1CF454A4005C5A5B /* UIImageView+WebCache.m in Sources */,
 				54BCB7AD1E52A4C6007D0A2C /* FLEXRuntimeUtility.m in Sources */,
-				627AEEF81C16AA870085349B /* SVIndefiniteAnimatedView.m in Sources */,
 				54BCB7A71E52A4C6007D0A2C /* FLEXKeyboardShortcutManager.m in Sources */,
 				54BCB7661E52A4C5007D0A2C /* FLEXInstancesTableViewController.m in Sources */,
 				54BCB72F1E52A4C5007D0A2C /* FLEXArgumentInputTextView.m in Sources */,
@@ -1930,6 +1945,7 @@
 				C1F1D1D61CF454A4005C5A5B /* SDWebImageCompat.m in Sources */,
 				54BCB7311E52A4C5007D0A2C /* FLEXArgumentInputView.m in Sources */,
 				54BCB7801E52A4C5007D0A2C /* FLEXNetworkTransactionDetailTableViewController.m in Sources */,
+				544DE2321E52E24500F96AEF /* SVIndefiniteAnimatedView.m in Sources */,
 				62D2AACE1C3220E000A97384 /* YMThirdPlatformSDKCenter.m in Sources */,
 				54BCB7891E52A4C6007D0A2C /* FLEXClassExplorerViewController.m in Sources */,
 				C1190EA51CD88F640004B260 /* MJRefreshBackGifFooter.m in Sources */,

@@ -8,7 +8,7 @@
  
 //////////////////////////////////////源码有改动//////////////////////////////////////
  AFNetworking	 3.1.0		https://github.com/AFNetworking/AFNetworking
- SVProgressHUD   1.1.3		   https://github.com/TransitApp/SVProgressHUD
+ SVProgressHUD   2.1.2		   https://github.com/TransitApp/SVProgressHUD
  SDWebImage      3.8.1		https://github.com/rs/SDWebImage
  STWebPDecoder	 Null		https://github.com/cysp/STWebPDecoder
  MJRefresh		 3.1.0		https://github.com/CoderMJLee/MJRefresh

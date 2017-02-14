@@ -30,10 +30,8 @@ static UIImage *kFailTypeForLocation;
     
     if (kYm_iPhone6Plus) {
         [SVProgressHUD setFont:[UIFont systemFontOfSize:15]];
-        [SVProgressHUD setTextToTop:109];
     }
     else {
-        [SVProgressHUD setTextToTop:84];
         [SVProgressHUD setFont:[UIFont systemFontOfSize:13]];
     }
     
@@ -68,14 +66,7 @@ static UIImage *kFailTypeForLocation;
 }
 
 + (void)showWithStatus:(NSString *)status
-{
-    if (kYm_iPhone6Plus) {
-        [SVProgressHUD setTextToTop:100];
-    }
-    else {
-        [SVProgressHUD setTextToTop:77];
-    }
-    
+{    
     [SVProgressHUD showWithStatus:status];
 }
 
