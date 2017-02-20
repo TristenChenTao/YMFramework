@@ -16,7 +16,6 @@
 		62D2AAD51C32334100A97384 /* TestThreePlatformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */; };
 		C1CE65EB1CF583D0007549E7 /* Bugtags.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C1CE65C71CF583D0007549E7 /* Bugtags.bundle */; };
 		C1CE65EC1CF583D0007549E7 /* Bugtags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE65C81CF583D0007549E7 /* Bugtags.framework */; };
-		C1CE65FB1CF583FF007549E7 /* BaseVenderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CE65FA1CF583FF007549E7 /* BaseVenderVC.m */; };
 		C1CE65FD1CF586B2007549E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE65FC1CF586B2007549E7 /* UIKit.framework */; };
 		C1CE65FF1CF586C3007549E7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE65FE1CF586C3007549E7 /* AVFoundation.framework */; };
 		C1CE66011CF586CB007549E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE66001CF586CB007549E7 /* Foundation.framework */; };
@@ -64,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5495A5171E5AE03E00A39DD6 /* YMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMConfig.h; sourceTree = "<group>"; };
 		628A6B7B1C04127C00ECEEFD /* ExampleForYMFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleForYMFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628A6B7F1C04127C00ECEEFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		628A6B811C04127C00ECEEFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,8 +81,6 @@
 		C1CE65C71CF583D0007549E7 /* Bugtags.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Bugtags.bundle; sourceTree = "<group>"; };
 		C1CE65C81CF583D0007549E7 /* Bugtags.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugtags.framework; sourceTree = "<group>"; };
 		C1CE65E31CF583D0007549E7 /* Versions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Versions.h; sourceTree = "<group>"; };
-		C1CE65F91CF583FF007549E7 /* BaseVenderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVenderVC.h; sourceTree = "<group>"; };
-		C1CE65FA1CF583FF007549E7 /* BaseVenderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVenderVC.m; sourceTree = "<group>"; };
 		C1CE65FC1CF586B2007549E7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C1CE65FE1CF586C3007549E7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C1CE66001CF586CB007549E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -150,8 +148,6 @@
 				62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */,
 				C1CF9F0B1CCF3886001DD236 /* BaseWebVC.h */,
 				C1CF9F0C1CCF3886001DD236 /* BaseWebVC.m */,
-				C1CE65F91CF583FF007549E7 /* BaseVenderVC.h */,
-				C1CE65FA1CF583FF007549E7 /* BaseVenderVC.m */,
 				628A6B8A1C04127C00ECEEFD /* Assets.xcassets */,
 				628A6B8C1C04127C00ECEEFD /* LaunchScreen.storyboard */,
 				628A6B8F1C04127C00ECEEFD /* Info.plist */,
@@ -180,6 +176,7 @@
 		628A6BA31C0412FD00ECEEFD /* YMFramework */ = {
 			isa = PBXGroup;
 			children = (
+				5495A5171E5AE03E00A39DD6 /* YMConfig.h */,
 				C1CE65C21CF583D0007549E7 /* BaseVender */,
 				C1EB59481CD8B35600F47F51 /* YMFramework.xcodeproj */,
 				C1EB59461CD8B34900F47F51 /* YMFramework.bundle */,
@@ -324,7 +321,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				62D2AAD51C32334100A97384 /* TestThreePlatformViewController.m in Sources */,
-				C1CE65FB1CF583FF007549E7 /* BaseVenderVC.m in Sources */,
 				628A6B861C04127C00ECEEFD /* ViewController.m in Sources */,
 				628A6B831C04127C00ECEEFD /* AppDelegate.m in Sources */,
 				628A6B801C04127C00ECEEFD /* main.m in Sources */,

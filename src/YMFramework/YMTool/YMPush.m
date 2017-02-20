@@ -15,12 +15,11 @@
 
 + (void)setupWithOption:(NSDictionary *)launchingOption
                  appKey:(NSString *)appKey
-                channel:(NSString *)channel
        apsForProduction:(BOOL)isProduction
 {
     [JPUSHService setupWithOption:launchingOption
                            appKey:appKey
-                          channel:channel
+                          channel:@""
                  apsForProduction:isProduction];
     
     [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |

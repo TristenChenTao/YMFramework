@@ -22,7 +22,6 @@
 
 + (void)setupWithOption:(NSDictionary *)launchingOption
                  appKey:(NSString *)appKey
-                channel:(NSString *)channel
        apsForProduction:(BOOL)isProduction;
 
 /**

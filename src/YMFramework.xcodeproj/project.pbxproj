@@ -501,8 +501,6 @@
 		627AEEEF1C16AA6B0085349B /* YMProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 627AEEED1C16AA6B0085349B /* YMProgress.m */; };
 		627D6EFD1C3E0A220002F138 /* YMAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 627D6EF91C3E0A220002F138 /* YMAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		627D6EFE1C3E0A220002F138 /* YMAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 627D6EFA1C3E0A220002F138 /* YMAnalytics.m */; };
-		627D6EFF1C3E0A220002F138 /* YMAnalyticsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 627D6EFB1C3E0A220002F138 /* YMAnalyticsModel.h */; };
-		627D6F001C3E0A220002F138 /* YMAnalyticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 627D6EFC1C3E0A220002F138 /* YMAnalyticsModel.m */; };
 		628E20F51C44A62A0026CD1A /* YMHttpParameterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 628E20F31C44A62A0026CD1A /* YMHttpParameterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		628E20F61C44A62A0026CD1A /* YMHttpParameterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 628E20F41C44A62A0026CD1A /* YMHttpParameterFactory.m */; };
 		628F1CEF1C4CEF4E00FBDE6C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628F1CEE1C4CEF4E00FBDE6C /* ImageIO.framework */; };
@@ -1053,8 +1051,6 @@
 		627AEEED1C16AA6B0085349B /* YMProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMProgress.m; sourceTree = "<group>"; };
 		627D6EF91C3E0A220002F138 /* YMAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMAnalytics.h; sourceTree = "<group>"; };
 		627D6EFA1C3E0A220002F138 /* YMAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMAnalytics.m; sourceTree = "<group>"; };
-		627D6EFB1C3E0A220002F138 /* YMAnalyticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMAnalyticsModel.h; sourceTree = "<group>"; };
-		627D6EFC1C3E0A220002F138 /* YMAnalyticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMAnalyticsModel.m; sourceTree = "<group>"; };
 		628E20F31C44A62A0026CD1A /* YMHttpParameterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMHttpParameterFactory.h; sourceTree = "<group>"; };
 		628E20F41C44A62A0026CD1A /* YMHttpParameterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMHttpParameterFactory.m; sourceTree = "<group>"; };
 		628F1CEE1C4CEF4E00FBDE6C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -2044,8 +2040,6 @@
 			children = (
 				627D6EF91C3E0A220002F138 /* YMAnalytics.h */,
 				627D6EFA1C3E0A220002F138 /* YMAnalytics.m */,
-				627D6EFB1C3E0A220002F138 /* YMAnalyticsModel.h */,
-				627D6EFC1C3E0A220002F138 /* YMAnalyticsModel.m */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -2369,7 +2363,6 @@
 				54BCB71A1E52A4C5007D0A2C /* FLEXArgumentInputColorView.h in Headers */,
 				621597111ADB5875003CACA7 /* YMFramework.h in Headers */,
 				C1C62B021CBB4FBD00E4587F /* WBSDKRelationshipButton.h in Headers */,
-				627D6EFF1C3E0A220002F138 /* YMAnalyticsModel.h in Headers */,
 				54BCB7651E52A4C5007D0A2C /* FLEXInstancesTableViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2401,7 +2394,7 @@
 		621597021ADB5875003CACA7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = cornapp;
 				TargetAttributes = {
 					6215970A1ADB5875003CACA7 = {
@@ -2496,7 +2489,6 @@
 				544DE3791E52F08B00F96AEF /* enc_sse2.c in Sources */,
 				54BCB7291E52A4C5007D0A2C /* FLEXArgumentInputStringView.m in Sources */,
 				C1C62B1D1CBB55A700E4587F /* AFURLRequestSerialization.m in Sources */,
-				627D6F001C3E0A220002F138 /* YMAnalyticsModel.m in Sources */,
 				544DE2961E52EEDC00F96AEF /* FLAnimatedImage.m in Sources */,
 				544DE35E1E52F08B00F96AEF /* alpha_processing_neon.c in Sources */,
 				544DE2811E52E8B000F96AEF /* UIButton+WebCache.m in Sources */,
@@ -2763,6 +2755,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2772,8 +2765,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2782,6 +2777,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2814,6 +2810,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2823,8 +2820,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2858,7 +2857,7 @@
 		621597221ADB5875003CACA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2888,6 +2887,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cornapp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -2896,7 +2896,7 @@
 		621597231ADB5875003CACA7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2922,6 +2922,7 @@
 				MACH_O_TYPE = mh_dylib;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cornapp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

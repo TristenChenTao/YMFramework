@@ -20,7 +20,6 @@
 YM_MacrosSingletonInterface
 
 - (void)setupProductByID:(NSString *)ID
-                 version:(NSString *)version
-                 channel:(NSString *)channel;
+                 version:(NSString *)version;
 
 @end

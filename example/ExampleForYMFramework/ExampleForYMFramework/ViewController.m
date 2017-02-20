@@ -30,10 +30,6 @@ YMWebViewDelegate
     
     self.view.backgroundColor = [UIColor redColor];
     
-    [[YMFrameworkConfig sharedInstance] setupProductByID:kProductID
-                                                 version:kProductVersion
-                                                 channel:kProductChannel];
-    
 //    [self testHttpRequest];
 //    
 //    [self testUIImageViewDownloadImage];

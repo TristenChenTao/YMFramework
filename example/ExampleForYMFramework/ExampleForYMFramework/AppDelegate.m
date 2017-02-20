@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "TestThreePlatformViewController.h"
-#import "BaseVenderVC.h"
+#import "YMConfig.h"
 
 @interface AppDelegate ()
 
@@ -25,15 +25,35 @@
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[YMFrameworkConfig sharedInstance] setupProductByID:@"5679842990210161107"
-                                                 version:@"0"
-                                                 channel:@"0"];
-    [YMAnalytics setUMengAppKey:@""
-                      channelID:@""];
 #ifdef DEBUG
-    [YMAnalytics setDebugMode:YES];
+    BOOL isDebug = YES;
+#else
+    BOOL isDebug = NO;
 #endif
-    [YMAnalytics startReport];
+    
+    [[YMFrameworkConfig sharedInstance] setupProductByID:kProductID
+                                                 version:kProductVersion];
+    //社交平台设置
+    [YMThirdPlatformTool setupWeChatByAppId:kWechatAppID
+                                  appSecret:kWechatAppSecret];
+    
+    [YMThirdPlatformTool setupQQByAppId:kQQAppID
+                                 appKey:kQQAppKey];
+    
+    [YMThirdPlatformTool setupSinaWeiboByAppKey:kSinaWeiboAppKey
+                                      appSecret:kSinaWeiboAppSecret
+                                    redirectUri:kSinaWeiboAppRedirectURL];
+    //统计设置
+    [YMAnalytics setUMengAppKey:kUMengAppKey];
+    
+    
+    //消息推送设置
+    [YMPush setupWithOption:launchOptions
+                     appKey:kPushAppKey
+           apsForProduction:!isDebug];
+    
+    //开启支持Webp图片格式
+    [YMURLProtocol registerProtocol];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -52,11 +72,6 @@
     nav2.navigationBarHidden = YES;
     [tabBarController addChildViewController:nav2];
     
-    BaseVenderVC *vc3 = [[BaseVenderVC alloc] init];
-    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:vc3];
-    nav3.tabBarItem.title = @"BaseVender";
-    nav3.navigationBarHidden = YES;
-    [tabBarController addChildViewController:nav3];
 
     self.window.rootViewController = tabBarController;
     
