@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		543CA2501E5C25CA0076D830 /* YMFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543CA24F1E5C25C00076D830 /* YMFramework.framework */; };
+		543CA2511E5C25CA0076D830 /* YMFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 543CA24F1E5C25C00076D830 /* YMFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		628A6B801C04127C00ECEEFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B7F1C04127C00ECEEFD /* main.m */; };
 		628A6B831C04127C00ECEEFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B821C04127C00ECEEFD /* AppDelegate.m */; };
 		628A6B861C04127C00ECEEFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A6B851C04127C00ECEEFD /* ViewController.m */; };
@@ -27,21 +29,19 @@
 		C1CE660D1CF5870E007549E7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE660C1CF5870E007549E7 /* CFNetwork.framework */; };
 		C1CF9F0D1CCF3886001DD236 /* BaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CF9F0C1CCF3886001DD236 /* BaseWebVC.m */; };
 		C1EB59471CD8B34900F47F51 /* YMFramework.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C1EB59461CD8B34900F47F51 /* YMFramework.bundle */; };
-		C1EB594F1CD8B35F00F47F51 /* YMFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EB594E1CD8B35600F47F51 /* YMFramework.framework */; };
-		C1EB59501CD8B35F00F47F51 /* YMFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1EB594E1CD8B35600F47F51 /* YMFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C1EB594D1CD8B35600F47F51 /* PBXContainerItemProxy */ = {
+		543CA24E1E5C25C00076D830 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C1EB59481CD8B35600F47F51 /* YMFramework.xcodeproj */;
+			containerPortal = 543CA2491E5C25BF0076D830 /* YMFramework.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6215970B1ADB5875003CACA7;
 			remoteInfo = YMFramework;
 		};
-		C1EB59511CD8B35F00F47F51 /* PBXContainerItemProxy */ = {
+		543CA2521E5C25CA0076D830 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C1EB59481CD8B35600F47F51 /* YMFramework.xcodeproj */;
+			containerPortal = 543CA2491E5C25BF0076D830 /* YMFramework.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 6215970A1ADB5875003CACA7;
 			remoteInfo = YMFramework;
@@ -55,7 +55,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C1EB59501CD8B35F00F47F51 /* YMFramework.framework in Embed Frameworks */,
+				543CA2511E5C25CA0076D830 /* YMFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		543CA2491E5C25BF0076D830 /* YMFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YMFramework.xcodeproj; path = ../../../../src/YMFramework.xcodeproj; sourceTree = "<group>"; };
 		5495A5171E5AE03E00A39DD6 /* YMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMConfig.h; sourceTree = "<group>"; };
 		628A6B7B1C04127C00ECEEFD /* ExampleForYMFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleForYMFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628A6B7F1C04127C00ECEEFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		62D2AAD41C32334100A97384 /* TestThreePlatformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestThreePlatformViewController.m; sourceTree = "<group>"; };
 		C1CE65C71CF583D0007549E7 /* Bugtags.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Bugtags.bundle; sourceTree = "<group>"; };
 		C1CE65C81CF583D0007549E7 /* Bugtags.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugtags.framework; sourceTree = "<group>"; };
-		C1CE65E31CF583D0007549E7 /* Versions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Versions.h; sourceTree = "<group>"; };
 		C1CE65FC1CF586B2007549E7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C1CE65FE1CF586C3007549E7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C1CE66001CF586CB007549E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,7 +93,6 @@
 		C1CF9F0B1CCF3886001DD236 /* BaseWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebVC.h; sourceTree = "<group>"; };
 		C1CF9F0C1CCF3886001DD236 /* BaseWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebVC.m; sourceTree = "<group>"; };
 		C1EB59461CD8B34900F47F51 /* YMFramework.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YMFramework.bundle; sourceTree = "<group>"; };
-		C1EB59481CD8B35600F47F51 /* YMFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YMFramework.xcodeproj; path = ../../../../src/YMFramework.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,18 +105,26 @@
 				C1CE66091CF586F6007549E7 /* ImageIO.framework in Frameworks */,
 				C1CE66071CF586EA007549E7 /* CoreLocation.framework in Frameworks */,
 				C1CE66051CF586E0007549E7 /* QuartzCore.framework in Frameworks */,
+				543CA2501E5C25CA0076D830 /* YMFramework.framework in Frameworks */,
 				C1CE66031CF586D8007549E7 /* SystemConfiguration.framework in Frameworks */,
 				C1CE66011CF586CB007549E7 /* Foundation.framework in Frameworks */,
 				C1CE65FF1CF586C3007549E7 /* AVFoundation.framework in Frameworks */,
 				C1CE65FD1CF586B2007549E7 /* UIKit.framework in Frameworks */,
 				C1CE65EC1CF583D0007549E7 /* Bugtags.framework in Frameworks */,
-				C1EB594F1CD8B35F00F47F51 /* YMFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		543CA24A1E5C25BF0076D830 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				543CA24F1E5C25C00076D830 /* YMFramework.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		628A6B721C04127C00ECEEFD = {
 			isa = PBXGroup;
 			children = (
@@ -176,9 +183,9 @@
 		628A6BA31C0412FD00ECEEFD /* YMFramework */ = {
 			isa = PBXGroup;
 			children = (
+				543CA2491E5C25BF0076D830 /* YMFramework.xcodeproj */,
 				5495A5171E5AE03E00A39DD6 /* YMConfig.h */,
 				C1CE65C21CF583D0007549E7 /* BaseVender */,
-				C1EB59481CD8B35600F47F51 /* YMFramework.xcodeproj */,
 				C1EB59461CD8B34900F47F51 /* YMFramework.bundle */,
 				628F1CE71C4CEA7800FBDE6C /* WeiboSDK.bundle */,
 			);
@@ -206,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				C1CE65C61CF583D0007549E7 /* Bugtags */,
-				C1CE65E31CF583D0007549E7 /* Versions.h */,
 			);
 			path = BaseVender;
 			sourceTree = "<group>";
@@ -218,14 +224,6 @@
 				C1CE65C81CF583D0007549E7 /* Bugtags.framework */,
 			);
 			path = Bugtags;
-			sourceTree = "<group>";
-		};
-		C1EB59491CD8B35600F47F51 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C1EB594E1CD8B35600F47F51 /* YMFramework.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,7 +241,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C1EB59521CD8B35F00F47F51 /* PBXTargetDependency */,
+				543CA2531E5C25CA0076D830 /* PBXTargetDependency */,
 			);
 			name = ExampleForYMFramework;
 			productName = ExampleForYMFramework;
@@ -279,8 +277,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = C1EB59491CD8B35600F47F51 /* Products */;
-					ProjectRef = C1EB59481CD8B35600F47F51 /* YMFramework.xcodeproj */;
+					ProductGroup = 543CA24A1E5C25BF0076D830 /* Products */;
+					ProjectRef = 543CA2491E5C25BF0076D830 /* YMFramework.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -291,11 +289,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		C1EB594E1CD8B35600F47F51 /* YMFramework.framework */ = {
+		543CA24F1E5C25C00076D830 /* YMFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = YMFramework.framework;
-			remoteRef = C1EB594D1CD8B35600F47F51 /* PBXContainerItemProxy */;
+			remoteRef = 543CA24E1E5C25C00076D830 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -331,10 +329,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C1EB59521CD8B35F00F47F51 /* PBXTargetDependency */ = {
+		543CA2531E5C25CA0076D830 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = YMFramework;
-			targetProxy = C1EB59511CD8B35F00F47F51 /* PBXContainerItemProxy */;
+			targetProxy = 543CA2521E5C25CA0076D830 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
