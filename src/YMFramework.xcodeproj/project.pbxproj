@@ -279,6 +279,10 @@
 		544DE43D1E52F37700F96AEF /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DE4161E52F37700F96AEF /* UIScrollView+MJRefresh.m */; };
 		544DE43E1E52F37700F96AEF /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 544DE4171E52F37700F96AEF /* UIView+MJExtension.h */; };
 		544DE43F1E52F37700F96AEF /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DE4181E52F37700F96AEF /* UIView+MJExtension.m */; };
+		5495A51C1E5AF23900A39DD6 /* jcore-ios-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5495A5191E5AF23900A39DD6 /* jcore-ios-1.1.1.a */; };
+		5495A51D1E5AF23900A39DD6 /* jpush-ios-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5495A51A1E5AF23900A39DD6 /* jpush-ios-3.0.2.a */; };
+		5495A51E1E5AF23900A39DD6 /* JPUSHService.h in Headers */ = {isa = PBXBuildFile; fileRef = 5495A51B1E5AF23900A39DD6 /* JPUSHService.h */; };
+		5495A5211E5BE5DA00A39DD6 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5495A5201E5BE5DA00A39DD6 /* libresolv.tbd */; };
 		54BCB71A1E52A4C5007D0A2C /* FLEXArgumentInputColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BCB6731E52A4C5007D0A2C /* FLEXArgumentInputColorView.h */; };
 		54BCB71B1E52A4C5007D0A2C /* FLEXArgumentInputColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BCB6741E52A4C5007D0A2C /* FLEXArgumentInputColorView.m */; };
 		54BCB71C1E52A4C5007D0A2C /* FLEXArgumentInputDateView.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BCB6751E52A4C5007D0A2C /* FLEXArgumentInputDateView.h */; };
@@ -521,14 +525,12 @@
 		62D2AABE1C3220C200A97384 /* WXApiObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AAAB1C3220C200A97384 /* WXApiObject.h */; };
 		62D2AACD1C3220E000A97384 /* YMThirdPlatformSDKCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */; };
 		62D2AACE1C3220E000A97384 /* YMThirdPlatformSDKCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */; };
-		62DB9DC81C4DD15600624672 /* JPUSHService.h in Headers */ = {isa = PBXBuildFile; fileRef = 62DB9DC61C4DD15600624672 /* JPUSHService.h */; };
 		62EF08171BF231F8009BB1BB /* NSDate+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62EF08181BF231F8009BB1BB /* NSDate+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */; };
 		62EF08191BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF08151BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62EF081A1BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF08161BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m */; };
 		62EF82C31AE238A40068B34A /* URLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF82C11AE238A40068B34A /* URLParser.h */; };
 		62EF82C41AE238A40068B34A /* URLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF82C21AE238A40068B34A /* URLParser.m */; };
-		C11BEDA51D0FDF21002A574D /* jpush-ios-2.1.7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C11BEDA41D0FDF21002A574D /* jpush-ios-2.1.7.a */; };
 		C17FBE421CCF0FF300A94598 /* YMWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = C17FBE401CCF0FF300A94598 /* YMWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C17FBE431CCF0FF300A94598 /* YMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C17FBE411CCF0FF300A94598 /* YMWebView.m */; };
 		C1B1E1431CF4474200124D11 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B1E1421CF4474200124D11 /* UMMobClick.framework */; };
@@ -825,6 +827,10 @@
 		544DE4161E52F37700F96AEF /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		544DE4171E52F37700F96AEF /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		544DE4181E52F37700F96AEF /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		5495A5191E5AF23900A39DD6 /* jcore-ios-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.1.a"; sourceTree = "<group>"; };
+		5495A51A1E5AF23900A39DD6 /* jpush-ios-3.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.2.a"; sourceTree = "<group>"; };
+		5495A51B1E5AF23900A39DD6 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		5495A5201E5BE5DA00A39DD6 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		54BCB6731E52A4C5007D0A2C /* FLEXArgumentInputColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputColorView.h; sourceTree = "<group>"; };
 		54BCB6741E52A4C5007D0A2C /* FLEXArgumentInputColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXArgumentInputColorView.m; sourceTree = "<group>"; };
 		54BCB6751E52A4C5007D0A2C /* FLEXArgumentInputDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputDateView.h; sourceTree = "<group>"; };
@@ -1071,14 +1077,12 @@
 		62D2AAAB1C3220C200A97384 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMThirdPlatformSDKCenter.h; sourceTree = "<group>"; };
 		62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMThirdPlatformSDKCenter.m; sourceTree = "<group>"; };
-		62DB9DC61C4DD15600624672 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YMAdditions.h"; sourceTree = "<group>"; };
 		62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YMAdditions.m"; sourceTree = "<group>"; };
 		62EF08151BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YMAdditionsForNSDate.h"; sourceTree = "<group>"; };
 		62EF08161BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YMAdditionsForNSDate.m"; sourceTree = "<group>"; };
 		62EF82C11AE238A40068B34A /* URLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLParser.h; sourceTree = "<group>"; };
 		62EF82C21AE238A40068B34A /* URLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLParser.m; sourceTree = "<group>"; };
-		C11BEDA41D0FDF21002A574D /* jpush-ios-2.1.7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.7.a"; sourceTree = "<group>"; };
 		C17FBE401CCF0FF300A94598 /* YMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMWebView.h; sourceTree = "<group>"; };
 		C17FBE411CCF0FF300A94598 /* YMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMWebView.m; sourceTree = "<group>"; };
 		C1B1E1421CF4474200124D11 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
@@ -1121,12 +1125,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5495A5211E5BE5DA00A39DD6 /* libresolv.tbd in Frameworks */,
 				622DEFDA1C4CF37A00DEEA3D /* CoreTelephony.framework in Frameworks */,
 				622DEFE61C4CF3FE00DEEA3D /* QuartzCore.framework in Frameworks */,
 				622DEFE41C4CF3F400DEEA3D /* AVFoundation.framework in Frameworks */,
 				C1B1E1431CF4474200124D11 /* UMMobClick.framework in Frameworks */,
 				622DEFE21C4CF3E300DEEA3D /* CoreLocation.framework in Frameworks */,
-				C11BEDA51D0FDF21002A574D /* jpush-ios-2.1.7.a in Frameworks */,
 				622DEFE01C4CF3D900DEEA3D /* Security.framework in Frameworks */,
 				622DEFDE1C4CF3C400DEEA3D /* CoreGraphics.framework in Frameworks */,
 				622DEFDC1C4CF3A100DEEA3D /* SystemConfiguration.framework in Frameworks */,
@@ -1134,8 +1138,10 @@
 				622DEFD51C4CF33D00DEEA3D /* CFNetwork.framework in Frameworks */,
 				628F1CEF1C4CEF4E00FBDE6C /* ImageIO.framework in Frameworks */,
 				62C2C25D1C48C61500395E10 /* libz.tbd in Frameworks */,
+				5495A51D1E5AF23900A39DD6 /* jpush-ios-3.0.2.a in Frameworks */,
 				62C2C2591C48C5F000395E10 /* libicucore.tbd in Frameworks */,
 				62C2C2571C48C5E800395E10 /* libstdc++.tbd in Frameworks */,
+				5495A51C1E5AF23900A39DD6 /* jcore-ios-1.1.1.a in Frameworks */,
 				62C2C2551C48C5E200395E10 /* libsqlite3.tbd in Frameworks */,
 				C1C62AFA1CBB4FBD00E4587F /* libWeiboSDK.a in Frameworks */,
 				62D2AAB91C3220C200A97384 /* TencentOpenAPI.framework in Frameworks */,
@@ -1551,6 +1557,13 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		5495A51F1E5BE5D900A39DD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		54BCB6701E52A4C5007D0A2C /* FLEX */ = {
 			isa = PBXGroup;
 			children = (
@@ -1825,6 +1838,7 @@
 				6215970D1ADB5875003CACA7 /* YMFramework */,
 				6215971A1ADB5875003CACA7 /* YMFrameworkTests */,
 				6215970C1ADB5875003CACA7 /* Products */,
+				5495A51F1E5BE5D900A39DD6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1893,8 +1907,9 @@
 		6258F2231B04719000C0B785 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
-				C11BEDA41D0FDF21002A574D /* jpush-ios-2.1.7.a */,
-				62DB9DC61C4DD15600624672 /* JPUSHService.h */,
+				5495A5191E5AF23900A39DD6 /* jcore-ios-1.1.1.a */,
+				5495A51A1E5AF23900A39DD6 /* jpush-ios-3.0.2.a */,
+				5495A51B1E5AF23900A39DD6 /* JPUSHService.h */,
 			);
 			path = JPush;
 			sourceTree = "<group>";
@@ -2096,6 +2111,7 @@
 		62E826991C48C64200802F4B /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				5495A5201E5BE5DA00A39DD6 /* libresolv.tbd */,
 				622DEFE51C4CF3FE00DEEA3D /* QuartzCore.framework */,
 				622DEFE31C4CF3F400DEEA3D /* AVFoundation.framework */,
 				622DEFE11C4CF3E300DEEA3D /* CoreLocation.framework */,
@@ -2233,6 +2249,7 @@
 				62B4B60F1B18478B00834DCF /* YMDebugging.h in Headers */,
 				544DE2881E52E8B000F96AEF /* UIImageView+HighlightedWebCache.h in Headers */,
 				54BCB78A1E52A4C6007D0A2C /* FLEXDefaultsExplorerViewController.h in Headers */,
+				5495A51E1E5AF23900A39DD6 /* JPUSHService.h in Headers */,
 				54BCB73C1E52A4C5007D0A2C /* FLEXMethodCallingViewController.h in Headers */,
 				54BCB7471E52A4C5007D0A2C /* FLEXMultiColumnTableView.h in Headers */,
 				544DE3C91E52F08B00F96AEF /* bit_reader_inl_utils.h in Headers */,
@@ -2321,7 +2338,6 @@
 				54BCB7B41E52A4C6007D0A2C /* FLEXImagePreviewViewController.h in Headers */,
 				544DE3E71E52F08B00F96AEF /* format_constants.h in Headers */,
 				544DE2971E52EEDC00F96AEF /* FLAnimatedImageView.h in Headers */,
-				62DB9DC81C4DD15600624672 /* JPUSHService.h in Headers */,
 				54BCB7691E52A4C5007D0A2C /* FLEXLiveObjectsTableViewController.h in Headers */,
 				544DE3901E52F08B00F96AEF /* msa_macro.h in Headers */,
 				544DE43C1E52F37700F96AEF /* UIScrollView+MJRefresh.h in Headers */,
