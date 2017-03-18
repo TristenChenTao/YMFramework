@@ -16,6 +16,8 @@
 
 @property (nonatomic, copy) NSString *userId;
 
+@property (nonatomic, copy) NSString *unionId;
+
 @property (nonatomic, copy) NSString *nickname;
 
 @property (nonatomic, copy) NSString *profileImageUrl;

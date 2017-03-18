@@ -14,8 +14,8 @@
 typedef NS_ENUM(NSUInteger, YMHTTPResponseState)
 {
     YMHTTPResponseStateForSuccess = 1,
-    YMHTTPResponseStateForFail = 2,
-    YMHTTPResponseStateForNoReachable = 3
+    YMHTTPResponseStateForFail = 0,
+    YMHTTPResponseStateForNoReachable = -1
 };
 
 @interface YMHTTPResponseData : NSObject

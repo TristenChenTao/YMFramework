@@ -52,6 +52,8 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 
 - (void)reload;
 
+- (void)removeHeader;
+
 /**
  *  加载全局URL链接处理器
  *

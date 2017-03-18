@@ -101,9 +101,7 @@ static YMWebViewShouldStartHandler kHandler;
         if (webView.ym_Delegate && [webView.ym_Delegate respondsToSelector:@selector(webViewShouldRefresh:)]) {
             [webView.ym_Delegate webViewShouldRefresh:webView];
         }
-        else {
-            [webView loadRequest:self.orignalRequest];
-        }
+        [webView loadRequest:self.orignalRequest];
     }];
     header.backgroundColor = [UIColor clearColor];
     header.automaticallyChangeAlpha = YES;
@@ -120,6 +118,11 @@ static YMWebViewShouldStartHandler kHandler;
     header.stateLabel.textColor = [UIColor ym_colorWithHexString:@"8995b0"];
     
     self.scrollView.mj_header = header;
+}
+
+- (void)removeHeader
+{
+    self.scrollView.mj_header = nil;
 }
 
 - (void)addFailView
@@ -195,10 +198,7 @@ static YMWebViewShouldStartHandler kHandler;
 shouldStartLoadWithRequest:(NSURLRequest *)request
  navigationType:(UIWebViewNavigationType)navigationType
 {
-//    if ([self isSameURLWithRequest:request]) {
-//        return NO;
-//    }
-    
+
     BOOL bLoadRequest = YES; //等于YES表示还是没有经过处理
     
     if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {

@@ -480,6 +480,7 @@ YM_MacrosSingletonImplemantion
                                                                                       options:NSJSONReadingMutableContainers
                                                                                         error:nil];
                       wxUserInfo.userId = UserInfocontent[@"openid"];
+                      wxUserInfo.unionId = UserInfocontent[@"unionid"];
                       wxUserInfo.nickname = UserInfocontent[@"nickname"];
                       wxUserInfo.profileImageUrl = UserInfocontent[@"headimgurl"];
                       wxUserInfo.homepage = nil;
@@ -628,6 +629,7 @@ YM_MacrosSingletonImplemantion
     YMThirdPlatformUserInfo *userInfo = [[YMThirdPlatformUserInfo alloc] init];
     userInfo.platformType = YMThirdPlatformForQQ;
     userInfo.userId = [self oauth].openId;
+    userInfo.unionId = [self oauth].unionid;
     userInfo.nickname = dic[@"nickname"];
     userInfo.profileImageUrl = dic[@"figureurl_qq_1"];
     userInfo.accessToken = [self oauth].accessToken;
