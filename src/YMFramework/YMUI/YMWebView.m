@@ -55,6 +55,7 @@ static YMWebViewShouldStartHandler kHandler;
         self.allowsInlineMediaPlayback = YES;
         self.backgroundColor = [UIColor clearColor];
         self.opaque = NO;
+        self.dataDetectorTypes = UIDataDetectorTypeNone;
         
         __unsafe_unretained YMWebView *webView = self;
         webView.delegate = self;
