@@ -118,9 +118,9 @@
     self.labelLeftInset = MJRefreshLabelLeftInset;
     
     // 初始化文字
-    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderIdleText] forState:MJRefreshStateIdle];
-    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderPullingText] forState:MJRefreshStatePulling];
-    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderRefreshingText] forState:MJRefreshStateRefreshing];
+    [self setTitle:@"下拉可以刷新" forState:MJRefreshStateIdle];
+    [self setTitle:@"松开立即刷新" forState:MJRefreshStatePulling];
+    [self setTitle:@"正在刷新数据中..." forState:MJRefreshStateRefreshing];
 }
 
 - (void)placeSubviews
