@@ -9,6 +9,7 @@
 #import "YMProgress.h"
 
 #import "SVProgressHUD.h"
+#import "YMUI.h"
 
 #import "UIColor+YMAdditions.h"
 #import "YMDeviceInfo.h"
@@ -24,16 +25,16 @@ static UIImage *kFailTypeForLocation;
 {
     [super load];
     
-    [SVProgressHUD setBackgroundColor:[UIColor ym_colorWithHexString:@"2a4885" alpha:0.8]];
+    [SVProgressHUD setBackgroundColor:[UIColor ym_colorWithHexString:@"0a8cf0" alpha:0.8]];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
     [SVProgressHUD setRingThickness:5];
+
     
-    if (kYm_iPhone6Plus) {
-        [SVProgressHUD setFont:[UIFont systemFontOfSize:15]];
-    }
-    else {
-        [SVProgressHUD setFont:[UIFont systemFontOfSize:13]];
-    }
+    [SVProgressHUD setMinimumSize:CGSizeMake(kYm_ScreenWidth * 0.456, kYm_ScreenHeight * 0.215)];
+    
+    [SVProgressHUD setMinimumDismissTimeInterval:1.5];
+    
+    [SVProgressHUD setFont:[UIFont systemFontOfSize:18]];
     
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
     

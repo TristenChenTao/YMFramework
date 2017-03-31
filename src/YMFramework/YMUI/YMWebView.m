@@ -182,11 +182,9 @@ static YMWebViewShouldStartHandler kHandler;
 {
     [webView.scrollView.mj_header endRefreshing];
     
-    if (self.hasRequestSuccess == NO) {
-        self.failView.alpha = 1.0;
-    }
-    else {
-        [YMProgress showFailStatus:@"网络连接失败"];
+
+    if(error.code != -999){
+        [YMProgress showFailStatus:@"数据加载失败"];
     }
     
     if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:didFailLoadWithError:)]) {

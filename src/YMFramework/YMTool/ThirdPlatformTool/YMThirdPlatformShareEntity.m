@@ -18,8 +18,8 @@
     _shareType = [obj[@"shareType"] intValue];
     _title = obj[@"title"];
     _contentText = obj[@"contentText"];
-    _imageURL = obj[@"imageUrl"];
-    _resourceURL = obj[@"resourceUrl"];
+    _imageURL = obj[@"imageURL"];
+    _resourceURL = obj[@"resourceURl"];
     
     return self;
 }

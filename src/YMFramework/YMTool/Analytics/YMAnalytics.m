@@ -26,6 +26,7 @@
         
         NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         [MobClick setAppVersion:version];
+        [MobClick startWithConfigure:UMConfigInstance];
         
         //umtrack
         NSString * deviceName = [[[UIDevice currentDevice] name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
