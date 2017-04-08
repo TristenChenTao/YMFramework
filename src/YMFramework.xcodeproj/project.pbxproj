@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		544060241E977CA800E5F691 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544060231E977CA800E5F691 /* WebKit.framework */; };
 		544DE2311E52E24500F96AEF /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 544DE2281E52E24500F96AEF /* SVIndefiniteAnimatedView.h */; };
 		544DE2321E52E24500F96AEF /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DE2291E52E24500F96AEF /* SVIndefiniteAnimatedView.m */; };
 		544DE2331E52E24500F96AEF /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 544DE22A1E52E24500F96AEF /* SVProgressAnimatedView.h */; };
@@ -569,6 +570,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		544060231E977CA800E5F691 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		544DE2281E52E24500F96AEF /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		544DE2291E52E24500F96AEF /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		544DE22A1E52E24500F96AEF /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
@@ -1125,6 +1127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				544060241E977CA800E5F691 /* WebKit.framework in Frameworks */,
 				5495A5211E5BE5DA00A39DD6 /* libresolv.tbd in Frameworks */,
 				622DEFDA1C4CF37A00DEEA3D /* CoreTelephony.framework in Frameworks */,
 				622DEFE61C4CF3FE00DEEA3D /* QuartzCore.framework in Frameworks */,
@@ -1560,6 +1563,7 @@
 		5495A51F1E5BE5D900A39DD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				544060231E977CA800E5F691 /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

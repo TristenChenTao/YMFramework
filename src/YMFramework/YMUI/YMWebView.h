@@ -7,59 +7,36 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef BOOL(^YMWebViewShouldStartHandler)(UIWebView *webView, UIViewController *containerVC, NSURLRequest *request, UIWebViewNavigationType navigationType);
+#import <WebKit/WebKit.h>
 
 @protocol YMWebViewDelegate <NSObject>
 
 @optional
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView;
 
-- (void)webViewDidStartLoad:(UIWebView *)webView;
+- (void)webView:(WKWebView *_Nullable)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation;
 
-- (void)webView:(UIWebView *)webView
-didFailLoadWithError:(NSError *)error;
+- (void)webView:(WKWebView *_Nullable)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation;
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+- (void)webView:(WKWebView *_Nullable)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *_Nullable)error;
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView
-                  willDecelerate:(BOOL)decelerate;
+- (BOOL)webView:(WKWebView *_Nullable)webView decidePolicyForNavigationAction:(WKNavigationAction *_Nullable)navigationAction;
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
-
-- (BOOL)webView:(UIWebView *)webView
-shouldStartLoadWithRequest:(NSURLRequest *)request
- navigationType:(UIWebViewNavigationType)navigationType;
-
-- (void)webViewShouldRefresh:(UIWebView *)webView;
+- (void)webViewShouldRefresh:(WKWebView *_Nullable)webView;
 
 @end
 
-@interface YMWebView : UIWebView
+@interface YMWebView : WKWebView
 
 @property (nonatomic, weak) id <YMWebViewDelegate> ym_Delegate;
 
-- (instancetype)initWithContainerVC:(UIViewController *)viewController;
+@property (nonatomic, strong) NSURLRequest *orignalRequest;
 
-- (void)loadRequest:(NSURLRequest *)request;
+- (void)loadRequest:(NSURLRequest *_Nullable)request needRefreshAnimation:(BOOL)animation;
 
-- (void)loadRequestByRefresh:(NSURLRequest *)request;
-
-- (void)reloadByRefresh;
-
-- (void)reload;
+- (void)reloadNeedRefreshAnimation:(BOOL)animation;
 
 - (void)removeHeader;
-
-/**
- *  加载全局URL链接处理器
- *
- *  @param handler
- */
-+(void)loadGlobalShouldStartHandler:(YMWebViewShouldStartHandler)handler;
 
 @end
 
