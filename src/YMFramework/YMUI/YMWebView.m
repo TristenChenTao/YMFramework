@@ -8,7 +8,6 @@
 
 #import "YMWebView.h"
 #import "NSString+YMAdditions.h"
-#import "YMHTTPManager.h"
 #import "YMUI.h"
 
 
