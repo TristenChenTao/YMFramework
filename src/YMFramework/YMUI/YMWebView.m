@@ -10,13 +10,11 @@
 #import "NSString+YMAdditions.h"
 #import "YMHTTPManager.h"
 #import "YMUI.h"
-#import "UIView+YMFrameAdditions.h"
+
 
 #import "MJRefresh.h"
-#import "UIFont+YMFontSizeAdditions.h"
+
 #import "UIColor+YMAdditions.h"
-#import "UIView+YMFrameAdditions.h"
-#import "YMWebFailView.h"
 #import "YMProgress.h"
 
 @interface YMWebView() <WKNavigationDelegate,WKScriptMessageHandler>
@@ -100,7 +98,7 @@
     [header setTitle:@"加载中" forState:MJRefreshStateRefreshing];
     
     // 设置字体
-    header.stateLabel.font = [UIFont ym_standFontOfLevel:3];
+    header.stateLabel.font = [UIFont systemFontOfSize:15.3];
     // 设置颜色
     header.stateLabel.textColor = [UIColor ym_colorWithHexString:@"8995b0"];
     
