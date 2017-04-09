@@ -280,9 +280,6 @@
 		544DE43D1E52F37700F96AEF /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DE4161E52F37700F96AEF /* UIScrollView+MJRefresh.m */; };
 		544DE43E1E52F37700F96AEF /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 544DE4171E52F37700F96AEF /* UIView+MJExtension.h */; };
 		544DE43F1E52F37700F96AEF /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DE4181E52F37700F96AEF /* UIView+MJExtension.m */; };
-		5495A51C1E5AF23900A39DD6 /* jcore-ios-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5495A5191E5AF23900A39DD6 /* jcore-ios-1.1.1.a */; };
-		5495A51D1E5AF23900A39DD6 /* jpush-ios-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5495A51A1E5AF23900A39DD6 /* jpush-ios-3.0.2.a */; };
-		5495A51E1E5AF23900A39DD6 /* JPUSHService.h in Headers */ = {isa = PBXBuildFile; fileRef = 5495A51B1E5AF23900A39DD6 /* JPUSHService.h */; };
 		5495A5211E5BE5DA00A39DD6 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5495A5201E5BE5DA00A39DD6 /* libresolv.tbd */; };
 		54BCB71A1E52A4C5007D0A2C /* FLEXArgumentInputColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BCB6731E52A4C5007D0A2C /* FLEXArgumentInputColorView.h */; };
 		54BCB71B1E52A4C5007D0A2C /* FLEXArgumentInputColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BCB6741E52A4C5007D0A2C /* FLEXArgumentInputColorView.m */; };
@@ -480,8 +477,6 @@
 		62703E531B10490B005CA088 /* YMCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E361B10490B005CA088 /* YMCache.m */; };
 		62703E541B10490B005CA088 /* YMDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E371B10490B005CA088 /* YMDeviceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62703E551B10490B005CA088 /* YMDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E381B10490B005CA088 /* YMDeviceInfo.m */; };
-		62703E581B10490B005CA088 /* YMPush.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E3B1B10490B005CA088 /* YMPush.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62703E591B10490B005CA088 /* YMPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E3C1B10490B005CA088 /* YMPush.m */; };
 		62703E5A1B10490B005CA088 /* YMTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E3D1B10490B005CA088 /* YMTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62703E5B1B10490B005CA088 /* UIView+YMFrameAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E3F1B10490B005CA088 /* UIView+YMFrameAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62703E5C1B10490B005CA088 /* UIView+YMFrameAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E401B10490B005CA088 /* UIView+YMFrameAdditions.m */; };
@@ -829,9 +824,6 @@
 		544DE4161E52F37700F96AEF /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		544DE4171E52F37700F96AEF /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		544DE4181E52F37700F96AEF /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
-		5495A5191E5AF23900A39DD6 /* jcore-ios-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.1.a"; sourceTree = "<group>"; };
-		5495A51A1E5AF23900A39DD6 /* jpush-ios-3.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.2.a"; sourceTree = "<group>"; };
-		5495A51B1E5AF23900A39DD6 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		5495A5201E5BE5DA00A39DD6 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		54BCB6731E52A4C5007D0A2C /* FLEXArgumentInputColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputColorView.h; sourceTree = "<group>"; };
 		54BCB6741E52A4C5007D0A2C /* FLEXArgumentInputColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXArgumentInputColorView.m; sourceTree = "<group>"; };
@@ -1033,8 +1025,6 @@
 		62703E361B10490B005CA088 /* YMCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMCache.m; sourceTree = "<group>"; };
 		62703E371B10490B005CA088 /* YMDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMDeviceInfo.h; sourceTree = "<group>"; };
 		62703E381B10490B005CA088 /* YMDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMDeviceInfo.m; sourceTree = "<group>"; };
-		62703E3B1B10490B005CA088 /* YMPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMPush.h; sourceTree = "<group>"; };
-		62703E3C1B10490B005CA088 /* YMPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMPush.m; sourceTree = "<group>"; };
 		62703E3D1B10490B005CA088 /* YMTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTool.h; sourceTree = "<group>"; };
 		62703E3F1B10490B005CA088 /* UIView+YMFrameAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YMFrameAdditions.h"; sourceTree = "<group>"; };
 		62703E401B10490B005CA088 /* UIView+YMFrameAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YMFrameAdditions.m"; sourceTree = "<group>"; };
@@ -1141,10 +1131,8 @@
 				622DEFD51C4CF33D00DEEA3D /* CFNetwork.framework in Frameworks */,
 				628F1CEF1C4CEF4E00FBDE6C /* ImageIO.framework in Frameworks */,
 				62C2C25D1C48C61500395E10 /* libz.tbd in Frameworks */,
-				5495A51D1E5AF23900A39DD6 /* jpush-ios-3.0.2.a in Frameworks */,
 				62C2C2591C48C5F000395E10 /* libicucore.tbd in Frameworks */,
 				62C2C2571C48C5E800395E10 /* libstdc++.tbd in Frameworks */,
-				5495A51C1E5AF23900A39DD6 /* jcore-ios-1.1.1.a in Frameworks */,
 				62C2C2551C48C5E200395E10 /* libsqlite3.tbd in Frameworks */,
 				C1C62AFA1CBB4FBD00E4587F /* libWeiboSDK.a in Frameworks */,
 				62D2AAB91C3220C200A97384 /* TencentOpenAPI.framework in Frameworks */,
@@ -1908,16 +1896,6 @@
 			path = STWebP;
 			sourceTree = "<group>";
 		};
-		6258F2231B04719000C0B785 /* JPush */ = {
-			isa = PBXGroup;
-			children = (
-				5495A5191E5AF23900A39DD6 /* jcore-ios-1.1.1.a */,
-				5495A51A1E5AF23900A39DD6 /* jpush-ios-3.0.2.a */,
-				5495A51B1E5AF23900A39DD6 /* JPUSHService.h */,
-			);
-			path = JPush;
-			sourceTree = "<group>";
-		};
 		625D56711ADBAF52007BCA33 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
@@ -1931,7 +1909,6 @@
 				C1B1E1421CF4474200124D11 /* UMMobClick.framework */,
 				62D2AAA31C3220C200A97384 /* ThirdPlatformSDK */,
 				6242FCB21B2FD789007DD69C /* STWebP */,
-				6258F2231B04719000C0B785 /* JPush */,
 				62EF82C01AE238A40068B34A /* URLParser */,
 				625D56741ADBAFD3007BCA33 /* AFNetworking */,
 			);
@@ -1994,8 +1971,6 @@
 				62703E361B10490B005CA088 /* YMCache.m */,
 				62703E371B10490B005CA088 /* YMDeviceInfo.h */,
 				62703E381B10490B005CA088 /* YMDeviceInfo.m */,
-				62703E3B1B10490B005CA088 /* YMPush.h */,
-				62703E3C1B10490B005CA088 /* YMPush.m */,
 				62703E3D1B10490B005CA088 /* YMTool.h */,
 				62B4B60D1B18478B00834DCF /* YMDebugging.h */,
 				62B4B60E1B18478B00834DCF /* YMDebugging.m */,
@@ -2253,7 +2228,6 @@
 				62B4B60F1B18478B00834DCF /* YMDebugging.h in Headers */,
 				544DE2881E52E8B000F96AEF /* UIImageView+HighlightedWebCache.h in Headers */,
 				54BCB78A1E52A4C6007D0A2C /* FLEXDefaultsExplorerViewController.h in Headers */,
-				5495A51E1E5AF23900A39DD6 /* JPUSHService.h in Headers */,
 				54BCB73C1E52A4C5007D0A2C /* FLEXMethodCallingViewController.h in Headers */,
 				54BCB7471E52A4C5007D0A2C /* FLEXMultiColumnTableView.h in Headers */,
 				544DE3C91E52F08B00F96AEF /* bit_reader_inl_utils.h in Headers */,
@@ -2272,7 +2246,6 @@
 				54BCB7421E52A4C5007D0A2C /* FLEXWindow.h in Headers */,
 				54BCB7361E52A4C5007D0A2C /* FLEXFieldEditorView.h in Headers */,
 				62703E5B1B10490B005CA088 /* UIView+YMFrameAdditions.h in Headers */,
-				62703E581B10490B005CA088 /* YMPush.h in Headers */,
 				54BCB75B1E52A4C5007D0A2C /* FLEXCookiesTableViewController.h in Headers */,
 				544DE3561E52F08B00F96AEF /* webpi_dec.h in Headers */,
 				544DE2691E52E8B000F96AEF /* MKAnnotationView+WebCache.h in Headers */,
@@ -2662,7 +2635,6 @@
 				544DE36A1E52F08B00F96AEF /* dec.c in Sources */,
 				544DE3921E52F08B00F96AEF /* rescaler.c in Sources */,
 				62AE9F2C1BF470500036D0B9 /* UIApplication+YMAdditions.m in Sources */,
-				62703E591B10490B005CA088 /* YMPush.m in Sources */,
 				544DE26C1E52E8B000F96AEF /* NSData+ImageContentType.m in Sources */,
 				54BCB78D1E52A4C6007D0A2C /* FLEXDictionaryExplorerViewController.m in Sources */,
 				544DE4221E52F37700F96AEF /* MJRefreshHeader.m in Sources */,

@@ -76,7 +76,7 @@ void VP8CalculateLevelCosts(VP8EncProba* const proba) {
           table[v] = cost_base + VariableLevelCost(v, p);
         }
         // Starting at level 67 and up, the variable part of the cost is
-        // actually constant.
+        // actually 
       }
     }
     for (n = 0; n < 16; ++n) {    // replicate bands. We don't need to sentinel.

@@ -12,7 +12,7 @@
 #import "YMTool.h"
 #import "NSString+YMAdditions.h"
 
-#import "YMPush.h"
+
 #import "YMAnalytics.h"
 #import "YMThirdPlatformTool.h"
 #import "YMURLProtocol.h"

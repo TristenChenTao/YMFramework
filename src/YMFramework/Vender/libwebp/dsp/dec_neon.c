@@ -1068,7 +1068,7 @@ static void TransformOne(const int16_t* in, uint8_t* dst) {
     /* The multiplication should be x * kC1 >> 16
      * However, with vqdmulh we get x * kC1 * 2 >> 16
      * (multiply, double, return high half)
-     * We avoided this in kC2 by pre-shifting the constant.
+     * We avoided this in kC2 by pre-shifting the 
      * q8 = in[4]/[12] * kC1 >> 16
      */
     "vshr.s16        q8, q8, #1                  \n"
