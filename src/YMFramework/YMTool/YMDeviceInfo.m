@@ -7,7 +7,7 @@
 //
 
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
-#import <UMMobClick/MobClick.h>
+
 
 //for mac
 #include <sys/socket.h>
@@ -119,11 +119,6 @@
     }
     
     return netType;
-}
-
-+ (BOOL)isJailBroken
-{
-    return [MobClick isJailbroken];
 }
 
 + (NSString * )macString

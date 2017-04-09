@@ -75,8 +75,6 @@
 
 + (NSString *)newtworkType;
 
-+ (BOOL)isJailBroken;
-
 
 + (NSString *)macString;
 

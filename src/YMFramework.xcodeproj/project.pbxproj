@@ -499,8 +499,6 @@
 		627904431ADBC7D000F84BFB /* YMImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 627904411ADBC7D000F84BFB /* YMImageDownloader.m */; };
 		627AEEEE1C16AA6B0085349B /* YMProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 627AEEEC1C16AA6B0085349B /* YMProgress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		627AEEEF1C16AA6B0085349B /* YMProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 627AEEED1C16AA6B0085349B /* YMProgress.m */; };
-		627D6EFD1C3E0A220002F138 /* YMAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 627D6EF91C3E0A220002F138 /* YMAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		627D6EFE1C3E0A220002F138 /* YMAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 627D6EFA1C3E0A220002F138 /* YMAnalytics.m */; };
 		628E20F51C44A62A0026CD1A /* YMHttpParameterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 628E20F31C44A62A0026CD1A /* YMHttpParameterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		628E20F61C44A62A0026CD1A /* YMHttpParameterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 628E20F41C44A62A0026CD1A /* YMHttpParameterFactory.m */; };
 		628F1CEF1C4CEF4E00FBDE6C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628F1CEE1C4CEF4E00FBDE6C /* ImageIO.framework */; };
@@ -529,7 +527,6 @@
 		62EF82C41AE238A40068B34A /* URLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF82C21AE238A40068B34A /* URLParser.m */; };
 		C17FBE421CCF0FF300A94598 /* YMWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = C17FBE401CCF0FF300A94598 /* YMWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C17FBE431CCF0FF300A94598 /* YMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C17FBE411CCF0FF300A94598 /* YMWebView.m */; };
-		C1B1E1431CF4474200124D11 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B1E1421CF4474200124D11 /* UMMobClick.framework */; };
 		C1C62AFA1CBB4FBD00E4587F /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C62AED1CBB4FBD00E4587F /* libWeiboSDK.a */; };
 		C1C62AFB1CBB4FBD00E4587F /* WBHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C1C62AEE1CBB4FBD00E4587F /* WBHttpRequest.h */; };
 		C1C62AFC1CBB4FBD00E4587F /* WBHttpRequest+WeiboGame.h in Headers */ = {isa = PBXBuildFile; fileRef = C1C62AEF1CBB4FBD00E4587F /* WBHttpRequest+WeiboGame.h */; };
@@ -1047,8 +1044,6 @@
 		627904411ADBC7D000F84BFB /* YMImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMImageDownloader.m; sourceTree = "<group>"; };
 		627AEEEC1C16AA6B0085349B /* YMProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMProgress.h; sourceTree = "<group>"; };
 		627AEEED1C16AA6B0085349B /* YMProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMProgress.m; sourceTree = "<group>"; };
-		627D6EF91C3E0A220002F138 /* YMAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMAnalytics.h; sourceTree = "<group>"; };
-		627D6EFA1C3E0A220002F138 /* YMAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMAnalytics.m; sourceTree = "<group>"; };
 		628E20F31C44A62A0026CD1A /* YMHttpParameterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMHttpParameterFactory.h; sourceTree = "<group>"; };
 		628E20F41C44A62A0026CD1A /* YMHttpParameterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMHttpParameterFactory.m; sourceTree = "<group>"; };
 		628F1CEE1C4CEF4E00FBDE6C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -1077,7 +1072,6 @@
 		62EF82C21AE238A40068B34A /* URLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLParser.m; sourceTree = "<group>"; };
 		C17FBE401CCF0FF300A94598 /* YMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMWebView.h; sourceTree = "<group>"; };
 		C17FBE411CCF0FF300A94598 /* YMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMWebView.m; sourceTree = "<group>"; };
-		C1B1E1421CF4474200124D11 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
 		C1C62AED1CBB4FBD00E4587F /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		C1C62AEE1CBB4FBD00E4587F /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
 		C1C62AEF1CBB4FBD00E4587F /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
@@ -1122,7 +1116,6 @@
 				622DEFDA1C4CF37A00DEEA3D /* CoreTelephony.framework in Frameworks */,
 				622DEFE61C4CF3FE00DEEA3D /* QuartzCore.framework in Frameworks */,
 				622DEFE41C4CF3F400DEEA3D /* AVFoundation.framework in Frameworks */,
-				C1B1E1431CF4474200124D11 /* UMMobClick.framework in Frameworks */,
 				622DEFE21C4CF3E300DEEA3D /* CoreLocation.framework in Frameworks */,
 				622DEFE01C4CF3D900DEEA3D /* Security.framework in Frameworks */,
 				622DEFDE1C4CF3C400DEEA3D /* CoreGraphics.framework in Frameworks */,
@@ -1906,7 +1899,6 @@
 				544DE2271E52E24500F96AEF /* SVProgressHUD */,
 				54BCB6701E52A4C5007D0A2C /* FLEX */,
 				C1CE664E1CF59981007549E7 /* Versions.h */,
-				C1B1E1421CF4474200124D11 /* UMMobClick.framework */,
 				62D2AAA31C3220C200A97384 /* ThirdPlatformSDK */,
 				6242FCB21B2FD789007DD69C /* STWebP */,
 				62EF82C01AE238A40068B34A /* URLParser */,
@@ -1957,7 +1949,6 @@
 		62703E2C1B10490B005CA088 /* YMTool */ = {
 			isa = PBXGroup;
 			children = (
-				627D6EF81C3E0A220002F138 /* Analytics */,
 				6278FEFF1B1D4FC0000B77A0 /* ThirdPlatformTool */,
 				62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */,
 				62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */,
@@ -2027,15 +2018,6 @@
 				6278FF051B1D4FC0000B77A0 /* YMThirdPlatformUserInfo.m */,
 			);
 			path = ThirdPlatformTool;
-			sourceTree = "<group>";
-		};
-		627D6EF81C3E0A220002F138 /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				627D6EF91C3E0A220002F138 /* YMAnalytics.h */,
-				627D6EFA1C3E0A220002F138 /* YMAnalytics.m */,
-			);
-			path = Analytics;
 			sourceTree = "<group>";
 		};
 		62D2AAA31C3220C200A97384 /* ThirdPlatformSDK */ = {
@@ -2157,7 +2139,6 @@
 				54BCB7561E52A4C5007D0A2C /* FLEXTableListViewController.h in Headers */,
 				54BCB79A1E52A4C6007D0A2C /* FLEXViewControllerExplorerViewController.h in Headers */,
 				54BCB7AE1E52A4C6007D0A2C /* FLEXUtility.h in Headers */,
-				627D6EFD1C3E0A220002F138 /* YMAnalytics.h in Headers */,
 				544DE3C11E52F08B00F96AEF /* animi.h in Headers */,
 				627AEEEE1C16AA6B0085349B /* YMProgress.h in Headers */,
 				54BCB7591E52A4C5007D0A2C /* FLEXClassesTableViewController.h in Headers */,
@@ -2565,7 +2546,6 @@
 				54BCB7931E52A4C6007D0A2C /* FLEXLayerExplorerViewController.m in Sources */,
 				C1C62B191CBB55A700E4587F /* AFNetworkReachabilityManager.m in Sources */,
 				544DE3D81E52F08B00F96AEF /* quant_levels_dec_utils.c in Sources */,
-				627D6EFE1C3E0A220002F138 /* YMAnalytics.m in Sources */,
 				54BCB75C1E52A4C5007D0A2C /* FLEXCookiesTableViewController.m in Sources */,
 				6278FF091B1D4FC0000B77A0 /* YMThirdPlatformTool.m in Sources */,
 				544DE4261E52F37700F96AEF /* MJRefreshAutoNormalFooter.m in Sources */,

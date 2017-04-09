@@ -37,7 +37,6 @@
                                   @"scrW" : @(kYm_ScreenWidth),
                                   @"lang" : [YMDeviceInfo language],
                                   @"network" : [YMDeviceInfo newtworkType],
-                                  @"isCrack" : @([YMDeviceInfo isJailBroken]),
                                   @"country" : [YMDeviceInfo country],
                                   @"osType" : @(1),
                                   @"osVer" : @([YMDeviceInfo systemVersion])
