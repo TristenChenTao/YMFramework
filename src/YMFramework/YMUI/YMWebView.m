@@ -11,7 +11,7 @@
 #import "YMHTTPManager.h"
 #import "YMUI.h"
 #import "UIView+YMFrameAdditions.h"
-#import "YMImageDownloader.h"
+
 #import "MJRefresh.h"
 #import "UIFont+YMFontSizeAdditions.h"
 #import "UIColor+YMAdditions.h"
