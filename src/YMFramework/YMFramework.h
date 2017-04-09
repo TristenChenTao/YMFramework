@@ -26,15 +26,11 @@ FOUNDATION_EXPORT const unsigned char YMFrameworkVersionString[];
 #import <YMFramework/YMUI.h>
 #import <YMFramework/YMDebugging.h>
 #import <YMFramework/YMFrameworkConfig.h>
-#import <YMFramework/UIImage+YMAdditions.h>
 #import <YMFramework/NSDictionary+YMAccessors.h>
 
 #import <YMFramework/YMThirdPlatformTool.h>
 #import <YMFramework/YMThirdPlatformUserInfo.h>
 #import <YMFramework/YMThirdPlatformShareEntity.h>
-#import <YMFramework/NSDate+YMAdditions.h>
-#import <YMFramework/NSString+YMAdditionsForNSDate.h>
-#import <YMFramework/UIApplication+YMAdditions.h>
 #import <YMFramework/YMProgress.h>
 #import <YMFramework/YMHttpParameterFactory.h>
 #import <YMFramework/YMWebView.h>

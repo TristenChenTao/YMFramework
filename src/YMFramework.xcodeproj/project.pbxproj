@@ -241,8 +241,6 @@
 		622DEFE21C4CF3E300DEEA3D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622DEFE11C4CF3E300DEEA3D /* CoreLocation.framework */; };
 		622DEFE41C4CF3F400DEEA3D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622DEFE31C4CF3F400DEEA3D /* AVFoundation.framework */; };
 		622DEFE61C4CF3FE00DEEA3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622DEFE51C4CF3FE00DEEA3D /* QuartzCore.framework */; };
-		624CE52F1B21565500C62E08 /* UIImage+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 624CE52D1B21565500C62E08 /* UIImage+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		624CE5301B21565500C62E08 /* UIImage+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 624CE52E1B21565500C62E08 /* UIImage+YMAdditions.m */; };
 		625D56B31ADBB02C007BCA33 /* YMHTTPManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 625D56A41ADBB02C007BCA33 /* YMHTTPManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		625D56B41ADBB02C007BCA33 /* YMHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 625D56A51ADBB02C007BCA33 /* YMHTTPManager.m */; };
 		62703E4A1B10490B005CA088 /* NSString+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E2D1B10490B005CA088 /* NSString+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -268,8 +266,6 @@
 		628F1CEF1C4CEF4E00FBDE6C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628F1CEE1C4CEF4E00FBDE6C /* ImageIO.framework */; };
 		62974C111B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h in Headers */ = {isa = PBXBuildFile; fileRef = 62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62974C121B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m in Sources */ = {isa = PBXBuildFile; fileRef = 62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */; };
-		62AE9F2B1BF470500036D0B9 /* UIApplication+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62AE9F291BF470500036D0B9 /* UIApplication+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62AE9F2C1BF470500036D0B9 /* UIApplication+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AE9F2A1BF470500036D0B9 /* UIApplication+YMAdditions.m */; };
 		62B4B60F1B18478B00834DCF /* YMDebugging.h in Headers */ = {isa = PBXBuildFile; fileRef = 62B4B60D1B18478B00834DCF /* YMDebugging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62B4B6101B18478B00834DCF /* YMDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B4B60E1B18478B00834DCF /* YMDebugging.m */; };
 		62C2C2551C48C5E200395E10 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C2C2541C48C5E200395E10 /* libsqlite3.tbd */; };
@@ -283,10 +279,6 @@
 		62D2AABE1C3220C200A97384 /* WXApiObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AAAB1C3220C200A97384 /* WXApiObject.h */; };
 		62D2AACD1C3220E000A97384 /* YMThirdPlatformSDKCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */; };
 		62D2AACE1C3220E000A97384 /* YMThirdPlatformSDKCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */; };
-		62EF08171BF231F8009BB1BB /* NSDate+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62EF08181BF231F8009BB1BB /* NSDate+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */; };
-		62EF08191BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF08151BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62EF081A1BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF08161BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m */; };
 		62EF82C31AE238A40068B34A /* URLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF82C11AE238A40068B34A /* URLParser.h */; };
 		62EF82C41AE238A40068B34A /* URLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF82C21AE238A40068B34A /* URLParser.m */; };
 		C17FBE421CCF0FF300A94598 /* YMWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = C17FBE401CCF0FF300A94598 /* YMWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -548,8 +540,6 @@
 		622DEFE11C4CF3E300DEEA3D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		622DEFE31C4CF3F400DEEA3D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		622DEFE51C4CF3FE00DEEA3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		624CE52D1B21565500C62E08 /* UIImage+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YMAdditions.h"; sourceTree = "<group>"; };
-		624CE52E1B21565500C62E08 /* UIImage+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YMAdditions.m"; sourceTree = "<group>"; };
 		625D56A41ADBB02C007BCA33 /* YMHTTPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMHTTPManager.h; sourceTree = "<group>"; };
 		625D56A51ADBB02C007BCA33 /* YMHTTPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMHTTPManager.m; sourceTree = "<group>"; };
 		62703E2D1B10490B005CA088 /* NSString+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YMAdditions.h"; sourceTree = "<group>"; };
@@ -575,8 +565,6 @@
 		628F1CEE1C4CEF4E00FBDE6C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YMAccessors.h"; sourceTree = "<group>"; };
 		62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YMAccessors.m"; sourceTree = "<group>"; };
-		62AE9F291BF470500036D0B9 /* UIApplication+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+YMAdditions.h"; sourceTree = "<group>"; };
-		62AE9F2A1BF470500036D0B9 /* UIApplication+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+YMAdditions.m"; sourceTree = "<group>"; };
 		62B4B60D1B18478B00834DCF /* YMDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMDebugging.h; sourceTree = "<group>"; };
 		62B4B60E1B18478B00834DCF /* YMDebugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMDebugging.m; sourceTree = "<group>"; };
 		62C2C2541C48C5E200395E10 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -590,10 +578,6 @@
 		62D2AAAB1C3220C200A97384 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		62D2AACB1C3220E000A97384 /* YMThirdPlatformSDKCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMThirdPlatformSDKCenter.h; sourceTree = "<group>"; };
 		62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMThirdPlatformSDKCenter.m; sourceTree = "<group>"; };
-		62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YMAdditions.h"; sourceTree = "<group>"; };
-		62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YMAdditions.m"; sourceTree = "<group>"; };
-		62EF08151BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YMAdditionsForNSDate.h"; sourceTree = "<group>"; };
-		62EF08161BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YMAdditionsForNSDate.m"; sourceTree = "<group>"; };
 		62EF82C11AE238A40068B34A /* URLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLParser.h; sourceTree = "<group>"; };
 		62EF82C21AE238A40068B34A /* URLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLParser.m; sourceTree = "<group>"; };
 		C17FBE401CCF0FF300A94598 /* YMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMWebView.h; sourceTree = "<group>"; };
@@ -1154,10 +1138,6 @@
 			isa = PBXGroup;
 			children = (
 				6278FEFF1B1D4FC0000B77A0 /* ThirdPlatformTool */,
-				62EF08131BF231F8009BB1BB /* NSDate+YMAdditions.h */,
-				62EF08141BF231F8009BB1BB /* NSDate+YMAdditions.m */,
-				62EF08151BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h */,
-				62EF08161BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m */,
 				62703E2D1B10490B005CA088 /* NSString+YMAdditions.h */,
 				62703E2E1B10490B005CA088 /* NSString+YMAdditions.m */,
 				62703E2F1B10490B005CA088 /* UIColor+YMAdditions.h */,
@@ -1169,12 +1149,8 @@
 				62B4B60E1B18478B00834DCF /* YMDebugging.m */,
 				62065C271B2004AF003769C8 /* YMFrameworkConfig.h */,
 				62065C281B2004AF003769C8 /* YMFrameworkConfig.m */,
-				624CE52D1B21565500C62E08 /* UIImage+YMAdditions.h */,
 				62974C0F1B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h */,
-				624CE52E1B21565500C62E08 /* UIImage+YMAdditions.m */,
 				62974C101B85DB8600A0FDD1 /* NSDictionary+YMAccessors.m */,
-				62AE9F291BF470500036D0B9 /* UIApplication+YMAdditions.h */,
-				62AE9F2A1BF470500036D0B9 /* UIApplication+YMAdditions.m */,
 				C1EB59411CD8AC8700F47F51 /* NSBundle+YMAdditions.h */,
 				C1EB59421CD8AC8700F47F51 /* NSBundle+YMAdditions.m */,
 			);
@@ -1321,9 +1297,6 @@
 				54BCB7AE1E52A4C6007D0A2C /* FLEXUtility.h in Headers */,
 				627AEEEE1C16AA6B0085349B /* YMProgress.h in Headers */,
 				54BCB7591E52A4C5007D0A2C /* FLEXClassesTableViewController.h in Headers */,
-				62AE9F2B1BF470500036D0B9 /* UIApplication+YMAdditions.h in Headers */,
-				62EF08191BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.h in Headers */,
-				62EF08171BF231F8009BB1BB /* NSDate+YMAdditions.h in Headers */,
 				62974C111B85DB8600A0FDD1 /* NSDictionary+YMAccessors.h in Headers */,
 				54BCB7861E52A4C6007D0A2C /* FLEXArrayExplorerViewController.h in Headers */,
 				544DE42D1E52F37700F96AEF /* MJRefreshBackStateFooter.h in Headers */,
@@ -1337,7 +1310,6 @@
 				544DE4231E52F37700F96AEF /* MJRefreshAutoGifFooter.h in Headers */,
 				544DE2351E52E24600F96AEF /* SVProgressHUD-Prefix.pch in Headers */,
 				54BCB74E1E52A4C5007D0A2C /* FLEXTableColumnHeader.h in Headers */,
-				624CE52F1B21565500C62E08 /* UIImage+YMAdditions.h in Headers */,
 				54BCB75F1E52A4C5007D0A2C /* FLEXFileBrowserSearchOperation.h in Headers */,
 				54BCB76D1E52A4C5007D0A2C /* FLEXSystemLogMessage.h in Headers */,
 				544DE4381E52F37700F96AEF /* NSBundle+MJRefresh.h in Headers */,
@@ -1567,7 +1539,6 @@
 				628E20F61C44A62A0026CD1A /* YMHttpParameterFactory.m in Sources */,
 				54BCB7991E52A4C6007D0A2C /* FLEXSetExplorerViewController.m in Sources */,
 				54BCB7721E52A4C5007D0A2C /* FLEXSystemLogTableViewController.m in Sources */,
-				624CE5301B21565500C62E08 /* UIImage+YMAdditions.m in Sources */,
 				544DE4341E52F37700F96AEF /* MJRefreshStateHeader.m in Sources */,
 				54BCB7951E52A4C6007D0A2C /* FLEXObjectExplorerFactory.m in Sources */,
 				544DE41A1E52F37700F96AEF /* MJRefreshAutoFooter.m in Sources */,
@@ -1619,7 +1590,6 @@
 				627AEEEF1C16AA6B0085349B /* YMProgress.m in Sources */,
 				54BCB7481E52A4C5007D0A2C /* FLEXMultiColumnTableView.m in Sources */,
 				54BCB7371E52A4C5007D0A2C /* FLEXFieldEditorView.m in Sources */,
-				62AE9F2C1BF470500036D0B9 /* UIApplication+YMAdditions.m in Sources */,
 				54BCB78D1E52A4C6007D0A2C /* FLEXDictionaryExplorerViewController.m in Sources */,
 				544DE4221E52F37700F96AEF /* MJRefreshHeader.m in Sources */,
 				54BCB7411E52A4C5007D0A2C /* FLEXExplorerViewController.m in Sources */,
@@ -1632,7 +1602,6 @@
 				54BCB7531E52A4C5007D0A2C /* FLEXTableContentViewController.m in Sources */,
 				54BCB73F1E52A4C5007D0A2C /* FLEXPropertyEditorViewController.m in Sources */,
 				54BCB7B31E52A4C6007D0A2C /* FLEXHierarchyTableViewController.m in Sources */,
-				62EF081A1BF231F8009BB1BB /* NSString+YMAdditionsForNSDate.m in Sources */,
 				54BCB7701E52A4C5007D0A2C /* FLEXSystemLogTableViewCell.m in Sources */,
 				54BCB7971E52A4C6007D0A2C /* FLEXObjectExplorerViewController.m in Sources */,
 				544DE42C1E52F37700F96AEF /* MJRefreshBackNormalFooter.m in Sources */,
@@ -1645,7 +1614,6 @@
 				C1C62B1F1CBB55A700E4587F /* AFURLResponseSerialization.m in Sources */,
 				621C363C1C293A6F009911F1 /* YMHTTPResponseData.m in Sources */,
 				544DE4391E52F37700F96AEF /* NSBundle+MJRefresh.m in Sources */,
-				62EF08181BF231F8009BB1BB /* NSDate+YMAdditions.m in Sources */,
 				54BCB7271E52A4C5007D0A2C /* FLEXArgumentInputNumberView.m in Sources */,
 				62703E5E1B10490B005CA088 /* UIView+YMLineViewAdditions.m in Sources */,
 				54BCB7231E52A4C5007D0A2C /* FLEXArgumentInputJSONObjectView.m in Sources */,
