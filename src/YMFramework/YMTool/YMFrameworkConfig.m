@@ -14,7 +14,6 @@
 
 
 #import "YMThirdPlatformTool.h"
-#import "YMURLProtocol.h"
 
 @interface YMFrameworkConfig()
 
