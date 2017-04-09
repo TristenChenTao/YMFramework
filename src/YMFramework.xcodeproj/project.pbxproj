@@ -96,8 +96,6 @@
 		622DEFE61C4CF3FE00DEEA3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622DEFE51C4CF3FE00DEEA3D /* QuartzCore.framework */; };
 		62703E4A1B10490B005CA088 /* NSString+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E2D1B10490B005CA088 /* NSString+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62703E4B1B10490B005CA088 /* NSString+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E2E1B10490B005CA088 /* NSString+YMAdditions.m */; };
-		62703E4C1B10490B005CA088 /* UIColor+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E2F1B10490B005CA088 /* UIColor+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62703E4D1B10490B005CA088 /* UIColor+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E301B10490B005CA088 /* UIColor+YMAdditions.m */; };
 		62703E5A1B10490B005CA088 /* YMTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E3D1B10490B005CA088 /* YMTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62703E5D1B10490B005CA088 /* UIView+YMLineViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E411B10490B005CA088 /* UIView+YMLineViewAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62703E5E1B10490B005CA088 /* UIView+YMLineViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E421B10490B005CA088 /* UIView+YMLineViewAdditions.m */; };
@@ -225,8 +223,6 @@
 		622DEFE51C4CF3FE00DEEA3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		62703E2D1B10490B005CA088 /* NSString+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YMAdditions.h"; sourceTree = "<group>"; };
 		62703E2E1B10490B005CA088 /* NSString+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YMAdditions.m"; sourceTree = "<group>"; };
-		62703E2F1B10490B005CA088 /* UIColor+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YMAdditions.h"; sourceTree = "<group>"; };
-		62703E301B10490B005CA088 /* UIColor+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YMAdditions.m"; sourceTree = "<group>"; };
 		62703E3D1B10490B005CA088 /* YMTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTool.h; sourceTree = "<group>"; };
 		62703E411B10490B005CA088 /* UIView+YMLineViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YMLineViewAdditions.h"; sourceTree = "<group>"; };
 		62703E421B10490B005CA088 /* UIView+YMLineViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YMLineViewAdditions.m"; sourceTree = "<group>"; };
@@ -518,8 +514,6 @@
 				6278FEFF1B1D4FC0000B77A0 /* ThirdPlatformTool */,
 				62703E2D1B10490B005CA088 /* NSString+YMAdditions.h */,
 				62703E2E1B10490B005CA088 /* NSString+YMAdditions.m */,
-				62703E2F1B10490B005CA088 /* UIColor+YMAdditions.h */,
-				62703E301B10490B005CA088 /* UIColor+YMAdditions.m */,
 				62703E3D1B10490B005CA088 /* YMTool.h */,
 				C1EB59411CD8AC8700F47F51 /* NSBundle+YMAdditions.h */,
 				C1EB59421CD8AC8700F47F51 /* NSBundle+YMAdditions.m */,
@@ -674,7 +668,6 @@
 				62703E4A1B10490B005CA088 /* NSString+YMAdditions.h in Headers */,
 				62D2AACD1C3220E000A97384 /* YMThirdPlatformSDKCenter.h in Headers */,
 				C1CE664F1CF59981007549E7 /* Versions.h in Headers */,
-				62703E4C1B10490B005CA088 /* UIColor+YMAdditions.h in Headers */,
 				62703E5A1B10490B005CA088 /* YMTool.h in Headers */,
 				62703E5D1B10490B005CA088 /* UIView+YMLineViewAdditions.h in Headers */,
 				C1C62AFD1CBB4FBD00E4587F /* WBHttpRequest+WeiboShare.h in Headers */,
@@ -831,7 +824,6 @@
 				62703E5E1B10490B005CA088 /* UIView+YMLineViewAdditions.m in Sources */,
 				5498FA851E9A6E4400746D45 /* AFURLResponseSerialization.m in Sources */,
 				5498FA831E9A6E4400746D45 /* AFURLRequestSerialization.m in Sources */,
-				62703E4D1B10490B005CA088 /* UIColor+YMAdditions.m in Sources */,
 				544DE2321E52E24500F96AEF /* SVIndefiniteAnimatedView.m in Sources */,
 				62D2AACE1C3220E000A97384 /* YMThirdPlatformSDKCenter.m in Sources */,
 				544DE43D1E52F37700F96AEF /* UIScrollView+MJRefresh.m in Sources */,

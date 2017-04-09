@@ -11,7 +11,6 @@
 #import "SVProgressHUD.h"
 #import "YMUI.h"
 
-#import "UIColor+YMAdditions.h"
 #import "NSBundle+YMAdditions.h"
 
 @implementation YMProgress
@@ -24,7 +23,7 @@ static UIImage *kFailTypeForLocation;
 {
     [super load];
     
-    [SVProgressHUD setBackgroundColor:[UIColor ym_colorWithHexString:@"0a8cf0" alpha:0.8]];
+    [SVProgressHUD setBackgroundColor: [UIColor colorWithRed:0.04 green:0.55 blue:0.94 alpha:1.00]];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
     [SVProgressHUD setRingThickness:5];
 

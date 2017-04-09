@@ -13,7 +13,6 @@
 
 #import "MJRefresh.h"
 
-#import "UIColor+YMAdditions.h"
 #import "YMProgress.h"
 
 @interface YMWebView() <WKNavigationDelegate,WKScriptMessageHandler>
@@ -99,7 +98,7 @@
     // 设置字体
     header.stateLabel.font = [UIFont systemFontOfSize:15.3];
     // 设置颜色
-    header.stateLabel.textColor = [UIColor ym_colorWithHexString:@"8995b0"];
+    header.stateLabel.textColor = [UIColor colorWithRed:0.54 green:0.58 blue:0.69 alpha:1.00];
     
     self.scrollView.mj_header = header;
 }

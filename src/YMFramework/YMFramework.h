@@ -17,7 +17,6 @@ FOUNDATION_EXPORT const unsigned char YMFrameworkVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <YMFramework/PublicHeader.h>
 
 
-#import <YMFramework/UIColor+YMAdditions.h>
 #import <YMFramework/NSString+YMAdditions.h>
 #import <YMFramework/YMTool.h>
 #import <YMFramework/UIView+YMLineViewAdditions.h>
