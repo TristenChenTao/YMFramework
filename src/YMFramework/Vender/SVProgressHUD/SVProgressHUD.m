@@ -14,7 +14,6 @@
 #import "SVProgressAnimatedView.h"
 #import "SVRadialGradientLayer.h"
 
-#import "YMDeviceInfo.h"
 #import "NSBundle+YMAdditions.h"
 
 NSString * const SVProgressHUDDidReceiveTouchEventNotification = @"SVProgressHUDDidReceiveTouchEventNotification";
@@ -385,32 +384,17 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
         UIImage* successImage = nil;
         UIImage* errorImage = nil;
         
-        if (kYm_iPhone6Plus) {
-            infoImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"info@3x"
-                                                                             ofType:@"png"
-                                                                        inDirectory:@"/Progress"]];
-            
-            successImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"success@3x"
-                                                                                ofType:@"png"
-                                                                           inDirectory:@"/Progress"]];
-            
-            errorImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"error@3x"
-                                                                              ofType:@"png"
-                                                                         inDirectory:@"/Progress"]];
-        }
-        else {
-            infoImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"info@2x"
-                                                                             ofType:@"png"
-                                                                        inDirectory:@"/Progress"]];
-            
-            successImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"success@2x"
-                                                                                ofType:@"png"
-                                                                           inDirectory:@"/Progress"]];
-            
-            errorImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"error@2x"
-                                                                              ofType:@"png"
-                                                                         inDirectory:@"/Progress"]];
-        }
+        infoImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"info@3x"
+                                                                         ofType:@"png"
+                                                                    inDirectory:@"/Progress"]];
+        
+        successImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"success@3x"
+                                                                            ofType:@"png"
+                                                                       inDirectory:@"/Progress"]];
+        
+        errorImage = [UIImage imageWithContentsOfFile:[bundle ym_pathForResource:@"error@3x"
+                                                                          ofType:@"png"
+                                                                     inDirectory:@"/Progress"]];
 
         
 

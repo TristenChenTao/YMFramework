@@ -12,10 +12,8 @@
 
 
 #import "YMFrameworkConfig.h"
-#import "YMDeviceInfo.h"
 #import "YMUI.h"
 #import "NSString+YMAdditions.h"
-#import "YMHttpParameterFactory.h"
 
 @implementation YMHTTPManager
 
@@ -265,10 +263,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
 
 + (NSDictionary *)packageParameters:(NSDictionary *)parameters
 {
-    NSMutableDictionary *finalParameters = [NSMutableDictionary dictionaryWithDictionary:[YMHttpParameterFactory creatProductInfo]];
-    [finalParameters addEntriesFromDictionary:parameters];
     
-    return finalParameters;
+    return parameters;
 }
 
 + (AFHTTPSessionManager *)prepareForTimeout:(float)timeout
