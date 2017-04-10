@@ -97,8 +97,6 @@
 		62703E4A1B10490B005CA088 /* NSString+YMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E2D1B10490B005CA088 /* NSString+YMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62703E4B1B10490B005CA088 /* NSString+YMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E2E1B10490B005CA088 /* NSString+YMAdditions.m */; };
 		62703E5A1B10490B005CA088 /* YMTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E3D1B10490B005CA088 /* YMTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62703E5D1B10490B005CA088 /* UIView+YMLineViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E411B10490B005CA088 /* UIView+YMLineViewAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62703E5E1B10490B005CA088 /* UIView+YMLineViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62703E421B10490B005CA088 /* UIView+YMLineViewAdditions.m */; };
 		62703E651B10490B005CA088 /* YMUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 62703E491B10490B005CA088 /* YMUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6278FF061B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 6278FF001B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6278FF071B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6278FF011B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.m */; };
@@ -224,8 +222,6 @@
 		62703E2D1B10490B005CA088 /* NSString+YMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YMAdditions.h"; sourceTree = "<group>"; };
 		62703E2E1B10490B005CA088 /* NSString+YMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YMAdditions.m"; sourceTree = "<group>"; };
 		62703E3D1B10490B005CA088 /* YMTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTool.h; sourceTree = "<group>"; };
-		62703E411B10490B005CA088 /* UIView+YMLineViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YMLineViewAdditions.h"; sourceTree = "<group>"; };
-		62703E421B10490B005CA088 /* UIView+YMLineViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YMLineViewAdditions.m"; sourceTree = "<group>"; };
 		62703E491B10490B005CA088 /* YMUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMUI.h; sourceTree = "<group>"; };
 		6278FF001B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMThirdPlatformShareEntity.h; sourceTree = "<group>"; };
 		6278FF011B1D4FC0000B77A0 /* YMThirdPlatformShareEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMThirdPlatformShareEntity.m; sourceTree = "<group>"; };
@@ -526,8 +522,6 @@
 			children = (
 				C17FBE401CCF0FF300A94598 /* YMWebView.h */,
 				C17FBE411CCF0FF300A94598 /* YMWebView.m */,
-				62703E411B10490B005CA088 /* UIView+YMLineViewAdditions.h */,
-				62703E421B10490B005CA088 /* UIView+YMLineViewAdditions.m */,
 				62703E491B10490B005CA088 /* YMUI.h */,
 				627AEEEC1C16AA6B0085349B /* YMProgress.h */,
 				627AEEED1C16AA6B0085349B /* YMProgress.m */,
@@ -669,7 +663,6 @@
 				62D2AACD1C3220E000A97384 /* YMThirdPlatformSDKCenter.h in Headers */,
 				C1CE664F1CF59981007549E7 /* Versions.h in Headers */,
 				62703E5A1B10490B005CA088 /* YMTool.h in Headers */,
-				62703E5D1B10490B005CA088 /* UIView+YMLineViewAdditions.h in Headers */,
 				C1C62AFD1CBB4FBD00E4587F /* WBHttpRequest+WeiboShare.h in Headers */,
 				C1C62AFB1CBB4FBD00E4587F /* WBHttpRequest.h in Headers */,
 				544DE42B1E52F37700F96AEF /* MJRefreshBackNormalFooter.h in Headers */,
@@ -821,7 +814,6 @@
 				C17FBE431CCF0FF300A94598 /* YMWebView.m in Sources */,
 				544DE4241E52F37700F96AEF /* MJRefreshAutoGifFooter.m in Sources */,
 				544DE4391E52F37700F96AEF /* NSBundle+MJRefresh.m in Sources */,
-				62703E5E1B10490B005CA088 /* UIView+YMLineViewAdditions.m in Sources */,
 				5498FA851E9A6E4400746D45 /* AFURLResponseSerialization.m in Sources */,
 				5498FA831E9A6E4400746D45 /* AFURLRequestSerialization.m in Sources */,
 				544DE2321E52E24500F96AEF /* SVIndefiniteAnimatedView.m in Sources */,
