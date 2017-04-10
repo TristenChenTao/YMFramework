@@ -28,6 +28,8 @@
 
 @interface YMWebView : WKWebView
 
+- (instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration *)configuration;
+
 @property (nonatomic, weak) id <YMWebViewDelegate> ym_Delegate;
 
 @property (nonatomic, strong) NSURLRequest *orignalRequest;

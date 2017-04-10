@@ -15,7 +15,7 @@
 
 #import "YMProgress.h"
 
-@interface YMWebView() <WKNavigationDelegate,WKScriptMessageHandler>
+@interface YMWebView() <WKNavigationDelegate>
 
 @property (nonatomic, assign) BOOL hasRequestSuccess;
 
@@ -25,29 +25,17 @@
 
 #pragma mark - public methods
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration *)configuration
 {
-    self = [super init];
+    self = [super initWithFrame:frame configuration:configuration];
     if (self) {
-        
-        WKWebViewConfiguration * Configuration = [[WKWebViewConfiguration alloc]init];
-        //允许视频播放
-        Configuration.allowsAirPlayForMediaPlayback = YES;
-        // 允许在线播放
-        Configuration.allowsInlineMediaPlayback = YES;
-        // 允许可以与网页交互，选择视图
-        Configuration.selectionGranularity = YES;
-        // 是否支持记忆读取
-        Configuration.suppressesIncrementalRendering = YES;
-        
-        Configuration.dataDetectorTypes = WKDataDetectorTypeNone;
-
-        
+    
         self.backgroundColor = [UIColor clearColor];
         self.opaque = NO;
 
         __unsafe_unretained YMWebView *webView = self;
         webView.navigationDelegate = self;
+        
         
         // 添加下拉刷新控件
         [self addHeader];
@@ -161,12 +149,6 @@
     
     decisionHandler(WKNavigationActionPolicyAllow);
     return;
-}
-
-
-- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
-{
-    NSLog(message.name);
 }
 
 
