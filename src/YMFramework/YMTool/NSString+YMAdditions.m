@@ -41,16 +41,6 @@
     return tempText;
 }
 
-- (NSString *)ym_urlEncode
-{
-    return [self stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-}
-
-- (NSString *)ym_urlDecode
-{
-    return [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-}
-
 + (NSString *)ym_randomStringWithLength:(NSInteger)len
 {
     static const NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -68,42 +58,6 @@
 {
     URLParser *parser = [[URLParser alloc] initWithURLString:self];
     return [parser valueForVariable:key];
-}
-
-- (BOOL)ym_isWebURL
-{
-    if ([NSString ym_isEmptyString:self]) {
-        return NO;
-    }
-    
-    NSString *regex1 = @"(http(s)?://)?([\\w-]+\\.)+[\\w-]+([:\\d]*)?+(/[\\w- ;,./?%&=]*)?";
-    
-    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex1];
-    if ([regextestmobile evaluateWithObject:self]) {
-        return YES;
-    }
-    
-    NSString *regex2 = @"[a-zA-z]+://[^\\s]*";
-    
-    regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex2];
-    if ([regextestmobile evaluateWithObject:self]) {
-        return YES;
-    }
-    
-    return NO;
-}
-
-- (BOOL)ym_isAppStoreURL
-{
-    if ([NSString ym_isEmptyString:self]) {
-        return NO;
-    }
-    
-    if ([self rangeOfString:@"itunes.apple.com"].length > 0 && [self rangeOfString:@"?mt=8"].length > 0) {
-        return YES;
-    }
-    
-    return NO;
 }
 
 - (BOOL)ym_isContainsEmoji

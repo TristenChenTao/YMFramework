@@ -19,10 +19,6 @@
  */
 + (NSString *)ym_trim:(NSString *)string;
 
-- (NSString *)ym_urlEncode;
-
-- (NSString *)ym_urlDecode;
-
 /**
  *  生成随机字符串
  *
@@ -42,20 +38,6 @@
  */
 - (NSString *)ym_parameterForKeyFromURL:(NSString *)key;
 
-
-/**
- *  判断是否是网站链接
- *
- *  @return 
- */
-- (BOOL)ym_isWebURL;
-
-/**
- *  判断是否是App Store链接
- *
- *  @return
- */
-- (BOOL)ym_isAppStoreURL;
 
 /**
  *  判断是否是包含表情
