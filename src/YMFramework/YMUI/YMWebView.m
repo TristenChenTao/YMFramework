@@ -15,7 +15,7 @@
 
 #import "YMProgress.h"
 
-@interface YMWebView() <WKNavigationDelegate>
+@interface YMWebView() <UIWebViewDelegate>
 
 @property (nonatomic, assign) BOOL hasRequestSuccess;
 
@@ -25,17 +25,18 @@
 
 #pragma mark - public methods
 
-- (instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration *)configuration
+- (instancetype)init
 {
-    self = [super initWithFrame:frame configuration:configuration];
+    self = [super init];
     if (self) {
-    
+        
+        self.allowsInlineMediaPlayback = YES;
         self.backgroundColor = [UIColor clearColor];
         self.opaque = NO;
-
-        __unsafe_unretained YMWebView *webView = self;
-        webView.navigationDelegate = self;
+        self.dataDetectorTypes = UIDataDetectorTypeNone;
         
+        __unsafe_unretained YMWebView *webView = self;
+        webView.delegate = self;
         
         // 添加下拉刷新控件
         [self addHeader];
@@ -99,30 +100,26 @@
 #pragma mark - WKNavigationDelegate
 
 
-- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
-    
-    if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:didStartProvisionalNavigation:)]) {
-        [_ym_Delegate webView:webView didStartProvisionalNavigation:navigation];
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webViewDidStartLoad:)]) {
+        [_ym_Delegate webViewDidStartLoad:webView];
     }
 }
 
-
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
     [webView.scrollView.mj_header endRefreshing];
     
     self.hasRequestSuccess = YES;
     
-    if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:didFinishNavigation:)]) {
-        [_ym_Delegate webView:webView didFinishNavigation:navigation];
+    if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webViewDidFinishLoad:)]) {
+        [_ym_Delegate webViewDidFinishLoad:webView];
     }
 }
 
-/**
- *  加载失败时调用
- */
-- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-    
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
     [webView.scrollView.mj_header endRefreshing];
     
     
@@ -130,26 +127,26 @@
         [YMProgress showFailStatus:@"数据加载失败"];
     }
     
-    if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:didFailProvisionalNavigation:withError:)]) {
-        [_ym_Delegate webView:webView didFailProvisionalNavigation:navigation withError:error];
+    if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:didFailLoadWithError:)]) {
+        [_ym_Delegate webView:webView
+         didFailLoadWithError:error];
     }
 }
 
-/**
- *  在发送请求之前，决定是否跳转
- */
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+- (BOOL)webView:(UIWebView *)webView
+shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType
+{
     
-    if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:decidePolicyForNavigationAction:)]) {
-        if ([_ym_Delegate webView:webView decidePolicyForNavigationAction:navigationAction] == false) {
-            decisionHandler(WKNavigationActionPolicyCancel);
-            return;
-        }
+    BOOL bLoadRequest = YES; //等于YES表示还是没有经过处理
+    
+    if (_ym_Delegate && [_ym_Delegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
+        return bLoadRequest = [_ym_Delegate webView:self
+                  shouldStartLoadWithRequest:request
+                              navigationType:navigationType];
     }
     
-    decisionHandler(WKNavigationActionPolicyAllow);
-    return;
+    return YES;
 }
-
 
 @end

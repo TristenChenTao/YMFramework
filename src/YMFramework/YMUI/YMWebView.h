@@ -14,21 +14,23 @@
 @optional
 
 
-- (void)webView:(WKWebView *_Nullable)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation;
+- (void)webViewDidFinishLoad:(UIWebView *)webView;
 
-- (void)webView:(WKWebView *_Nullable)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation;
+- (void)webViewDidStartLoad:(UIWebView *)webView;
 
-- (void)webView:(WKWebView *_Nullable)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *_Nullable)error;
+- (void)webView:(UIWebView *)webView
+didFailLoadWithError:(NSError *)error;
 
-- (BOOL)webView:(WKWebView *_Nullable)webView decidePolicyForNavigationAction:(WKNavigationAction *_Nullable)navigationAction;
+- (BOOL)webView:(UIWebView *)webView
+shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType;
 
-- (void)webViewShouldRefresh:(WKWebView *_Nullable)webView;
+- (void)webViewShouldRefresh:(UIWebView *)webView;
+
 
 @end
 
-@interface YMWebView : WKWebView
-
-- (instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration *)configuration;
+@interface YMWebView : UIWebView
 
 @property (nonatomic, weak) id <YMWebViewDelegate> ym_Delegate;
 
