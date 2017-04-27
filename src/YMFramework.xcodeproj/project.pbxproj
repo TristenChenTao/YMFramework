@@ -120,8 +120,6 @@
 		62D2AACE1C3220E000A97384 /* YMThirdPlatformSDKCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */; };
 		62EF82C31AE238A40068B34A /* URLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EF82C11AE238A40068B34A /* URLParser.h */; };
 		62EF82C41AE238A40068B34A /* URLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EF82C21AE238A40068B34A /* URLParser.m */; };
-		C17FBE421CCF0FF300A94598 /* YMWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = C17FBE401CCF0FF300A94598 /* YMWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C17FBE431CCF0FF300A94598 /* YMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C17FBE411CCF0FF300A94598 /* YMWebView.m */; };
 		C1C62AFA1CBB4FBD00E4587F /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C62AED1CBB4FBD00E4587F /* libWeiboSDK.a */; };
 		C1C62AFB1CBB4FBD00E4587F /* WBHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C1C62AEE1CBB4FBD00E4587F /* WBHttpRequest.h */; };
 		C1C62AFC1CBB4FBD00E4587F /* WBHttpRequest+WeiboGame.h in Headers */ = {isa = PBXBuildFile; fileRef = C1C62AEF1CBB4FBD00E4587F /* WBHttpRequest+WeiboGame.h */; };
@@ -245,8 +243,6 @@
 		62D2AACC1C3220E000A97384 /* YMThirdPlatformSDKCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMThirdPlatformSDKCenter.m; sourceTree = "<group>"; };
 		62EF82C11AE238A40068B34A /* URLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLParser.h; sourceTree = "<group>"; };
 		62EF82C21AE238A40068B34A /* URLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLParser.m; sourceTree = "<group>"; };
-		C17FBE401CCF0FF300A94598 /* YMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMWebView.h; sourceTree = "<group>"; };
-		C17FBE411CCF0FF300A94598 /* YMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMWebView.m; sourceTree = "<group>"; };
 		C1C62AED1CBB4FBD00E4587F /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		C1C62AEE1CBB4FBD00E4587F /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
 		C1C62AEF1CBB4FBD00E4587F /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
@@ -520,8 +516,6 @@
 		62703E3E1B10490B005CA088 /* YMUI */ = {
 			isa = PBXGroup;
 			children = (
-				C17FBE401CCF0FF300A94598 /* YMWebView.h */,
-				C17FBE411CCF0FF300A94598 /* YMWebView.m */,
 				62703E491B10490B005CA088 /* YMUI.h */,
 				627AEEEC1C16AA6B0085349B /* YMProgress.h */,
 				627AEEED1C16AA6B0085349B /* YMProgress.m */,
@@ -632,7 +626,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1EB59431CD8AC8700F47F51 /* NSBundle+YMAdditions.h in Headers */,
-				C17FBE421CCF0FF300A94598 /* YMWebView.h in Headers */,
 				5498FA7B1E9A6E4400746D45 /* AFHTTPSessionManager.h in Headers */,
 				544DE43A1E52F37700F96AEF /* UIScrollView+MJExtension.h in Headers */,
 				C1C62AFE1CBB4FBD00E4587F /* WBHttpRequest+WeiboToken.h in Headers */,
@@ -811,7 +804,6 @@
 				5498FA871E9A6E4400746D45 /* AFURLSessionManager.m in Sources */,
 				62EF82C41AE238A40068B34A /* URLParser.m in Sources */,
 				544DE42C1E52F37700F96AEF /* MJRefreshBackNormalFooter.m in Sources */,
-				C17FBE431CCF0FF300A94598 /* YMWebView.m in Sources */,
 				544DE4241E52F37700F96AEF /* MJRefreshAutoGifFooter.m in Sources */,
 				544DE4391E52F37700F96AEF /* NSBundle+MJRefresh.m in Sources */,
 				5498FA851E9A6E4400746D45 /* AFURLResponseSerialization.m in Sources */,
